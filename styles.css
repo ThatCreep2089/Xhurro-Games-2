@@ -23,7 +23,7 @@ img{
 .banner{
 
     display: flex;
-
+    flex-direction: row;
     height: 10vmin;
     width: 100%;
     justify-content: center;

@@ -14,3 +14,4 @@ function changeContent(clickedButton, contentID)
     document.getElementById(contentID).style.display = "block";
     clickedButton.disabled = true;
 }
+
