@@ -39,6 +39,8 @@ img{
 
 .tabs
 {
+    position: sticky;
+    top: 0;
     display: flex;
 
     height: 7vmin;
@@ -55,6 +57,7 @@ img{
 }
 
 .tabs button{
+    transition: transform 0.3s ease;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -69,6 +72,11 @@ img{
     font-weight: bold;
     white-space: nowrap;
 }
+
+.tabs button:not(:disabled):hover{
+    transform: translateY(-0.7vmin);
+}
+
 .redesL{
     max-width: 100%;
     max-height: 100%;
@@ -90,6 +98,20 @@ img{
     justify-self: center;
     align-items: start;
     margin-left: 1.5vmin;
+}
+.redesR a button{
+    transition: transform 0.3s ease;
+}
+.redesL a button{
+    transition: transform 0.3s ease;
+}
+.redesR a button:hover{
+    
+    transform: rotate(10deg) translateY(-0.5vmin);
+}
+
+.redesL a button:hover{
+    transform: rotate(10deg) translateY(-0.5vmin);
 }
 
 .Instagram
@@ -184,18 +206,24 @@ img{
     height: 10vmin;
 }
 
-.credits{
+fieldset
+{
     display: flex;
     align-items:center;
 
     border: 0.5vmin, solid, black;
-    padding-top: 2vmin;
-    padding-bottom: 2vmin;
-
     width: 30vmin;
-    height: 20vmin;
+    height: 25vmin;
 }
 
+fieldset p{
+    position:relative;
+    top:-4vmin;
+}
+legend{
+    position:relative;
+    top: 4vmin;
+}
 .div2R{
     width: 100%;
     height: 100%;
