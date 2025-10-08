@@ -30,13 +30,6 @@ img{
     align-items: center;
 }
 
-.banner img
-{
-    max-height: 100%;
-    max-width: 100%;
-    object-fit: contain;
-}
-
 .tabs
 {
     position: sticky;
@@ -119,8 +112,8 @@ img{
     border:none;
     background-image: url("imagenes/instagram.png");
     background-size: contain;
-    width: 15vmin;
-    height: 15vmin;
+    width: 11.5vmin;
+    height: 11.5vmin;
     border-radius: 100%;
     margin-top: 0.5vmin;
 }
@@ -129,8 +122,8 @@ img{
     border:none;
     background-image: url("imagenes/tiktok.png");
     background-size: contain;
-    width: 15vmin;
-    height: 15vmin;
+    width: 11.5vmin;
+    height: 11.5vmin;
     border-radius: 100%;
     margin-top: 0.5vmin;
 }
@@ -139,8 +132,8 @@ img{
     border:none;
     background-image: url("imagenes/github.png");
     background-size: cover;
-    width: 15vmin;
-    height: 15vmin;
+    width: 11.5vmin;
+    height: 11.5vmin;
     border-radius: 100%;
     margin-top: 0.5vmin;
 }
@@ -149,8 +142,8 @@ img{
     border:none;
     background-image: url("imagenes/youtube.png");
     background-size: contain;
-    width: 15vmin;
-    height: 15vmin;
+    width: 11.5vmin;
+    height: 11.5vmin;
     border-radius: 100%;
     margin-top: 0.5vmin;
 }
@@ -160,8 +153,8 @@ img{
     background-image: url("imagenes/twitter.png");
     background-size: cover;
     background-position: center;
-    width: 15vmin;
-    height: 15vmin;
+    width: 11.5vmin;
+    height: 11.5vmin;
     border-radius: 100%;
     margin-top: 0.5vmin;
 }
@@ -210,10 +203,12 @@ fieldset
 {
     display: flex;
     align-items:center;
-
+    margin-top: 10vmin;
     border: 0.5vmin, solid, black;
-    width: 30vmin;
-    height: 25vmin;
+
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
 }
 
 fieldset p{
@@ -228,21 +223,25 @@ legend{
     width: 100%;
     height: 100%;
     max-width: 170vmin;
-
     display:flex;
     flex-direction: row;
     justify-self:center;
     align-items: center;
+
+    /*border: 0.1vmin, solid, black;*/
 }
-.div2RDown
+.div2C
 {
     width: 100%;
     height: 100%;
-    
+    max-width: 170vmin;
     display:flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-self:center;
-    align-items: end;
+    justify-content: center;
+    align-items: center;
+
+    /*border: 0.1vmin, solid, black;*/
 }
 
 .desvio{
@@ -251,3 +250,13 @@ legend{
     margin-top: 5vmin;
     object-fit:contain;
 }
+
+/*<p>
+                Espinosa Calatayud, Nerea <br>
+                González Anastasio, Andrea <br>
+                Martínez Moreno, Víctor <br>
+                Ortega Sánchez, Ismael <br> 
+                Pérez Bumanlag, Alicia <br>
+                Pérez Campoo, Claudia <br>
+                Valenzuela Martínez, Víctor
+            </p>
