@@ -12,9 +12,66 @@ img{
     max-width:100%;
     max-height:100%;
     object-fit: contain;
-
     display:flex;
     justify-self:center;
+}
+
+.container
+{
+    width: 33.3%;
+    height:50vmin;
+    
+    perspective: 1000px;
+
+    margin: 0.5vmin;
+    
+}
+
+.containerInner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 1s ease-out;
+}
+
+.container:hover .containerInner{
+     transform: rotateY(180deg) translateX(-0.8vmin);
+}
+
+.containerFront, .containerBack{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border: 0.5vmin solid black;
+    display:flex;
+    align-items: center;
+}
+
+.containerFront{
+    background: #53243F;
+    justify-content: center;
+}
+.containerBack{
+    background:grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform: rotateY(180deg);
+    white-space: nowrap;
+}
+
+.containerBack ul
+{
+    list-style-type: none;
+    align-self: start;
+}
+
+.containerBack p{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .nonInitialContent{
@@ -35,6 +92,8 @@ img{
     position: sticky;
     top: 0;
     display: flex;
+
+    z-index: 1;
 
     height: 7vmin;
     width: 100%;
@@ -116,6 +175,7 @@ img{
     height: 11.5vmin;
     border-radius: 100%;
     margin-top: 0.5vmin;
+    background-repeat: no-repeat;
 }
 
 .Tiktok{
@@ -126,6 +186,7 @@ img{
     height: 11.5vmin;
     border-radius: 100%;
     margin-top: 0.5vmin;
+    background-repeat: no-repeat;
 }
 
 .Github{
@@ -136,6 +197,7 @@ img{
     height: 11.5vmin;
     border-radius: 100%;
     margin-top: 0.5vmin;
+    background-repeat: no-repeat;
 }
 
 .Youtube{
@@ -146,6 +208,7 @@ img{
     height: 11.5vmin;
     border-radius: 100%;
     margin-top: 0.5vmin;
+    background-repeat: no-repeat;
 }
 
 .Twitter{
@@ -157,6 +220,7 @@ img{
     height: 11.5vmin;
     border-radius: 100%;
     margin-top: 0.5vmin;
+    background-repeat: no-repeat;
 }
 
 .XhurrogamesContent {
@@ -204,8 +268,10 @@ fieldset
     display: flex;
     align-items:center;
     margin-top: 10vmin;
+    padding-right: 0.7vmin;
+    padding-left: 0.7vmin;
     border: 0.5vmin, solid, black;
-
+    
     box-sizing: border-box;
     height: 100%;
     width: 100%;
@@ -224,8 +290,10 @@ legend{
     height: 100%;
     max-width: 170vmin;
     display:flex;
+
     flex-direction: row;
     justify-self:center;
+    justify-content: center;
     align-items: center;
 
     /*border: 0.1vmin, solid, black;*/
@@ -235,13 +303,11 @@ legend{
     width: 100%;
     height: 100%;
     max-width: 170vmin;
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-self:center;
-    justify-content: center;
+    justify-content:center;
     align-items: center;
-
-    /*border: 0.1vmin, solid, black;*/
 }
 
 .desvio{
@@ -250,13 +316,3 @@ legend{
     margin-top: 5vmin;
     object-fit:contain;
 }
-
-/*<p>
-                Espinosa Calatayud, Nerea <br>
-                González Anastasio, Andrea <br>
-                Martínez Moreno, Víctor <br>
-                Ortega Sánchez, Ismael <br> 
-                Pérez Bumanlag, Alicia <br>
-                Pérez Campoo, Claudia <br>
-                Valenzuela Martínez, Víctor
-            </p>

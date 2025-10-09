@@ -1,115 +1,219 @@
 <!doctype html>
 <html>
 <head>
-    <title>THE OTTER SIDE</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="styles.css" type="text/css">
-    <script src="main.js"></script>
+<title>THE OTTER SIDE</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="styles.css" type="text/css">
+<script src="main.js"></script>
 </head>
 <body>
-    <div class = banner>
-         <img src="imagenes/banner.png" alt = "The Otter Side"></img>
-         <img src="imagenes/logo.png" alt = "Xhurrogames logo"></img>
+<div class = banner>
+<img src="imagenes/banner.png" alt = "The Otter Side"></img>
+<img src="imagenes/logo.png" alt = "Xhurrogames logo"></img>
+</div>
+
+<div class = tabs>
+<button onclick = "changeContent(this, 'Xhurrogames')"> /Sobre Xhurrogames/ </button>
+<button onclick = "changeContent(this, 'description')">     /descripción/   </button>
+<button onclick = "changeContent(this, 'controls')">     /controles/     </button>
+<button onclick = "changeContent(this, 'play')" disabled>       /jugar/       </button>
+</div>
+
+<div id = "Xhurrogames" class = "content nonInitialContent">
+<div class = div2C>
+<div class = div2R>
+<div class = XhurrogamesContent>
+    <p><b>SOMOS XHURROGAMES:</b><br>
+    Hola, somos Xhurro Games, un grupo de estudiantes universitarios de desarrollo de videojuegos, ¡y este es nuestro proyecto!<br>
+    <br>¡Estamos orgullosos de presentar nuestro segundo juego desarrollado por un nuevo grupo de integrantes del equipo <br>
+
+    <div class = grupo>
+        <p>
+            Martínez Moreno, Víctor <br>
+            Ortega Sánchez, Ismael <br>
+            Pérez Bumanlag, Alicia <br>
+            Pérez Campoo, Claudia
+        </p>
     </div>
-
-    <div class = tabs>
-        <button onclick = "changeContent(this, 'Xhurrogames')"> /Sobre Xhurrogames/ </button>
-        <button onclick = "changeContent(this, 'description')">     /descripción/   </button>
-        <button onclick = "changeContent(this, 'controls')">     /controles/     </button>
-        <button onclick = "changeContent(this, 'play')" disabled>       /jugar/       </button>
-    </div>
-
-    <div id = "Xhurrogames" class = "content nonInitialContent">
-        <div class = div2C>
-        <div class = div2R>
-            <div class = XhurrogamesContent>
-                <p><b>SOMOS XHURROGAMES:</b><br>
-                Hola, somos Xhurro Games, un grupo de estudiantes universitarios de desarrollo de videojuegos, ¡y este es nuestro proyecto!<br>
-                <br>¡Estamos orgullosos de presentar nuestro segundo juego desarrollado por un nuevo grupo de integrantes del equipo <br>
-
-                <div class = grupo>
-                    <p>
-                        Martínez Moreno, Víctor <br>
-                        Ortega Sánchez, Ismael <br>
-                        Pérez Bumanlag, Alicia <br>
-                        Pérez Campoo, Claudia
-                    </p>
-                </div>
-                <p><br>Xhurro Games está creado con el fin de desarrollar un videojuego para un proyecto universitario. Anteriormente hemos desarrollado el juego Yusoa Es Ley y actualmente estamos desarrollando nuestro segundo proyecto con el nombre de The otter side.<br><br>
-                
-                    podeis probar nuestro juego anterior en: <br>
-                    <a href = "https://thatcreep2089.github.io/YUSOA_ES_LEY_by_XhurroGames/" target = "_blank"><p>YUSOA ES LEY</p></a> <br>
-                </p>
-            </div>
-            <div class = XhurrogamesVideo>
-                
-                    <img src= "imagenes/videoPresentacion.jpg" alt = "Guana"></img>
-                
-                <div class = div2R>
-                    <div class = redesL>
-                        <a href = "https://www.instagram.com/xhurrogames" target = "_blank"><button class = Instagram></button></a>
-                        <a href = "https://www.tiktok.com/@xhurro.games" target = "_blank"><button class = Tiktok></button></a>
-                        <a href = "https://github.com/ThatCreep2089/Xhurro-Games-2" target = "_blank"><button class = Github></button></a>
-                    </div>
-                    
-                    <div class = redesR>
-                        <a href = "https://www.youtube.com/@XhurroGames" target = "_blank"><button class = Youtube></button></a>
-                        <a href = "https://x.com/XhurroGames" target = "_blank"><button class = Twitter></button></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <fieldset>
-            <legend><p>Integrantes de Xhurrogames</p></legend>
-            <div class = div2C>
-                <div class = div2R>
-                    <div><img src = "imagenes/logo.png"></img></div>
-                    <div><img src = "imagenes/logo.png"></img></div>
-                    <div><img src = "imagenes/logo.png"></img></div>
-                </div>
-                <div class = div2R>
-                    <div><img src = "imagenes/logo.png"></img></div>
-                    <div><img src = "imagenes/logo.png"></img></div>
-                    <div><img src = "imagenes/logo.png"></img></div>
-                </div>
-                <div class = div2R>
-                    <div><img src = "imagenes/logo.png"></img></div>
-                </div>
-            </div>
-            
-        </fieldset> 
-        </div>
-    </div>
-
-    <div id = "description" class= "content nonInitialContent">
-        <div class = div2R>
-          <p class = XhurrogamesContent>
-            The otter side (by Xhurrogames) es un RPG sin combates donde tenemos a una nutria como protagonista que, guiada por el hada Toni, tendrá que reconstruir su subconsciente (el cual está sometido a un proceso de cambio) ayudándose de las emociones en menos de 6 días. Si no lo consigue se perderá en su subconsciente, si lo consigue superará su proceso de desarrollo personal con éxito.
-          </p>
-          <div class = XhurrogamesVideo>
-          </div>
+    <p><br>Xhurro Games está creado con el fin de desarrollar un videojuego para un proyecto universitario. Anteriormente hemos desarrollado el juego Yusoa Es Ley y actualmente estamos desarrollando nuestro segundo proyecto con el nombre de The otter side.<br><br>
+    
+        podeis probar nuestro juego anterior en: <br>
+        <a href = "https://thatcreep2089.github.io/YUSOA_ES_LEY_by_XhurroGames/" target = "_blank"><p>YUSOA ES LEY</p></a> <br>
+    </p>
+</div>
+<div class = XhurrogamesVideo>
+    
+    <div><img src= "imagenes/videoPresentacion.jpg" alt = "Guana"></img></div>
+    
+    <div class = div2R>
+        <div class = redesL>
+            <a href = "https://www.instagram.com/xhurrogames" target = "_blank"><button class = Instagram></button></a>
+            <a href = "https://www.tiktok.com/@xhurro.games" target = "_blank"><button class = Tiktok></button></a>
+            <a href = "https://github.com/ThatCreep2089/Xhurro-Games-2" target = "_blank"><button class = Github></button></a>
         </div>
         
-    </div>
-
-    <div id = "controls" class= "content nonInitialContent">
-        <div class = div2R>
-          <p class = XhurrogamesContent>
-            [W][A][S][D]: movimiento cartesiano. <br>
-            [Espacio]: interacción. <br>
-            [Esc]: acceder al menú.
-
-          </p>
-          <div class = XhurrogamesVideo>
-          </div>
+        <div class = redesR>
+            <a href = "https://www.youtube.com/@XhurroGames" target = "_blank"><button class = Youtube></button></a>
+            <a href = "https://x.com/XhurroGames" target = "_blank"><button class = Twitter></button></a>
         </div>
     </div>
-
-    <div id = "play" class= content>
-        <a href = "https://thatcreep2089.github.io/YUSOA_ES_LEY_by_XhurroGames/" target = "_blank">
-            <img class = desvio src = "imagenes/Desvio.png" alt="Desvio provisional YUSOA"></img>
-        </a>
+</div>
+</div>
+<fieldset>
+<legend><p><b>INTEGRANTES DE XHURROGAMES</b></p></legend>
+<div class = div2C>
+    <div class = div2R>
+        <div class = container>
+        <div class = containerInner>
+            <div class = containerFront>
+                <img src="imagenes/Nerea.jpg" alt = "Tostada Sullivan"></img>
+            
+            </div>
+                <div class = containerBack>
+                        <p>Espinosa Calatayud, Nerea</p>
+                        <ul>
+                            <p>YUSOA ES LEY:</p>
+                           <li><p>- Main Developer</p></li>
+                           <li><p>- Producer of the Game Design Document</p></li>
+                           <li><p>- Producer of the Web & Presentation</p></li>
+                           <li><p>- Tiktok & Instagram manager</p></li>
+                        </ul>
+                </div>
+            </div>
+        </div>
+        <div class = container>
+            <div class = containerInner>
+                <div class = containerFront>
+                    <img src="imagenes/Andrea.gif" alt = "Rata triste"></img>
+                </div>
+                <div class = containerBack>
+                    <p>González Anastasio, Andrea</p>
+                    <ul>
+                            <p>YUSOA ES LEY:</p>
+                           <li><p>- Art director</p></li>
+                           <li><p>- Main Developer</p></li>
+                           <li><p>- Producer of the Game Design Document</p></li>
+                           <li><p>- Producer of the Web & Presentation</p></li>
+                           <li><p>- Tiktok & Instagram manager</p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class = container>
+            <div class = containerInner>
+                <div class = containerFront>
+                    <img src="imagenes/logo.png"></img>
+                </div>
+                <div class = containerBack>
+                    <p>Martínez Moreno, Víctor</p>
+                    <ul>
+                        <p>THE OTTER SIDE:</p>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
+    <div class = div2R>
+        <div class = container>
+            <div class = containerInner>
+                <div class = containerFront>
+                    <img src="imagenes/logo.png"></img>
+                </div>
+                <div class = containerBack>
+                    <p>Ortega Sánchez, Ismael</p>
+                    <ul>
+                        <p>THE OTTER SIDE:</p>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class = container>
+            <div class = containerInner>
+                <div class = containerFront>
+                    <img src="imagenes/logo.png"></img>
+                </div>
+                <div class = containerBack>
+                    <p>Pérez Bumanlag, Alicia</p>
+                    <ul>
+                            <p>YUSOA ES LEY:</p>
+                           <li><p>- Art director</p></li>
+                           <li><p>- Main Developer</p></li>
+                           <li><p>- Producer of the Web & Presentation</p></li>
+                           <li><p>- Twitter & YouTube manager</p></li>
+                           <br>
+                           <p>THE OTTER SIDE:</p>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class = container>
+            <div class = containerInner>
+                <div class = containerFront>
+                    <img src="imagenes/logo.png"></img>
+                </div>
+                <div class = containerBack>
+                    <p>Pérez Campoo, Claudia</p>
+                    <ul>
+                        <p>THE OTTER SIDE:</p>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class = div2R>
+        <div class = container>
+            <div class = containerInner>
+                <div class = containerFront>
+                    <img src="imagenes/VVictor.png" alt = "Devora pitis"></img>
+                </div>
+                <div class = containerBack>
+                    <p>Valenzuela Martínez, Víctor</p>
+                    <ul>
+                            <p>YUSOA ES LEY:</p>
+                           <li><p>- Main Developer</p></li>
+                           <li><p>- Producer of the Game Design Document</p></li>
+                           <li><p>- Producer of the Web & Presentation</p></li>
+                           <li><p>- Twitter & YouTube manager</p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</fieldset> 
+</div>
+</div>
+
+<div id = "description" class= "content nonInitialContent">
+<div class = div2R>
+<p class = XhurrogamesContent>
+The otter side (by Xhurrogames) es un RPG sin combates donde tenemos a una nutria como protagonista que, guiada por el hada Toni, tendrá que reconstruir su subconsciente (el cual está sometido a un proceso de cambio) ayudándose de las emociones en menos de 6 días. Si no lo consigue se perderá en su subconsciente, si lo consigue superará su proceso de desarrollo personal con éxito.
+</p>
+<div class = XhurrogamesVideo>
+</div>
+</div>
+
+</div>
+
+<div id = "controls" class= "content nonInitialContent">
+<div class = div2R>
+<p class = XhurrogamesContent>
+[W][A][S][D]: movimiento cartesiano. <br>
+[Espacio]: interacción. <br>
+[Esc]: acceder al menú.
+
+</p>
+<div class = XhurrogamesVideo>
+</div>
+</div>
+</div>
+
+<div id = "play" class= content>
+<a href = "https://thatcreep2089.github.io/YUSOA_ES_LEY_by_XhurroGames/" target = "_blank">
+<img class = desvio src = "imagenes/Desvio.png" alt="Desvio provisional YUSOA"></img>
+</a>
+</div>
 
 </body>
 </html>
