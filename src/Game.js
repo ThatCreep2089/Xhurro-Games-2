@@ -3,7 +3,8 @@
  * la clase Game de Phaser, encargada de crear e iniciar el juego.
  */
 let config = {
-	type: Phaser.AUTO,
+	type: Phaser.CANVAS,
+	parent: 'play',
 	width:  800,
 	height: 600,
 	pixelArt: true,
@@ -21,8 +22,7 @@ let config = {
 		} 
 	}
 };
-
-new Phaser.Game(config);
+const game = new Phaser.Game(config);
 
 // preload - método de las escenas donde se pueden cargar los recursos que necesitaremos
 function preload (){
@@ -33,9 +33,9 @@ function preload (){
 		//this.load.image('red', 'assets/particles/red.png');
 		
 		//Cargamos los assets desde nuestra raiz del proyecto
-		this.load.image('sky', 'assets/space.png');
-		this.load.image('logo', 'assets/phaser3-logo.png');
-		this.load.image('red', 'assets/red.png');
+		//this.load.image('sky', 'assets/space.png');
+		//this.load.image('logo', 'assets/phaser3-logo.png');
+		//this.load.image('red', 'assets/red.png');
 }
 
 // create - método de las escenas que se llama una vez la escena está instanciada
@@ -45,23 +45,23 @@ function create ()
 		//this.add.image(400, 300, 'sky');
 		
 		//Imagen con origen superior izquierdo
-		this.add.image(0, 0, 'sky').setOrigin(0, 0);
-		
-		var particles = this.add.particles('red');
-
-		var emitter = particles.createEmitter({
-			speed: 100,
-			scale: { start: 1, end: 0 },
-			blendMode: 'ADD'
-		});
-
-		var logo = this.physics.add.image(400, 100, 'logo');
-
-		logo.setVelocity(100, 200);
-		logo.setBounce(1, 1);
-		logo.setCollideWorldBounds(true);
-
-		emitter.startFollow(logo);
+		//this.add.image(0, 0, 'sky').setOrigin(0, 0);
+		//
+		//var particles = this.add.particles('red');
+//
+		//var emitter = particles.createEmitter({
+		//	speed: 100,
+		//	scale: { start: 1, end: 0 },
+		//	blendMode: 'ADD'
+		//});
+//
+		//var logo = this.physics.add.image(400, 100, 'logo');
+//
+		//logo.setVelocity(100, 200);
+		//logo.setBounce(1, 1);
+		//logo.setCollideWorldBounds(true);
+//
+		//emitter.startFollow(logo);
 }
 
 // las escenas también tienen el método init() y update(time, delta)
