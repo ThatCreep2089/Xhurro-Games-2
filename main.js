@@ -27,7 +27,7 @@ window.onload = function() {
 
         let text = contenedor.querySelectorAll('p');
         //let scale = Math.min(contenedor.clientWidth / text[0].scrollWidth, 1);
-        let scale = (contenedor.clientWidth/text[0].scrollWidth)
+        let scale = Math.min((contenedor.clientWidth/text.clientWidth),Array.from(textos).reduce((acc, el) => acc + el.scrollHeight, 0))
         text.forEach(function (elem){
         elem.style.fontSize = Math.round(scale);
         });

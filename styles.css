@@ -65,13 +65,17 @@ img{
 .containerBack ul
 {
     list-style-type: none;
+    margin:0px;
     align-self: start;
+    padding-left: 2vmin;
+    text-wrap: initial;
 }
 
 .containerBack p{
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
+  padding-left: 2vmin;
+  padding-bottom: 0.5vmin;
+  text-wrap: initial;
 }
 
 .nonInitialContent{
