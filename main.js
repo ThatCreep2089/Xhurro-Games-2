@@ -15,3 +15,30 @@ function changeContent(clickedButton, contentID)
     clickedButton.disabled = true;
 }
 
+//Reajustar tamaño de texto en función del tamaño de containerBack
+window.onload = function() {
+  let cont = document.querySelectorAll('.containerBack');
+  
+
+  //Función que ajusta el texto
+  function ajustarTexto() {
+
+    cont.forEach(function (contenedor) {
+
+        let text = contenedor.querySelectorAll('p');
+        //let scale = Math.min(contenedor.clientWidth / text[0].scrollWidth, 1);
+        let scale = Math.min((contenedor.clientWidth/text.clientWidth),Array.from(textos).reduce((acc, el) => acc + el.scrollHeight, 0))
+        text.forEach(function (elem){
+        elem.style.fontSize = Math.round(scale);
+        });
+    });
+  }
+
+  //recoger evento lanzado
+  let observer = new ResizeObserver(() => {
+    ajustarTexto();
+  });
+
+  //lanzar evento si containerBack cambia de tamañoSS
+  observer.observe(cont[0]);
+}

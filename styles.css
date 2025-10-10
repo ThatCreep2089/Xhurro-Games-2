@@ -12,9 +12,70 @@ img{
     max-width:100%;
     max-height:100%;
     object-fit: contain;
-
     display:flex;
     justify-self:center;
+}
+
+.container
+{
+    width: 33.3%;
+    height:50vmin;
+    
+    perspective: 1000px;
+
+    margin: 0.5vmin;
+    
+}
+
+.containerInner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 1s ease-out;
+}
+
+.container:hover .containerInner{
+     transform: rotateY(180deg) translateX(-0.8vmin);
+}
+
+.containerFront, .containerBack{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border: 0.5vmin solid black;
+    display:flex;
+    align-items: center;
+}
+
+.containerFront{
+    background: #53243F;
+    justify-content: center;
+}
+.containerBack{
+    background:grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform: rotateY(180deg);
+    white-space: nowrap;
+}
+
+.containerBack ul
+{
+    list-style-type: none;
+    margin:0px;
+    align-self: start;
+    padding-left: 2vmin;
+    text-wrap: initial;
+}
+
+.containerBack p{
+  box-sizing: border-box;
+  padding-left: 2vmin;
+  padding-bottom: 0.5vmin;
+  text-wrap: initial;
 }
 
 .nonInitialContent{
@@ -30,18 +91,13 @@ img{
     align-items: center;
 }
 
-.banner img
-{
-    max-height: 100%;
-    max-width: 100%;
-    object-fit: contain;
-}
-
 .tabs
 {
     position: sticky;
     top: 0;
     display: flex;
+
+    z-index: 1;
 
     height: 7vmin;
     width: 100%;
@@ -119,40 +175,44 @@ img{
     border:none;
     background-image: url("imagenes/instagram.png");
     background-size: contain;
-    width: 15vmin;
-    height: 15vmin;
+    width: 11.5vmin;
+    height: 11.5vmin;
     border-radius: 100%;
     margin-top: 0.5vmin;
+    background-repeat: no-repeat;
 }
 
 .Tiktok{
     border:none;
     background-image: url("imagenes/tiktok.png");
     background-size: contain;
-    width: 15vmin;
-    height: 15vmin;
+    width: 11.5vmin;
+    height: 11.5vmin;
     border-radius: 100%;
     margin-top: 0.5vmin;
+    background-repeat: no-repeat;
 }
 
 .Github{
     border:none;
     background-image: url("imagenes/github.png");
     background-size: cover;
-    width: 15vmin;
-    height: 15vmin;
+    width: 11.5vmin;
+    height: 11.5vmin;
     border-radius: 100%;
     margin-top: 0.5vmin;
+    background-repeat: no-repeat;
 }
 
 .Youtube{
     border:none;
     background-image: url("imagenes/youtube.png");
     background-size: contain;
-    width: 15vmin;
-    height: 15vmin;
+    width: 11.5vmin;
+    height: 11.5vmin;
     border-radius: 100%;
     margin-top: 0.5vmin;
+    background-repeat: no-repeat;
 }
 
 .Twitter{
@@ -160,10 +220,11 @@ img{
     background-image: url("imagenes/twitter.png");
     background-size: cover;
     background-position: center;
-    width: 15vmin;
-    height: 15vmin;
+    width: 11.5vmin;
+    height: 11.5vmin;
     border-radius: 100%;
     margin-top: 0.5vmin;
+    background-repeat: no-repeat;
 }
 
 .XhurrogamesContent {
@@ -210,10 +271,14 @@ fieldset
 {
     display: flex;
     align-items:center;
-
+    margin-top: 10vmin;
+    padding-right: 0.7vmin;
+    padding-left: 0.7vmin;
     border: 0.5vmin, solid, black;
-    width: 30vmin;
-    height: 25vmin;
+    
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
 }
 
 fieldset p{
@@ -228,21 +293,25 @@ legend{
     width: 100%;
     height: 100%;
     max-width: 170vmin;
-
     display:flex;
+
     flex-direction: row;
     justify-self:center;
+    justify-content: center;
     align-items: center;
+
+    /*border: 0.1vmin, solid, black;*/
 }
-.div2RDown
+.div2C
 {
     width: 100%;
     height: 100%;
-    
-    display:flex;
-    flex-direction: row;
+    max-width: 170vmin;
+    display: flex;
+    flex-direction: column;
     justify-self:center;
-    align-items: end;
+    justify-content:center;
+    align-items: center;
 }
 
 .desvio{
