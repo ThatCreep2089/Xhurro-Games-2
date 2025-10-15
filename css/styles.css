@@ -320,3 +320,15 @@ legend{
     margin-top: 5vmin;
     object-fit:contain;
 }
+
+.mosca{
+    display: none;
+    width: 35px;
+    height: 35px;
+    position:fixed;
+    left: 1vmin;
+    top: 27vmin;
+    transform: rotateZ(25deg);
+    
+    z-index:2;
+}
