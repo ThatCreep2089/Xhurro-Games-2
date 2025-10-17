@@ -15,8 +15,7 @@ export default class mainScene extends Phaser.Scene {
     }
 
     preload(){
-        this.load.image('map', 'assets/mainScene/map.png')
-        this.load.image('otter', 'assets/imagenesWeb/smallant.png')
+        
     }
 
     create(){
