@@ -1,25 +1,22 @@
-const config = {
-    type: Phaser.AUTO,
-    width: 800,
-    height: 600,
-    backgroundColor: '#1a1a1a',
-    parent: 'game-container',
-    scene: {MenuScene, GameScene}
-};
-
 // Menu Scene
-class MenuScene extends Phaser.Scene {
+export default class MenuScene extends Phaser.Scene {
     constructor() {
-        super('MenuScene');
+        super({key: 'menuScene'});
+    }
+
+    preload() {
+        this.load.image('map', 'assets/mainScene/map.png');
     }
 
     create() {
+        this.add.image(0, 0, 'map').setOrigin(0, 0);
+
         //title text
         this.add.text(400, 180, 'The Otter Side', 
             { 
                 fontFamily: 'Arial', 
                 fontSize: '60px', 
-                color: '#000000ff' 
+                color: 'white',
             }).setOrigin(0.5);
 
         //start button
@@ -44,25 +41,7 @@ class MenuScene extends Phaser.Scene {
         exitButton.on('pointerout', () => exitButton.setStyle({ color: '#ff4444' }));
 
         //actions on click
-        playButton.on('pointerdown', () => this.scene.start('GameScene'));
+        playButton.on('pointerdown', () => this.scene.start('mainScene'));
         exitButton.on('pointerdown', () => alert('BYE BYE!'));
     }
 }
-
-// Game Scene
-class GameScene extends Phaser.Scene {
-  constructor() {
-    super('GameScene');
-  }
-
-  create() {
-    this.add.text(400, 300, 'Here begins the game...', {
-      fontFamily: 'Arial',
-      fontSize: '32px',
-      color: '#ffffff'
-    }).setOrigin(0.5);
-  }
-}
-
-// Initialize the game
-const game = new Phaser.Game(config);
