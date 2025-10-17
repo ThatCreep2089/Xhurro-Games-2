@@ -1,0 +1,334 @@
+body{
+    background-image: url("../assets/imagenesWeb/webBackground.jpg");
+    background-size: cover;
+    background-repeat: none;
+}
+
+p{
+    font-size: 2.5vmin;
+}
+
+img{
+    max-width:100%;
+    max-height:100%;
+    object-fit: contain;
+    display:flex;
+    justify-self:center;
+}
+
+.container
+{
+    width: 33.3%;
+    height:50vmin;
+    
+    perspective: 1000px;
+
+    margin: 0.5vmin;
+    
+}
+
+.containerInner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 1s ease-out;
+}
+
+.container:hover .containerInner{
+     transform: rotateY(180deg) translateX(-0.8vmin);
+}
+
+.containerFront, .containerBack{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border: 0.5vmin solid black;
+    display:flex;
+    align-items: center;
+}
+
+.containerFront{
+    background: #53243F;
+    justify-content: center;
+}
+.containerBack{
+    background:grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform: rotateY(180deg);
+    white-space: nowrap;
+}
+
+.containerBack ul
+{
+    list-style-type: none;
+    margin:0px;
+    align-self: start;
+    padding-left: 2vmin;
+    text-wrap: initial;
+}
+
+.containerBack p{
+  box-sizing: border-box;
+  padding-left: 2vmin;
+  padding-bottom: 0.5vmin;
+  text-wrap: initial;
+}
+
+.nonInitialContent{
+    display: none;
+}
+.banner{
+
+    display: flex;
+    flex-direction: row;
+    height: 10vmin;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.tabs
+{
+    position: sticky;
+    top: 0;
+    display: flex;
+
+    z-index: 1;
+
+    height: 7vmin;
+    width: 100%;
+    max-width: 170vmin;
+
+    justify-self:center;
+    justify-content: center;
+    align-items: center;
+
+    background-color: grey;
+
+    border: 0.5vmin, solid, black;
+}
+
+.tabs button{
+    transition: transform 0.3s ease;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    flex-grow: 1;
+    height:100%;
+
+    border: none;
+    background-color: transparent;
+
+    font-size: 3.5vmin;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.tabs button:not(:disabled):hover{
+    transform: translateY(-0.7vmin);
+}
+
+.redesL{
+    max-width: 100%;
+    max-height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    justify-self: center;
+    align-items: end;
+    margin-right: 1.5vmin;
+}
+.redesR{
+    width: 25vmin;
+    height: 25vmin;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    justify-self: center;
+    align-items: start;
+    margin-left: 1.5vmin;
+}
+.redesR a button{
+    transition: transform 0.3s ease;
+}
+.redesL a button{
+    transition: transform 0.3s ease;
+}
+.redesR a button:hover{
+    
+    transform: rotate(10deg) translateY(-0.5vmin);
+}
+
+.redesL a button:hover{
+    transform: rotate(10deg) translateY(-0.5vmin);
+}
+
+.Instagram
+{
+    border:none;
+    background-image: url("../assets/imagenesWeb/instagram.png");
+    background-size: contain;
+    width: 11.5vmin;
+    height: 11.5vmin;
+    border-radius: 100%;
+    margin-top: 0.5vmin;
+    background-repeat: no-repeat;
+}
+
+.Tiktok{
+    border:none;
+    background-image: url("../assets/imagenesWeb/tiktok.png");
+    background-size: contain;
+    width: 11.5vmin;
+    height: 11.5vmin;
+    border-radius: 100%;
+    margin-top: 0.5vmin;
+    background-repeat: no-repeat;
+}
+
+.Github{
+    border:none;
+    background-image: url("../assets/imagenesWeb/github.png");
+    background-size: cover;
+    width: 11.5vmin;
+    height: 11.5vmin;
+    border-radius: 100%;
+    margin-top: 0.5vmin;
+    background-repeat: no-repeat;
+}
+
+.Youtube{
+    border:none;
+    background-image: url("../assets/imagenesWeb/youtube.png");
+    background-size: contain;
+    width: 11.5vmin;
+    height: 11.5vmin;
+    border-radius: 100%;
+    margin-top: 0.5vmin;
+    background-repeat: no-repeat;
+}
+
+.Twitter{
+    border:none;
+    background-image: url("../assets/imagenesWeb/twitter.png");
+    background-size: cover;
+    background-position: center;
+    width: 11.5vmin;
+    height: 11.5vmin;
+    border-radius: 100%;
+    margin-top: 0.5vmin;
+    background-repeat: no-repeat;
+}
+
+.XhurrogamesContent {
+    margin-top: 1vmin;
+    width: 50%;
+    height: 75vh;
+    
+    display: flex;
+    justify-self: flex-start;
+    flex-direction: column;
+
+    margin-right:1vmin;
+}
+
+.XhurrogamesVideo{
+    margin-top: 5vmin;
+    width: 50%;
+    height: 75vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.XhurrogamesVideo div
+{
+    width: 100%;
+    height: 37.5vh;
+}
+.grupo{
+    display: flex;
+    align-items:center;
+
+    border: 0.5vmin, solid, black;
+    padding-top: 1vmin;
+    padding-bottom: 1vmin;
+
+    width: 30vmin;
+    height: 10vmin;
+}
+
+fieldset
+{
+    display: flex;
+    align-items:center;
+    margin-top: 10vmin;
+    padding-right: 0.7vmin;
+    padding-left: 0.7vmin;
+    border: 0.5vmin, solid, black;
+    
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+}
+
+fieldset p{
+    position:relative;
+    top:-4vmin;
+}
+legend{
+    position:relative;
+    top: 4vmin;
+}
+.div2R{
+    width: 100%;
+    height: 100%;
+    max-width: 170vmin;
+    display:flex;
+
+    flex-direction: row;
+    justify-self:center;
+    justify-content: center;
+    align-items: center;
+
+    /*border: 0.1vmin, solid, black;*/
+}
+.div2C
+{
+    width: 100%;
+    height: 100%;
+    max-width: 170vmin;
+    display: flex;
+    flex-direction: column;
+    justify-self:center;
+    justify-content:center;
+    align-items: center;
+}
+
+.desvio{
+    width: 50%;
+    max-width:85vmin;
+    margin-top: 5vmin;
+    object-fit:contain;
+}
+
+.mosca{
+    display: none;
+    width: 35px;
+    height: 35px;
+    position:fixed;
+    left: 1vmin;
+    top: 27vmin;
+    transform: rotateZ(25deg);
+    
+    z-index:2;
+}
