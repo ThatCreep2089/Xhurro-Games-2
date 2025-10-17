@@ -10,6 +10,8 @@ export default class Otter extends Phaser.GameObjects.Sprite {
 
         this.setScale(0.2);
         this.scene.add.existing(this); //Nos añadimos a la escena para ser mostrados.
+        scene.physics.add.existing(this);
+
         this.speed = speed;
 
         //CONTROLES
@@ -17,6 +19,8 @@ export default class Otter extends Phaser.GameObjects.Sprite {
         this.keyA = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         this.keyS = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
         this.keyD = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+
+        //this.setCollideWorldBounds(true);
     }
 
     /**

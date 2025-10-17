@@ -20,9 +20,15 @@ export default class mainScene extends Phaser.Scene {
     }
 
     create(){
-        this.add.image(0, 0, 'map').setOrigin(0, 0);
+        let map = this.add.image(0, 0, 'map').setOrigin(0, 0);
 
-        new Otter(this, this.scale.width/2, this.scale.height/2, 2, 'otter');
+        //Límites del mapa
+        this.physics.world.setBounds(0, 0, map.width, map.height);
+        this.cameras.main.setBounds(0, 0, map.width, map.height);
+
+        //Nutria y movimiento de cámara
+        let otter = new Otter(this, this.scale.width/2, this.scale.height/2, 2, 'otter');
+        this.cameras.main.startFollow(otter);
     }
 
     update(){
