@@ -20,7 +20,43 @@ export default class Otter extends Phaser.GameObjects.Sprite {
         this.keyS = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
         this.keyD = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
 
-        //this.setCollideWorldBounds(true);
+        this.body.setCollideWorldBounds(true);
+
+        //inventario interno de materiales del jugador
+        this.backpack = {
+            paint: 0,
+            paper: 0,
+            clay: 0
+        }
+
+        //HUD recursos en inventario
+        this.paintNumber = this.scene.add.text(20, 20, "Pintura: " + this.backpack.paint,
+             {
+                fontFamily: 'Comic Sans MS',
+                fontSize: '25px',
+            });
+        this.paperNumber = this.scene.add.text(170, 20, "Papel: " + this.backpack.paper,
+            {
+                fontFamily: 'Comic Sans MS',
+                fontSize: '25px',
+            });
+        this.clayNumber = this.scene.add.text(300, 20, "Arcilla: " + this.backpack.paper,
+            {
+                fontFamily: 'Comic Sans MS',
+                fontSize: '25px',
+            });
+
+        this.paintNumber.setScrollFactor(0);
+        this.paperNumber.setScrollFactor(0);
+        this.clayNumber.setScrollFactor(0);
+    }
+
+    updateInventory()
+    {
+        console.log (this.backpack.clay);
+        this.paintNumber.setText("Pintura: " + this.backpack.paint);
+        this.paperNumber.setText("Papel: " + this.backpack.paper);
+        this.clayNumber.setText("Arcilla: " + this.backpack.clay);
     }
 
     /**
@@ -29,24 +65,29 @@ export default class Otter extends Phaser.GameObjects.Sprite {
      * @param {number} dt - Tiempo entre frames
      */
     preUpdate(t, dt) {
-        // Es muy imporante llamar al preUpdate del padre (Sprite), sino no se ejecutará la animación
-        super.preUpdate(t, dt);
 
+        //Movemos el objeto en función de las teclas pulsadas por el usuario
         if (this.keyW.isDown)
         {
-            this.y -= this.speed;
-        }
-        else if (this.keyA.isDown)
-        {
-            this.x -= this.speed;
+            this.body.setVelocity(0, -this.speed * dt);
         }
         else if (this.keyS.isDown)
         {
-            this.y += this.speed;
+            this.body.setVelocity(0, this.speed * dt);
+        }
+        else if (this.keyA.isDown)
+        {
+            this.body.setVelocity(-this.speed * dt, 0);
         }
         else if (this.keyD.isDown)
         {
-            this.x += this.speed;
+            this.body.setVelocity(this.speed * dt, 0);
         }
+        else
+        {
+            this.body.setVelocity(0,0);
+        }
+        // Es muy imporante llamar al preUpdate del padre (Sprite), sino no se ejecutará la animación
+        super.preUpdate(t, dt);
     }
 }
