@@ -1,6 +1,6 @@
+import sourcesHUD from '../HUD/sourcesHUD.js'
 export default class Otter extends Phaser.GameObjects.Sprite {
     /**
-     * Constructor de Enemigo
      * @param {Scene} scene - escena en la que aparece
      * @param {number} x - coordenada x
      * @param {number} y - coordenada y 
@@ -28,32 +28,13 @@ export default class Otter extends Phaser.GameObjects.Sprite {
             paper: 0,
             clay: 0
         }
-
+        
         //HUD recursos en inventario
-        this.paintNumber = this.scene.add.text(20, 20, "Pintura: " + this.backpack.paint,
-             {
-                fontFamily: 'Comic Sans MS',
-                fontSize: '25px',
-            });
-        this.paperNumber = this.scene.add.text(170, 20, "Papel: " + this.backpack.paper,
-            {
-                fontFamily: 'Comic Sans MS',
-                fontSize: '25px',
-            });
-        this.clayNumber = this.scene.add.text(300, 20, "Arcilla: " + this.backpack.paper,
-            {
-                fontFamily: 'Comic Sans MS',
-                fontSize: '25px',
-            });
-
-        this.paintNumber.setScrollFactor(0);
-        this.paperNumber.setScrollFactor(0);
-        this.clayNumber.setScrollFactor(0);
+        this.sourcesHUD = new sourcesHUD(this.scene, this.backpack);
     }
 
     updateInventory()
     {
-        console.log (this.backpack.clay);
         this.paintNumber.setText("Pintura: " + this.backpack.paint);
         this.paperNumber.setText("Papel: " + this.backpack.paper);
         this.clayNumber.setText("Arcilla: " + this.backpack.clay);

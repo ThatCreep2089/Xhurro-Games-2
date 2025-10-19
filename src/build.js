@@ -1,11 +1,10 @@
+import buildSourcesHUD from './HUD/buildSourcesHUD.js'
 export default class Source extends Phaser.GameObjects.Sprite {
     /**
-     * Constructor de Enemigo
      * @param {Scene} scene - escena en la que aparece
      * @param {number} x - coordenada x
      * @param {number} y - coordenada y 
      * @param {Otter} otter - jugador en escena
-     * @param {number} uses - número de usos antes de desaparecer, si es 0 entonces será ilimitado
      */
     constructor(scene, x, y,  texture, builtTexture, paint, paper, clay, otter, size = 1, frame = 0) {
         super(scene, x, y, texture, frame);
@@ -27,6 +26,9 @@ export default class Source extends Phaser.GameObjects.Sprite {
             paper: paper,
             clay: clay
         };
+
+        this.thereIsMessage = false; //Para saber si el mensaje de materiales está o no en pantalla
+        this.message = null;
     }
 
     /**
@@ -43,6 +45,20 @@ export default class Source extends Phaser.GameObjects.Sprite {
         if (!this.built && Math.abs(this.otter.x - this.x) <= this.width/2 * this.scale + this.otter.width/2 * this.otter.scale + 0.1 &&
             Math.abs(this.otter.y - this.y) <= this.height/2 * this.scale + this.otter.height/2 * this.otter.scale + 0.1)
         {
+            //Mensaje para informar de los materiales que se necesitan para reparar la estructura
+            if (!this.thereIsMessage)
+            {
+                this.message = new buildSourcesHUD(this.scene, 'buildSources', this.sources,
+                                 this.otter.backpack.paint >= this.sources.paint &&
+                                 this.otter.backpack.paper >= this.sources.paper &&
+                                 this.otter.backpack.clay >= this.sources.clay,
+                                  0.4);
+                this.thereIsMessage = true;
+            }
+            
+
+            //Si se interactua con la estructura y se tienen suficientes materiales
+            //la estructura se reconstruye
             let keySpace = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
             if (Phaser.Input.Keyboard.JustDown(keySpace) &&
@@ -55,9 +71,16 @@ export default class Source extends Phaser.GameObjects.Sprite {
                 this.otter.backpack.clay -= this.sources.clay;
 
                 this.setTexture(this.builtTexture);
-                this.otter.updateInventory();
+                this.otter.sourcesHUD.updateInventory();
                 this.built = true;
             }
+        }
+        //Si no está cerca pero antes lo estaba porque hay mensaje, elimina el mensaje
+        else if (this.thereIsMessage)
+        {
+            this.message.cont.destroy();
+            this.message.destroy();
+            this.thereIsMessage = false;
         }
     }
 }

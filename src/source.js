@@ -1,6 +1,7 @@
+import HUDmessage from './HUD/HUDmessage.js'
+
 export default class Source extends Phaser.GameObjects.Sprite {
     /**
-     * Constructor de Enemigo
      * @param {Scene} scene - escena en la que aparece
      * @param {number} x - coordenada x
      * @param {number} y - coordenada y 
@@ -25,6 +26,9 @@ export default class Source extends Phaser.GameObjects.Sprite {
             paper: paper,
             clay: clay
         };
+
+        this.thereIsMessage = false;
+        this.message = null;
     }
 
     /**
@@ -43,6 +47,12 @@ export default class Source extends Phaser.GameObjects.Sprite {
         {
             let keySpace = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
+            if (!this.thereIsMessage)
+            {
+                this.thereIsMessage = true;
+                this.message = new HUDmessage(this.scene, 'spaceKey', 0.4);
+            }
+
             if (Phaser.Input.Keyboard.JustDown(keySpace))
             {
                 this.uses--;
@@ -51,12 +61,21 @@ export default class Source extends Phaser.GameObjects.Sprite {
                 this.otter.backpack.paper += this.source.paper;
                 this.otter.backpack.clay += this.source.clay;
 
-                this.otter.updateInventory();
+                this.otter.sourcesHUD.updateInventory();
 
-                if (this.uses == 0) this.destroy();
+                if (this.uses == 0)
+                    {
+                        if (this.thereIsMessage) this.message.destroy();
+                        this.destroy();
+                    }
 
                 console.log("Backpack:\n"+this.otter.backpack.paint + "\n" + this.otter.backpack.paper + "\n" + this.otter.backpack.clay);
             }
+        }
+        else if (this.thereIsMessage)
+        {
+            this.message.destroy();
+            this.thereIsMessage = false;
         }
     }
 }

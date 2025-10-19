@@ -21,9 +21,13 @@ export default class mainScene extends Phaser.Scene {
         this.load.image('paint', 'assets/mainScene/paint.jpeg');
         this.load.image('destroyedHouse', 'assets/mainScene/destroyedHouse.jpg');
         this.load.image('house', 'assets/mainScene/house.png');
+        this.load.image('buildSources', 'assets/mainScene/buildSources.jpg')
+        this.load.image('spaceKey', 'assets/mainScene/keyboard_space.png')
     }
 
     create(){
+        this.createAnims()
+
         let map = this.add.image(0, 0, 'map').setOrigin(0, 0);
 
         //Límites del mapa
@@ -42,6 +46,11 @@ export default class mainScene extends Phaser.Scene {
     }
 
     update(){
+
+    }
+
+    createAnims()
+    {
 
     }
 }
