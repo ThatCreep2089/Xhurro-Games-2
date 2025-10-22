@@ -16,19 +16,19 @@ export default class buildSourcesHUD extends HUDmessage {
         //Declaramos todo el contenido del contenedor
         this.paintNumber = this.scene.add.text(0, 100*size, "Pintura: " + sources.paint,
              {
-                fontFamily: 'Comic Sans MS',
+                fontFamily: 'bobFont',
                 fontSize: 100 * size + 'px',
                 color: '#000000'
             });
         this.paperNumber = this.scene.add.text(0, 250*size, "Papel: " + sources.paper,
             {
-                fontFamily: 'Comic Sans MS',
+                fontFamily: 'bobFont',
                 fontSize: 100 * size + 'px',
                 color: '#000000'
             });
         this.clayNumber = this.scene.add.text(0, 400*size, "Arcilla: " + sources.clay,
             {
-                fontFamily: 'Comic Sans MS',
+                fontFamily: 'bobFont',
                 fontSize: 100 * size + 'px',
                 color: '#000000'
             });

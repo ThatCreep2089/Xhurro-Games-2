@@ -20,17 +20,17 @@ export default class sourcesHUD extends Phaser.GameObjects.Sprite {
         //Declaramos todo el contenido del contenedor
         this.paintNumber = this.scene.add.text(0, 0, "Pintura: " + this.backpack.paint,
              {
-                fontFamily: 'Comic Sans MS',
+                fontFamily: 'bobFont',
                 fontSize: 25 * size + 'px',
             });
         this.paperNumber = this.scene.add.text(170*size, 0, "Papel: " + this.backpack.paper,
             {
-                fontFamily: 'Comic Sans MS',
+                fontFamily: 'bobFont',
                 fontSize: 25 * size + 'px',
             });
         this.clayNumber = this.scene.add.text(300*size, 0, "Arcilla: " + this.backpack.clay,
             {
-                fontFamily: 'Comic Sans MS',
+                fontFamily: 'bobFont',
                 fontSize: 25 * size + 'px',
             });
 

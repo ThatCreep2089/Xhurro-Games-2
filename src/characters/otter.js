@@ -20,6 +20,17 @@ export default class Otter extends Phaser.GameObjects.Sprite {
         this.keyS = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
         this.keyD = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
 
+        //Guardo la última tecla pulsada cuando se pulsa
+        this.lastKey = null;
+
+        this.scene.input.keyboard.on('keydown', (key) => {
+            //Si la tecla pulsada es una de las que me interesan, esta será la última pulsada
+            if (['W', 'A', 'S', 'D'].includes(key.key.toUpperCase())) this.lastKey = key.key.toUpperCase();
+        });
+        this.scene.input.keyboard.on('keyup', ()=> {
+            this.lastKey = null;
+        });
+
         this.body.setCollideWorldBounds(true);
 
         //inventario interno de materiales del jugador
@@ -46,21 +57,22 @@ export default class Otter extends Phaser.GameObjects.Sprite {
      * @param {number} dt - Tiempo entre frames
      */
     preUpdate(t, dt) {
-
+        console.log(this.lastKey + " " + this.keyW.keyCode);
         //Movemos el objeto en función de las teclas pulsadas por el usuario
-        if (this.keyW.isDown)
+        //Priorizando la última usada
+        if (this.keyW.isDown && (this.lastKey == 'W' || this.lastKey == null))
         {
             this.body.setVelocity(0, -this.speed * dt);
         }
-        else if (this.keyS.isDown)
+        else if (this.keyS.isDown && (this.lastKey == 'S' || this.lastKey == null))
         {
             this.body.setVelocity(0, this.speed * dt);
         }
-        else if (this.keyA.isDown)
+        else if (this.keyA.isDown && (this.lastKey == 'A' || this.lastKey == null))
         {
             this.body.setVelocity(-this.speed * dt, 0);
         }
-        else if (this.keyD.isDown)
+        else if (this.keyD.isDown && (this.lastKey == 'D' || this.lastKey == null))
         {
             this.body.setVelocity(this.speed * dt, 0);
         }

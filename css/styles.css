@@ -1,3 +1,8 @@
+@font-face {
+	font-family: 'bobFont';
+	src: url('../assets/SpongeboyMeBob.ttf') format('truetype');
+}
+
 body{
     background-image: url("../assets/imagenesWeb/webBackground.jpg");
     background-size: cover;
@@ -82,7 +87,6 @@ img{
     display: none;
 }
 .banner{
-
     display: flex;
     flex-direction: row;
     height: 10vmin;
@@ -124,8 +128,9 @@ img{
     border: none;
     background-color: transparent;
 
+    font-family: 'bobFont';
     font-size: 3.5vmin;
-    font-weight: bold;
+    /*font-weight: bold;*/
     white-space: nowrap;
 }
 

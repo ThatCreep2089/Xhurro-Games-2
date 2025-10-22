@@ -14,21 +14,21 @@ export default class MenuScene extends Phaser.Scene {
         //title text
         this.add.text(400, 180, 'The Otter Side', 
             { 
-                fontFamily: 'Arial', 
+                fontFamily:'bobFont', 
                 fontSize: '60px', 
                 color: 'white',
             }).setOrigin(0.5);
 
         //start button
-        const playButton = this.add.text(400, 300, 'PLAY', {
-        fontFamily: 'Arial',
+        let playButton = this.add.text(400, 300, 'PLAY', {
+        fontFamily: 'bobFont',
         fontSize: '40px',
         color: '#00ffcc'
         }).setOrigin(0.5).setInteractive();
 
         //exit button
-        const exitButton = this.add.text(400, 400, 'EXIT', {
-        fontFamily: 'Arial',
+        let exitButton = this.add.text(400, 400, 'EXIT', {
+        fontFamily: 'bobFont',
         fontSize: '40px',
         color: '#ff4444'
         }).setOrigin(0.5).setInteractive();
