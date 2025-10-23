@@ -34,7 +34,7 @@ export default class Boot extends Phaser.Scene{
         //Imagen que está en el tope de la barra
         const img = this.add.image(boxX + 5, boxY + boxHeight / 2,'otter');
         img.setOrigin(0.5);
-        img.setScale(0.4)
+        img.setScale(0.5)
         
         // Simulamos un progreso falso
         let fakeProgress = 0;
