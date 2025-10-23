@@ -10,7 +10,7 @@ export default class Boot extends Phaser.Scene{
           fontFamily: 'Arial',
           fontSize: '32px',
           fill: '#4bc711ff'
-        }).setOrigin(0.5);
+        }).setOrigin(0.6);
 
         const boxX = 150;
         const boxY = 250;
@@ -32,9 +32,9 @@ export default class Boot extends Phaser.Scene{
           fill: '#d4bf1aff'
         }).setOrigin(0.5);
         //Imagen que está en el tope de la barra
-        const img = this.add.image(boxX + 5, boxY + boxHeight / 2,'otter');
+        const img = this.add.image(boxX + 5, boxY + boxHeight / 2, 'otter');
         img.setOrigin(0.5);
-        img.setScale(0.5)
+        img.setScale(0.3)
         
         // Simulamos un progreso falso
         let fakeProgress = 0;
@@ -59,6 +59,6 @@ export default class Boot extends Phaser.Scene{
     }
     //Metodo para meter todos los recursos que necesitemos
     loadResources(){
-        this.load.image('map', 'assets/mainScene/map.png')
+      this.load.image('map', 'assets/mainScene/map.png')
     }
 }
