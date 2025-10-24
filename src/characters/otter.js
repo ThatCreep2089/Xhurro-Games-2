@@ -1,6 +1,6 @@
+import sourcesHUD from '../HUD/sourcesHUD.js'
 export default class Otter extends Phaser.GameObjects.Sprite {
     /**
-     * Constructor de Enemigo
      * @param {Scene} scene - escena en la que aparece
      * @param {number} x - coordenada x
      * @param {number} y - coordenada y 
@@ -20,7 +20,35 @@ export default class Otter extends Phaser.GameObjects.Sprite {
         this.keyS = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
         this.keyD = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
 
-        //this.setCollideWorldBounds(true);
+        //Guardo la última tecla pulsada cuando se pulsa
+        this.lastKey = null;
+
+        this.scene.input.keyboard.on('keydown', (key) => {
+            //Si la tecla pulsada es una de las que me interesan, esta será la última pulsada
+            if (['W', 'A', 'S', 'D'].includes(key.key.toUpperCase())) this.lastKey = key.key.toUpperCase();
+        });
+        this.scene.input.keyboard.on('keyup', ()=> {
+            this.lastKey = null;
+        });
+
+        this.body.setCollideWorldBounds(true);
+
+        //inventario interno de materiales del jugador
+        this.backpack = {
+            paint: 0,
+            paper: 0,
+            clay: 0
+        }
+        
+        //HUD recursos en inventario
+        this.sourcesHUD = new sourcesHUD(this.scene, this.backpack);
+    }
+
+    updateInventory()
+    {
+        this.paintNumber.setText("Pintura: " + this.backpack.paint);
+        this.paperNumber.setText("Papel: " + this.backpack.paper);
+        this.clayNumber.setText("Arcilla: " + this.backpack.clay);
     }
 
     /**
@@ -29,24 +57,30 @@ export default class Otter extends Phaser.GameObjects.Sprite {
      * @param {number} dt - Tiempo entre frames
      */
     preUpdate(t, dt) {
+        console.log(this.lastKey + " " + this.keyW.keyCode);
+        //Movemos el objeto en función de las teclas pulsadas por el usuario
+        //Priorizando la última usada
+        if (this.keyW.isDown && (this.lastKey == 'W' || this.lastKey == null))
+        {
+            this.body.setVelocity(0, -this.speed * dt);
+        }
+        else if (this.keyS.isDown && (this.lastKey == 'S' || this.lastKey == null))
+        {
+            this.body.setVelocity(0, this.speed * dt);
+        }
+        else if (this.keyA.isDown && (this.lastKey == 'A' || this.lastKey == null))
+        {
+            this.body.setVelocity(-this.speed * dt, 0);
+        }
+        else if (this.keyD.isDown && (this.lastKey == 'D' || this.lastKey == null))
+        {
+            this.body.setVelocity(this.speed * dt, 0);
+        }
+        else
+        {
+            this.body.setVelocity(0,0);
+        }
         // Es muy imporante llamar al preUpdate del padre (Sprite), sino no se ejecutará la animación
         super.preUpdate(t, dt);
-
-        if (this.keyW.isDown)
-        {
-            this.y -= this.speed;
-        }
-        else if (this.keyA.isDown)
-        {
-            this.x -= this.speed;
-        }
-        else if (this.keyS.isDown)
-        {
-            this.y += this.speed;
-        }
-        else if (this.keyD.isDown)
-        {
-            this.x += this.speed;
-        }
     }
 }
