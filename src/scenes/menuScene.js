@@ -5,7 +5,6 @@ export default class MenuScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('map', 'assets/mainScene/map.png');
     }
 
     create() {

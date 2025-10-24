@@ -16,13 +16,7 @@ export default class mainScene extends Phaser.Scene {
     }
 
     preload(){
-        this.load.image('map', 'assets/mainScene/map.png');
-        this.load.image('otter', 'assets/imagenesWeb/smallant.png');
-        this.load.image('paint', 'assets/mainScene/paint.jpeg');
-        this.load.image('destroyedHouse', 'assets/mainScene/destroyedHouse.jpg');
-        this.load.image('house', 'assets/mainScene/house.png');
-        this.load.image('buildSources', 'assets/mainScene/buildSources.jpg')
-        this.load.image('spaceKey', 'assets/mainScene/keyboard_space.png')
+        
     }
 
     create(){

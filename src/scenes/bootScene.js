@@ -6,11 +6,11 @@ export default class Boot extends Phaser.Scene{
       this.first = true;
     }
     preload(){
-        this.cameras.main.setBackgroundColor('#1a1a1a');
 
-        // Texto "Cargando..."
+      this.cameras.main.setBackgroundColor('#1a1a1a');
+      // Texto "Cargando..."
         const loadingText = this.add.text(this.cameras.main.centerX, 100, 'Cargando...', {
-          fontFamily: 'Arial',
+          fontFamily: 'bobFont',
           fontSize: '32px',
           fill: '#4bc711ff'
         }).setOrigin(0.6);
@@ -30,7 +30,7 @@ export default class Boot extends Phaser.Scene{
         const progressBar = this.add.graphics();
         //Texto de porcentaje de la caja
         const percentText = this.add.text(this.cameras.main.centerX, boxY + 60, '0%', {
-          fontFamily: 'Arial',
+          fontFamily: 'bobFont',
           fontSize: '24px',
           fill: '#d4bf1aff'
         }).setOrigin(0.5);
@@ -54,7 +54,7 @@ export default class Boot extends Phaser.Scene{
             img.x = boxX + 5 + (boxWidth - 10) * fakeProgress;
             //Cuando haya llegado el tope
             if (fakeProgress >= 1) {
-              this.scene.start('mainScene');
+              this.scene.start('menuScene');
             }
           }
         });
@@ -66,6 +66,12 @@ export default class Boot extends Phaser.Scene{
     loadResources(){
       this.load.image('map', 'assets/mainScene/map.png')
       this.load.image('toni','assets/imaegensWeb/Ismael.png')
+      this.load.image('map', 'assets/mainScene/map.png');
+      this.load.image('paint', 'assets/mainScene/paint.jpeg');
+      this.load.image('destroyedHouse', 'assets/mainScene/destroyedHouse.jpg');
+      this.load.image('house', 'assets/mainScene/house.png');
+      this.load.image('buildSources', 'assets/mainScene/buildSources.jpg')
+      this.load.image('spaceKey', 'assets/mainScene/keyboard_space.png')
       this.first = false;
     }
 }
