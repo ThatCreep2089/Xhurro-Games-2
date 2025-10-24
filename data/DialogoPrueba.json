@@ -1,0 +1,66 @@
+{
+	"EditorVersion": "2.3.0",
+	"RootNodeID": "948e832c-3261-4762-9fac-d7063cacf468",
+	"ListNodes": [
+		{
+			"$type": "NodeRoot",
+			"ID": "948e832c-3261-4762-9fac-d7063cacf468",
+			"NextID": "4e6fcead-b619-4ea5-9801-ca27aca7d50d"
+		},
+		{
+			"$type": "NodeSentence",
+			"ID": "4e6fcead-b619-4ea5-9801-ca27aca7d50d",
+			"NextID": "f7238700-ede5-49c4-9012-b8189e6754db",
+			"Sentence": "Esto es una prueba",
+			"SpeakerID": 0,
+			"DisplaySpeakerName": "",
+			"DisplayVariant": ""
+		},
+		{
+			"$type": "NodeSentence",
+			"ID": "f7238700-ede5-49c4-9012-b8189e6754db",
+			"NextID": "cf21e6a1-4a0e-482a-b714-9bd1a4a3aa86",
+			"Sentence": "Creo que funciona",
+			"SpeakerID": 1,
+			"DisplaySpeakerName": "",
+			"DisplayVariant": ""
+		},
+		{
+			"$type": "NodeSentence",
+			"ID": "cf21e6a1-4a0e-482a-b714-9bd1a4a3aa86",
+			"NextID": "722e9446-4788-4afe-9968-87cd7aaa509d",
+			"Sentence": "¡Dios que guapo!",
+			"SpeakerID": 1,
+			"DisplaySpeakerName": "",
+			"DisplayVariant": ""
+		},
+		{
+			"$type": "NodeSentence",
+			"ID": "722e9446-4788-4afe-9968-87cd7aaa509d",
+			"NextID": "6901d4e0-9b82-4add-843c-81bcbe06897d",
+			"Sentence": "Sobre todo por la cantidad de borrachos que hay.",
+			"SpeakerID": 0,
+			"DisplaySpeakerName": "",
+			"DisplayVariant": ""
+		},
+		{
+			"$type": "NodeEnd",
+			"ID": "c2c00734-b9c8-4217-9748-3fe4fbd6d089"
+		}
+	],
+	"Characters": [
+		{
+			"Reference": "gato",
+			"ID": 0
+		},
+		{
+			"Reference": "melchor",
+			"ID": 1
+		},
+		{
+			"Reference": "externo",
+			"ID": 2
+		}
+	],
+	"Variables": []
+}

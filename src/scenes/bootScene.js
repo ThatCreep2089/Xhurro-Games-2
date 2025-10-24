@@ -2,6 +2,9 @@ export default class Boot extends Phaser.Scene{
     constructor(){
         super({key: 'boot'});
     }
+    init(){
+      this.first = true;
+    }
     preload(){
         this.cameras.main.setBackgroundColor('#1a1a1a');
 
@@ -55,10 +58,14 @@ export default class Boot extends Phaser.Scene{
             }
           }
         });
-        this.loadResources();        
+        if(this.first){
+          this.loadResources();        
+        }
     }
     //Metodo para meter todos los recursos que necesitemos
     loadResources(){
       this.load.image('map', 'assets/mainScene/map.png')
+      this.load.image('toni','assets/imaegensWeb/Ismael.png')
+      this.first = false;
     }
 }
