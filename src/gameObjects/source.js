@@ -1,4 +1,4 @@
-import HUDmessage from './HUD/HUDmessage.js'
+import HUDmessage from '../HUD/HUDmessage.js'
 
 export default class Source extends Phaser.GameObjects.Sprite {
     /**
@@ -8,7 +8,7 @@ export default class Source extends Phaser.GameObjects.Sprite {
      * @param {Otter} otter - jugador en escena
      * @param {number} uses - número de usos antes de desaparecer, si es 0 entonces será ilimitado
      */
-    constructor(scene, x, y,  texture, paint, paper, clay, otter, uses, size = 1, frame = 0) {
+    constructor(scene, x, y,  texture, paint, paper, clay, uses, size = 1, frame = 0) {
         super(scene, x, y, texture, frame);
 
         this.setScale(size);
@@ -16,7 +16,7 @@ export default class Source extends Phaser.GameObjects.Sprite {
 
         //Variables únicas
         this.uses = uses; //Número de usos antes de desaparecer, si es 0 el recurso será ilimitado
-        this.otter = otter; //personaje controlado por usuario (tiene el inventario y se usa para calcular distancias con el objeto)
+        this.otter = this.scene.otter; //personaje controlado por usuario (tiene el inventario y se usa para calcular distancias con el objeto)
         this.source = { //Recursos proporcionados por cada recolección
             paint: paint,
             paper: paper,
@@ -30,8 +30,8 @@ export default class Source extends Phaser.GameObjects.Sprite {
          scene.physics.add.existing(this.zone, true);
          scene.physics.add.existing(this, true);
           //Añadimos colisiones y overlaps
-         scene.physics.add.collider(otter, this); //Contacto con recurso
-         scene.physics.add.overlap(otter, this.zone, ()=>{this.touching = true;}); //Contacto con zona
+         scene.physics.add.collider(this.otter, this); //Contacto con recurso
+         scene.physics.add.overlap(this.otter, this.zone, ()=>{this.touching = true;}); //Contacto con zona
           //Variables para controlar si la nutria está o no en contacto con la zona
          this.touching = false;
          this.wasTouching = false;
@@ -81,7 +81,7 @@ export default class Source extends Phaser.GameObjects.Sprite {
                 this.otter.backpack.clay += this.source.clay;
 
                 //Actualizamos el HUD
-                this.otter.sourcesHUD.updateInventory();
+                this.scene.backPackHUD.emit("updateInventory");
 
                 //En caso de quedarse sin usos destruimos el objeto y sus atributos creados en escena
                 if (this.uses == 0)

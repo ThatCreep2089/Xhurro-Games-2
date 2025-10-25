@@ -3,7 +3,7 @@ export default class sourcesHUD extends Phaser.GameObjects.Sprite {
      * @param {Scene} scene - escena en la que aparece
      * @param {backpack} backpack - se trata del inventario que va a mostrar
      */
-    constructor(scene, backpack, size = 1, frame) {
+    constructor(scene, size = 1, frame) {
         super(scene, scene.textures.get('house').getSourceImage().width/2,
         scene.textures.get('house').getSourceImage().height/2,
         'house', frame = 0);
@@ -12,7 +12,7 @@ export default class sourcesHUD extends Phaser.GameObjects.Sprite {
         this.scene.add.existing(this); //Nos añadimos a la escena para ser mostrados.
 
         //inventario interno de materiales del jugador
-        this.backpack = backpack;
+        this.backpack = this.scene.otter.backpack;
 
         //HUD recursos en inventario
         this.cont = this.scene.add.container(this.x, this.y); //Contenedor para añadir imagenes junto a texto y tratarlos como un solo objeto
@@ -40,13 +40,13 @@ export default class sourcesHUD extends Phaser.GameObjects.Sprite {
         //Hacemos que tanto el fondo como el contenedor no se muevan de la posición
         this.setScrollFactor(0);
         this.cont.setScrollFactor(0);
-    }
 
-    updateInventory()
-    {
-        this.paintNumber.setText("Pintura: " + this.backpack.paint);
-        this.paperNumber.setText("Papel: " + this.backpack.paper);
-        this.clayNumber.setText("Arcilla: " + this.backpack.clay);
+        //suscripción para actualizar inventario
+        this.on('updateInventory', ()=>{
+         this.paintNumber.setText("Pintura: " + this.backpack.paint);
+         this.paperNumber.setText("Papel: " + this.backpack.paper);
+         this.clayNumber.setText("Arcilla: " + this.backpack.clay);
+        });
     }
 
     /**

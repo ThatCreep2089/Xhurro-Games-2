@@ -1,4 +1,3 @@
-import sourcesHUD from '../HUD/sourcesHUD.js'
 export default class Otter extends Phaser.GameObjects.Sprite {
     /**
      * @param {Scene} scene - escena en la que aparece
@@ -33,16 +32,6 @@ export default class Otter extends Phaser.GameObjects.Sprite {
             paper: 0,
             clay: 0
         }
-        
-        //HUD recursos en inventario
-        this.sourcesHUD = new sourcesHUD(this.scene, this.backpack);
-    }
-
-    updateInventory()
-    {
-        this.paintNumber.setText("Pintura: " + this.backpack.paint);
-        this.paperNumber.setText("Papel: " + this.backpack.paper);
-        this.clayNumber.setText("Arcilla: " + this.backpack.clay);
     }
 
     /**
