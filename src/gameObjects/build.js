@@ -1,4 +1,4 @@
-import buildSourcesHUD from './HUD/buildSourcesHUD.js'
+import buildSourcesHUD from '../HUD/buildSourcesHUD.js'
 export default class Source extends Phaser.GameObjects.Sprite {
     /**
      * @param {Scene} scene - escena en la que aparece
@@ -6,7 +6,7 @@ export default class Source extends Phaser.GameObjects.Sprite {
      * @param {number} y - coordenada y 
      * @param {Otter} otter - jugador en escena
      */
-    constructor(scene, x, y,  texture, builtTexture, paint, paper, clay, otter, size = 1, frame = 0) {
+    constructor(scene, x, y,  texture, builtTexture, paint, paper, clay, size = 1, frame = 0) {
         super(scene, x, y, texture, frame);
 
         
@@ -16,7 +16,7 @@ export default class Source extends Phaser.GameObjects.Sprite {
         //variables únicas del objeto
         this.builtTexture = builtTexture; //Sprite de la estructura reconstruida
         this.built = false; //Booleano encargado de saber si la estructura sigue destruida o está reconstruida
-        this.otter = otter; //jugador (tiene el inventario y sirve para calcular distancias)
+        this.otter = this.scene.otter; //jugador (tiene el inventario y sirve para calcular distancias)
         this.sources = { //Recursos necesarios para reparación
             paint: paint,
             paper: paper,
@@ -31,8 +31,8 @@ export default class Source extends Phaser.GameObjects.Sprite {
          scene.physics.add.existing(this.zone, true);
          scene.physics.add.existing(this, true);
           //Añadimos colisiones y overlaps
-         scene.physics.add.collider(otter, this);//Añadrimos la colisión de la nutria
-         scene.physics.add.overlap(otter, this.zone, ()=>{this.touching = true;}); //Contacto con zona
+         scene.physics.add.collider(this.otter, this);//Añadrimos la colisión de la nutria
+         scene.physics.add.overlap(this.otter, this.zone, ()=>{this.touching = true;}); //Contacto con zona
           //Variables para controlar si la nutria está o no en contacto con la zona
          this.touching = false;
          this.wasTouching = false;
@@ -91,7 +91,7 @@ export default class Source extends Phaser.GameObjects.Sprite {
 
                  this.setTexture(this.builtTexture); //Cambiamos sprite de estructura
                  this.zone.destroy() //Destruimos zona (no nos hace falta para nada ahora);
-                 this.otter.sourcesHUD.updateInventory();//Actualiza HUD
+                 this.scene.backPackHUD.emit("updateInventory");//Actualiza HUD
                  this.built = true;
                 }
               //Reiniciamos valores de touching para el siguiente bucle de físicas

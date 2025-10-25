@@ -1,6 +1,8 @@
 import Otter from "../characters/otter.js"
-import Source from "../source.js"
-import Build from "../build.js"
+import Source from "../gameObjects/source.js"
+import Build from "../gameObjects/build.js"
+import BackPackHUD from "../HUD/sourcesHUD.js"
+
 /**
  * Escena principal de juego.
  * @extends Phaser.Scene
@@ -74,7 +76,7 @@ export default class mainScene extends Phaser.Scene {
              }
 
         //Nutria y movimiento de cámara
-        this. otter = new Otter(this, this.scale.width/2, this.scale.height/2, 20, 'otter');
+        this.otter = new Otter(this, this.scale.width/2, this.scale.height/2, 20, 'otter');
         this.cameras.main.startFollow(this.otter);
 
         
@@ -107,16 +109,17 @@ export default class mainScene extends Phaser.Scene {
 
     createSources()
     {
-        new Source(this, 1200, 1200, 'paint', 0, 0, 1, this.otter, 5);
+        new Source(this, 1200, 1200, 'paint', 0, 0, 1, 5);
     }
 
     createBuilds()
     {
-        new Build(this, 400, 1000, 'destroyedHouse', 'house', 0, 0, 3, this.otter)
+        new Build(this, 400, 1000, 'destroyedHouse', 'house', 0, 0, 3)
     }
 
     createHUD()
     {
-
+        //HUD recursos en inventario
+        this.backPackHUD = new BackPackHUD(this);
     }
 }
