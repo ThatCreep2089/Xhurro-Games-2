@@ -13,10 +13,6 @@ export default class Source extends Phaser.GameObjects.Sprite {
         this.setScale(size);
         this.scene.add.existing(this); //Nos añadimos a la escena para ser mostrados.
 
-        //Físicas
-        scene.physics.add.existing(this, true); //Añadimos el cuerpo al objeto y lo hacemos estático
-        scene.physics.add.collider(otter, this);//Añadrimos la colisión de la nutria
-
         //variables únicas del objeto
         this.builtTexture = builtTexture; //Sprite de la estructura reconstruida
         this.built = false; //Booleano encargado de saber si la estructura sigue destruida o está reconstruida
@@ -26,9 +22,27 @@ export default class Source extends Phaser.GameObjects.Sprite {
             paper: paper,
             clay: clay
         };
-
-        this.thereIsMessage = false; //Para saber si el mensaje de materiales está o no en pantalla
         this.message = null;
+
+        //Físicas
+          //Creamos zona de contacto con jugador
+         this.zone = scene.add.zone(x, y).setSize((this.width * size) + 10, (this.height * size) + 10);
+           //Añadimos cuerpos a la escena
+         scene.physics.add.existing(this.zone, true);
+         scene.physics.add.existing(this, true);
+          //Añadimos colisiones y overlaps
+         scene.physics.add.collider(otter, this);//Añadrimos la colisión de la nutria
+         scene.physics.add.overlap(otter, this.zone, ()=>{this.touching = true;}); //Contacto con zona
+          //Variables para controlar si la nutria está o no en contacto con la zona
+         this.touching = false;
+         this.wasTouching = false;
+        
+        //Suscripciones entrada/salida de colisiones
+         this.on("overlapstart", ()=>{this.onCollisionEnter()});
+         this.on("overlapend", ()=>{this.onCollisionExit()});
+
+        //Suscripción para cada actualización de físicas
+         this.scene.physics.world.on('worldstep', ()=>{this.physicsUpdate()});
     }
 
     /**
@@ -39,48 +53,49 @@ export default class Source extends Phaser.GameObjects.Sprite {
     preUpdate(t, dt) {
         // Es muy imporante llamar al preUpdate del padre (Sprite), sino no se ejecutará la animación
         super.preUpdate(t, dt);
+    }
 
-        //Si la nutria y el recurso están aproximadamente en contacto se comprueba que se recoga el input de interacción
-        //para recoger el recurso
-        if (!this.built && Math.abs(this.otter.x - this.x) <= this.width/2 * this.scale + this.otter.width/2 * this.otter.scale + 0.1 &&
-            Math.abs(this.otter.y - this.y) <= this.height/2 * this.scale + this.otter.height/2 * this.otter.scale + 0.1)
+    onCollisionEnter()
         {
-            //Mensaje para informar de los materiales que se necesitan para reparar la estructura
-            if (!this.thereIsMessage)
-            {
-                this.message = new buildSourcesHUD(this.scene, 'buildSources', this.sources,
+            this.message = new buildSourcesHUD(this.scene, 'buildSources', this.sources,
                                  this.otter.backpack.paint >= this.sources.paint &&
                                  this.otter.backpack.paper >= this.sources.paper &&
                                  this.otter.backpack.clay >= this.sources.clay,
                                   0.4);
-                this.thereIsMessage = true;
+        }
+    
+        onCollisionExit()
+        {
+            if (this.message != null)
+            {
+                this.message.cont.destroy();
+                this.message.destroy();
             }
-            
+        }
+    
+        physicsUpdate()
+        {
+            //lanzamos los respectivos eventos en función de la colisión con el objeto (estático)
+              if (this.touching && !this.wasTouching) this.emit("overlapstart");
+              if (!this.touching && this.wasTouching) this.emit("overlapend");
 
-            //Si se interactua con la estructura y se tienen suficientes materiales
-            //la estructura se reconstruye
-            let keySpace = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-
-            if (Phaser.Input.Keyboard.JustDown(keySpace) &&
+              if (this.scene.spaceKey.justDown &&
+                this.touching &&
                 this.otter.backpack.paint >= this.sources.paint &&
                 this.otter.backpack.paper >= this.sources.paper &&
-                this.otter.backpack.clay >= this.sources.clay)
-            {
-                this.otter.backpack.paint -= this.sources.paint;
-                this.otter.backpack.paper -= this.sources.paper;
-                this.otter.backpack.clay -= this.sources.clay;
+                this.otter.backpack.clay >= this.sources.clay){
+                    //Reducimos los recursos gastados por construir
+                 this.otter.backpack.paint -= this.sources.paint;
+                 this.otter.backpack.paper -= this.sources.paper;
+                 this.otter.backpack.clay -= this.sources.clay;
 
-                this.setTexture(this.builtTexture);
-                this.otter.sourcesHUD.updateInventory();
-                this.built = true;
-            }
+                 this.setTexture(this.builtTexture); //Cambiamos sprite de estructura
+                 this.zone.destroy() //Destruimos zona (no nos hace falta para nada ahora);
+                 this.otter.sourcesHUD.updateInventory();//Actualiza HUD
+                 this.built = true;
+                }
+              //Reiniciamos valores de touching para el siguiente bucle de físicas
+              this.wasTouching = this.touching;
+              this.touching = false;
         }
-        //Si no está cerca pero antes lo estaba porque hay mensaje, elimina el mensaje
-        else if (this.thereIsMessage)
-        {
-            this.message.cont.destroy();
-            this.message.destroy();
-            this.thereIsMessage = false;
-        }
-    }
 }
