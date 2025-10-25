@@ -14,10 +14,6 @@ export default class Source extends Phaser.GameObjects.Sprite {
         this.setScale(size);
         this.scene.add.existing(this); //Nos añadimos a la escena para ser mostrados.
 
-        //Físicas
-        scene.physics.add.existing(this, true); //Añadimos el cuerpo al objeto y lo hacemos estático
-        scene.physics.add.collider(otter, this);//Añadrimos la colisión de la nutria
-
         //Variables únicas
         this.uses = uses; //Número de usos antes de desaparecer, si es 0 el recurso será ilimitado
         this.otter = otter; //personaje controlado por usuario (tiene el inventario y se usa para calcular distancias con el objeto)
@@ -27,8 +23,26 @@ export default class Source extends Phaser.GameObjects.Sprite {
             clay: clay
         };
 
-        this.thereIsMessage = false;
-        this.message = null;
+        //Físicas
+           //Creamos zona de contacto con jugador
+         this.zone = scene.add.zone(x, y).setSize((this.width * size) + 10, (this.height * size) + 10);
+           //Añadimos cuerpos a la escena
+         scene.physics.add.existing(this.zone, true);
+         scene.physics.add.existing(this, true);
+          //Añadimos colisiones y overlaps
+         scene.physics.add.collider(otter, this); //Contacto con recurso
+         scene.physics.add.overlap(otter, this.zone, ()=>{this.touching = true;}); //Contacto con zona
+          //Variables para controlar si la nutria está o no en contacto con la zona
+         this.touching = false;
+         this.wasTouching = false;
+        
+        //Suscripciones entrada/salida de colisiones
+         this.on("overlapstart", ()=>{this.onCollisionEnter()});
+         this.on("overlapend", ()=>{this.onCollisionExit()});
+
+        //Suscripción para cada actualización de físicas
+         this.scene.physics.world.on('worldstep', ()=>{this.physicsUpdate()});
+        
     }
 
     /**
@@ -38,44 +52,48 @@ export default class Source extends Phaser.GameObjects.Sprite {
      */
     preUpdate(t, dt) {
         // Es muy imporante llamar al preUpdate del padre (Sprite), sino no se ejecutará la animación
-        super.preUpdate(t, dt);
+        super.preUpdate(t, dt);     
+    }
 
-        //Si la nutria y el recurso están aproximadamente en contacto se comprueba que se recoga el input de interacción
-        //para recoger el recurso
-        if (Math.abs(this.otter.x - this.x) <= this.width/2 * this.scale + this.otter.width/2 * this.otter.scale + 0.1 &&
-            Math.abs(this.otter.y - this.y) <= this.height/2 * this.scale + this.otter.height/2 * this.otter.scale + 0.1)
-        {
-            let keySpace = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+    onCollisionEnter()
+    {
+        this.message = new HUDmessage(this.scene, 'spaceKey', 0.4);
+    }
 
-            if (!this.thereIsMessage)
-            {
-                this.thereIsMessage = true;
-                this.message = new HUDmessage(this.scene, 'spaceKey', 0.4);
-            }
+    onCollisionExit()
+    {
+        if (this.message != null)
+            this.message.destroy();
+    }
 
-            if (Phaser.Input.Keyboard.JustDown(keySpace))
-            {
-                this.uses--;
+    physicsUpdate()
+    {
+        //lanzamos los respectivos eventos en función de la colisión con el objeto (estático)
+          if (this.touching && !this.wasTouching) this.emit("overlapstart");
+          if (!this.touching && this.wasTouching) this.emit("overlapend");
 
+          if (this.scene != null && this.scene.spaceKey.justDown && this.touching){
+                this.uses--; //Reducimos un uso del recurso
+
+                //Actualizamos la mochila con los recursos obtenidos
                 this.otter.backpack.paint += this.source.paint;
                 this.otter.backpack.paper += this.source.paper;
                 this.otter.backpack.clay += this.source.clay;
 
+                //Actualizamos el HUD
                 this.otter.sourcesHUD.updateInventory();
 
+                //En caso de quedarse sin usos destruimos el objeto y sus atributos creados en escena
                 if (this.uses == 0)
-                    {
-                        if (this.thereIsMessage) this.message.destroy();
-                        this.destroy();
-                    }
-
-                console.log("Backpack:\n"+this.otter.backpack.paint + "\n" + this.otter.backpack.paper + "\n" + this.otter.backpack.clay);
+                {
+                    if (this.message != null) this.message.destroy();
+                    this.zone.destroy();
+                    this.destroy();
+                }
             }
-        }
-        else if (this.thereIsMessage)
-        {
-            this.message.destroy();
-            this.thereIsMessage = false;
-        }
+
+          //Reiniciamos valores de touching para el siguiente bucle de físicas
+          this.wasTouching = this.touching;
+          this.touching = false;
     }
 }
