@@ -12,6 +12,7 @@ export default class DialogText{
 	constructor(scene, opts){
 		this.scene = scene;
 		this.init(opts);
+		this._followCamera();
 	}
 
 	init(opts) {
@@ -96,7 +97,50 @@ export default class DialogText{
 		}
 		
 	}
+	completeText() {
+		if (!this.dialog || !this.text) return;
 
+		// Escribe todo el texto de golpe
+		this.text.setText(this.dialog.join(''));
+
+		// Para el evento si estaba corriendo
+		if (this.timedEvent) {
+			this.timedEvent.remove();
+			this.timedEvent = null;
+		}
+
+		// Emitimos que terminó
+		this.scene.events.emit('dialog:finished');
+	}
+
+
+	_followCamera() {
+		// Escuchar postupdate dentro de la propia clase
+		this.scene.events.on('postupdate', () => {
+			if (!this.visible || !this.text || !this.graphics) return;
+
+			const cam = this.scene.cameras.main;
+
+			const x = this.padding;
+			const y = cam.scrollY + cam.height - this.windowHeight - this.padding;
+
+			const rectWidth = cam.width - this.padding * 2;
+			const rectHeight = this.windowHeight;
+
+			// Redibujar ventana
+			this.graphics.clear();
+			this._createOuterWindow(x, y, rectWidth, rectHeight);
+			this._createInnerWindow(x, y, rectWidth, rectHeight);
+
+			// Actualizar texto
+			this.text.setPosition(x + 10, y + 10);
+
+			// Actualizar botón de cierre
+			if (this.closeBtn) {
+				this.closeBtn.setPosition(cam.scrollX + cam.width - this.padding - 14, y + 3);
+			}
+		});
+	}
 	// Consigue el ancho del juego (en funcion del tamaño en la escena) 
 	_getGameWidth() {
 		return this.scene.sys.game.config.width;
@@ -203,14 +247,22 @@ export default class DialogText{
 
 	// Hace aparecer al texto lentamente en pantalla
 	_animateText() {
+		if (!this.dialog || this.dialog.length === 0) return;
+
 		this.eventCounter++;
-		
-		//se va actualizando el texto de nuestro game object llamando a setText
+
+		// Añadimos el siguiente carácter al texto
 		this.text.setText(this.text.text + this.dialog[this.eventCounter - 1]);
-		
-		//Cuando eventCounter sea igual a la longitud del texto, se detiene el evento
-		if (this.eventCounter === this.dialog.length) {
-			this.timedEvent.remove();
+
+		// Si hemos llegado al final del texto
+		if (this.eventCounter >= this.dialog.length) {
+			if (this.timedEvent) this.timedEvent.remove();
+
+			// 🔔 Emitimos el evento de que ha terminado el texto
+			this.scene.events.emit('dialog:finished');
+
+			// Nos aseguramos de que no siga ejecutándose
+			this.timedEvent = null;
 		}
 	}
 

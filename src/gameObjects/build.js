@@ -56,46 +56,46 @@ export default class Source extends Phaser.GameObjects.Sprite {
     }
 
     onCollisionEnter()
-        {
-            this.message = new buildSourcesHUD(this.scene, 'buildSources', this.sources,
-                                 this.otter.backpack.paint >= this.sources.paint &&
-                                 this.otter.backpack.paper >= this.sources.paper &&
-                                 this.otter.backpack.clay >= this.sources.clay,
-                                  0.4);
-        }
+    {
+        this.message = new buildSourcesHUD(this.scene, 'buildSources', this.sources,
+                                this.otter.backpack.paint >= this.sources.paint &&
+                                this.otter.backpack.paper >= this.sources.paper &&
+                                this.otter.backpack.clay >= this.sources.clay,
+                                0.4);
+    }
     
-        onCollisionExit()
+    onCollisionExit()
+    {
+        if (this.message != null)
         {
-            if (this.message != null)
-            {
-                this.message.cont.destroy();
-                this.message.destroy();
+            this.message.cont.destroy();
+            this.message.destroy();
+        }
+    }
+    
+    physicsUpdate()
+    {
+        //lanzamos los respectivos eventos en función de la colisión con el objeto (estático)
+        if (this.touching && !this.wasTouching) this.emit("overlapstart");
+        if (!this.touching && this.wasTouching) this.emit("overlapend");
+
+        if (this.scene.spaceKey.justDown &&
+            this.touching &&
+            this.otter.backpack.paint >= this.sources.paint &&
+            this.otter.backpack.paper >= this.sources.paper &&
+            this.otter.backpack.clay >= this.sources.clay){
+                //Reducimos los recursos gastados por construir
+            this.otter.backpack.paint -= this.sources.paint;
+            this.otter.backpack.paper -= this.sources.paper;
+            this.otter.backpack.clay -= this.sources.clay;
+
+            this.setTexture(this.builtTexture); //Cambiamos sprite de estructura
+            this.zone.destroy() //Destruimos zona (no nos hace falta para nada ahora);
+            this.scene.backPackHUD.emit("updateInventory");//Actualiza HUD
+            this.built = true;
             }
-        }
-    
-        physicsUpdate()
-        {
-            //lanzamos los respectivos eventos en función de la colisión con el objeto (estático)
-              if (this.touching && !this.wasTouching) this.emit("overlapstart");
-              if (!this.touching && this.wasTouching) this.emit("overlapend");
-
-              if (this.scene.spaceKey.justDown &&
-                this.touching &&
-                this.otter.backpack.paint >= this.sources.paint &&
-                this.otter.backpack.paper >= this.sources.paper &&
-                this.otter.backpack.clay >= this.sources.clay){
-                    //Reducimos los recursos gastados por construir
-                 this.otter.backpack.paint -= this.sources.paint;
-                 this.otter.backpack.paper -= this.sources.paper;
-                 this.otter.backpack.clay -= this.sources.clay;
-
-                 this.setTexture(this.builtTexture); //Cambiamos sprite de estructura
-                 this.zone.destroy() //Destruimos zona (no nos hace falta para nada ahora);
-                 this.scene.backPackHUD.emit("updateInventory");//Actualiza HUD
-                 this.built = true;
-                }
-              //Reiniciamos valores de touching para el siguiente bucle de físicas
-              this.wasTouching = this.touching;
-              this.touching = false;
-        }
+        //Reiniciamos valores de touching para el siguiente bucle de físicas
+        this.wasTouching = this.touching;
+        this.touching = false;
+    }
 }
