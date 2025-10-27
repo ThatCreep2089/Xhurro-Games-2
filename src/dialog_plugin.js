@@ -115,13 +115,13 @@ export default class DialogText{
 
 
 	_followCamera() {
-		// Escuchar postupdate dentro de la propia clase
 		this.scene.events.on('postupdate', () => {
 			if (!this.visible || !this.text || !this.graphics) return;
 
 			const cam = this.scene.cameras.main;
 
-			const x = this.padding;
+			// 🔹 Ajustamos tanto en X como en Y según el scroll de la cámara
+			const x = cam.scrollX + this.padding;
 			const y = cam.scrollY + cam.height - this.windowHeight - this.padding;
 
 			const rectWidth = cam.width - this.padding * 2;
@@ -132,15 +132,19 @@ export default class DialogText{
 			this._createOuterWindow(x, y, rectWidth, rectHeight);
 			this._createInnerWindow(x, y, rectWidth, rectHeight);
 
-			// Actualizar texto
+			// Actualizar texto (posición relativa al nuevo x, y)
 			this.text.setPosition(x + 10, y + 10);
 
 			// Actualizar botón de cierre
 			if (this.closeBtn) {
-				this.closeBtn.setPosition(cam.scrollX + cam.width - this.padding - 14, y + 3);
+				this.closeBtn.setPosition(
+					cam.scrollX + cam.width - this.padding - 14,
+					y + 3
+				);
 			}
 		});
 	}
+
 	// Consigue el ancho del juego (en funcion del tamaño en la escena) 
 	_getGameWidth() {
 		return this.scene.sys.game.config.width;
@@ -226,13 +230,16 @@ export default class DialogText{
 			this.clearTint(); //vuelve al color original al quitar el cursor
 		});
 		this.closeBtn.on('pointerdown', function () {
-			self.toggleWindow(); //se llama al método que cierra o muestra la ventana de diálogo
+			self.toggleWindow(); // Cierra la ventana
 			
 			// elimina el game object con el texto y borra el evento
 			if (self.timedEvent) 
 				self.timedEvent.remove();
 			if (self.text) 
 				self.text.destroy();
+
+			// 🔔 Emitimos un evento para notificar que se cerró el diálogo
+			self.scene.events.emit('dialog:closed');
 		});
 	}
 

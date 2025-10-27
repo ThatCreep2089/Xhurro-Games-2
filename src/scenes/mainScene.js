@@ -104,6 +104,10 @@ export default class mainScene extends Phaser.Scene {
                 this.otter.canMove = true;
             }
         });
+        this.events.on('dialog:closed', () => {
+            this.dialogActive = false;
+            this.otter.canMove = true;
+        });
     }
 
     update(){
