@@ -1,5 +1,3 @@
-import HUDmessage from '../HUD/HUDmessage.js'
-
 export default class Source extends Phaser.GameObjects.Sprite {
     /**
      * @param {Scene} scene - escena en la que aparece
@@ -25,10 +23,14 @@ export default class Source extends Phaser.GameObjects.Sprite {
 
         //Físicas
            //Creamos zona de contacto con jugador
-         this.zone = scene.add.zone(x, y).setSize((this.width * size) + 10, (this.height * size) + 10);
+         this.zone = scene.add.zone(x, y).setSize((this.width) + 10, (this.height * 0.2) + 10);
            //Añadimos cuerpos a la escena
          scene.physics.add.existing(this.zone, true);
          scene.physics.add.existing(this, true);
+          //Reescalamos y reposicionamos
+         this.body.setSize(this.width, (this.height) * 0.2);
+         this.body.y = this.body.y + ((this.height / 2) - (this.body.height/2));
+         this.zone.body.y = this.zone.body.y + ((this.height / 2) - (this.body.height/2));
           //Añadimos colisiones y overlaps
          scene.physics.add.collider(this.otter, this); //Contacto con recurso
          scene.physics.add.overlap(this.otter, this.zone, ()=>{this.touching = true;}); //Contacto con zona
@@ -57,13 +59,12 @@ export default class Source extends Phaser.GameObjects.Sprite {
 
     onCollisionEnter()
     {
-        this.message = new HUDmessage(this.scene, 'spaceKey', 0.4);
+        this.scene.UIManager.appearInteractMessage();
     }
 
     onCollisionExit()
     {
-        if (this.message != null)
-            this.message.destroy();
+        this.scene.UIManager.disappearInteractMessage();
     }
 
     physicsUpdate()
@@ -81,12 +82,12 @@ export default class Source extends Phaser.GameObjects.Sprite {
                 this.otter.backpack.clay += this.source.clay;
 
                 //Actualizamos el HUD
-                this.scene.backPackHUD.emit("updateInventory");
+                this.scene.UIManager.event.emit("updateInventory");
 
                 //En caso de quedarse sin usos destruimos el objeto y sus atributos creados en escena
                 if (this.uses == 0)
                 {
-                    if (this.message != null) this.message.destroy();
+                    this.scene.UIManager.disappearInteractMessage();
                     this.zone.destroy();
                     this.destroy();
                 }

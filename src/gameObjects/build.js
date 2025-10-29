@@ -1,4 +1,3 @@
-import buildSourcesHUD from '../HUD/buildSourcesHUD.js'
 export default class Source extends Phaser.GameObjects.Sprite {
     /**
      * @param {Scene} scene - escena en la que aparece
@@ -26,10 +25,14 @@ export default class Source extends Phaser.GameObjects.Sprite {
 
         //Físicas
           //Creamos zona de contacto con jugador
-         this.zone = scene.add.zone(x, y).setSize((this.width * size) + 10, (this.height * size) + 10);
+         this.zone = scene.add.zone(x, y).setSize((this.width) + 10, (this.height * 0.2) + 10);
            //Añadimos cuerpos a la escena
          scene.physics.add.existing(this.zone, true);
          scene.physics.add.existing(this, true);
+         //Reescalamos y reposicionamos
+         this.body.setSize(this.width, (this.height) * 0.2);
+         this.body.y = this.body.y + ((this.height / 2) - (this.body.height/2));
+         this.zone.body.y = this.zone.body.y + ((this.height / 2) - (this.body.height/2));
           //Añadimos colisiones y overlaps
          scene.physics.add.collider(this.otter, this);//Añadrimos la colisión de la nutria
          scene.physics.add.overlap(this.otter, this.zone, ()=>{this.touching = true;}); //Contacto con zona
@@ -56,46 +59,36 @@ export default class Source extends Phaser.GameObjects.Sprite {
     }
 
     onCollisionEnter()
-        {
-            this.message = new buildSourcesHUD(this.scene, 'buildSources', this.sources,
-                                 this.otter.backpack.paint >= this.sources.paint &&
-                                 this.otter.backpack.paper >= this.sources.paper &&
-                                 this.otter.backpack.clay >= this.sources.clay,
-                                  0.4);
-        }
+    {
+        this.scene.UIManager.appearBuildData(this.sources);
+    }
     
-        onCollisionExit()
-        {
-            if (this.message != null)
-            {
-                this.message.cont.destroy();
-                this.message.destroy();
+    onCollisionExit()
+    {
+        this.scene.UIManager.disappearBuildData();
+    }
+
+    physicsUpdate()
+    {
+        //lanzamos los respectivos eventos en función de la colisión con el objeto (estático)
+          if (this.touching && !this.wasTouching) this.emit("overlapstart");
+          if (!this.touching && this.wasTouching) this.emit("overlapend");
+          if (this.scene.spaceKey.justDown &&
+            this.touching &&
+            this.otter.backpack.paint >= this.sources.paint &&
+            this.otter.backpack.paper >= this.sources.paper &&
+            this.otter.backpack.clay >= this.sources.clay){
+                //Reducimos los recursos gastados por construir
+             this.otter.backpack.paint -= this.sources.paint;
+             this.otter.backpack.paper -= this.sources.paper;
+             this.otter.backpack.clay -= this.sources.clay;
+             this.setTexture(this.builtTexture); //Cambiamos sprite de estructura
+             this.zone.destroy() //Destruimos zona (no nos hace falta para nada ahora);
+             this.scene.UIManager.event.emit("updateInventory");//Actualiza HUD
+             this.built = true;
             }
-        }
-    
-        physicsUpdate()
-        {
-            //lanzamos los respectivos eventos en función de la colisión con el objeto (estático)
-              if (this.touching && !this.wasTouching) this.emit("overlapstart");
-              if (!this.touching && this.wasTouching) this.emit("overlapend");
-
-              if (this.scene.spaceKey.justDown &&
-                this.touching &&
-                this.otter.backpack.paint >= this.sources.paint &&
-                this.otter.backpack.paper >= this.sources.paper &&
-                this.otter.backpack.clay >= this.sources.clay){
-                    //Reducimos los recursos gastados por construir
-                 this.otter.backpack.paint -= this.sources.paint;
-                 this.otter.backpack.paper -= this.sources.paper;
-                 this.otter.backpack.clay -= this.sources.clay;
-
-                 this.setTexture(this.builtTexture); //Cambiamos sprite de estructura
-                 this.zone.destroy() //Destruimos zona (no nos hace falta para nada ahora);
-                 this.scene.backPackHUD.emit("updateInventory");//Actualiza HUD
-                 this.built = true;
-                }
-              //Reiniciamos valores de touching para el siguiente bucle de físicas
-              this.wasTouching = this.touching;
-              this.touching = false;
-        }
+          //Reiniciamos valores de touching para el siguiente bucle de físicas
+          this.wasTouching = this.touching;
+          this.touching = false;
+    }
 }
