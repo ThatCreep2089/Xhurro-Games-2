@@ -1,0 +1,39 @@
+{
+	"Dias": [
+		{
+			"val": 0,
+			"Dialog":[
+				{
+					"msgn": "Esto es una prueba1"
+				},
+				{
+					"msgn": "Esto es una prueba2"
+				},
+				{
+					"msgn": "Esto es una prueba3"
+				},
+				{
+					"msgn": "Esto es una prueba4"
+				}
+			]
+		},
+		{
+			"val": 1,
+			"Dialog":[
+				{
+					"msgn": "Esto es una prueba1_1"
+				},
+				{
+					"msgn": "Esto es una prueba2_1"
+				},
+				{
+					"msgn": "Esto es una prueba3_1"
+				},
+				{
+					"msgn": "Esto es una prueba4_1"
+				}
+			]
+		}
+	]
+	
+}

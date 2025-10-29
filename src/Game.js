@@ -1,4 +1,7 @@
 import MainScene from './scenes/mainScene.js';
+import Boot from './scenes/bootScene.js'
+import TitleScene from './scenes/menuScene.js';
+import Aux from './scenes/auxScene.js'
 
 /**
  * Inicio del juego en Phaser. Creamos el archivo de configuración del juego y creamos
@@ -13,12 +16,12 @@ let config = {
 	scale: {
 		autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
 	},
-	scene: [MainScene],	// Decimos a Phaser cual es nuestra escena, en este caso la escena es un 											//objeto formado por el método preload y create definidos más abajo en 										//este mismo archivo
+	scene: [Aux,Boot,TitleScene, MainScene],	// Decimos a Phaser cual es nuestra escena, en este caso la escena es un 											//objeto formado por el método preload y create definidos más abajo en 										//este mismo archivo
 	physics: { 
 		default: 'arcade', 
 		arcade: { 
 			gravity: { y: 0 }, 
-			debug: false 
+			debug: true 
 		},
 		checkCollision: {
 			up: true,
