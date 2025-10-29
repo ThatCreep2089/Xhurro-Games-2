@@ -69,9 +69,6 @@ export default class mainScene extends Phaser.Scene {
         this.createSources();
         this.createBuilds();
 
-        // HUD
-        this.createHUD();
-
         // NPCs
         this.createNPCs();
 
@@ -108,6 +105,9 @@ export default class mainScene extends Phaser.Scene {
             this.dialogActive = false;
             this.otter.canMove = true;
         });
+
+        // HUD
+        this.createHUD();
     }
 
     update(){
