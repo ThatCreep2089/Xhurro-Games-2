@@ -74,7 +74,6 @@ export default class Boot extends Phaser.Scene{
       this.load.image('spaceKey', '../assets/mainScene/keyboard_space.png')
 
       this.load.json('prueba','../data/DialogoPrueba.json')
-      
       this.first = false;
     }
 }

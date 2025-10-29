@@ -1,6 +1,6 @@
 @font-face {
 	font-family: 'bobFont';
-	src: url('../assets/SpongeboyMeBob.ttf') format('truetype');
+	src: url('../assets/CrayonLibre.ttf') format('truetype');
 }
 
 body{
@@ -11,6 +11,7 @@ body{
 
 p{
     font-size: 2.5vmin;
+    font-family: 'bobFont';
 }
 
 img{
@@ -130,7 +131,7 @@ img{
 
     font-family: 'bobFont';
     font-size: 3.5vmin;
-    /*font-weight: bold;*/
+    font-weight: bold;
     white-space: nowrap;
 }
 
