@@ -59,6 +59,41 @@ export default class mainScene extends Phaser.Scene {
                 this[key].justUp = true;
             });
         }
+        // === MINIJUEGOS_INFO ===
+        this.minigamesInfo = {
+            WackAMole:{
+                name: "Wack A Mole",
+                description: "Aplasta a los topos haciendo clic sobre ellos para ganar puntos antes de que se escondan. \n"+
+                             "Pero cuidado con la dinamita, si la aplastas explotará restandote puntos. \n"+
+                             "¡¡¡Consigue todos los puntos que puedas!!!",
+                src: 'WAMVideo',
+                price: 25,
+                reward:{
+                    amountPerX:2,
+                    X: 10
+                }
+            },
+            LightUpGhosts: {
+                name: "",
+                description: "",
+                src: "",
+                price: "",
+                reward:{
+                    amountPerX:"",
+                    X: ""
+                }
+            },
+            Puzzle: {
+                name: "",
+                description: "",
+                src: "",
+                price: "",
+                reward:{
+                    amountPerX:"",
+                    X: ""
+                }
+            }
+         }
 
         // === JUGADOR (Nutria) ===
         this.otter = new Otter(this, this.scale.width / 2, this.scale.height / 2, 20, 'otter', 0.2);
@@ -114,6 +149,6 @@ export default class mainScene extends Phaser.Scene {
         const npcData = this.cache.json.get('prueba');
 
         // Creamos a Toni
-        this.Toni = new NPC(this, 400, 500, 'toni', 0, npcData, this.otter);
+        this.Toni = new NPC(this, 400, 500, 'toni', 0, npcData, this.otter, this.minigamesInfo.WackAMole);
     }
 }

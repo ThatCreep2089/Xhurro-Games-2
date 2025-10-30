@@ -73,6 +73,13 @@ export default class Boot extends Phaser.Scene{
       this.load.image('buildSources', '../assets/mainScene/buildSources.jpg')
       this.load.image('spaceKey', '../assets/mainScene/keyboard_space.png')
 
+      // === RECURSOS DESCRIPCIÓN MINIJUEGOS ===
+      this.load.video('WAMVideo', '../assets/WackAMole/WAMVideo.mp4')
+      this.load.image('MGInfoBG', '../assets/mainScene/MGInfoBG.jpg')
+      this.load.image('acceptButton', '../assets/mainScene/acceptButton.jpg')
+      this.load.image('refuseButton', '../assets/mainScene/refuseButton.jpg')
+
+      // === RECURSOS DIÁLOGOS ===
       this.load.json('prueba','../data/DialogoPrueba.json')
       this.first = false;
     }

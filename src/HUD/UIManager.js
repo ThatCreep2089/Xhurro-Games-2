@@ -6,7 +6,7 @@ export default class UIManager {
         this.scene = scene;
         this.interactMessage = null;
         this.buildData = null;
-
+        this.minigameData = null;
         if (this.scene.scene.key == "mainScene") this.MainScene();
     }
 
@@ -121,5 +121,76 @@ export default class UIManager {
             this.buildData.destroy();
             this.buildData = null;
         }
+    }
+
+    appearMinigameInfo(minigameInfo)
+    {
+        this.minigameData = this.scene.add.container(this.scene.scale.width/2, this.scene.scale.height/2);
+
+        //Creamos toda la información de la pantalla
+        let background = this.scene.add.image(0, 0, 'MGInfoBG').setOrigin(0.5, 0.5);
+        background.setScale(this.size * 1.5)
+
+        //Nombre de minijuego
+        let name = this.scene.add.text(-395, -300, minigameInfo.name, {
+            fontFamily: 'bobFont',
+            fontSize: 50 * this.size + 'px',
+            color: '#000000',
+            wordWrap: { width: 400 }
+        }).setOrigin(0,0);
+
+        //Video
+        let source = this.scene.add.video(0, 0, minigameInfo.src).play(true);
+        source.setOrigin(0, 1);
+        source.setScale(this.size * 0.8);
+
+        //Descripción de minijuego
+        let description = this.scene.add.text(-395, -200, minigameInfo.description, {
+            fontFamily: 'bobFont',
+            fontSize: 25 * this.size + 'px',
+            color: '#000000',
+            wordWrap: { width: 400 }
+        }).setOrigin(0, 0);
+
+        //Precio (costo de energías por jugar)
+        let price = this.scene.add.text(-395, 90, "Precio: " + minigameInfo.price, {
+            fontFamily: 'bobFont',
+            fontSize: 35 * this.size + 'px',
+            color: '#000000'
+        }).setOrigin(0, 0);
+
+        //Recompensa de minijuego
+        let reward = this.scene.add.text(-395, 125, "Recompensa: " + minigameInfo.reward.amountPerX + " cada " + minigameInfo.reward.X + " puntos",{
+            fontFamily: 'bobFont',
+            fontSize: 35 * this.size + 'px',
+            color: '#000000'
+        }).setOrigin(0, 0);
+
+        //Botones
+        let accept = this.scene.add.image(5, 200, 'acceptButton').setInteractive().setOrigin(0, 0).setScale(this.size * 0.25);
+        let refuse = this.scene.add.image(-5, 200, 'refuseButton').setInteractive().setOrigin(1, 0).setScale(this.size * 0.2);
+
+        this.minigameData.add([background, name, source, description, price, reward, accept, refuse]);
+        this.minigameData.setScrollFactor(0);
+
+        accept.on('pointerdown', ()=>{
+            if (minigameInfo.name == 'Wack A Mole')
+            {
+                this.scene.scene.start('whackAMole');
+            }
+        });
+        refuse.on('pointerdown', ()=>{
+            this.disappearMinigameInfo();
+        })
+    }
+
+    disappearMinigameInfo()
+    {
+        if (this.minigameData != null)
+        {
+            this.minigameData.destroy();
+            this.minigameData = null;
+        }
+        this.scene.otter.canMove = true;
     }
 }

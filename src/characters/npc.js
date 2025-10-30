@@ -1,13 +1,14 @@
 import DialogText from "../dialog_plugin.js";
 
 export default class NPC extends Phaser.GameObjects.Sprite {
-    constructor(scene, x, y, texture, value, data, player) {
+    constructor(scene, x, y, texture, value, data, player, minigameInfo) {
         super(scene, x, y, texture);
         this.scene.add.existing(this);
         scene.physics.add.existing(this, true);
         this.val = value;
         this.datos = data;
         this.otter = player;
+        this.minigameInfo = minigameInfo;
 
         this.dialogActive = false;
         this.dialogList = [];
@@ -80,6 +81,8 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     closeDialog() {
         this.text.toggleWindow();
         this.dialogActive = false;
-        this.otter.canMove = true;
+
+        if (this.scene.UIManager != null)
+        this.scene.UIManager.appearMinigameInfo(this.minigameInfo);
     }
 }
