@@ -6,7 +6,11 @@ export default class UIManager {
         this.scene = scene;
         this.interactMessage = null;
         this.buildData = null;
-        this.minigameData = null;
+        this.minigameData = {
+            container: null,
+            accept: null,
+            refuse: null
+        };
         if (this.scene.scene.key == "mainScene") this.MainScene();
     }
 
@@ -60,7 +64,7 @@ export default class UIManager {
         paperNumber.setText("Papel: " + backpack.paper);
         clayNumber.setText("Arcilla: " + backpack.clay);
        });
-
+       //Suscripción para actualizar estamina
        this.event.on('updateStamina', ()=>{
         staminaNumber.setText("Estamina: " + this.scene.otter.getStamina());
        })
@@ -82,6 +86,7 @@ export default class UIManager {
         }
     }
 
+    //Hace aparecer la información de recursos necesarios para construir
     appearBuildData(sources){
         //HUD recursos necesarios para construir
         let enough = this.scene.otter.backpack.paint >= sources.paint &&
@@ -138,7 +143,7 @@ export default class UIManager {
 
     appearMinigameInfo(minigameInfo)
     {
-        this.minigameData = this.scene.add.container(this.scene.scale.width/2, this.scene.scale.height/2);
+        this.minigameData.container = this.scene.add.container(this.scene.scale.width/2, this.scene.scale.height/2);
 
         //Creamos toda la información de la pantalla
         let background = this.scene.add.image(0, 0, 'MGInfoBG').setOrigin(0.5, 0.5);
@@ -180,13 +185,15 @@ export default class UIManager {
         }).setOrigin(0, 0);
 
         //Botones
-        let accept = this.scene.add.image(5, 200, 'acceptButton').setInteractive().setOrigin(0, 0).setScale(this.size * 0.25);
-        let refuse = this.scene.add.image(-5, 200, 'refuseButton').setInteractive().setOrigin(1, 0).setScale(this.size * 0.2);
+        this.minigameData.accept = this.scene.add.image(450, 500, 'acceptButton').setInteractive().setOrigin(0, 0).setScale(this.size * 0.25);
+        this.minigameData.refuse = this.scene.add.image(250, 500, 'refuseButton').setInteractive().setOrigin(0, 0).setScale(this.size * 0.2);
 
-        this.minigameData.add([background, name, source, description, price, reward, accept, refuse]);
-        this.minigameData.setScrollFactor(0);
+        this.minigameData.container.add([background, name, source, description, price, reward]);
+        this.minigameData.container.setScrollFactor(0);
+        this.minigameData.accept.setScrollFactor(0);
+        this.minigameData.refuse.setScrollFactor(0);
 
-        accept.on('pointerdown', ()=>{
+        this.minigameData.accept.on('pointerdown', ()=>{
             if (minigameInfo.price <= this.scene.otter.getStamina()){
 
                 this.scene.otter.decreaseStaminaAmount(minigameInfo.price);
@@ -198,17 +205,27 @@ export default class UIManager {
             }
             else this.appearNotEnoughStamina();
         });
-        refuse.on('pointerdown', ()=>{
+        this.minigameData.refuse.on('pointerdown', ()=>{
             this.disappearMinigameInfo();
         })
     }
 
     disappearMinigameInfo()
     {
-        if (this.minigameData != null)
+        if (this.minigameData.container != null)
         {
-            this.minigameData.destroy();
-            this.minigameData = null;
+            this.minigameData.container.destroy();
+            this.minigameData.container = null;
+        }
+        if (this.minigameData.accept != null)
+        {
+            this.minigameData.accept.destroy();
+            this.minigameData.accept = null;
+        }
+        if (this.minigameData.refuse != null)
+        {
+            this.minigameData.refuse.destroy();
+            this.minigameData.refuse = null;
         }
         this.scene.otter.canMove = true;
     }
