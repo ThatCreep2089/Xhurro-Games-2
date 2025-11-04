@@ -24,8 +24,8 @@ img{
 
 .container
 {
-    width: 33.3%;
-    height:50vmin;
+    width: 50%;
+    height:80vmin;
     
     perspective: 1000px;
 
@@ -46,7 +46,7 @@ img{
 }
 
 .containerFront, .containerBack{
-    background-image: url("../assets/imagenesWeb/developerBG.png");
+    background-color: transparent;
     background-size:contain;
     background-position:center;
     background-repeat: no-repeat;
