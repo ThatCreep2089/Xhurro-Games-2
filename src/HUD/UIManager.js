@@ -43,7 +43,8 @@ export default class UIManager {
         let dayNumber = this.scene.add.text(675, 70, "Día: " + (this.scene.currentDay || 1),
         {
             fontFamily: 'bobFont',
-            fontSize: 25 * this.size + 'px'
+            fontSize: 25 * this.size + 'px',
+            color: '#000000'
         });
         cont.add(dayNumber);
         //HUD recursos en inventario
