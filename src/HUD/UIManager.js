@@ -33,10 +33,18 @@ export default class UIManager {
            {
                fontFamily: 'bobFont',
                fontSize: 25 * this.size + 'px',
-           })
+           });
+           //Estamina
+         let staminaNumber = this.scene.add.text(600, 70, "Estamina: " + this.scene.otter.getStamina(),
+           {
+               fontFamily: 'bobFont',
+               fontSize: 25 * this.size + 'px'
+           });
 
         //HUD recursos en inventario
-        cont.add([background, paintNumber, paperNumber, clayNumber])
+        cont.add([background, paintNumber, paperNumber, clayNumber, staminaNumber])
+
+        
 
         //Reposicionamos
         cont.setScrollFactor(0);
@@ -44,6 +52,7 @@ export default class UIManager {
         paintNumber.setOrigin(0, 0.5); paintNumber.setDisplayOrigin(0, 0.5);
         paperNumber.setOrigin(0.5, 0.5); paperNumber.setDisplayOrigin(0.5, 0.5);
         clayNumber.setOrigin(1, 0.5); clayNumber.setDisplayOrigin(1, 0.5);
+        staminaNumber.setOrigin(1, 0.5); staminaNumber.setDisplayOrigin(1, 0);
 
        //suscripción para actualizar inventario
        this.event.on('updateInventory', ()=>{
@@ -51,6 +60,10 @@ export default class UIManager {
         paperNumber.setText("Papel: " + backpack.paper);
         clayNumber.setText("Arcilla: " + backpack.clay);
        });
+
+       this.event.on('updateStamina', ()=>{
+        staminaNumber.setText("Estamina: " + this.scene.otter.getStamina());
+       })
     }
 
     //Hace aparecer el mensaje de interacción
@@ -174,10 +187,16 @@ export default class UIManager {
         this.minigameData.setScrollFactor(0);
 
         accept.on('pointerdown', ()=>{
-            if (minigameInfo.name == 'Wack A Mole')
-            {
-                this.scene.scene.start('whackAMole');
+            if (minigameInfo.price <= this.scene.otter.getStamina()){
+
+                this.scene.otter.decreaseStaminaAmount(minigameInfo.price);
+                this.event.emit("updateStamina");
+
+                if (minigameInfo.name == 'Wack A Mole'){
+                   this.scene.scene.start('whackAMole');
+                }
             }
+            else this.appearNotEnoughStamina();
         });
         refuse.on('pointerdown', ()=>{
             this.disappearMinigameInfo();
@@ -192,5 +211,18 @@ export default class UIManager {
             this.minigameData = null;
         }
         this.scene.otter.canMove = true;
+    }
+
+    appearNotEnoughStamina()
+    {
+        let warning = this.scene.add.image(0, 0, 'spaceKey');
+        warning.setScale(this.size*0.3);
+        warning.setOrigin(0.5, 1); warning.setPosition(this.scene.scale.width/2, this.scene.scale.height);
+
+        warning.setScrollFactor(0);
+
+        setTimeout(()=>{
+            warning.destroy();
+        }, 1500);
     }
 }

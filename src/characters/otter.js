@@ -37,7 +37,60 @@ export default class Otter extends Phaser.GameObjects.Sprite {
             paper: 0,
             clay: 0
         }
-        this.canMove = true
+
+        this.canMove = true //Controla cuando el jugador puede o no puede moverse
+
+        //Energía del jugador
+        this.stamina = 100;
+        this.howToDecrease = 4;
+    }
+
+    // === GESTIÓN DE INVENTARIO ===
+
+    //Disminuye los recursos de la mochila
+    buy(bag)
+    {
+        this.backpack.paint -= bag.paint;
+        this.backpack.paper -= bag.paper;
+        this.backpack.clay -= bag.clay
+    }
+
+    //Auenta los recursos de la mochila
+    collect(bag)
+    {
+        this.backpack.paint += bag.paint;
+        this.backpack.paper += bag.paper;
+        this.backpack.clay += bag.clay
+    }
+
+    //Comprueba si se tienen suficientes materiales para comprar
+    enough(bag)
+    {
+        return (bag.paint <= this.backpack.paint && bag.paper <= this.backpack.paper && bag.clay <= this.backpack.clay)
+    }
+
+    // === GESTIÓN DE ESTAMINA ===
+
+    //Disminuye la estamina en función del argumento amount
+    decreaseStaminaAmount(amount){
+        this.stamina -= amount;
+        console.log(this.stamina);
+    }
+    decreaseStamina(staminaPrice){
+        if (this.howToDecrease <= 0){
+            this.stamina -= staminaPrice;
+            this.howToDecrease = 4;
+        } else this.howToDecrease--;
+        console.log(this.stamina);
+    }
+    getStamina(){
+        return this.stamina;
+    }
+
+    //Reestablece la estamina
+    restartStamina()
+    {
+        this.stamina = 100;
     }
 
     /**

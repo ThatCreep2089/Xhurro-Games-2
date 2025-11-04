@@ -15,7 +15,7 @@ export default class Source extends Phaser.GameObjects.Sprite {
         //Variables únicas
         this.uses = uses; //Número de usos antes de desaparecer, si es 0 el recurso será ilimitado
         this.otter = this.scene.otter; //personaje controlado por usuario (tiene el inventario y se usa para calcular distancias con el objeto)
-        this.source = { //Recursos proporcionados por cada recolección
+        this.sources = { //Recursos proporcionados por cada recolección
             paint: paint,
             paper: paper,
             clay: clay
@@ -45,6 +45,8 @@ export default class Source extends Phaser.GameObjects.Sprite {
         //Suscripción para cada actualización de físicas
          this.scene.physics.world.on('worldstep', ()=>{this.physicsUpdate()});
         
+        //Estamina a reducir
+        this.staminaPrice = 2;
     }
 
     /**
@@ -59,6 +61,7 @@ export default class Source extends Phaser.GameObjects.Sprite {
 
     onCollisionEnter()
     {
+        if (this.otter.getStamina() >= this.staminaPrice)
         this.scene.UIManager.appearInteractMessage();
     }
 
@@ -74,23 +77,27 @@ export default class Source extends Phaser.GameObjects.Sprite {
           if (!this.touching && this.wasTouching) this.emit("overlapend");
 
           if (this.scene != null && this.scene.spaceKey.justDown && this.touching){
-                this.uses--; //Reducimos un uso del recurso
+               if(this.otter.getStamina() >= this.staminaPrice)
+               {
+                   this.uses--; //Reducimos un uso del recurso
 
-                //Actualizamos la mochila con los recursos obtenidos
-                this.otter.backpack.paint += this.source.paint;
-                this.otter.backpack.paper += this.source.paper;
-                this.otter.backpack.clay += this.source.clay;
-
-                //Actualizamos el HUD
-                this.scene.UIManager.event.emit("updateInventory");
-
-                //En caso de quedarse sin usos destruimos el objeto y sus atributos creados en escena
-                if (this.uses == 0)
-                {
-                    this.scene.UIManager.disappearInteractMessage();
-                    this.zone.destroy();
-                    this.destroy();
-                }
+                   //Actualizamos la mochila con los recursos obtenidos
+                   this.otter.collect(this.sources);
+                   //Reducimos estamina
+                   this.otter.decreaseStamina(this.staminaPrice);
+                   //Actualizamos el HUD
+                   this.scene.UIManager.event.emit("updateInventory");
+                   this.scene.UIManager.event.emit("updateStamina");
+                   
+                   //En caso de quedarse sin usos destruimos el objeto y sus atributos creados en escena
+                   if (this.uses == 0)
+                   {
+                       this.scene.UIManager.disappearInteractMessage();
+                       this.zone.destroy();
+                       this.destroy();
+                   }
+               }
+               else this.scene.UIManager.appearNotEnoughStamina();
             }
 
           //Reiniciamos valores de touching para el siguiente bucle de físicas
