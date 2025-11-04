@@ -1,3 +1,4 @@
+import GameDataManager from "../GameDataManager.js";
 export default class WhackAMole extends Phaser.Scene {
     constructor() {
         super({ key: 'whackAMole' });
@@ -77,7 +78,9 @@ export default class WhackAMole extends Phaser.Scene {
         this.timerText.setText('Tiempo: ' + this.timeleft);
 
         if (this.timeleft <= 0) {
-            this.scene.restart();
+            GameDataManager.player.stamina = Math.max(0, GameDataManager.player.stamina - 5);
+            GameDataManager.saveFrom(this.scene.get('mainScene') || this);
+            this.scene.start('mainScene');
         }
     }
 

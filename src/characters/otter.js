@@ -86,7 +86,9 @@ export default class Otter extends Phaser.GameObjects.Sprite {
     getStamina(){
         return this.stamina;
     }
-
+    setStamina(amount) {
+        this.stamina = Phaser.Math.Clamp(amount, 0, 100);
+    }
     //Reestablece la estamina
     restartStamina()
     {

@@ -3,6 +3,7 @@ import Source from "../gameObjects/source.js";
 import Build from "../gameObjects/build.js";
 import NPC from "../characters/npc.js";
 import UIManager from "../HUD/UIManager.js";
+import GameDataManager from "../GameDataManager.js";
 
 /**
  * Escena principal del juego.
@@ -98,6 +99,7 @@ export default class mainScene extends Phaser.Scene {
         // === JUGADOR (Nutria) ===
         this.otter = new Otter(this, this.scale.width / 2, this.scale.height / 2, 20, 'otter', 0.2);
         this.cameras.main.startFollow(this.otter);
+       
 
         // === FUENTES Y CONSTRUCCIONES ===
         this.createSources();
@@ -109,6 +111,17 @@ export default class mainScene extends Phaser.Scene {
         // === HUD ===
         this.createHUD();
 
+        import("../GameDataManager.js").then(module => {
+            const GameDataManager = module.default;
+            GameDataManager.applyTo(this);
+            this.UIManager.event.emit('updateDay');
+            // Reemitir eventos para refrescar visualmente
+            this.UIManager.event.emit('updateInventory');
+            this.UIManager.event.emit('updateStamina');
+        }); 
+
+        
+
         // === COLISIONES ===
         this.physics.add.collider(this.otter, this.Toni, () => {
             if (this.keyE.isDown && !this.Toni.dialogActive) {
@@ -118,6 +131,11 @@ export default class mainScene extends Phaser.Scene {
     }
 
     update() {
+        // Si la estamina llega a 0, pasar al siguiente día
+        if (this.otter.getStamina() <= 0 && !this.dayChanging) {
+            this.dayChanging = true; // evitar múltiples triggers
+            this.nextDay();
+        }
         // Resetear justDown / justUp
         let inputs = [this.spaceKey, this.keyW, this.keyA, this.keyS, this.keyD];
         for (const key in inputs) {
@@ -137,7 +155,13 @@ export default class mainScene extends Phaser.Scene {
     }
 
     createBuilds() {
-        new Build(this, 400, 1000, 'destroyedHouse', 'house', 0, 0, 3);
+        this.builds = [];
+
+        // ejemplo: construir 1 casa en (400,1000) — ajusta parámetros a tu atlas/texturas
+        const house = new Build(this, 400, 1000, 'destroyedHouse', 'house', 0, 0, 3, 1, 0, 'house_400_1000');
+        this.builds.push(house);
+
+        // añade más builds con ids distintos si necesitas
     }
 
     createHUD() {
@@ -150,5 +174,26 @@ export default class mainScene extends Phaser.Scene {
 
         // Creamos a Toni
         this.Toni = new NPC(this, 400, 500, 'toni', 0, npcData, this.otter, this.minigamesInfo.WackAMole);
+    }
+
+    nextDay() {
+        // Sumar 1 día
+        this.currentDay = (this.currentDay || 1) + 1;
+
+        // Restaurar estamina
+        this.otter.setStamina(100);
+
+        // Actualizar HUD
+        this.UIManager.event.emit('updateStamina');
+        this.UIManager.event.emit('updateDay');
+
+        // Guardar progreso
+        import("../GameDataManager.js").then(module => {
+            const GameDataManager = module.default;
+            GameDataManager.saveFrom(this);
+        });
+
+        // Reiniciar flag para permitir futuros cambios de día
+        this.time.delayedCall(500, () => this.dayChanging = false);
     }
 }

@@ -1,88 +1,84 @@
-export default class Source extends Phaser.GameObjects.Sprite {
-    /**
-     * @param {Scene} scene - escena en la que aparece
-     * @param {number} x - coordenada x
-     * @param {number} y - coordenada y 
-     * @param {Otter} otter - jugador en escena
-     */
-    constructor(scene, x, y,  texture, builtTexture, paint, paper, clay, size = 1, frame = 0) {
+// build.js
+export default class Build extends Phaser.GameObjects.Sprite {
+    constructor(scene, x, y, texture, builtTexture, paint = 0, paper = 0, clay = 0, size = 1, frame = 0, id = null) {
         super(scene, x, y, texture, frame);
 
-        
         this.setScale(size);
-        this.scene.add.existing(this); //Nos añadimos a la escena para ser mostrados.
+        this.scene.add.existing(this);
 
-        //variables únicas del objeto
-        this.builtTexture = builtTexture; //Sprite de la estructura reconstruida
-        this.built = false; //Booleano encargado de saber si la estructura sigue destruida o está reconstruida
-        this.otter = this.scene.otter; //jugador (tiene el inventario y sirve para calcular distancias)
-        this.sources = { //Recursos necesarios para reparación
-            paint: paint,
-            paper: paper,
-            clay: clay
-        };
-        this.message = null;
+        // Identificador único (por defecto posición)
+        this.id = id || `${Math.round(x)}_${Math.round(y)}`;
 
-        //Físicas
-          //Creamos zona de contacto con jugador
-         this.zone = scene.add.zone(x, y).setSize((this.width) + 10, (this.height * 0.2) + 10);
-           //Añadimos cuerpos a la escena
-         scene.physics.add.existing(this.zone, true);
-         scene.physics.add.existing(this, true);
-         //Reescalamos y reposicionamos
-         this.body.setSize(this.width, (this.height) * 0.2);
-         this.body.y = this.body.y + ((this.height / 2) - (this.body.height/2));
-         this.zone.body.y = this.zone.body.y + ((this.height / 2) - (this.body.height/2));
-          //Añadimos colisiones y overlaps
-         scene.physics.add.collider(this.otter, this);//Añadrimos la colisión de la nutria
-         scene.physics.add.overlap(this.otter, this.zone, ()=>{this.touching = true;}); //Contacto con zona
-          //Variables para controlar si la nutria está o no en contacto con la zona
-         this.touching = false;
-         this.wasTouching = false;
-        
-        //Suscripciones entrada/salida de colisiones
-         this.on("overlapstart", ()=>{this.onCollisionEnter()});
-         this.on("overlapend", ()=>{this.onCollisionExit()});
+        this.builtTexture = builtTexture || texture;
+        this.built = false;
 
-        //Suscripción para cada actualización de físicas
-         this.scene.physics.world.on('worldstep', ()=>{this.physicsUpdate()});
+        this.otter = this.scene.otter;
+        this.sources = { paint, paper, clay };
+
+        // Física / zona
+        this.zone = scene.add.zone(x, y).setSize(this.width + 10, (this.height * 0.2) + 10);
+        scene.physics.add.existing(this.zone, true);
+        scene.physics.add.existing(this, true);
+
+        this.body.setSize(this.width, (this.height) * 0.2);
+        this.body.y = this.body.y + ((this.height / 2) - (this.body.height / 2));
+        this.zone.body.y = this.zone.body.y + ((this.height / 2) - (this.body.height / 2));
+
+        scene.physics.add.collider(this.otter, this);
+        scene.physics.add.overlap(this.otter, this.zone, () => { this.touching = true; });
+
+        this.touching = false;
+        this.wasTouching = false;
+
+        this.on("overlapstart", () => { this.onCollisionEnter(); });
+        this.on("overlapend", () => { this.onCollisionExit(); });
+
+        this.scene.physics.world.on('worldstep', () => { this.physicsUpdate(); });
     }
 
-    /**
-     * Bucle principal del personaje, actualizamos su posición y ejecutamos acciones según el Input
-     * @param {number} t - Tiempo total
-     * @param {number} dt - Tiempo entre frames
-     */
-    preUpdate(t, dt) {
-        // Es muy imporante llamar al preUpdate del padre (Sprite), sino no se ejecutará la animación
-        super.preUpdate(t, dt);
+    onCollisionEnter() {
+        if (!this.built) this.scene.UIManager.appearBuildData(this.sources);
     }
 
-    onCollisionEnter()
-    {
-        this.scene.UIManager.appearBuildData(this.sources);
-    }
-    
-    onCollisionExit()
-    {
-        this.scene.UIManager.disappearBuildData();
+    onCollisionExit() {
+        if (!this.built) this.scene.UIManager.disappearBuildData();
     }
 
-    physicsUpdate()
-    {
-        //lanzamos los respectivos eventos en función de la colisión con el objeto (estático)
-          if (this.touching && !this.wasTouching) this.emit("overlapstart");
-          if (!this.touching && this.wasTouching) this.emit("overlapend");
-          if (this.scene.spaceKey.justDown && this.touching && this.otter.enough(this.sources)){
-             //Reducimos los recursos gastados por construir
-             this.otter.buy(this.sources);
-             this.setTexture(this.builtTexture); //Cambiamos sprite de estructura
-             this.zone.destroy() //Destruimos zona (la zona no nos hace falta para nada ahora);
-             this.scene.UIManager.event.emit("updateInventory");//Actualiza HUD
-             this.built = true;
+    physicsUpdate() {
+        if (this.touching && !this.wasTouching) this.emit("overlapstart");
+        if (!this.touching && this.wasTouching) this.emit("overlapend");
+
+        if (this.scene.spaceKey.justDown && this.touching && !this.built && this.otter.enough(this.sources)) {
+            // gastar recursos
+            this.otter.buy(this.sources);
+
+            // marcar construido y actualizar visual
+            this.finishConstruction();
+
+            // actualizar HUD
+            if (this.scene.UIManager && this.scene.UIManager.event) {
+                this.scene.UIManager.event.emit("updateInventory");
+                this.scene.UIManager.event.emit("updateStamina");
             }
-          //Reiniciamos valores de touching para el siguiente bucle de físicas
-          this.wasTouching = this.touching;
-          this.touching = false;
+
+            // guardar inmediatamente el estado global
+            import("../GameDataManager.js").then(module => {
+                const GameDataManager = module.default;
+                // asegúrate de que scene.builds contiene esta instancia (ver mainScene)
+                GameDataManager.saveFrom(this.scene);
+            });
+        }
+
+        this.wasTouching = this.touching;
+        this.touching = false;
+    }
+
+    finishConstruction() {
+        this.built = true;
+        if (this.builtTexture) this.setTexture(this.builtTexture);
+        if (this.zone) { this.zone.destroy(); this.zone = null; }
+        // ocultar UI de build si está visible
+        if (this.scene.UIManager) this.scene.UIManager.disappearBuildData();
+        console.log(`[Build] constructed id=${this.id}`);
     }
 }

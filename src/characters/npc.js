@@ -26,7 +26,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
 
     // Método principal: iniciar diálogo
     startDialog() {
-        this.locator = this.findDay(1);
+        this.locator = this.findDay(this.scene.currentDay);
 
         if (!this.locator) return;
 
