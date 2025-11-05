@@ -80,7 +80,7 @@ export default class Boot extends Phaser.Scene{
       this.load.image('refuseButton', './assets/mainScene/refuseButton.jpg')
 
       // === RECURSOS DIÁLOGOS ===
-      this.load.json('prueba','../data/DialogoPrueba.json')
+      this.load.json('prueba','./data/DialogoPrueba.json')
       this.first = false;
     }
 }
