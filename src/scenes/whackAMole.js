@@ -1,5 +1,6 @@
 import Mole from '../entities/mole.js';
 import Dynamite from '../entities/dynamite.js';
+import GameDataManager from "../GameDataManager.js";
 export default class WhackAMole extends Phaser.Scene {
     constructor() {
         super({ key: 'whackAMole' });

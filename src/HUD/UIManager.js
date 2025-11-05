@@ -194,8 +194,8 @@ export default class UIManager {
         }).setOrigin(0, 0);
 
         //Botones
-        let accept = this.scene.add.image(5, 200, 'acceptButton').setInteractive().setOrigin(0, 0).setScale(this.size * 0.25);
-        let refuse = this.scene.add.image(-5, 200, 'refuseButton').setInteractive().setOrigin(1, 0).setScale(this.size * 0.2);
+        this.minigameData.accept = this.scene.add.image(450, 500, 'acceptButton').setInteractive().setOrigin(0, 0).setScale(this.size * 0.25);
+        this.minigameData.refuse = this.scene.add.image(250, 500, 'refuseButton').setInteractive().setOrigin(0, 0).setScale(this.size * 0.2);
 
         this.minigameData.container.add([background, name, source, description, price, reward]);
         this.minigameData.container.setScrollFactor(0);
