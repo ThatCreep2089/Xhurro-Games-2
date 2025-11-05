@@ -5,8 +5,7 @@ export default class WhackAMole extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('topo', 'imagenes/boa.jpg');
-        this.load.image('hoyo', 'imagenes/hole.png');
+
         //this.load.image('map', 'assets/mainScene/map.png')
     }
 

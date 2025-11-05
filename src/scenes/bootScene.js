@@ -65,13 +65,15 @@ export default class Boot extends Phaser.Scene{
     //Metodo para meter todos los recursos que necesitemos
     loadResources(){
       this.load.image('map', '../assets/mainScene/map.png')
-      this.load.image('toni','../assets/imagenesWeb/Ismael.png')
+      this.load.image('toni','../assets/imagenes/Toni.png')
       this.load.image('map', '../assets/mainScene/map.png');
-      this.load.image('paint', '../assets/mainScene/paint.jpeg');
+      this.load.image('paint', '../assets/mainScene/paint.jpg');
       this.load.image('destroyedHouse', '../assets/mainScene/destroyedHouse.jpg');
       this.load.image('house', '../assets/mainScene/house.png');
       this.load.image('buildSources', '../assets/mainScene/buildSources.jpg')
       this.load.image('spaceKey', '../assets/mainScene/keyboard_space.png')
+      this.load.image('topo', '../assets/imagenes/boa.jpg');
+      this.load.image('hoyo', '../assets/imagenes/hole.png');
 
       // === RECURSOS DESCRIPCIÓN MINIJUEGOS ===
       this.load.video('WAMVideo', '../assets/WackAMole/WAMVideo.mp4')

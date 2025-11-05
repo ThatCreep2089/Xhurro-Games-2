@@ -18,8 +18,8 @@ export default class UIManager {
 
         //Declaramos todo el contenido del contenedor
         let background = this.scene.add.image(0, 0, 'house');
-        background.setScale(this.size)
-        let paintNumber = this.scene.add.text(0, 70, "Pintura: " + backpack.paint,
+        background.setScale(this.size,0)
+        let paintNumber = this.scene.add.text(50*this.size, 70, "Pintura: " + backpack.paint,
         {
             fontFamily: 'bobFont',
             fontSize: 25 * this.size + 'px',

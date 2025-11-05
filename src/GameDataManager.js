@@ -6,7 +6,7 @@ export default class GameDataManager {
     };
 
     static buildsConstructed = [];
-    static day = 1; // 🔹 Nuevo contador de días
+    static day = 1; //Nuevo contador de días
 
     static saveFrom(scene) {
         if (!scene) return;
@@ -25,7 +25,7 @@ export default class GameDataManager {
                 .map(b => b.id);
         }
 
-        // 🔹 Guardamos el día actual
+        //Guardamos el día actual
         if (scene.currentDay) this.day = scene.currentDay;
     }
 
@@ -45,7 +45,7 @@ export default class GameDataManager {
             }
         }
 
-        // 🔹 Restaurar día
+        // Restaurar día
         scene.currentDay = this.day;
 
         if (scene.builds && this.buildsConstructed.length) {
