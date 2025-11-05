@@ -74,6 +74,7 @@ export default class Boot extends Phaser.Scene{
       this.load.image('spaceKey', '../assets/mainScene/keyboard_space.png')
       this.load.image('topo', '../assets/imagenes/boa.jpg');
       this.load.image('hoyo', '../assets/imagenes/hole.png');
+      this.load.image('dinamita', 'imagenes/bomba.png');
 
       // === RECURSOS DESCRIPCIÓN MINIJUEGOS ===
       this.load.video('WAMVideo', '../assets/WackAMole/WAMVideo.mp4')

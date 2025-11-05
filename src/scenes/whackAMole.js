@@ -6,9 +6,7 @@ export default class WhackAMole extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('topo', 'imagenes/boa.jpg');
-        this.load.image('hoyo', 'imagenes/hole.png');
-        this.load.image('dinamita', 'imagenes/bomba.png');
+        
         //this.load.image('map', 'assets/mainScene/map.png')
     }
 
@@ -33,15 +31,14 @@ export default class WhackAMole extends Phaser.Scene {
             }
         }
 
-        //topo
-        this.mole = this.add.image(100, 100, 'topo').setScale(0.4).setVisible(false).setInteractive();
-        this.mole.on('pointerdown', () => {this.hitMole(); });
+        //topos y dinamitas
+        this.entities = [];
 
         const rndTime = Phaser.Math.Between(2100, 5000);
 
         this.time.addEvent({
             delay: rndTime,
-            callback: this.showMole,
+            callback: this.showRandomEntities,
             callbackScope: this,
             loop: true
         });
@@ -59,20 +56,49 @@ export default class WhackAMole extends Phaser.Scene {
 
     }
 
-    showMole() {
-        const rndHole = Phaser.Utils.Array.GetRandom(this.holes);
-        this.mole.setPosition(rndHole.x, rndHole.y);
-        this.mole.setVisible(true);
+    showRandomEntities() {
+        const availableHoles = Phaser.Utils.Array.Shuffle([...this.holes]);
+        let num;
+        const isMax = Math.random() < 0.1;
+        const isMin = Math.random() < 0.01;
+        const isMid = Math.random() < 0.2;
+
+        if (isMax) {
+            num = 3;
+        } else if (isMin) {
+            num = 5;
+        } else if (isMid) {
+            num = 2;
+        }
+        else {
+            num = 1;
+        }
+
+        for (let i = 0; i < num; i++) {
+            const hole = availableHoles[i];
+            
+            const isDynamite = Math.random() < 0.1;
+
+            let entity;
+            if (isDynamite) {
+                entity = new Dynamite(this, hole.x, hole.y);
+            } else {
+                entity = new Mole(this, hole.x, hole.y);
+            }
+
+            this.entities.push(entity);
+            entity.showAt(hole.x, hole.y);
+        }
         
-        setTimeout(() => {
+        /*setTimeout(() => {
             this.mole.setVisible(false);
-        }, 2000);
+        }, 2000);*/
     }
 
-    hitMole() {
-        this.score += 10;
+    updateScore(amount) {
+        this.score += amount;
         this.scoreText.setText('Puntos: ' + this.score);
-        this.mole.setVisible(false);
+        //this.mole.setVisible(false);
     }
 
     updateTimer() {
