@@ -1,11 +1,14 @@
-import GameDataManager from "../GameDataManager.js";
+import Mole from '../entities/mole.js';
+import Dynamite from '../entities/dynamite.js';
 export default class WhackAMole extends Phaser.Scene {
     constructor() {
         super({ key: 'whackAMole' });
     }
 
     preload() {
-
+        this.load.image('topo', 'imagenes/boa.jpg');
+        this.load.image('hoyo', 'imagenes/hole.png');
+        this.load.image('dinamita', 'imagenes/bomba.png');
         //this.load.image('map', 'assets/mainScene/map.png')
     }
 

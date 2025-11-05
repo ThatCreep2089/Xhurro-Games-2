@@ -196,10 +196,10 @@ export default class UIManager {
         this.minigameData.add([background, name, source, description, price, reward, accept, refuse]);
         this.minigameData.setScrollFactor(0);
 
-        accept.on('pointerdown', ()=>{
+        this.minigameData.accept.on('pointerdown', ()=>{
+            if (minigameInfo.price <= this.scene.otter.getStamina()){
             const otter = this.scene.otter;
             const price = minigameInfo.price;
-
             if (price <= otter.getStamina()) {
                 // Restar estamina
                 otter.decreaseStaminaAmount(price);
@@ -218,8 +218,9 @@ export default class UIManager {
             } else {
                 this.appearNotEnoughStamina();
             }
-        });
-        refuse.on('pointerdown', ()=>{
+        }
+    });
+        this.minigameData.refuse.on('pointerdown', ()=>{
             this.disappearMinigameInfo();
         })
     }
