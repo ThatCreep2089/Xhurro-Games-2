@@ -225,7 +225,8 @@ export default class UIManager {
             } else {
                 this.appearNotEnoughStamina();
             }
-        });
+        }
+    });
         this.minigameData.refuse.on('pointerdown', ()=>{
             this.disappearMinigameInfo();
         })
