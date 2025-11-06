@@ -23,7 +23,7 @@ Se trata de un juego RPG/Aventura,donde el protagonista tendrá que recolectar r
 </details>
 
 <details>
-<summary> Lore </summary>
+	<summary> Lore </summary>
   
 ## Lore
 Una nutria tenía una vida normal como la de cualquier otra nutria, pero todas las nutrias cambiamos, nunca somos la misma nutria…
@@ -31,7 +31,7 @@ La nutria entra en un proceso de desarrollo personal debido a un trastorno disoc
 </details>
 
 <details>
-<summary> Características principales </summary>
+	<summary> Características principales </summary>
   
 ## Características principales
 -Explora los paisajes del subconsciente de la nutria en vista cenital.
@@ -53,12 +53,12 @@ La nutria entra en un proceso de desarrollo personal debido a un trastorno disoc
 </details>
 </details>
 <details>
-    <summary> Objetivo del juego</summary>
+	<summary> Objetivo del juego</summary>
 	
 ## Objetivo del juego
 El objetivo del juego es reconstruir el subconsciente de la nutria con los recursos obtenidos antes de que acaben los seis días
 </details>
-
+</details>
 <details>
 <summary> Mecánicas </summary>
 <details>
