@@ -54,17 +54,23 @@ La nutria entra en un proceso de desarrollo personal debido a un trastorno disoc
 </details>
 <details>
     <summary> Objetivo del juego</summary>
-	  El objetivo del juego es reconstruir el subconsciente de la nutria con los recursos obtenidos antes de que acaben los seis días
+	
+## Objetivo del juego
+El objetivo del juego es reconstruir el subconsciente de la nutria con los recursos obtenidos antes de que acaben los seis días
+</details>
 </details>
 <details>
 <summary> Mecánicas </summary>
 <details>
 	<summary> Movimiento </summary>	
+
+## Movimiento
 El jugador podrá moverse en 4 direcciones, siendo los vectores de movimiento sobre el eje x (0,1), (1,0), (0,-1), (-1,0) y mirará hacia donde se mueve en todo momento. También estará normalizado, de forma que no se mueva más rápido en diagonal que en los ejes. El movimiento será inmediato, sin aceleración y digital para hacer unos controles más responsivos.
 El personaje frenará completamente con la colisión con estructuras y objetos sobre el suelo en el mapa (decoraciones, casas y recursos naturales).
 </details>	
 <details>
 	<summary> Recursos </summary>
+
 ## Recursos
 En el juego se podrán encontrar tres recursos:
 Pintura (integridad / bondad)
@@ -273,9 +279,11 @@ Los assests usados para los NPC son los profesores de la UCM pero represetnados 
 No obstante la mayor parte de assets son placehoders o imagenes usadas para la web o placeHolder. 
 </details>
 
-<sumary> **CAPTURAS DEL JUEGO** </sumary>  
+<sumary> **CAPTURAS DEL JUEGO** </sumary> 
+<details>
   <img width="896" height="672" alt="image" src="https://github.com/user-attachments/assets/236c1336-a5d0-4316-8869-bc00380bb4fc" />
   <img width="900" height="663" alt="image" src="https://github.com/user-attachments/assets/0fc99237-2715-4ecb-8891-9fdc1325f6b3" />
   <img width="901" height="674" alt="image" src="https://github.com/user-attachments/assets/07b20de9-df9a-4ad3-8138-b045af80195a" />
   <img width="899" height="672" alt="image" src="https://github.com/user-attachments/assets/a1826e9c-d26a-4918-9beb-6598b4cfad56" />
   <img width="897" height="672" alt="image" src="https://github.com/user-attachments/assets/42cff4b7-49c7-4967-9a80-2741ff2d59c9" />
+</details>
