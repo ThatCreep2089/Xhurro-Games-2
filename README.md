@@ -19,7 +19,6 @@ El juego es un RPG sin combates donde tenemos a una nutria como protagonista que
 
 <details>
 <summary> GDD </summary>
-<details> Resumen 
 <details>
 <summary> Género y PEGI </summary>
 	
@@ -51,7 +50,6 @@ La nutria entra en un proceso de desarrollo personal debido a un trastorno disoc
 
 -Controla a la nutria con el teclado y el ratón.
 
-</details>
 </details>
 <details>
   <details>
