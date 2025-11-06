@@ -234,18 +234,22 @@ export default class UIManager {
     disappearMinigameInfo()
     {
         if (this.minigameData.container != null){
-                this.minigameData.container.destroy();
-                this.minigameData.container = null;
-            }
-            if (this.minigameData.accept != null)
-            {
-                this.minigameData.accept.destroy();
-                this.minigameData.accept = null;
+            this.minigameData.container.destroy();
+            this.minigameData.container = null;
         }
-        if (this.minigameData.refuse != null)
-        {
+
+        if (this.minigameData.accept != null){
+            this.minigameData.accept.destroy();
+            this.minigameData.accept = null;
+        }
+        
+        if (this.minigameData.refuse != null){
             this.minigameData.refuse.destroy();
             this.minigameData.refuse = null;
+        }
+
+        if (this.scene.otter){
+            this.scene.otter.canMove = true;
         }
     }
 
