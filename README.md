@@ -19,7 +19,7 @@ El juego es un RPG sin combates donde tenemos a una nutria como protagonista que
 
 <details>
 <summary> GDD </summary>
-
+<details> Resumen 
 <details>
 <summary> Género y PEGI </summary>
 	
@@ -40,11 +40,18 @@ La nutria entra en un proceso de desarrollo personal debido a un trastorno disoc
   
 ## Características principales
 -Explora los paisajes del subconsciente de la nutria en vista cenital.
+
 -Recolecta emociones para reconstruir el subconsciente.
+
 -Adéntrate en la historia de superación personal de una pequeña nutria.
+
 -Reconstruye el subconsciente antes de alcanzar la fecha límite.
+
 -Arte estilo pastel-style / crayón-style.
+
 -Controla a la nutria con el teclado y el ratón.
+
+</details>
 </details>
 <details>
   <details>
