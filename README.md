@@ -309,6 +309,7 @@ Stardew Valley y Animal Crossing: por el modo de paso de días y gestión de rec
 Mario Party: los minijuegos y como se muestran al jugador se asemejan mucho a los de esta saga.
 </details>
 </details>
+</details>
 <details>
 	<summary>Assets</summary>
 
