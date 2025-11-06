@@ -122,8 +122,63 @@ Al acercarse al objeto/estructura aparecerá un pequeño texto con el nombre del
 <details>
 	<summary> Interfaz </summary>
 <details>
-	
+	<summary> Controles </summary>
+[W][A][S][D]: movimiento cartesiano.
+[Espacio]: interacción.
+[Esc]: acceder al menú.
 </details>
+<details>
+	<summary> Camara </summary>
+La cámara se colocará en posición cenital siguiendo a la nutria constantemente. Esta será del tamaño de la ventana del juego en la página web.
+Si el movimiento de la cámara implica que este se salga de los límites del layout del nivel, esta no se moverá (para que no se salga del mapa).
+</details>
+	<details>
+	<summary> HUD </summary>
+En cuanto al HUD, en la zona superior izquierda de la pantalla se podrán apreciar los recursos obtenidos. En la zona superior derecha se podrá obtener la estamina que se tiene en cada momento.
+En cuanto a los diálogos aparecerá en la zona inferior un recuadro con una imagen del personaje que está hablando, su nombre y el texto.
+Para las misiones encontraremos un pop-up que cubrirá toda la pantalla, contendrá el nombre de la misión en la zona superior izquierda, un poco más abajo una descripción detallada junto con una o varias imágenes que ayuden a entender el minijuego de la misión de un vistazo.
+Encontraremos además el coste de la misión (estamina) y la recompensa (las recompensas van en función de los puntos conseguidos a final de la partida, información más detallada en minijuegos). En la zona inferior podemos ver los botones para rechazar o aceptar la misión.
+</details>
+</details>
+<details>
+	<summary> Mundo del juego </summary>
+<details>
+	<summary> Personajes </summary>
+Nutria: protagonista de la historia. Es el personaje que controla el jugador. Es una nutria con un sombrero y pintada de manera abstracta tipo Picasso .
+
+NPCs para obtener misiones:
+Toni: se parecerá a Timmy Turner pero con el aspceto de TOni.
+Pablo: se pareceerá a Jimmy Neutron pero con los aspectos de Pablo 
+Ish: Forma parte de la banda EXODIA y no puede separarse de sus dos queridos compañeros de aventuras, Ma y El. Tiene el aspecto de un brazo derecho con mucha masa muscular.
+Ma: Forma parte de la banda EXODIA y no puede separarse de sus dos queridos compañeros de aventuras, Ish y El. Tiene el aspecto de la cabeza de un profesor de AA (como las pilas).
+El: Forma parte de la banda EXODIA y no puede separarse de sus dos queridos compañeros de aventuras, Ish y Ma. Tiene el aspecto de un brazo izquierdo con mucha masa muscular.
+Cleon y Rome: Una pareja feliz con una enorme determinación para seguir adelante con su relación. Cleon, que tendrá el aspecto de uno de los profesores de P2 con el vestido de novia, no puede separarse de su mujer con el traje de novia, Rome, con la apariencia de uno de los profesores de P2.
+</details>
+<details>
+	<summary> Mapa del mundo </summary>
+Representa la mente de la nutria, posiblemente se divida estéticamente en 5 zonas temáticas, por ejemplo: Un bosque quemado, una laguna, un parque, una zona de río y un campo de flores o jardín. Las zonas estarán interconectadas entre sí.
+</details>
+</details>
+<details>
+	<summary> Experiencia de juego </summary>
+El jugador se sumergirá en una historia de superación donde poco a poco empezará a reconstruir su subconsciente, se trata de una experiencia de juego tranquila con una dinámica simple de recolección de recursos y construcción en la que el jugador no se enfrenta a situaciones frenéticas como combates o similares.
+En cuanto a los minijuegos a pesar de ser sencillos y no requerir de una respuesta rápida de forma que no se pone al jugador en tensión sí que requieren un poco de concentración, todo esto sin alejarse de la experiencia relajada del gameplay.
+En general, el juego busca constantemente una experiencia relajada para el jugador de forma que pueda jugar al juego sin requerir mucha concentración en la mayoría de los casos.
+</details>
+<details>
+	<summary> Estética y contenido </summary>
+La estética del juego está enfocada a manualidades y arte, de esta forma el contenido visual del juego tiene un acabado pastel que hace que parezca que los personajes, objetos de la escena y fondos y escenarios están pintados con cera en un lienzo, haciendo referencia también a que el subconsciente como un lienzo que cada uno dibuja y colorea a su manera.
+
+En cuanto a la música se encontrarán temas tranquilos y que transmitan relajación y los efectos de sonido serán grabaciones de audio creadas por los desarrolladores con sus voces y sonidos encontrados en la vida cotidiana como puede ser el sonido de dejar un tenedor en un plato, de abrir una lata de refresco, entre otras cosas.
+</details>
+<details>
+	<summary> Referencias </summary>
+Psychonauts: estética y ambientación en  la mente de una persona con algún tipo de trauma.
+Paper Mario: los recursos que se recogen en el juego son manualidades que representan algún tipo de emoción/sentimiento.
+La mecánica se realiza en un tiempo determinado con un número limitado de acciones como: “Fear and Hunger: Termina” o "The Legend of Zelda Majora 's Mask".
+Expedition 33: al ser un RPG / Aventura basado en un mundo de pintura.
+Stardew Valley y Animal Crossing: por el modo de paso de días y gestión de recursos para construir.
+Mario Party: los minijuegos y como se muestran al jugador se asemejan mucho a los de esta saga.
 </details>
 </details>
 
