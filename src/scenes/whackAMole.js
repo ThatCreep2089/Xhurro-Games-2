@@ -107,7 +107,22 @@ export default class WhackAMole extends Phaser.Scene {
         this.timerText.setText('Tiempo: ' + this.timeleft);
 
         if (this.timeleft <= 0) {
-            GameDataManager.player.stamina = Math.max(0, GameDataManager.player.stamina - 5);
+
+            // Recuperar los datos de recompensa desde mainScene
+            const mainScene = this.scene.get('mainScene');
+            const rewardInfo = mainScene.minigamesInfo.WackAMole.reward;
+            const staminaDecrease = mainScene.minigamesInfo.WackAMole.price;
+
+            // Calcular la recompensa según la puntuación
+            const times = Math.floor(this.score / rewardInfo.X);
+            const rewardAmount = times * rewardInfo.amountPerX;
+
+            // Aplicar la recompensa
+            if (mainScene.otter && mainScene.otter.backpack) {
+                mainScene.otter.backpack.paint += rewardAmount; // o el recurso que prefieras
+            }
+
+            GameDataManager.player.stamina = GameDataManager.player.stamina - staminaDecrease;
             GameDataManager.saveFrom(this.scene.get('mainScene') || this);
             this.scene.start('mainScene');
         }
