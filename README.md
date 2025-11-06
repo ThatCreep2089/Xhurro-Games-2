@@ -58,6 +58,12 @@ La nutria entra en un proceso de desarrollo personal debido a un trastorno disoc
 ## Objetivo del juego
 El objetivo del juego es reconstruir el subconsciente de la nutria con los recursos obtenidos antes de que acaben los seis días
 </details>
+<details>
+	<summary> CoreLoop</summary>
+	
+## CoreLoop
+<img width="608" height="468" alt="image" src="https://github.com/user-attachments/assets/7f237e4b-969a-4fda-8f43-a01723906bc8" />
+</details>
 </details>
 <details>
 <summary> Mecánicas </summary>
@@ -194,9 +200,23 @@ Si el movimiento de la cámara implica que este se salga de los límites del lay
 		
 ## HUD
 En cuanto al HUD, en la zona superior izquierda de la pantalla se podrán apreciar los recursos obtenidos. En la zona superior derecha se podrá obtener la estamina que se tiene en cada momento.
+
+
+<img width="760" height="443" alt="image" src="https://github.com/user-attachments/assets/019e444a-a54c-4b8c-9089-ca9c41cb737f" />
+
+
 En cuanto a los diálogos aparecerá en la zona inferior un recuadro con una imagen del personaje que está hablando, su nombre y el texto.
+
+
+<img width="701" height="414" alt="image" src="https://github.com/user-attachments/assets/7c1226a7-fbff-4c92-bb8f-ebe284284bc8" />
+
+
 Para las misiones encontraremos un pop-up que cubrirá toda la pantalla, contendrá el nombre de la misión en la zona superior izquierda, un poco más abajo una descripción detallada junto con una o varias imágenes que ayuden a entender el minijuego de la misión de un vistazo.
 Encontraremos además el coste de la misión (estamina) y la recompensa (las recompensas van en función de los puntos conseguidos a final de la partida, información más detallada en minijuegos). En la zona inferior podemos ver los botones para rechazar o aceptar la misión.
+
+
+<img width="753" height="460" alt="image" src="https://github.com/user-attachments/assets/ea02e9e5-5d64-454f-8f63-6b30f361ee33" />
+
 </details>
 </details>
 <details>
@@ -207,11 +227,22 @@ Encontraremos además el coste de la misión (estamina) y la recompensa (las rec
 ## Personajes
 Nutria: protagonista de la historia. Es el personaje que controla el jugador. Es una nutria con un sombrero y pintada de manera abstracta tipo Picasso .
 
+
+<img width="342" height="313" alt="image" src="https://github.com/user-attachments/assets/bc7dee86-5351-4b5f-9dfc-657c5b466d58" />
+
+
 NPCs para obtener misiones:
 Toni: se parecerá a Timmy Turner pero con el aspceto de TOni.
 
 
+
+<img width="256" height="256" alt="image" src="https://github.com/user-attachments/assets/a2a56a00-f4e5-47fc-9934-a8c2d6337d90" />
+
+
 Pablo: se pareceerá a Jimmy Neutron pero con los aspectos de Pablo 
+
+
+<img width="201" height="327" alt="image" src="https://github.com/user-attachments/assets/06745476-ef1c-47b4-8cfb-a8e4e9914a69" />
 
 
 Ish: Forma parte de la banda EXODIA y no puede separarse de sus dos queridos compañeros de aventuras, Ma y El. Tiene el aspecto de un brazo derecho con mucha masa muscular.
@@ -223,6 +254,10 @@ Ma: Forma parte de la banda EXODIA y no puede separarse de sus dos queridos comp
 El: Forma parte de la banda EXODIA y no puede separarse de sus dos queridos compañeros de aventuras, Ish y Ma. Tiene el aspecto de un brazo izquierdo con mucha masa muscular.
 
 
+
+<img width="587" height="296" alt="image" src="https://github.com/user-attachments/assets/fba897a9-2549-4413-8358-253b7822c677" />
+
+
 Cleon y Rome: Una pareja feliz con una enorme determinación para seguir adelante con su relación. Cleon, que tendrá el aspecto de uno de los profesores de P2 con el vestido de novia, no puede separarse de su mujer con el traje de novia, Rome, con la apariencia de uno de los profesores de P2.
 </details>
 <details>
@@ -230,6 +265,10 @@ Cleon y Rome: Una pareja feliz con una enorme determinación para seguir adelant
 
 ## Mapa del mundo
 Representa la mente de la nutria, posiblemente se divida estéticamente en 5 zonas temáticas, por ejemplo: Un bosque quemado, una laguna, un parque, una zona de río y un campo de flores o jardín. Las zonas estarán interconectadas entre sí.
+
+
+<img width="525" height="394" alt="image" src="https://github.com/user-attachments/assets/113e546b-6576-46c4-8bc7-c76897a69a2e" />
+
 </details>
 </details>
 <details>
