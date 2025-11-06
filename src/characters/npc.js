@@ -16,7 +16,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         this.body.setSize(this.width/2,this.height/2);
         this.setScale(this.width/1500,this.height/1500);
         // Crear listener para tecla E (para avanzar diálogo)
-        this.scene.input.keyboard.on('keydown-E', () => {
+        this.scene.input.keyboard.on('keydown-SPACE', () => {
             if (this.dialogActive) this.nextDialog();
         });
     }

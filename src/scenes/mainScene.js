@@ -31,7 +31,6 @@ export default class mainScene extends Phaser.Scene {
             keyA: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A),
             keyS: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S),
             keyD: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D),
-            keyE: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E)
         };
 
         const inputStates = () => ({
@@ -46,7 +45,6 @@ export default class mainScene extends Phaser.Scene {
         this.keyA = inputStates();
         this.keyS = inputStates();
         this.keyD = inputStates();
-        this.keyE = inputStates();
 
         for (const key in this.#inputs) {
             this.#inputs[key].on('down', () => {
@@ -124,7 +122,7 @@ export default class mainScene extends Phaser.Scene {
 
         // === COLISIONES ===
         this.physics.add.collider(this.otter, this.Toni, () => {
-            if (this.keyE.isDown && !this.Toni.dialogActive) {
+            if (this.spaceKey.isDown && !this.Toni.dialogActive) {
                 this.Toni.startDialog();
             }
         });
