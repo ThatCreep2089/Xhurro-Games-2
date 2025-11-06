@@ -318,9 +318,9 @@ Los assets realizados irán acordes a la estética ya que tienen que tener algun
 Los assests usados para los NPC son los profesores de la UCM pero represetnados de manera satírica asociandolos con algun tipo de broma,pero ninguna de mal gusto.
 No obstante la mayor parte de assets son placehoders o imagenes usadas para la web o placeHolder. 
 </details>
-
-<sumary> **CAPTURAS DEL JUEGO** </sumary> 
 <details>
+<sumary> **CAPTURAS DEL JUEGO** </sumary> 
+
   <img width="896" height="672" alt="image" src="https://github.com/user-attachments/assets/236c1336-a5d0-4316-8869-bc00380bb4fc" />
   <img width="900" height="663" alt="image" src="https://github.com/user-attachments/assets/0fc99237-2715-4ecb-8891-9fdc1325f6b3" />
   <img width="901" height="674" alt="image" src="https://github.com/user-attachments/assets/07b20de9-df9a-4ad3-8138-b045af80195a" />
