@@ -19,7 +19,7 @@ El juego es un RPG sin combates donde tenemos a una nutria como protagonista que
 <summary> Género y PEGI </summary>
 	
 ## Género y PEGI
-Se trata de un juego RPG/Aventura,donde el protagonista tendrá que recolectar recursos para reconstruir si subsoncietne.EL PEGI es /,ya que es un juego cque aunque toque algun tema algo más profundo no contiene ningun acto d eviolencia,uso de sustancias,etc.
+Se trata de un juego RPG/Aventura,donde el protagonista tendrá que recolectar recursos para reconstruir si subsoncietne.EL PEGI es /, ya que es un juego que aunque toque algún tema algo más profundo no contiene ningún acto de violencia, uso de sustancias, etc.
 </details>
 
 <details>
@@ -71,7 +71,8 @@ El objetivo del juego es reconstruir el subconsciente de la nutria con los recur
 	<summary> Movimiento </summary>	
 
 ## Movimiento
-El jugador podrá moverse en 4 direcciones, siendo los vectores de movimiento sobre el eje x (0,1), (1,0), (0,-1), (-1,0) y mirará hacia donde se mueve en todo momento. También estará normalizado, de forma que no se mueva más rápido en diagonal que en los ejes. El movimiento será inmediato, sin aceleración y digital para hacer unos controles más responsivos.
+El jugador podrá moverse en 4 direcciones, siendo los vectores de movimiento sobre el eje x (0,1), (1,0), (0,-1), (-1,0) y mirará hacia donde se mueve en todo momento. También estará normalizado, de forma que no se mueva más rápido en diagonal que en los ejes.
+El movimiento será inmediato, sin aceleración y digital para hacer unos controles más responsivos.
 El personaje frenará completamente con la colisión con estructuras y objetos sobre el suelo en el mapa (decoraciones, casas y recursos naturales).
 </details>	
 <details>
@@ -79,6 +80,7 @@ El personaje frenará completamente con la colisión con estructuras y objetos s
 
 ## Recursos
 En el juego se podrán encontrar tres recursos:
+
 Pintura (integridad / bondad)
 
 	
@@ -90,6 +92,7 @@ Arcilla (determinación / valentía)
 
 Estos se conseguirán de diversas maneras, una de ellas será completando misiones y otra será recolectarlos de su medio natural.
 Para recolectarlos en su medio natural, el jugador deberá acercarse a la fuente del recurso y mantener pulsado la tecla de interacción unos segundos, obteniendo así poco a poco el recurso de la fuente. Este requerirá de una cantidad determinada de energía para conseguirlo, si no, no se podrá extraer.
+
 Solo habrá tres fuentes de recurso en todo el mapa y no se agotan. Un río de pintura de donde se obtendrá la pintura, unas flores de papel de donde se obtendrá el origami y unas piedras de donde se obtendrá la arcilla.
 </details>
 <details>
@@ -135,7 +138,7 @@ Whack-A-Mole: aparecerán topos cada cierto tiempo en un hoyo aleatorio y se ten
 Ilumina los fantasmas: por medio de una antorcha la cual se puede arrastrar (moviendo el ratón), se tendrá que alumbrar a distintos fantasmas para que desaparezcan (disminuirán su tamaño poco a poco). Si consigues eliminarlos te darán una cantidad fija de puntos, por el contrario al no conseguirlo, se acercarán a ti y te quitarán puntos. El objetivo, al igual que en el minijuego anterior, será llegar a una puntuación determinada en un tiempo límite. El jugador verá un escenario/paisaje oscuro y empezarán a aparecer fantasmas por la pantalla (cada vez en más abundancia conforme pase el tiempo). Estos se encontrarán en una posición fija o moviéndose por la pantalla.
 
 
-Puzzle: se tendrá que completar una imagen la cual se dividirá en piezas y tendrán una rotación distinta de 0 en el eje z. El jugador tendrá que girar las piezas haciendo clic en ellas para seleccionarlas/deseleccionarlas y, a continuación pulsando “q” y “e” (izquierda y derecha respectivamente) para rotarlas. Después se podrán arrastrar (una a una) manteniendo pulsado el click del ratón hasta colocarlas en un hueco del tablero, que no se completará hasta estar todas las piezas situadas correctamente y con rotación en z = 0. La perspectiva del jugador será una cuadrícula en la que tendremos que colocar las piezas, que inicialmente estarán dispuestas en los laterales del tablero. Si no se completa la imagen en el tiempo establecido, no se darán puntos, por el contrario si se consigue se entregará una cantidad fija de estos.
+Puzzle: se tendrá que completar una imagen la cual se dividirá en piezas y tendrán una rotación distinta de 0 en el eje z. El jugador tendrá que girar las piezas haciendo clic en ellas. La perspectiva del jugador será una cuadrícula en la que tendremos que las piezas. Si no se completa la imagen en el tiempo establecido, no se darán puntos, por el contrario si se consigue se entregará una cantidad fija de estos.
 
 
 La puntuación de los minijuegos dará una cantidad de recursos en función de los puntos, de forma que existe la posibilidad de que el gasto de estamina no salga rentable dependiendo de completar o no el minijuego (el minijuego del puzle solo te da puntos si completas la imagen en el tiempo establecido) o los puntos que consigues (en el minijuego de los topos y de los fantasmas siempre se ganan puntos, pero pueden ser más o menos). Todos los minijuegos se desarrollan en pantalla completa y en primera persona.
@@ -315,8 +318,11 @@ Mario Party: los minijuegos y como se muestran al jugador se asemejan mucho a lo
 
 ## Assets
 Los assets realizados irán acordes a la estética ya que tienen que tener algun tipo de aspecto artístico de alguno de esos movimientos (abstaracción,cubísmo,etc.)
+
 Los assests usados para los NPC son los profesores de la UCM pero represetnados de manera satírica asociandolos con algun tipo de broma,pero ninguna de mal gusto.
-No obstante la mayor parte de assets son placehoders o imagenes usadas para la web o placeHolder. 
+No obstante la mayor parte de assets son placehoders o imagenes usadas para la web o placeHolder.
+
+Los assets creados por los encargados de arte durante el desarrollo del proyecto se adhieren a una licencia de copyright en la que se reservan todos los derechos de autor.
 </details>
 
 <sumary> **CAPTURAS DEL JUEGO** </sumary> 
