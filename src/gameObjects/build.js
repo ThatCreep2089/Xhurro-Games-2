@@ -1,4 +1,5 @@
 // build.js
+import GameDataManager from "../GameDataManager.js";
 export default class Build extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, texture, builtTexture, paint = 0, paper = 0, clay = 0, size = 1, frame = 0, id = null) {
         super(scene, x, y, texture, frame);
@@ -80,5 +81,14 @@ export default class Build extends Phaser.GameObjects.Sprite {
         // ocultar UI de build si está visible
         if (this.scene.UIManager) this.scene.UIManager.disappearBuildData();
         console.log(`[Build] constructed id=${this.id}`);
+
+        /*const ending = GameDataManager.getEnding(6, 2);
+            if (ending === "good") {
+                console.log("Good ending");
+                //this.scene.start('victoryScene');
+            } else if (ending === "bad") {
+                console.log("Bad ending");
+                //this.scene.start('defeatScene');
+            } */
     }
 }

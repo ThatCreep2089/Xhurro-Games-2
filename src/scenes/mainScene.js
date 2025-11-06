@@ -191,6 +191,16 @@ export default class mainScene extends Phaser.Scene {
         import("../GameDataManager.js").then(module => {
             const GameDataManager = module.default;
             GameDataManager.saveFrom(this);
+
+            //condicion de final
+            const ending = GameDataManager.getEnding(6, 2); //2 construcciones o las que sean
+            if (ending === "good") {
+                console.log("Good ending");
+                //this.scene.start('victoryScene');
+            } else if (ending === "bad") {
+                console.log("Bad ending");
+                //this.scene.start('defeatScene');
+            }
         });
 
         // Reiniciar flag para permitir futuros cambios de día
