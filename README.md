@@ -13,7 +13,7 @@ El juego es un RPG sin combates donde tenemos a una nutria como protagonista que
 <details>
 <summary> GDD </summary>
 <details>
-	<summary> Resumen </summary>
+<summary> Resumen </summary>
 
 <details>
 <summary> Género y PEGI </summary>
