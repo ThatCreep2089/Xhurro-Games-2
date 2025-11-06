@@ -3,7 +3,7 @@ nutria juego
 https://thatcreep2089.github.io/Xhurro-Games-2
 a
 ## INDICE:
-<details> Este proyecto se trata de un trabajo universitario </details>
+ESTE PROYECTO ES UN TRABAJO UNIVERSITARIO
 <details>
   <summary> Descripción </summary>
 El juego es un RPG sin combates donde tenemos a una nutria como protagonista que, guiada por el hada Toni, tendrá que reconstruir su subconsciente (el cual está sometido a un proceso de cambio) ayudándose de las emociones en una serie de días. Si no lo consigue se perderá en su subconsciente, si lo consigue superará su proceso de desarrollo personal con éxito.
