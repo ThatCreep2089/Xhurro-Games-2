@@ -3,20 +3,18 @@ nutria juego
 https://thatcreep2089.github.io/Xhurro-Games-2
 a
 ## INDICE:
-<details>
-<summary> Este proyecto se trata de un trabajo universitario </summary>
-</details>
+<details> Este proyecto se trata de un trabajo universitario </details>
 <details>
   <summary> Descripción </summary>
-    El juego es un RPG sin combates donde tenemos a una nutria como protagonista que, guiada por el hada Toni, tendrá que reconstruir su subconsciente (el cual está       sometido a un proceso de cambio) ayudándose de las emociones en una serie de días. Si no lo consigue se perderá en su subconsciente, si lo consigue superará su        proceso de desarrollo personal con éxito.
+El juego es un RPG sin combates donde tenemos a una nutria como protagonista que, guiada por el hada Toni, tendrá que reconstruir su subconsciente (el cual está sometido a un proceso de cambio) ayudándose de las emociones en una serie de días. Si no lo consigue se perderá en su subconsciente, si lo consigue superará su proceso de desarrollo personal con éxito.
 </details>
 <details>
   <sumary>Capturas del juego</sumary>
-  ![imagen1]<img width="896" height="672" alt="image" src="https://github.com/user-attachments/assets/236c1336-a5d0-4316-8869-bc00380bb4fc" />
-  ![imagen2]<img width="900" height="663" alt="image" src="https://github.com/user-attachments/assets/0fc99237-2715-4ecb-8891-9fdc1325f6b3" />
-  ![imagen3]<img width="901" height="674" alt="image" src="https://github.com/user-attachments/assets/07b20de9-df9a-4ad3-8138-b045af80195a" />
-  ![imagen4]<img width="899" height="672" alt="image" src="https://github.com/user-attachments/assets/a1826e9c-d26a-4918-9beb-6598b4cfad56" />
-  ![imagen5]<img width="897" height="672" alt="image" src="https://github.com/user-attachments/assets/42cff4b7-49c7-4967-9a80-2741ff2d59c9" />
+  <img width="896" height="672" alt="image" src="https://github.com/user-attachments/assets/236c1336-a5d0-4316-8869-bc00380bb4fc" />
+  <img width="900" height="663" alt="image" src="https://github.com/user-attachments/assets/0fc99237-2715-4ecb-8891-9fdc1325f6b3" />
+  <img width="901" height="674" alt="image" src="https://github.com/user-attachments/assets/07b20de9-df9a-4ad3-8138-b045af80195a" />
+  <img width="899" height="672" alt="image" src="https://github.com/user-attachments/assets/a1826e9c-d26a-4918-9beb-6598b4cfad56" />
+  <img width="897" height="672" alt="image" src="https://github.com/user-attachments/assets/42cff4b7-49c7-4967-9a80-2741ff2d59c9" />
 </details>
 
 <details>
