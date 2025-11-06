@@ -310,6 +310,7 @@ Mario Party: los minijuegos y como se muestran al jugador se asemejan mucho a lo
 </details>
 </details>
 </details>
+</details>
 <details>
 	<summary>Assets</summary>
 
