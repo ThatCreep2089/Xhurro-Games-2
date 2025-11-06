@@ -58,7 +58,7 @@ La nutria entra en un proceso de desarrollo personal debido a un trastorno disoc
 ## Objetivo del juego
 El objetivo del juego es reconstruir el subconsciente de la nutria con los recursos obtenidos antes de que acaben los seis días
 </details>
-</details>
+
 <details>
 <summary> Mecánicas </summary>
 <details>
