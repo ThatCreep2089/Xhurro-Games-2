@@ -64,7 +64,7 @@ El objetivo del juego es reconstruir el subconsciente de la nutria con los recur
 ## CoreLoop
 <img width="608" height="468" alt="image" src="https://github.com/user-attachments/assets/7f237e4b-969a-4fda-8f43-a01723906bc8" />
 </details>
-</details>
+
 <details>
 <summary> Mecánicas </summary>
 <details>
@@ -309,8 +309,7 @@ Stardew Valley y Animal Crossing: por el modo de paso de días y gestión de rec
 Mario Party: los minijuegos y como se muestran al jugador se asemejan mucho a los de esta saga.
 </details>
 </details>
-</details>
-</details>
+
 <details>
 	<summary>Assets</summary>
 
