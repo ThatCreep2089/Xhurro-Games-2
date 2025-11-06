@@ -6,7 +6,11 @@ export default class UIManager {
         this.scene = scene;
         this.interactMessage = null;
         this.buildData = null;
-        this.minigameData = null;
+        this.minigameData = {
+            container: null,
+            accept: null,
+            refuse: null
+        };
         if (this.scene.scene.key == "mainScene") this.MainScene();
     }
 
@@ -17,26 +21,40 @@ export default class UIManager {
         let cont = this.scene.add.container(0, 0);
 
         //Declaramos todo el contenido del contenedor
-         let background = this.scene.add.image(0, 0, 'house');
-         background.setScale(this.size)
-         let paintNumber = this.scene.add.text(0, 70, "Pintura: " + backpack.paint,
-            {
-               fontFamily: 'bobFont',
-               fontSize: 25 * this.size + 'px',
-           });
-         let paperNumber = this.scene.add.text(200*this.size, 70, "Papel: " + backpack.paper,
-           {
-               fontFamily: 'bobFont',
-               fontSize: 25 * this.size + 'px',
-           });
-         let clayNumber = this.scene.add.text(350*this.size, 70, "Arcilla: " + backpack.clay,
-           {
-               fontFamily: 'bobFont',
-               fontSize: 25 * this.size + 'px',
-           })
-
+        let background = this.scene.add.image(0, 0, 'house');
+        background.setScale(this.size,0)
+        let paintNumber = this.scene.add.text(50*this.size, 70, "Pintura: " + backpack.paint,
+        {
+            fontFamily: 'bobFont',
+            fontSize: 25 * this.size + 'px',
+        });
+        let paperNumber = this.scene.add.text(200*this.size, 70, "Papel: " + backpack.paper,
+        {
+            fontFamily: 'bobFont',
+            fontSize: 25 * this.size + 'px',
+        });
+        let clayNumber = this.scene.add.text(350*this.size, 70, "Arcilla: " + backpack.clay,
+        {
+            fontFamily: 'bobFont',
+            fontSize: 25 * this.size + 'px',
+        });
+        //Estamina
+        let staminaNumber = this.scene.add.text(500, 70, "Estamina: " + this.scene.otter.getStamina(),
+        {
+            fontFamily: 'bobFont',
+            fontSize: 25 * this.size + 'px'
+        });
+        let dayNumber = this.scene.add.text(675, 70, "Día: " + (this.scene.currentDay || 1),
+        {
+            fontFamily: 'bobFont',
+            fontSize: 25 * this.size + 'px',
+            color: '#000000'
+        });
+        cont.add(dayNumber);
         //HUD recursos en inventario
-        cont.add([background, paintNumber, paperNumber, clayNumber])
+        cont.add([background, paintNumber, paperNumber, clayNumber, staminaNumber,dayNumber])
+
+        
 
         //Reposicionamos
         cont.setScrollFactor(0);
@@ -44,6 +62,7 @@ export default class UIManager {
         paintNumber.setOrigin(0, 0.5); paintNumber.setDisplayOrigin(0, 0.5);
         paperNumber.setOrigin(0.5, 0.5); paperNumber.setDisplayOrigin(0.5, 0.5);
         clayNumber.setOrigin(1, 0.5); clayNumber.setDisplayOrigin(1, 0.5);
+        staminaNumber.setOrigin(1, 0.5); staminaNumber.setDisplayOrigin(1, 0);
 
        //suscripción para actualizar inventario
        this.event.on('updateInventory', ()=>{
@@ -51,6 +70,14 @@ export default class UIManager {
         paperNumber.setText("Papel: " + backpack.paper);
         clayNumber.setText("Arcilla: " + backpack.clay);
        });
+
+       this.event.on('updateStamina', ()=>{
+        staminaNumber.setText("Estamina: " + this.scene.otter.getStamina());
+       })
+       this.event.on('updateDay', () => {
+            dayNumber.setText("Día: " + (this.scene.currentDay || 1));
+        });
+       
     }
 
     //Hace aparecer el mensaje de interacción
@@ -125,7 +152,7 @@ export default class UIManager {
 
     appearMinigameInfo(minigameInfo)
     {
-        this.minigameData = this.scene.add.container(this.scene.scale.width/2, this.scene.scale.height/2);
+        this.minigameData.container = this.scene.add.container(this.scene.scale.width/2, this.scene.scale.height/2);
 
         //Creamos toda la información de la pantalla
         let background = this.scene.add.image(0, 0, 'MGInfoBG').setOrigin(0.5, 0.5);
@@ -167,30 +194,75 @@ export default class UIManager {
         }).setOrigin(0, 0);
 
         //Botones
-        let accept = this.scene.add.image(5, 200, 'acceptButton').setInteractive().setOrigin(0, 0).setScale(this.size * 0.25);
-        let refuse = this.scene.add.image(-5, 200, 'refuseButton').setInteractive().setOrigin(1, 0).setScale(this.size * 0.2);
+        this.minigameData.accept = this.scene.add.image(450, 500, 'acceptButton').setInteractive().setOrigin(0, 0).setScale(this.size * 0.25);
+        this.minigameData.refuse = this.scene.add.image(250, 500, 'refuseButton').setInteractive().setOrigin(0, 0).setScale(this.size * 0.2);
 
-        this.minigameData.add([background, name, source, description, price, reward, accept, refuse]);
-        this.minigameData.setScrollFactor(0);
+        this.minigameData.container.add([background, name, source, description, price, reward]);
+        this.minigameData.container.setScrollFactor(0);
+        this.minigameData.accept.setScrollFactor(0);
+        this.minigameData.refuse.setScrollFactor(0);
 
-        accept.on('pointerdown', ()=>{
-            if (minigameInfo.name == 'Wack A Mole')
-            {
-                this.scene.scene.start('whackAMole');
+        this.minigameData.accept.on('pointerdown', ()=>{
+            if (minigameInfo.price <= this.scene.otter.getStamina()){
+            const otter = this.scene.otter;
+            const price = minigameInfo.price;
+            if (price <= otter.getStamina()) {
+                // Restar estamina
+                otter.decreaseStaminaAmount(price);
+                this.event.emit("updateStamina");
+
+                // 🔹 Guardar datos antes de cambiar de escena
+                import("../GameDataManager.js").then(module => {
+                    const GameDataManager = module.default;
+                    GameDataManager.saveFrom(this.scene);
+
+                    // 🔹 Cambiar a la escena del minijuego
+                    if (minigameInfo.name === 'Wack A Mole') {
+                        this.scene.scene.start('whackAMole');
+                    }
+                });
+            } else {
+                this.appearNotEnoughStamina();
             }
-        });
-        refuse.on('pointerdown', ()=>{
+        }
+    });
+        this.minigameData.refuse.on('pointerdown', ()=>{
             this.disappearMinigameInfo();
         })
     }
 
     disappearMinigameInfo()
     {
-        if (this.minigameData != null)
-        {
-            this.minigameData.destroy();
-            this.minigameData = null;
+        if (this.minigameData.container != null){
+            this.minigameData.container.destroy();
+            this.minigameData.container = null;
         }
-        this.scene.otter.canMove = true;
+
+        if (this.minigameData.accept != null){
+            this.minigameData.accept.destroy();
+            this.minigameData.accept = null;
+        }
+        
+        if (this.minigameData.refuse != null){
+            this.minigameData.refuse.destroy();
+            this.minigameData.refuse = null;
+        }
+
+        if (this.scene.otter){
+            this.scene.otter.canMove = true;
+        }
+    }
+
+    appearNotEnoughStamina()
+    {
+        let warning = this.scene.add.image(0, 0, 'spaceKey');
+        warning.setScale(this.size*0.3);
+        warning.setOrigin(0.5, 1); warning.setPosition(this.scene.scale.width/2, this.scene.scale.height);
+
+        warning.setScrollFactor(0);
+
+        setTimeout(()=>{
+            warning.destroy();
+        }, 1500);
     }
 }

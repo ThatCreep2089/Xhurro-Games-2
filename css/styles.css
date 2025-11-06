@@ -5,8 +5,8 @@
 
 body{
     background-image: url("../assets/imagenesWeb/webBackground.jpg");
-    background-size: cover;
     background-repeat: none;
+    background-size:400vmin;
 }
 
 p{
@@ -24,8 +24,8 @@ img{
 
 .container
 {
-    width: 33.3%;
-    height:50vmin;
+    width: 50%;
+    height:80vmin;
     
     perspective: 1000px;
 
@@ -46,21 +46,22 @@ img{
 }
 
 .containerFront, .containerBack{
+    background-color: transparent;
+    background-size:contain;
+    background-position:center;
+    background-repeat: no-repeat;
     position: absolute;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    border: 0.5vmin solid black;
     display:flex;
     align-items: center;
 }
 
 .containerFront{
-    background: #53243F;
     justify-content: center;
 }
 .containerBack{
-    background:grey;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -83,7 +84,15 @@ img{
   padding-bottom: 0.5vmin;
   text-wrap: initial;
 }
-
+.contentBackground{
+    background-image: url("../assets/imagenesWeb/contentBackground.jpg");
+    background-repeat:repeat;
+    background-size: 50vmin;
+    display: flex;
+    justify-self: center;
+    max-width: 165vmin;
+    padding: 2vmin;
+}
 .nonInitialContent{
     display: none;
 }
@@ -112,9 +121,9 @@ img{
     justify-content: center;
     align-items: center;
 
-    background-color: grey;
-
-    border: 0.5vmin, solid, black;
+    background-image: url("../assets/imagenesWeb/tabsBackground.png");
+    background-size: contain;
+    background-repeat: repeat;
 }
 
 .tabs button{
@@ -142,7 +151,6 @@ img{
 .redesL{
     max-width: 100%;
     max-height: 100%;
-
     display: flex;
     flex-direction: column;
     justify-content: top;
@@ -180,7 +188,8 @@ img{
 {
     border:none;
     background-image: url("../assets/imagenesWeb/instagram.png");
-    background-size: contain;
+    background-size: 8vmin;
+    background-position: center;
     width: 11.5vmin;
     height: 11.5vmin;
     border-radius: 100%;
@@ -191,7 +200,8 @@ img{
 .Tiktok{
     border:none;
     background-image: url("../assets/imagenesWeb/tiktok.png");
-    background-size: contain;
+    background-size: 13vmin;
+    background-position: center;
     width: 11.5vmin;
     height: 11.5vmin;
     border-radius: 100%;
@@ -202,7 +212,8 @@ img{
 .Github{
     border:none;
     background-image: url("../assets/imagenesWeb/github.png");
-    background-size: cover;
+    background-size: 14vmin;
+    background-position: center;
     width: 11.5vmin;
     height: 11.5vmin;
     border-radius: 100%;
@@ -213,7 +224,8 @@ img{
 .Youtube{
     border:none;
     background-image: url("../assets/imagenesWeb/youtube.png");
-    background-size: contain;
+    background-size: 10vmin;
+    background-position:center;
     width: 11.5vmin;
     height: 11.5vmin;
     border-radius: 100%;
@@ -224,7 +236,7 @@ img{
 .Twitter{
     border:none;
     background-image: url("../assets/imagenesWeb/twitter.png");
-    background-size: cover;
+    background-size: 9vmin;
     background-position: center;
     width: 11.5vmin;
     height: 11.5vmin;

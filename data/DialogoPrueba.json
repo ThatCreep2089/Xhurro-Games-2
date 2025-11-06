@@ -1,7 +1,7 @@
 {
 	"Dias": [
 		{
-			"val": 0,
+			"val": 1,
 			"Dialog":[
 				{
 					"msgn": "Esto es una prueba1"
@@ -18,7 +18,7 @@
 			]
 		},
 		{
-			"val": 1,
+			"val": 0,
 			"Dialog":[
 				{
 					"msgn": "Esto es una prueba1_1"

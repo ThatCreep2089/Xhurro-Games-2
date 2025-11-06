@@ -13,9 +13,10 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         this.dialogActive = false;
         this.dialogList = [];
         this.dialogIndex = 0;
-
+        this.body.setSize(this.width/2,this.height/2);
+        this.setScale(this.width/1500,this.height/1500);
         // Crear listener para tecla E (para avanzar diálogo)
-        this.scene.input.keyboard.on('keydown-E', () => {
+        this.scene.input.keyboard.on('keydown-SPACE', () => {
             if (this.dialogActive) this.nextDialog();
         });
     }
@@ -26,7 +27,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
 
     // Método principal: iniciar diálogo
     startDialog() {
-        this.locator = this.findDay(1);
+        this.locator = this.findDay(this.scene.currentDay);
 
         if (!this.locator) return;
 
