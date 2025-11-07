@@ -1,6 +1,23 @@
 # Xhurro-Games-2
-nutria juego
-https://thatcreep2089.github.io/Xhurro-Games-2
+
+Copyright © 2025 Víctor Martínez Moreno, Ismael Ortega Sánchez, Alicia Pérez Bumalag y Claudia Pérez Campoo           Todos los derechos reservados.
+Los autores de la documentación, código y recursos de este trabajo, conceden permiso permanente a los profesores de la Facultad de Informática de la Universidad Complutense de Madrid para utilizar nuestro material, con sus comentarios y evaluaciones, con fines educativos o de investigación; ya sea para obtener datos agregados de forma anónima como para utilizarlo total o parcialmente reconociendo expresamente nuestra autoría.
+
+Equipo de desarrollo:
+Martínez Moreno, Víctor
+Ortega Sánchez, Ismael
+Pérez Bumanlag, Alicia
+Pérez Campoo, Claudia
+
+Enlace a web: https://thatcreep2089.github.io/Xhurro-Games-2
+
+Cartas utilizadas:
+Slot 0: EN BLANCO (AO8)
+Slot 1: NUTRIA CON SOMBRERO (P01)
+Slot 2: NAVI (P24)
+Slot 3: TERRAFORMING MARS (M09)
+Slot 4: FINAL FANTASY (M30)
+Slot 5: PROFESORES DE LA FDI (P02)
 
 ## INDICE:
 ESTE PROYECTO ES UN TRABAJO UNIVERSITARIO
