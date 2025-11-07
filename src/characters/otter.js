@@ -84,6 +84,7 @@ export default class Otter extends Phaser.GameObjects.Sprite {
         console.log(this.stamina);
     }
     getStamina(){
+        console.log(this.stamina)
         return this.stamina;
     }
     setStamina(amount) {

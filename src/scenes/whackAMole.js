@@ -46,7 +46,7 @@ export default class WhackAMole extends Phaser.Scene {
 
         
         this.timeleft = 10; //tiempo inicial en seg
-        this.timerText = this.add.text(600, 16, 'Tiempo: 30', { fontSize: '32px', fill: '#FFF' });
+        this.timerText = this.add.text(600, 16, 'Tiempo: 10', { fontSize: '32px', fill: '#FFF' });
 
         this.time.addEvent({
             delay: 1000,
