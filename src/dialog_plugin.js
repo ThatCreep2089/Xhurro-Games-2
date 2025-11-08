@@ -120,7 +120,7 @@ export default class DialogText{
 
 			const cam = this.scene.cameras.main;
 
-			// 🔹 Ajustamos tanto en X como en Y según el scroll de la cámara
+			// Ajustamos tanto en X como en Y según el scroll de la cámara
 			const x = cam.scrollX + this.padding;
 			const y = cam.scrollY + cam.height - this.windowHeight - this.padding;
 
@@ -168,7 +168,6 @@ export default class DialogText{
 			rectHeight
 		};
 	}
-
 	// Crea la ventana interior, donde se muestra el texto 
 	_createInnerWindow(x, y, rectWidth, rectHeight) {
 		//rellena con el color y alpha especificados en las propiedades

@@ -4,6 +4,7 @@ import Build from "../gameObjects/build.js";
 import NPC from "../characters/npc.js";
 import UIManager from "../HUD/UIManager.js";
 import GameDataManager from "../GameDataManager.js";
+import Navi from "../characters/navi.js";
 
 /**
  * Escena principal del juego.
@@ -97,6 +98,7 @@ export default class mainScene extends Phaser.Scene {
         // === JUGADOR (Nutria) ===
         this.otter = new Otter(this, this.scale.width / 2, this.scale.height / 2, 20, 'otter', 0.2);
         this.cameras.main.startFollow(this.otter);
+        this.navi = new Navi(this, this.otter, -80, 0, 'otter', 0.15,300);
        
 
         // === FUENTES Y CONSTRUCCIONES ===
