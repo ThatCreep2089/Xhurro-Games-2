@@ -74,17 +74,14 @@ export default class Otter extends Phaser.GameObjects.Sprite {
     //Disminuye la estamina en función del argumento amount
     decreaseStaminaAmount(amount){
         this.stamina -= amount;
-        console.log(this.stamina);
     }
     decreaseStamina(staminaPrice){
         if (this.howToDecrease <= 0){
             this.stamina -= staminaPrice;
             this.howToDecrease = 4;
         } else this.howToDecrease--;
-        console.log(this.stamina);
     }
     getStamina(){
-        console.log(this.stamina)
         return this.stamina;
     }
     setStamina(amount) {

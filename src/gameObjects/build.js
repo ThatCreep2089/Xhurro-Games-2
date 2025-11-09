@@ -80,7 +80,6 @@ export default class Build extends Phaser.GameObjects.Sprite {
         if (this.zone) { this.zone.destroy(); this.zone = null; }
         // ocultar UI de build si está visible
         if (this.scene.UIManager) this.scene.UIManager.disappearBuildData();
-        console.log(`[Build] constructed id=${this.id}`);
 
         /*const ending = GameDataManager.getEnding(6, 2);
             if (ending === "good") {
