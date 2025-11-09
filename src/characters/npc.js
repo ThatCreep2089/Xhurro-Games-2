@@ -28,18 +28,15 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     // Método principal: iniciar diálogo
     startDialog() {
         this.locator = this.findDay(this.scene.currentDay);
-
         if (!this.locator) return;
 
-        // Guardamos lista de mensajes
+        // Registrar este NPC como el que abrió el diálogo para que la X pueda referenciarlo
+        this.scene.currentNPC = this;
+
         this.dialogList = this.locator.Dialog;
         this.dialogIndex = 0;
-
-        // Activamos diálogo y bloqueamos movimiento
         this.dialogActive = true;
         this.otter.canMove = false;
-
-        // Mostrar primer mensaje
         this.showDialog();
     }
 
@@ -148,29 +145,119 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         this.speakerImage.setPosition(x, y);
     }
 
-    closeDialog() {
-        this.text.toggleWindow();
+   closeDialog() {
+        // Evitar dobles llamadas
+        if (this.closing) return;
+        this.closing = true;
+
+        // Destruir solo los visuales (mantener dialogIndex conforme a finalización)
+        this.destroyDialogVisuals();
+
         this.dialogActive = false;
 
-        // Quitar listener de cámara
-        this.scene.events.off('postupdate', this._updatePortraitPos, this);
+        // Abrir menú del minijuego (si existe)
+        if (this.scene && this.scene.UIManager && this.minigameInfo) {
+            const ui = this.scene.UIManager;
 
-        // Desaparecer retrato suavemente
+            // Limpiamos listeners previos y añadimos uno para limpieza final
+            ui.event.removeAllListeners('minigame:closed');
+
+            // Cuando se cierre (rechazar o cerrar), garantizamos limpieza extra por si algo quedara
+            ui.event.once('minigame:closed', () => {
+                // Aquí nos aseguramos de que no quede nada visible
+                this.destroyDialogVisuals();
+                // Restaurar movimiento por si acaso (rechazo)
+                if (this.otter) this.otter.canMove = true;
+            });
+
+            // Llamamos al UI para que aparezca
+            ui.appearMinigameInfo(this.minigameInfo);
+        } else {
+            // Si no hay UIManager, al menos permitir moverse de nuevo
+            if (this.otter) this.otter.canMove = true;
+        }
+
+        this.closing = false;
+    }
+
+   forceCloseDialog() {
+        // Limpieza visual (garantizada)
+        this.destroyDialogVisuals();
+
+        // Reiniciar lógica de diálogo
+        this.dialogActive = false;
+        this.dialogIndex = 0;
+        this.closing = false;
+
+        // Restaurar movimiento
+        if (this.otter) this.otter.canMove = true;
+
+        // Limpiar referencia global si existe
+        if (this.scene) {
+            if (this.scene.currentNPC === this) this.scene.currentNPC = null;
+        }
+    }
+
+
+    destroyDialogVisuals() {
+        const scene = this.scene;
+
+        if (this.text) {
+            // Tween para desvanecer el cuadro y texto
+            const targets = [];
+            if (this.text.graphics) targets.push(this.text.graphics);
+            if (this.text.text) targets.push(this.text.text);
+
+            if (targets.length > 0) {
+                scene.tweens.add({
+                    targets: targets,
+                    alpha: 0,
+                    duration: 250, // duración del desvanecido en ms
+                    ease: 'Sine.easeInOut',
+                    onComplete: () => {
+                        try {
+                            if (this.text.text) this.text.text.destroy();
+                            if (this.text.graphics) this.text.graphics.destroy();
+                            if (this.text.closeBtn) this.text.closeBtn.destroy();
+                        } catch (e) { /* ignore */ }
+
+                        this.text = null;
+                    }
+                });
+            } else {
+                // fallback si no hay tween posible
+                try {
+                    if (this.text.text) this.text.text.destroy();
+                    if (this.text.graphics) this.text.graphics.destroy();
+                    if (this.text.closeBtn) this.text.closeBtn.destroy();
+                } catch (e) { /* ignore */ }
+                this.text = null;
+            }
+
+            // Detener evento de escritura si existía
+            if (this.text.timedEvent) {
+                try { this.text.timedEvent.remove(); } catch (e) { /* ignore */ }
+            }
+        }
+
+        // Desvanecer retrato también
         if (this.speakerImage) {
-            this.scene.tweens.add({
+            scene.tweens.add({
                 targets: this.speakerImage,
                 alpha: 0,
-                duration: 200,
+                duration: 250,
+                ease: 'Sine.easeInOut',
                 onComplete: () => {
-                    this.speakerImage.destroy();
+                    try { this.speakerImage.destroy(); } catch (e) {}
                     this.speakerImage = null;
                 }
             });
         }
 
-        if (this.scene.UIManager)
-            this.scene.UIManager.appearMinigameInfo(this.minigameInfo);
+        // Eliminar listeners de actualización
+        try { scene.events.off('postupdate', this._updatePortraitPos, this); } catch (e) {}
     }
+
 
 
     // Avanzar al siguiente mensaje

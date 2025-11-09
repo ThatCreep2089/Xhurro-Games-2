@@ -230,7 +230,9 @@ export default class DialogText{
 		});
 		this.closeBtn.on('pointerdown', function () {
 			self.toggleWindow(); // Cierra la ventana
-			
+			if (this.scene && this.scene.currentNPC) {
+				this.scene.currentNPC.forceCloseDialog();
+			}
 			// elimina el game object con el texto y borra el evento
 			if (self.timedEvent) 
 				self.timedEvent.remove();

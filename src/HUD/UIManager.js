@@ -251,6 +251,10 @@ export default class UIManager {
         if (this.scene.otter){
             this.scene.otter.canMove = true;
         }
+
+        if (this.event) {
+            this.event.emit('minigame:closed');
+        }
     }
 
     appearNotEnoughStamina()
