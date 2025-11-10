@@ -1,9 +1,10 @@
 export default class UIManager {
 
-    constructor(scene, size = 1){
+    constructor(scene, size = 1, color = '#FFFFFF'){
         this.event = new Phaser.Events.EventEmitter();
         this.size = size;
         this.scene = scene;
+        this.color = color;
         this.interactMessage = null;
         this.buildData = null;
         this.minigameData = {
@@ -12,6 +13,7 @@ export default class UIManager {
             refuse: null
         };
         if (this.scene.scene.key == "mainScene") this.MainScene();
+        else if (this.scene.scene.key == "whackAMole") {this.ScoreBar(); this.Timer();}
     }
 
     MainScene(){
@@ -78,6 +80,22 @@ export default class UIManager {
             dayNumber.setText("Día: " + (this.scene.currentDay || 1));
         });
        
+    }
+
+    ScoreBar(){
+        let scoreText = this.scene.add.text(16, 16, 'Puntos: 0', { fontFamily: 'bobFont', fontSize: '32px', fill: this.color });
+
+        this.event.on('changeScore', (score)=> {
+            scoreText.setText('Puntos: ' + score);
+        })
+    }
+
+    Timer(){
+        let timerText = this.scene.add.text(600, 16, 'Tiempo: 10', { fontFamily: 'bobFont', fontSize: '32px', fill: this.color });
+
+        this.event.on('changeTimer', (time) =>{
+            timerText.setText('Tiempo: ' + time);
+        })
     }
 
     //Hace aparecer el mensaje de interacción
@@ -250,6 +268,10 @@ export default class UIManager {
 
         if (this.scene.otter){
             this.scene.otter.canMove = true;
+        }
+
+        if (this.event) {
+            this.event.emit('minigame:closed');
         }
     }
 

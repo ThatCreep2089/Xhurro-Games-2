@@ -1,6 +1,7 @@
 import Mole from '../entities/mole.js';
 import Dynamite from '../entities/dynamite.js';
 import GameDataManager from "../GameDataManager.js";
+import UIManager from "../HUD/UIManager.js";
 export default class WhackAMole extends Phaser.Scene {
     constructor() {
         super({ key: 'whackAMole' });
@@ -12,10 +13,9 @@ export default class WhackAMole extends Phaser.Scene {
     }
 
     create() {
-
+        this.UIManager = new UIManager(this, 1, '#FFFFFF');
         this.score = 0; //puntuación inicial
-        this.scoreText = this.add.text(16, 16, 'Puntos: 0', { fontSize: '32px', fill: '#FFF' });
-
+        this.UIManager.event.emit('changeScore', this.score);
         this.holes = []; // array de agujeros
         let iniX = 250;
         let iniY = 150;
@@ -46,7 +46,7 @@ export default class WhackAMole extends Phaser.Scene {
 
         
         this.timeleft = 10; //tiempo inicial en seg
-        this.timerText = this.add.text(600, 16, 'Tiempo: 30', { fontSize: '32px', fill: '#FFF' });
+        this.UIManager.event.emit('changeTimer', this.timeleft);
 
         this.time.addEvent({
             delay: 1000,
@@ -98,13 +98,13 @@ export default class WhackAMole extends Phaser.Scene {
 
     updateScore(amount) {
         this.score += amount;
-        this.scoreText.setText('Puntos: ' + this.score);
+        this.UIManager.event.emit('changeScore', this.score);
         //this.mole.setVisible(false);
     }
 
     updateTimer() {
         this.timeleft--;
-        this.timerText.setText('Tiempo: ' + this.timeleft);
+        this.UIManager.event.emit('changeTimer', this.timeleft);
 
         if (this.timeleft <= 0) {
 
