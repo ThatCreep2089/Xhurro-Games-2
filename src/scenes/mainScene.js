@@ -4,17 +4,14 @@ import Build from "../gameObjects/build.js";
 import NPC from "../characters/npc.js";
 import UIManager from "../HUD/UIManager.js";
 import GameDataManager from "../GameDataManager.js";
+import Navi from "../characters/navi.js";
 
-/**
- * Escena principal del juego.
- * @extends Phaser.Scene
- */
 export default class mainScene extends Phaser.Scene {
     constructor() {
         super({ key: 'mainScene' });
     }
 
-    #inputs; // Variable privada para los inputs
+    #inputs;
 
     create() {
         this.createAnims();
@@ -58,82 +55,50 @@ export default class mainScene extends Phaser.Scene {
                 this[key].justUp = true;
             });
         }
+
         // === MINIJUEGOS_INFO ===
         this.minigamesInfo = {
             WackAMole:{
                 name: "Wack A Mole",
-                description: "Aplasta a los topos haciendo clic sobre ellos para ganar puntos antes de que se escondan. \n"+
-                             "Pero cuidado con la dinamita, si la aplastas explotará restandote puntos. \n"+
-                             "¡¡¡Consigue todos los puntos que puedas!!!",
+                description: "Aplasta a los topos haciendo clic sobre ellos...",
                 src: 'WAMVideo',
                 price: 25,
-                reward:{
-                    amountPerX:2,
-                    X: 10
-                }
-            },
-            LightUpGhosts: {
-                name: "",
-                description: "",
-                src: "",
-                price: "",
-                reward:{
-                    amountPerX:"",
-                    X: ""
-                }
-            },
-            Puzzle: {
-                name: "",
-                description: "",
-                src: "",
-                price: "",
-                reward:{
-                    amountPerX:"",
-                    X: ""
-                }
+                reward: { amountPerX:2, X: 10 }
             }
-         }
+            // ...otros minijuegos
+        };
 
         // === JUGADOR (Nutria) ===
         this.otter = new Otter(this, this.scale.width / 2, this.scale.height / 2, 20, 'otter', 0.2);
         this.cameras.main.startFollow(this.otter);
-       
+        this.navi = new Navi(this, this.otter, -30, 0, 'otter', 0.15, 300);
 
-        // === FUENTES Y CONSTRUCCIONES ===
+        // === FUENTES, CONSTRUCCIONES Y NPCs ===
         this.createSources();
         this.createBuilds();
-
-        // === NPCs ===
         this.createNPCs();
 
         // === HUD ===
         this.createHUD();
 
+        // === CARGAR DATOS ===
         import("../GameDataManager.js").then(module => {
             const GameDataManager = module.default;
             GameDataManager.applyTo(this);
             this.UIManager.event.emit('updateDay');
-            // Reemitir eventos para refrescar visualmente
             this.UIManager.event.emit('updateInventory');
             this.UIManager.event.emit('updateStamina');
-        }); 
-
-        
-
-        // === COLISIONES ===
-        this.physics.add.collider(this.otter, this.Toni, () => {
-            if (this.spaceKey.isDown && !this.Toni.dialogActive) {
-                this.Toni.startDialog();
-            }
         });
+
     }
 
     update() {
         // Si la estamina llega a 0, pasar al siguiente día
         if (this.otter.getStamina() <= 0 && !this.dayChanging) {
-            this.dayChanging = true; // evitar múltiples triggers
+            this.dayChanging = true;
             this.nextDay();
         }
+
         // Resetear justDown / justUp
         let inputs = [this.spaceKey, this.keyW, this.keyA, this.keyS, this.keyD];
         for (const key in inputs) {
@@ -142,11 +107,7 @@ export default class mainScene extends Phaser.Scene {
         }
     }
 
-    // === MÉTODOS AUXILIARES ===
-
-    createAnims() {
-        // Aquí podrías definir animaciones globales
-    }
+    createAnims() {}
 
     createSources() {
         new Source(this, 1200, 1200, 'paint', 0, 0, 1, 5);
@@ -154,12 +115,8 @@ export default class mainScene extends Phaser.Scene {
 
     createBuilds() {
         this.builds = [];
-
-        // ejemplo: construir 1 casa en (400,1000) — ajusta parámetros a tu atlas/texturas
         const house = new Build(this, 400, 1000, 'destroyedHouse', 'house', 0, 0, 3, 1, 0, 'house_400_1000');
         this.builds.push(house);
-
-        // añade más builds con ids distintos si necesitas
     }
 
     createHUD() {
@@ -167,41 +124,25 @@ export default class mainScene extends Phaser.Scene {
     }
 
     createNPCs() {
-        // Carga el JSON del diálogo (ejemplo: "prueba.json" en cache)
         const npcData = this.cache.json.get('prueba');
-
-        // Creamos a Toni
-        this.Toni = new NPC(this, 400, 500, 'toni', 0, npcData, this.otter, this.minigamesInfo.WackAMole);
+        this.Toni = new NPC(this, 900, 700, 'toni', 0, npcData, this.otter, this.minigamesInfo.WackAMole);
     }
 
     nextDay() {
-        // Sumar 1 día
         this.currentDay = (this.currentDay || 1) + 1;
-
-        // Restaurar estamina
         this.otter.setStamina(100);
-
-        // Actualizar HUD
         this.UIManager.event.emit('updateStamina');
         this.UIManager.event.emit('updateDay');
 
-        // Guardar progreso
         import("../GameDataManager.js").then(module => {
             const GameDataManager = module.default;
             GameDataManager.saveFrom(this);
 
-            //condicion de final
-            const ending = GameDataManager.getEnding(6, 2); //2 construcciones o las que sean
-            if (ending === "good") {
-                console.log("Good ending");
-                //this.scene.start('victoryScene');
-            } else if (ending === "bad") {
-                console.log("Bad ending");
-                //this.scene.start('defeatScene');
-            }
+            const ending = GameDataManager.getEnding(6, 2);
+            if (ending === "good") console.log("Good ending");
+            else if (ending === "bad") console.log("Bad ending");
         });
 
-        // Reiniciar flag para permitir futuros cambios de día
         this.time.delayedCall(500, () => this.dayChanging = false);
     }
 }
