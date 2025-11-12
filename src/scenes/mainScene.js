@@ -3,17 +3,15 @@ import Source from "../gameObjects/source.js";
 import Build from "../gameObjects/build.js";
 import NPC from "../characters/npc.js";
 import UIManager from "../HUD/UIManager.js";
+import GameDataManager from "../GameDataManager.js";
+import Navi from "../characters/navi.js";
 
-/**
- * Escena principal del juego.
- * @extends Phaser.Scene
- */
 export default class mainScene extends Phaser.Scene {
     constructor() {
         super({ key: 'mainScene' });
     }
 
-    #inputs; // Variable privada para los inputs
+    #inputs;
 
     create() {
         this.createAnims();
@@ -30,7 +28,6 @@ export default class mainScene extends Phaser.Scene {
             keyA: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A),
             keyS: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S),
             keyD: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D),
-            keyE: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E)
         };
 
         const inputStates = () => ({
@@ -45,7 +42,6 @@ export default class mainScene extends Phaser.Scene {
         this.keyA = inputStates();
         this.keyS = inputStates();
         this.keyD = inputStates();
-        this.keyE = inputStates();
 
         for (const key in this.#inputs) {
             this.#inputs[key].on('down', () => {
@@ -59,65 +55,50 @@ export default class mainScene extends Phaser.Scene {
                 this[key].justUp = true;
             });
         }
+
         // === MINIJUEGOS_INFO ===
         this.minigamesInfo = {
             WackAMole:{
                 name: "Wack A Mole",
-                description: "Aplasta a los topos haciendo clic sobre ellos para ganar puntos antes de que se escondan. \n"+
-                             "Pero cuidado con la dinamita, si la aplastas explotará restandote puntos. \n"+
-                             "¡¡¡Consigue todos los puntos que puedas!!!",
+                description: "Aplasta a los topos haciendo clic sobre ellos...",
                 src: 'WAMVideo',
                 price: 25,
-                reward:{
-                    amountPerX:2,
-                    X: 10
-                }
-            },
-            LightUpGhosts: {
-                name: "",
-                description: "",
-                src: "",
-                price: "",
-                reward:{
-                    amountPerX:"",
-                    X: ""
-                }
-            },
-            Puzzle: {
-                name: "",
-                description: "",
-                src: "",
-                price: "",
-                reward:{
-                    amountPerX:"",
-                    X: ""
-                }
+                reward: { amountPerX:2, X: 10 }
             }
-         }
+            // ...otros minijuegos
+        };
 
         // === JUGADOR (Nutria) ===
         this.otter = new Otter(this, this.scale.width / 2, this.scale.height / 2, 20, 'otter', 0.2);
         this.cameras.main.startFollow(this.otter);
+        this.navi = new Navi(this, this.otter, -30, 0, 'otter', 0.15, 300);
 
-        // === FUENTES Y CONSTRUCCIONES ===
+        // === FUENTES, CONSTRUCCIONES Y NPCs ===
         this.createSources();
         this.createBuilds();
-
-        // === NPCs ===
         this.createNPCs();
 
         // === HUD ===
         this.createHUD();
 
-        // === COLISIONES ===
-        this.physics.add.collider(this.otter, this.Toni, () => {
-            if (this.keyE.isDown && !this.Toni.dialogActive) {
-                this.Toni.startDialog();
-            }
+        // === CARGAR DATOS ===
+        import("../GameDataManager.js").then(module => {
+            const GameDataManager = module.default;
+            GameDataManager.applyTo(this);
+            this.UIManager.event.emit('updateDay');
+            this.UIManager.event.emit('updateInventory');
+            this.UIManager.event.emit('updateStamina');
         });
+
     }
 
     update() {
+        // Si la estamina llega a 0, pasar al siguiente día
+        if (this.otter.getStamina() <= 0 && !this.dayChanging) {
+            this.dayChanging = true;
+            this.nextDay();
+        }
+
         // Resetear justDown / justUp
         let inputs = [this.spaceKey, this.keyW, this.keyA, this.keyS, this.keyD];
         for (const key in inputs) {
@@ -126,18 +107,16 @@ export default class mainScene extends Phaser.Scene {
         }
     }
 
-    // === MÉTODOS AUXILIARES ===
-
-    createAnims() {
-        // Aquí podrías definir animaciones globales
-    }
+    createAnims() {}
 
     createSources() {
         new Source(this, 1200, 1200, 'paint', 0, 0, 1, 5);
     }
 
     createBuilds() {
-        new Build(this, 400, 1000, 'destroyedHouse', 'house', 0, 0, 3);
+        this.builds = [];
+        const house = new Build(this, 400, 1000, 'destroyedHouse', 'house', 0, 0, 3, 1, 0, 'house_400_1000');
+        this.builds.push(house);
     }
 
     createHUD() {
@@ -145,10 +124,25 @@ export default class mainScene extends Phaser.Scene {
     }
 
     createNPCs() {
-        // Carga el JSON del diálogo (ejemplo: "prueba.json" en cache)
         const npcData = this.cache.json.get('prueba');
+        this.Toni = new NPC(this, 900, 700, 'toni', 0, npcData, this.otter, this.minigamesInfo.WackAMole);
+    }
 
-        // Creamos a Toni
-        this.Toni = new NPC(this, 400, 500, 'toni', 0, npcData, this.otter, this.minigamesInfo.WackAMole);
+    nextDay() {
+        this.currentDay = (this.currentDay || 1) + 1;
+        this.otter.setStamina(100);
+        this.UIManager.event.emit('updateStamina');
+        this.UIManager.event.emit('updateDay');
+
+        import("../GameDataManager.js").then(module => {
+            const GameDataManager = module.default;
+            GameDataManager.saveFrom(this);
+
+            const ending = GameDataManager.getEnding(6, 2);
+            if (ending === "good") console.log("Good ending");
+            else if (ending === "bad") console.log("Bad ending");
+        });
+
+        this.time.delayedCall(500, () => this.dayChanging = false);
     }
 }

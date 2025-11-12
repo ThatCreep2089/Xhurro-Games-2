@@ -1,24 +1,32 @@
 {
 	"Dias": [
 		{
-			"val": 0,
-			"Dialog":[
+			"val": 1,
+			"Dialog": [
 				{
-					"msgn": "Esto es una prueba1"
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "Soy Otter"
 				},
 				{
-					"msgn": "Esto es una prueba2"
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "Soy Toni"
 				},
 				{
-					"msgn": "Esto es una prueba3"
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "Toñete"
 				},
 				{
-					"msgn": "Esto es una prueba4"
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "JEJEJEJE"
 				}
 			]
-		},
+    	},	
 		{
-			"val": 1,
+			"val": 0,
 			"Dialog":[
 				{
 					"msgn": "Esto es una prueba1_1"

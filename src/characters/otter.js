@@ -41,7 +41,7 @@ export default class Otter extends Phaser.GameObjects.Sprite {
         this.canMove = true //Controla cuando el jugador puede o no puede moverse
 
         //Energía del jugador
-        this.stamina = 100;
+        this.stamina = 27;
         this.howToDecrease = 4;
     }
 
@@ -74,19 +74,19 @@ export default class Otter extends Phaser.GameObjects.Sprite {
     //Disminuye la estamina en función del argumento amount
     decreaseStaminaAmount(amount){
         this.stamina -= amount;
-        console.log(this.stamina);
     }
     decreaseStamina(staminaPrice){
         if (this.howToDecrease <= 0){
             this.stamina -= staminaPrice;
             this.howToDecrease = 4;
         } else this.howToDecrease--;
-        console.log(this.stamina);
     }
     getStamina(){
         return this.stamina;
     }
-
+    setStamina(amount) {
+        this.stamina = Phaser.Math.Clamp(amount, 0, 100);
+    }
     //Reestablece la estamina
     restartStamina()
     {
