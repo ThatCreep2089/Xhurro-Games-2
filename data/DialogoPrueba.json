@@ -1,46 +1,28 @@
 {
 	"Dias": [
 		{
-			"val": 1,
-			"Dialog": [
-				{
-				"speaker": "Otter",
-				"portrait": "otter",
-				"msgn": "Soy Otter"
-				},
-				{
-				"speaker": "NPC",
-				"portrait": "house",
-				"msgn": "Soy Toni"
-				},
-				{
-				"speaker": "NPC",
-				"portrait": "house",
-				"msgn": "Toñete"
-				},
-				{
-				"speaker": "NPC",
-				"portrait": "house",
-				"msgn": "JEJEJEJE"
-				}
-			]
-    	},	
+		"val": 1,
+		"Dialog": [
+			{ "speaker": "Otter", "portrait": "otter", "msgn": "¡Hola!" },
+			{ "speaker": "NPC", "portrait": "house", "msgn": "¿Quieres ayudarme hoy?" }
+		],
+		"Rechazo": {
+			"speaker": "NPC",
+			"portrait": "house",
+			"msgn": "Bueno... será otro día entonces."
+		}
+		},
 		{
-			"val": 0,
-			"Dialog":[
-				{
-					"msgn": "Esto es una prueba1_1"
-				},
-				{
-					"msgn": "Esto es una prueba2_1"
-				},
-				{
-					"msgn": "Esto es una prueba3_1"
-				},
-				{
-					"msgn": "Esto es una prueba4_1"
-				}
-			]
+		"val": 2,
+		"Dialog": [
+			{ "speaker": "Otter", "portrait": "otter", "msgn": "¡Hola de nuevo!" },
+			{ "speaker": "NPC", "portrait": "house", "msgn": "¿Quieres ayudarme hoy tambien?" }
+		],
+		"Rechazo": {
+			"speaker": "NPC",
+			"portrait": "house",
+			"msgn": "Bueno... será otro día entonces."
+		}
 		}
 	]
 	
