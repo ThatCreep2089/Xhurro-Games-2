@@ -6,23 +6,69 @@
 				{
 				"speaker": "Otter",
 				"portrait": "otter",
-				"msgn": "Soy Otter"
+				"msgn": "Hola, ¿quién eres?"
 				},
 				{
 				"speaker": "NPC",
 				"portrait": "house",
-				"msgn": "Soy Toni"
+				"msgn": "¡Ey, ey, ey! ¡Has venido justo a tiempo! Tu cabeza ahora mismo es como Twitter: tuitea tuitea tuitea."
+				},
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "¿Qué?"
 				},
 				{
 				"speaker": "NPC",
 				"portrait": "house",
-				"msgn": "Toñete"
+				"msgn": "Pensamientos que no quieres, recuerdos que saltan sin permiso como aquel tuit de hace 6 años donde decías que la madre de alguien se parecía a un caballo."
+				},
+				{
+					"speaker":"NPC",
+					"portrait":"house",
+					"msgn":" Estás disociando y BOOOOOOOOOOOOOM, ahí aparecen."
 				},
 				{
 				"speaker": "NPC",
 				"portrait": "house",
-				"msgn": "JEJEJEJE"
+				"msgn": "JEJEJEJE a mi sí me pasaba todo el tiempo hasta que encontré este lugar."
+				},
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "¿Qué lugar?"
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "Este campo de topos. Aquí aprenderás a controlarlos."
+				},
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "¿Controlarlos? ¿A los topos?"
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "Coño, no.    A tus pensamientos intrusivos."
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "Solo aprende qué ignorar y qué afrontar. Vamos a practicar. Cada topo que golpeas es un pensamiento que decides no dejar dominarte."
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "Venga, estás reconstruyendo tu subconsciente, ¿recuerdas? Además tengo que seguir tuiteando."
+				},
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "Otro loco más, eramos pocos y parió la abuela."
 				}
+
 			]
     	},	
 		{
