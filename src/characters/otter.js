@@ -14,7 +14,6 @@ export default class Otter extends Phaser.GameObjects.Sprite {
         this.body.scale = this.scale;
         this.body.setSize(this.width, (this.height) * 0.2);
         this.body.setOffset(0, (this.height) - (this.body.height/2));
-        
 
         this.speed = speed;
 
@@ -99,23 +98,24 @@ export default class Otter extends Phaser.GameObjects.Sprite {
      * @param {number} dt - Tiempo entre frames
      */
     preUpdate(t, dt) {
+        // Es muy imporante llamar al preUpdate del padre (Sprite), sino no se ejecutará la animación
+        super.preUpdate(t, dt);
+        
         //Movemos el objeto en función de las teclas pulsadas por el usuario
         //Priorizando la última usada
-        if (!this.canMove) return;
-        
-        if (this.scene.keyW.isDown && (this.lastKey == 'W' || this.lastKey == null))
+        if (this.scene.keyW.isDown && (this.lastKey == 'W' || this.lastKey == null) && this.canMove)
         {
             this.body.setVelocity(0, -this.speed * dt);
         }
-        else if (this.scene.keyS.isDown && (this.lastKey == 'S' || this.lastKey == null))
+        else if (this.scene.keyS.isDown && (this.lastKey == 'S' || this.lastKey == null) && this.canMove)
         {
             this.body.setVelocity(0, this.speed * dt);
         }
-        else if (this.scene.keyA.isDown && (this.lastKey == 'A' || this.lastKey == null))
+        else if (this.scene.keyA.isDown && (this.lastKey == 'A' || this.lastKey == null) && this.canMove)
         {
             this.body.setVelocity(-this.speed * dt, 0);
         }
-        else if (this.scene.keyD.isDown && (this.lastKey == 'D' || this.lastKey == null))
+        else if (this.scene.keyD.isDown && (this.lastKey == 'D' || this.lastKey == null) && this.canMove)
         {
             this.body.setVelocity(this.speed * dt, 0);
         }
@@ -123,7 +123,7 @@ export default class Otter extends Phaser.GameObjects.Sprite {
         {
             this.body.setVelocity(0,0);
         }
-        // Es muy imporante llamar al preUpdate del padre (Sprite), sino no se ejecutará la animación
-        super.preUpdate(t, dt);
+
+        this.setDepth(this.y);
     }
 }

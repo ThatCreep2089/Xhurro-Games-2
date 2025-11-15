@@ -1,4 +1,5 @@
 // Menu Scene
+import UIManager from "../HUD/UIManager.js";
 export default class MenuScene extends Phaser.Scene {
     constructor() {
         super({key: 'menuScene'});
@@ -42,5 +43,7 @@ export default class MenuScene extends Phaser.Scene {
         //actions on click
         playButton.on('pointerdown', () => this.scene.start('mainScene'));
         exitButton.on('pointerdown', () => alert('BYE BYE!'));
+
+        this.UIManager = new UIManager(this);
     }
 }

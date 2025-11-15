@@ -16,6 +16,8 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         this.dialogIndex = 0;
         this.closing = false;
 
+        this.setDepth(this.y);
+        
         // === ESCALA Y FÍSICAS REDUCIDAS ===
         this.setScale(scale);        
         this.scene.add.existing(this);        
@@ -33,7 +35,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
 
         this.body.x = this.x - (this.body.width / 2);
         this.body.y = this.y - (dh / 2) - (this.body.height / 2);
-        console.log(this.body.x,this.body.y);
+        //console.log(this.body.x,this.body.y);
 
         // centramos el collider (como el sprite tiene origin 0.5,1)
 

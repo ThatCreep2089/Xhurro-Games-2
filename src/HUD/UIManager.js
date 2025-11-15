@@ -12,8 +12,36 @@ export default class UIManager {
             accept: null,
             refuse: null
         };
+        this.HUDDepth = 5000;
         if (this.scene.scene.key == "mainScene") this.MainScene();
         else if (this.scene.scene.key == "whackAMole") {this.ScoreBar(); this.Timer();}
+        else if (this.scene.scene.key == "lightUpGhosts") {this.ScoreBar(); this.Timer();}
+
+        // === MAXIMIZE SCREEN ===
+        
+        //this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F).on('down', () => {
+        //    this.scene.scale.toggleFullscreen();
+        //});
+
+        //this.scene.scale.on('enterfullscreen', () => {
+        //    // Calcula el factor mínimo de escala respecto a la resolución base
+        //    const scaleFactor = Math.min(screen.width / 800, screen.height / 600);
+
+        //    this.scene.scale.resize(800 * scaleFactor, 600 * scaleFactor);
+        //    this.scene.cameras.main.setZoom(scaleFactor);
+        //    this.scene.cameras.main.centerOn(800 / 2, 600 / 2);
+        //});
+        //this.scene.scale.on('leavefullscreen', () => {
+        //    this.scene.scale.resize(800, 600);
+        //    this.scene.cameras.main.setZoom(1);
+        //    this.scene.cameras.main.centerOn(400, 300);
+        //});
+
+        //if (this.scene.scale.isFullscreen){
+        //    const scaleFactor = Math.min(screen.width / 800, screen.height / 600);
+        //    this.scene.cameras.main.setZoom(scaleFactor);
+        //    this.scene.cameras.main.centerOn(800 / 2, 600 / 2);
+        //}
     }
 
     MainScene(){
@@ -25,6 +53,8 @@ export default class UIManager {
         //Declaramos todo el contenido del contenedor
         let background = this.scene.add.image(0, 0, 'house');
         background.setScale(this.size,0)
+        background.setDepth(this.HUDDepth);
+
         let paintNumber = this.scene.add.text(50*this.size, 70, "Pintura: " + backpack.paint,
         {
             fontFamily: 'bobFont',
@@ -55,7 +85,7 @@ export default class UIManager {
         cont.add(dayNumber);
         //HUD recursos en inventario
         cont.add([background, paintNumber, paperNumber, clayNumber, staminaNumber,dayNumber])
-
+        cont.setDepth(this.HUDDepth);
         
 
         //Reposicionamos
@@ -88,6 +118,8 @@ export default class UIManager {
         this.event.on('changeScore', (score)=> {
             scoreText.setText('Puntos: ' + score);
         })
+
+        scoreText.setDepth(this.HUDDepth);
     }
 
     Timer(){
@@ -96,6 +128,8 @@ export default class UIManager {
         this.event.on('changeTimer', (time) =>{
             timerText.setText('Tiempo: ' + time);
         })
+
+        timerText.setDepth(this.HUDDepth);
     }
 
     //Hace aparecer el mensaje de interacción
@@ -105,6 +139,7 @@ export default class UIManager {
         this.interactMessage.setOrigin(0.5, 1); this.interactMessage.setPosition(this.scene.scale.width/2, this.scene.scale.height);
 
         this.interactMessage.setScrollFactor(0);
+        this.interactMessage.setDepth(this.HUDDepth);
     }
     //Hace desaparecer el mensaje de interacción
     disappearInteractMessage(){
@@ -126,6 +161,7 @@ export default class UIManager {
         let background = this.scene.add.image(0, 0, 'buildSources');
         let size = this.size*0.3
         background.setScale(size);
+        background.setDepth(this.HUDDepth);
 
         let paintNumber = this.scene.add.text(-100, -700*size, "Pintura: " + sources.paint,
              {
@@ -156,6 +192,7 @@ export default class UIManager {
         this.buildData.add([background, paintNumber, paperNumber, clayNumber]);
 
         this.buildData.setScrollFactor(0);
+        this.buildData.setDepth(this.HUDDepth);
 
         //Reposicionamos
         background.setOrigin(0.5, 1);
@@ -175,6 +212,7 @@ export default class UIManager {
         //Creamos toda la información de la pantalla
         let background = this.scene.add.image(0, 0, 'MGInfoBG').setOrigin(0.5, 0.5);
         background.setScale(this.size * 1.5)
+        background.setDepth(this.HUDDepth);
 
         //Nombre de minijuego
         let name = this.scene.add.text(-395, -300, minigameInfo.name, {
@@ -220,6 +258,10 @@ export default class UIManager {
         this.minigameData.accept.setScrollFactor(0);
         this.minigameData.refuse.setScrollFactor(0);
 
+        this.minigameData.container.setDepth(this.HUDDepth);
+        this.minigameData.accept.setDepth(this.HUDDepth);
+        this.minigameData.refuse.setDepth(this.HUDDepth);
+
         this.minigameData.accept.on('pointerdown', ()=>{
             if (minigameInfo.price <= this.scene.otter.getStamina()){
             const otter = this.scene.otter;
@@ -237,6 +279,9 @@ export default class UIManager {
                     // 🔹 Cambiar a la escena del minijuego
                     if (minigameInfo.name === 'Wack A Mole') {
                         this.scene.scene.start('whackAMole');
+                    }else
+                    if (minigameInfo.name === 'Ilumina a los fantasmas'){
+                        this.scene.scene.start('lightUpGhosts');
                     }
                 });
             } else {
@@ -286,5 +331,7 @@ export default class UIManager {
         setTimeout(()=>{
             warning.destroy();
         }, 1500);
+
+        warning.setDepth(this.HUDDepth);
     }
 }

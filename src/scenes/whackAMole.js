@@ -98,6 +98,7 @@ export default class WhackAMole extends Phaser.Scene {
 
     updateScore(amount) {
         this.score += amount;
+        if (this.score < 0) this.score = 0;
         this.UIManager.event.emit('changeScore', this.score);
         //this.mole.setVisible(false);
     }
