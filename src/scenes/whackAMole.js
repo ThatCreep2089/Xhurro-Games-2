@@ -45,7 +45,7 @@ export default class WhackAMole extends Phaser.Scene {
         });
 
         
-        this.timeleft = 10; //tiempo inicial en seg
+        this.timeleft = 30; //tiempo inicial en seg
         this.UIManager.event.emit('changeTimer', this.timeleft);
 
         this.time.addEvent({
