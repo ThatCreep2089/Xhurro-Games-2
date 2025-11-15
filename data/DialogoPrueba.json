@@ -69,24 +69,25 @@
 				"msgn": "Otro loco más, eramos pocos y parió la abuela."
 				}
 
-			]
-    	},	
+			],
+		    "Rechazo": {
+			    "speaker": "NPC",
+			    "portrait": "house",
+			    "msgn": "Bueno... será otro día entonces."
+		    }
+		},
+
 		{
-			"val": 0,
-			"Dialog":[
-				{
-					"msgn": "Esto es una prueba1_1"
-				},
-				{
-					"msgn": "Esto es una prueba2_1"
-				},
-				{
-					"msgn": "Esto es una prueba3_1"
-				},
-				{
-					"msgn": "Esto es una prueba4_1"
-				}
-			]
+		"val": 2,
+		"Dialog": [
+			{ "speaker": "Otter", "portrait": "otter", "msgn": "¡Hola de nuevo!" },
+			{ "speaker": "NPC", "portrait": "house", "msgn": "¿Quieres ayudarme hoy tambien?" }
+		],
+		"Rechazo": {
+			"speaker": "NPC",
+			"portrait": "house",
+			"msgn": "Bueno... será otro día entonces."
+		}
 		}
 	]
 	
