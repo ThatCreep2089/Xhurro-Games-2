@@ -6,10 +6,163 @@
 				{
 				"speaker": "Otter",
 				"portrait": "otter",
-				"msgn": ""
-				}
-				
-
+				"msgn": "Venía con la pokeball pero ya veo que no eres un Geodude."
+                },
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "De hecho me lo tomaré como un cumplido."
+                },
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "Pero bueno, todo está un poco desordenado aquí. Qué digo “un poco”… ¡es un caos de piezas de puzzle!"
+				},
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "Son un reflejo de ti."
+                },
+                {
+                "speaker": "Otter",
+                "portrait": "otter",
+                "msgn": "¿En qué sentido?"
+                },
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "Cuando te perdiste a ti mismo, muchos fragmentos de quién eras se… dispersaron. Tu curiosidad está por allí, tus recuerdos felices por allá, tus logros… umm… creo que se cayeron debajo de la mesa."
+                },
+                {
+                "speaker": "Otter",
+                "portrait": "otter",
+                "msgn": "Ya, y ¿cómo lo arreglo?"
+                },
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "Reuniendo las piezas, literalmente. Este puzzle te ayudará a recordar que tu identidad no está rota, solo desordenada."
+                },
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "Te ayudaría, pero estos brazos solo sirven para partir troncos de arboles y tal."
+                },
+                {
+                "speaker": "Otter",
+                "portrait": "otter",
+                "msgn": "Ya..."
+                },
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "Entristece mucho a Ish y El."
+                },
+                {
+                "speaker": "Otter",
+                "portrait": "otter",
+                "msgn": "¿Ish y El?"
+                },
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "El de la izquierda es Ish y el de la derecha es El."
+                },
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "Me gasté la friolera de cinco mil euros por cada uno de estos pequeñines."
+                },
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "*Flexea brazos*"
+                },
+                {
+                "speaker": "Otter",
+                "portrait": "otter",
+                "msgn": "Emm..."
+                },
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "Estoy divagando, ¿no?"
+                },
+                {
+                "speaker": "Otter",
+                "portrait": "otter",
+                "msgn": "Yo ya me tenía que-"
+                },
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "Madre mía, recuerdo cuando me los puse, yo ya era fuerte entonces, pe-"
+                },
+                {
+                "speaker": "Otter",
+                "portrait": "otter",
+                "msgn": "Bueno ehm... hasta luego."
+                },
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "Con estos brazos me siento imparable. Y sabes qué-"
+                },
+                {
+                "speaker": "Otter",
+                "portrait": "otter",
+                "msgn": "Ey, que me tengo que ir."
+                },
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "Cogí a mi abuela y le arreglé la cadera con estos brazos."
+                },
+                {
+                "speaker": "Otter",
+                "portrait": "otter",
+                "msgn": "Pero-"
+                },
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "¿Sabes? Creo que voy a ir a por el máster de Crossfit."
+                },
+                {
+                "speaker": "Otter",
+                "portrait": "otter",
+                "msgn": "Es-"
+                },
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "¡Imparable!"
+                },
+                {
+                "speaker": "Otter",
+                "portrait": "otter",
+                "msgn": "¡POR FAVOR!"
+                },
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "A, sisi, claro, vale, adiós."
+                },
+                {
+                "speaker": "Otter",
+                "portrait": "otter",
+                "msgn": "... Vale adi-"
+                },
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "¿Sabes?, en realidad no me voy a ir a por el máster de Crossfit. Creo que me haré monje sha-"
+                },
+                {
+                "speaker": "Otter",
+                "portrait": "otter",
+                "msgn": "¡¡¡AAAAAAAAAAAAHHHHHH!!!"
+                }
 			]
     	},	
 		{
