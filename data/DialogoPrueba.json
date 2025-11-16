@@ -66,13 +66,13 @@
 				{
 				"speaker": "Otter",
 				"portrait": "otter",
-				"msgn": "Otro loco más, eramos pocos y parió la abuela."
+				"msgn": "Otro loco más... eramos pocos y parió la abuela."
 				}
 
 			]
     	},	
 		{
-			"val": 0,
+			"val": 2,
 			"Dialog":[
 				{
 					"msgn": "Esto es una prueba1_1"

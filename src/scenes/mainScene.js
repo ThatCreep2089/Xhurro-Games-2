@@ -126,6 +126,9 @@ export default class mainScene extends Phaser.Scene {
     createNPCs() {
         const npcData = this.cache.json.get('prueba');
         this.Toni = new NPC(this, 900, 700, 'toni', 0, npcData, this.otter, this.minigamesInfo.WackAMole);
+
+        const cleonRomeData = this.cache.json.get('cleonRome');
+        this.Cleon = new NPC(this, 1200, 700, 'toni', 0, cleonRomeData, this.otter, this.minigamesInfo.WackAMole);
     }
 
     nextDay() {

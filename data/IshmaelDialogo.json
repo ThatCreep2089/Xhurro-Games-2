@@ -1,0 +1,34 @@
+{
+	"Dias": [
+		{
+			"val": 1,
+			"Dialog": [
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": ""
+				}
+				
+
+			]
+    	},	
+		{
+			"val": 2,
+			"Dialog":[
+				{
+					"msgn": "Esto es una prueba1_1"
+				},
+				{
+					"msgn": "Esto es una prueba2_1"
+				},
+				{
+					"msgn": "Esto es una prueba3_1"
+				},
+				{
+					"msgn": "Esto es una prueba4_1"
+				}
+			]
+		}
+	]
+	
+}

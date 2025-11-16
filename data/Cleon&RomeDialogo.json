@@ -1,0 +1,118 @@
+{
+	"Dias": [
+		{
+			"val": 1,
+			"Dialog": [
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "Hace frío aquí dentro, ¿verdad? Este rincón de tu mente quedó oscuro hace mucho tiempo."
+                },
+                {
+                    "speaker": "Otter",
+                    "portrait": "otter",
+                    "msgn": "Hay sombras por todas partes."
+				},
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "Un poco descortés llamarlos 'sombras', ¿no crees?"
+                },
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "Son fantasmas y son los invitados de nuestra boda. Todos vienen de cosas reales que te dolieron."
+                },
+                {
+                "speaker": "Otter",
+                "portrait": "otter",
+                "msgn": "¿Vuestra boda?"
+                },
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "Sí, Rome y yo. Nos casamos aquí, en tu mente."
+                },
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "Un poco turbio viniendo de ti, ¿no?"
+                },
+                {
+                "speaker": "Otter",
+                "portrait": "otter",
+                "msgn": "EH, ehhh..."
+                },
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "No te preocupes, no es tu culpa. Tú solo eres el anfitrión."
+                },
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "Y como buen anfitrión, tienes que aprender a lidiar con tus invitados más desagradables, ¿no?"
+                },
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "Si quieres reconstruirte, tendrás que mirarlos de frente. La luz no los destruye… solo les recuerda que ya no mandan sobre ti."
+                },
+                {
+                "speaker": "Otter",
+                "portrait": "otter",
+                "msgn": "No se si podré..."
+                },
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "Me da igual que no puedas con todos, pero... ¿con Pedro Pablo? ¡Por favor! Nadie le ha invitado."
+                },
+                {
+                    "speaker": "Otter",
+                    "portrait": "otter",
+                    "msgn": "Vale pero necesitaré una lin-"
+                },
+                {
+                    "speaker": "NPC",
+                    "portrait": "house",
+                    "msgn": "*Se besan intensamente*"
+                },
+                {
+                    "speaker": "Otter",
+                    "portrait": "otter",
+                    "msgn": "-terna..."
+                },
+                {
+                    "speaker": "NPC",
+                    "portrait": "house",
+                    "msgn": "Ah, sisi toma, anda vete un rato."
+                },
+                {
+                    "speaker": "Otter",
+                    "portrait": "otter",
+                    "msgn": "..."
+                }
+
+			]
+    	},	
+		{
+			"val": 2,
+			"Dialog":[
+				{
+					"msgn": "Esto es una prueba1_1"
+				},
+				{
+					"msgn": "Esto es una prueba2_1"
+				},
+				{
+					"msgn": "Esto es una prueba3_1"
+				},
+				{
+					"msgn": "Esto es una prueba4_1"
+				}
+			]
+		}
+	]
+	
+}
