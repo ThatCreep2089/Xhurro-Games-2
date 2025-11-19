@@ -75,17 +75,26 @@
 			"val": 2,
 			"Dialog":[
 				{
-					"msgn": "Esto es una prueba1_1"
+					"speaker": "NPC",
+					"portrait": "house",
+					"msgn": "Ya vuelves, ¿Otra vez con los topos?"
 				},
 				{
-					"msgn": "Esto es una prueba2_1"
+					"speaker": "Otter",
+					"portrait": "otter",
+					"msgn": "Sí, necesito más recursos."
 				},
 				{
-					"msgn": "Esto es una prueba3_1"
+					"speaker": "NPC",
+					"portrait": "house",
+					"msgn": "Por suerte no estan muy aplastados (todavía)."
 				},
 				{
-					"msgn": "Esto es una prueba4_1"
+					"speaker": "Otter",
+					"portrait": "otter",
+					"msgn": "a"
 				}
+					
 			]
 		}
 	]

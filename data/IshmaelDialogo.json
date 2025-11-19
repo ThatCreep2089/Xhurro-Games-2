@@ -6,7 +6,7 @@
 				{
 				"speaker": "Otter",
 				"portrait": "otter",
-				"msgn": "Venía con la pokeball pero ya veo que no eres un Geodude."
+				"msgn": "¿Por qué llevas esos brazos tan grandes?"
                 },
                 {
                 "speaker": "NPC",
@@ -169,17 +169,31 @@
 			"val": 2,
 			"Dialog":[
 				{
-					"msgn": "Esto es una prueba1_1"
-				},
-				{
-					"msgn": "Esto es una prueba2_1"
-				},
-				{
-					"msgn": "Esto es una prueba3_1"
-				},
-				{
-					"msgn": "Esto es una prueba4_1"
-				}
+                "speaker": "Otter",
+                "portrait": "otter",
+                "msgn": "¿Cada vez que vuelvo desmontas el puzle?"
+                },
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "No, compro otro igual."
+                },
+                {
+                "speaker": "Otter",
+                "portrait": "otter",
+                "msgn": "¿Por qué?"
+                },
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "Lo destruiría si lo intento desmontar."
+                },
+                {
+                "speaker": "Otter",
+                "portrait": "otter",
+                "msgn": "..."
+                }
+
 			]
 		}
 	]
