@@ -82,6 +82,7 @@ export default class Boot extends Phaser.Scene {
 
     // === RECURSOS DIÁLOGOS ===
     this.load.json('prueba', './data/DialogoPrueba.json');
+     this.load.json('dialogos', './data/DialogScene.json');
     this.first = false;
   }
 }

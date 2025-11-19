@@ -40,7 +40,7 @@ export default class MenuScene extends Phaser.Scene {
         exitButton.on('pointerout', () => exitButton.setStyle({ color: '#ff4444' }));
 
         //actions on click
-        playButton.on('pointerdown', () => this.scene.start('mainScene'));
+        playButton.on('pointerdown', () => this.scene.start('introScene'));
         exitButton.on('pointerdown', () => alert('BYE BYE!'));
     }
 }

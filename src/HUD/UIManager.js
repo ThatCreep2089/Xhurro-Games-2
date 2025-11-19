@@ -203,6 +203,7 @@ export default class UIManager {
         this.minigameData.refuse.setScrollFactor(0);
 
         this.minigameData.accept.on('pointerdown', ()=>{
+            this.event.emit("minigame:accepted");
             if (minigameInfo.price <= this.scene.otter.getStamina()){
             const otter = this.scene.otter;
             const price = minigameInfo.price;
@@ -228,6 +229,7 @@ export default class UIManager {
     });
         this.minigameData.refuse.on('pointerdown', ()=>{
             this.disappearMinigameInfo();
+            this.event.emit("minigame:rejected");
         })
     }
 
