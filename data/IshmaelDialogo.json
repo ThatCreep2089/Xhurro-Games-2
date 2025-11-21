@@ -197,6 +197,77 @@
 			]
 		},
         {
+            "val": 3,
+            "Dialog": [
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "¿Puzle?"
+                },
+                {
+                "speaker": "Otter",
+                "portrait": "otter",
+                "msgn": "Puzle."
+                }
+            ]
+        },
+        {
+            "val": 4,
+            "Dialog": [
+                {
+                "speaker": "Otter",
+                "portrait": "otter",
+                "msgn": "Qué haces con-?"
+                },
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "*Besa su puzle*"
+                },
+                {
+                "speaker": "Otter",
+                "portrait": "otter",
+                "msgn": "Uhg-"
+                },
+                {
+                "speaker": "Otter",
+                "portrait": "otter",
+                "msgn": "¿En serio?"
+                },
+                {
+                "speaker": "Otter",
+                "portrait": "otter",
+                "msgn": "Lo iba a usar, ¿sabes?"
+                }
+            ]
+        },
+        {
+            "val": 5,
+            "Dialog": [
+                {
+                "speaker": "Otter",
+                "portrait": "otter",
+                "msgn": "¿Me ayudas con el puzle?"
+                },
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "¿No sabes hacer ni si quiera el puzle más sencillo del mundo?"
+                },
+                {
+                "speaker": "Otter",
+                "portrait": "otter",
+                "msgn": "..."
+                },
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "Que pasa, ¿qué en tu tribu no hay puzles?"
+                }
+
+            ]
+        },
+        {
 			"val": 6,
 			"Dialog": [
 				{
