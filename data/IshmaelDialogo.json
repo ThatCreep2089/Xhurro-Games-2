@@ -195,7 +195,87 @@
                 }
 
 			]
-		}
+		},
+        {
+			"val": 6,
+			"Dialog": [
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "Hola, ¿estás ahí?"
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "¡Eh, hola! Justo a tiempo, estaba entrenando."
+				},
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "¿Entrenando?"
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "Sí, mira estos brazos."
+				},
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "Vaya, sí que son grandes."
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "¡Y fuertes! ¿Quieres ver?"
+				},
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "Bueno, vale..."
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "¡TOMA!"
+				},
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "¡AHHHHHHHH!"
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "¿Te ha gustado?"
+				},
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "¡Me has aplastado!"
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "JEJEJEJEJEJE. Tranquilo, es solo práctica."
+				},
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "¿Práctica de qué?"
+				},
+                {
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "..."
+                },
+                {
+                "speaker": "Otter",
+                "portrait": "otter",
+                "msgn": "¿PRÁCTICA DE QUÉ?"
+                }
+            ]
+        }
 	]
 	
 }
