@@ -1,6 +1,282 @@
 {
 	"Dias": [
 		{
+			"val": 1,
+			"Dialog": [
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "Hola, ¿quién eres?"
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "¡Ey, ey, ey! ¡Has venido justo a tiempo! Tu cabeza ahora mismo es como Twitter: tuitea tuitea tuitea."
+				},
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "¿Qué?"
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "Pensamientos que no quieres, recuerdos que saltan sin permiso como aquel tuit de hace 6 años donde decías que la madre de alguien se parecía a un caballo."
+				},
+				{
+					"speaker":"NPC",
+					"portrait":"house",
+					"msgn":" Estás disociando y BOOOOOOOOOOOOOM, ahí aparecen."
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "JEJEJEJE a mi sí me pasaba todo el tiempo hasta que encontré este lugar."
+				},
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "¿Qué lugar?"
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "Este campo de topos. Aquí aprenderás a controlarlos."
+				},
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "¿Controlarlos? ¿A los topos?"
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "Coño, no.    A tus pensamientos intrusivos."
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "Solo aprende qué ignorar y qué afrontar. Vamos a practicar. Cada topo que golpeas es un pensamiento que decides no dejar dominarte."
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "Venga, estás reconstruyendo tu subconsciente, ¿recuerdas? Además tengo que seguir tuiteando."
+				},
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "Otro loco más... eramos pocos y parió la abuela."
+				}
+
+			]
+    	},	
+		{
+			"val": 2,
+			"Dialog":[
+				{
+					"speaker": "NPC",
+					"portrait": "house",
+					"msgn": "Ya vuelves, ¿Otra vez con los topos?"
+				},
+				{
+					"speaker": "Otter",
+					"portrait": "otter",
+					"msgn": "Sí, necesito más recursos."
+				},
+				{
+					"speaker": "NPC",
+					"portrait": "house",
+					"msgn": "Por suerte no estan muy aplastados (todavía)."
+				},
+				{
+					"speaker": "Otter",
+					"portrait": "otter",
+					"msgn": "a"
+				}
+					
+			]
+		},
+		{
+			"val": 3,
+			"Dialog":[
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "Me has bloqueado en Twitter, ¿verdad?"
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "¿Quién, yo? No, para nada."
+				},
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "Entonces, ¿por qué no puedo ver tus tuits?"
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "¿A ver, vienes a por más topos o solo querías hablar de Twitter?"
+				},
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "... A por más topos."
+				}
+			]
+		},
+		{
+			"val": 4,
+			"Dialog":[
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "Oye, ¿me puedes dejar tu móvil un momento?"
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "¿Para qué?"
+				},
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "Quiero ver si me has bloqueado en Twitter."
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "¡Claro que no! Toma."
+				},
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "... Sí me has bloqueado."
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "¿Ah, sí? ¿Y por qué iba a hacer eso?"
+				},
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "No lo sé... quizá por lo del caballo."
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "¡Bah! Eso fue hace años, no me acuerdo ni de ese tuit."
+				}
+			]
+		},
+		{
+			"val": 5,
+			"Dialog":[
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "Oye, ¿a dónde vas?"
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "Me están arrestando."
+				},
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "..."
+				},
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "El caballo."
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "..."
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "..."
+				}
+			]
+		},
+		{
+			"val": 6,
+			"Dialog":[
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "Me alegro de que te hayan soltado."
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "Ya ves, un día y te vuelves loco. He estado pensando y creo que voy a dejarlo."
+				},
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "¿Dejarlo? ¿El campo de topos?"
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "..."
+				},
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "¿A Pablo?"
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "Twitter."
+				},
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "a."
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "Me he dado cuenta de que el problema siempre fue Twitter."
+				},
+			 {
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": " Siempre que entro me lleno de pensamientos intrusivos y recuerdos incómodos. Es un no parar."
+				},
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "Entonces, ¿qué vas a hacer?"
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "Dar clase."
+				},
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "..."
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "house",
+				"msgn": "Bueno, hasta la próxima."
+				}
+	
+			]
 		"val": 1,
 		"Dialog": [
 			{ "speaker": "Otter", "portrait": "otter", "msgn": "¡Hola!" },
@@ -24,6 +300,7 @@
 			"msgn": "Bueno... será otro día entonces."
 		}
 		}
+		
 	]
 	
 }
