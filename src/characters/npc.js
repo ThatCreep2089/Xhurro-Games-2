@@ -86,6 +86,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         // Intento de iniciar diálogo
         if (this.scene.spaceKey.justDown && this.touching && this.canInteract && !this.isDialogOpen)
         {
+            this.scene.UIManager.disappearInteractMessage();
             this.startDialog();
         }
 
@@ -248,7 +249,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     // CIERRE GLOBAL DE CUALQUIER DIÁLOGO
     // ===============================================
     forceCloseDialog() {
-
+        this.scene.UIManager.appearInteractMessage();
         this.destroyDialogVisuals();
 
         if (this.rejectionPortrait) {

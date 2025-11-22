@@ -163,7 +163,12 @@
                 "portrait": "otter",
                 "msgn": "¡¡¡AAAAAAAAAAAAHHHHHH!!!"
                 }
-			]
+			],
+            "Rechazo": {
+			    "speaker": "NPC",
+			    "portrait": "house",
+			    "msgn": "Bueno... será otro día entonces."
+		    }
     	},	
 		{
 			"val": 2,

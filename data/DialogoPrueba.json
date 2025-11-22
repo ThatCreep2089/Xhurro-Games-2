@@ -69,7 +69,12 @@
 				"msgn": "Otro loco más... eramos pocos y parió la abuela."
 				}
 
-			]
+			],
+			"Rechazo": {
+			    "speaker": "NPC",
+			    "portrait": "house",
+			    "msgn": "Bueno... será otro día entonces."
+		    }
     	},	
 		{
 			"val": 2,
@@ -277,30 +282,6 @@
 				}
 	
 			]
-		"val": 1,
-		"Dialog": [
-			{ "speaker": "Otter", "portrait": "otter", "msgn": "¡Hola!" },
-			{ "speaker": "NPC", "portrait": "house", "msgn": "¿Quieres ayudarme hoy?" }
-		],
-		"Rechazo": {
-			"speaker": "NPC",
-			"portrait": "house",
-			"msgn": "Bueno... será otro día entonces."
 		}
-		},
-		{
-		"val": 2,
-		"Dialog": [
-			{ "speaker": "Otter", "portrait": "otter", "msgn": "¡Hola de nuevo!" },
-			{ "speaker": "NPC", "portrait": "house", "msgn": "¿Quieres ayudarme hoy tambien?" }
-		],
-		"Rechazo": {
-			"speaker": "NPC",
-			"portrait": "house",
-			"msgn": "Bueno... será otro día entonces."
-		}
-		}
-		
 	]
-	
 }

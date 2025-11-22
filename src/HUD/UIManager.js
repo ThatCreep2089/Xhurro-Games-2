@@ -12,7 +12,9 @@ export default class UIManager {
             accept: null,
             refuse: null
         };
-        this.HUDDepth = 5000;
+        
+        this.HUDDepth = 5000;//profundidaz que no tendrá nunca ningún objeto dentro del mapa
+
         if (this.scene.scene.key === "mainScene") this.MainScene();
         else if (this.scene.scene.key === "whackAMole") {this.ScoreBar(); this.Timer();}
         else if (this.scene.scene.key === "lightUpGhosts") {this.ScoreBar(); this.Timer();}
@@ -136,12 +138,14 @@ export default class UIManager {
 
     //Hace aparecer el mensaje de interacción
     appearInteractMessage(){
-        this.interactMessage = this.scene.add.image(0, 0, 'spaceKey');
-        this.interactMessage.setScale(this.size*0.3);
-        this.interactMessage.setOrigin(0.5, 1); this.interactMessage.setPosition(this.scene.scale.width/2, this.scene.scale.height);
-
-        this.interactMessage.setScrollFactor(0);
-        this.interactMessage.setDepth(this.HUDDepth);
+        if (this.interactMessage == null){
+             this.interactMessage = this.scene.add.image(0, 0, 'spaceKey');
+             this.interactMessage.setScale(this.size*0.3);
+             this.interactMessage.setOrigin(0.5, 1); this.interactMessage.setPosition(this.scene.scale.width/2, this.scene.scale.height);
+     
+             this.interactMessage.setScrollFactor(0);
+             this.interactMessage.setDepth(this.HUDDepth);
+        }
     }
     //Hace desaparecer el mensaje de interacción
     disappearInteractMessage(){
