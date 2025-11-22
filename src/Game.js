@@ -4,7 +4,7 @@ import TitleScene from './scenes/menuScene.js';
 import Aux from './scenes/auxScene.js'
 import WhackAMole from './scenes/whackAMole.js';
 import IntroScene from './scenes/introductionScene.js';
-
+import TestScene from './scenes/testScene.js';
 /**
  * Inicio del juego en Phaser. Creamos el archivo de configuración del juego y creamos
  * la clase Game de Phaser, encargada de crear e iniciar el juego.
@@ -19,7 +19,7 @@ let config = {
 		autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
 	},
 
-	scene: [Aux,Boot,TitleScene,IntroScene,MainScene, WhackAMole],	// Decimos a Phaser cual es nuestra escena
+	scene: [Aux,Boot,TitleScene,IntroScene,MainScene, WhackAMole, TestScene],	// Decimos a Phaser cual es nuestra escena
 	
 	physics: { 
 		default: 'arcade', 
