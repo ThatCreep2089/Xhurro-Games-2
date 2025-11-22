@@ -1,6 +1,7 @@
 import DialogText from "../dialog_plugin.js";
 
 export default class NPC extends Phaser.GameObjects.Sprite {
+
     constructor(scene, x, y, texture, data, player, minigameInfo, scale = 0.1) {
         super(scene, x, y, texture);
         this.scene.add.existing(this);
@@ -10,99 +11,118 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         this.otter = player;
         this.minigameInfo = minigameInfo;
 
-        // Estados internos
-        this.dialogActive = false;
+        this.isDialogOpen = false;   // Cualquier diálogo activo
+        this.isRejection = false;    // Si el diálogo actual es de rechazo
+        this.canInteract = true;     // Si el NPC puede iniciar diálogo
+        this.waitSpaceRelease = false;
         this.dialogList = [];
         this.dialogIndex = 0;
-        this.closing = false;
-        this.resetDialogNextTime = false;
-        this.closingByRejection = false;
-        this.rejectionDialogActive = false;
-        this.interactionCooldown = false;
-        this.touching = false;
-        this.wasTouching = false;
-        this.waitForSpaceRelease = false;
-        this.dialogFlowLocked = false;
 
-        // Escala y físicas
+        // ============================
+        // FÍSICAS Y ÁREA DE INTERACCIÓN
+        // ============================
         this.setScale(scale);
         this.setOrigin(0.5, 1);
         const dw = this.displayWidth;
         const dh = this.displayHeight;
+
         this.body.setSize(dw, dh);
         this.body.x = this.x - (dw / 2);
         this.body.y = this.y - dh;
 
-        // Zona de interacción
         this.zone = scene.add.zone(x, y).setSize(dw + 10, dh + 10);
         scene.physics.add.existing(this.zone, true);
         this.zone.body.x = this.x - (this.zone.body.width / 2);
         this.zone.body.y = this.y - (dh / 2) - (this.zone.body.height / 2);
+
+        this.touching = false;
+        this.wasTouching = false;
+
         scene.physics.add.collider(this.otter, this);
         scene.physics.add.overlap(this.otter, this.zone, () => { this.touching = true; });
 
-        // Actualización por frame
         scene.physics.world.on("worldstep", () => this.physicsUpdate());
 
-        // Tecla espacio para avanzar diálogo
-        this.scene.input.keyboard.on('keydown-SPACE', () => {
-            if (this.scene.currentNPC === this && this.dialogActive && !this.closing) {
-                this.nextDialog();
+        // Avanzar diálogo con espacio
+        this.scene.input.keyboard.on("keydown-SPACE", () => {
+            if (this.scene.currentNPC !== this) return;
+            if (!this.isDialogOpen) return;
+
+            if (this.isRejection) {
+                this.forceCloseDialog();
+                return;
             }
+
+            this.nextDialog();
         });
     }
 
+    // ==============================
+    // DETECCIÓN DE INTERACCIÓN
+    // ==============================
    physicsUpdate() {
-        if (this.touching && !this.wasTouching) this.scene.UIManager.appearInteractMessage();
-        if (!this.touching && this.wasTouching) this.scene.UIManager.disappearInteractMessage();
 
-        // Bloquear interacción si venimos de un rechazo o estamos esperando liberación de tecla
-        if (this.waitForSpaceRelease || this.rejectionDialogActive || this.closingByRejection) {
+        if (this.touching && !this.wasTouching)
+            this.scene.UIManager.appearInteractMessage();
+
+        if (!this.touching && this.wasTouching)
+            this.scene.UIManager.disappearInteractMessage();
+
+
+        // Si hay diálogo abierto, no permitir interacción
+        if (this.isDialogOpen) {
             this.wasTouching = this.touching;
             this.touching = false;
             return;
         }
-        if (this.dialogFlowLocked) {
+
+        // Esperar a que el jugador suelte SPACE antes de permitir volver a hablar
+        if (this.waitSpaceRelease) {
             this.wasTouching = this.touching;
             this.touching = false;
             return;
         }
 
-        // Iniciar diálogo si pulsa espacio
-        if (this.scene.spaceKey.justDown && this.touching && !this.dialogActive && !this.closing && !this.interactionCooldown) {
+        // Intento de iniciar diálogo
+        if (this.scene.spaceKey.justDown && this.touching && this.canInteract && !this.isDialogOpen)
+        {
             this.startDialog();
         }
 
         this.wasTouching = this.touching;
         this.touching = false;
     }
-
-
+    // ==============================
+    // DIÁLOGO NORMAL
+    // ==============================
     findDay(day) {
         return this.datos.Dias.find(d => d.val === day);
     }
-
+    // ===============================================
+    // LOCALIZADOR DEL JSON Y DE INFO DEL JSON
+    // ===============================================
     startDialog() {
         const locator = this.findDay(this.scene.currentDay);
         if (!locator) return;
 
-        if (this.resetDialogNextTime) {
-            this.dialogIndex = 0;
-            this.resetDialogNextTime = false;
-        }
-
-        this.scene.currentNPC = this;
         this.dialogList = [...locator.Dialog];
         this.dialogIndex = 0;
-        this.dialogActive = true;
-        this.closing = false;
-        this.otter.canMove = false;
-        this.scene.UIManager.disappearInteractMessage();
-        this.showDialog();
-    }
 
+        const first = this.dialogList[0];
+
+        this.openDialog({
+            text: first.msgn,
+            portrait: first.portrait,
+            speaker: first.speaker,
+            type: "normal"
+        });
+
+        this.scene.currentNPC = this;
+    }
+    // ===============================================
+    // DIÁLOGO
+    // ===============================================
     showDialog() {
-        if (!this.dialogList || this.dialogList.length === 0) return;
         const current = this.dialogList[this.dialogIndex];
         const isOtter = current.speaker?.toLowerCase().includes("otter");
 
@@ -111,11 +131,15 @@ export default class NPC extends Phaser.GameObjects.Sprite {
             : { windowColor: 0x4d2a0c, borderColor: 0x8b4513, fontFamily: "bobFont", fontSize: 24, windowAlpha: 0.85 };
 
         if (this.text) this.destroyDialogVisuals();
+
         this.text = new DialogText(this.scene, opts);
         this.text.setText(current.msgn, true);
+
         this.showSpeakerImage(current.portrait, current.speaker);
     }
-
+    // ===============================================
+    // ENSEÑAR IMAGEN DEL HABALNTE
+    // ===============================================
     showSpeakerImage(portraitKey, speaker) {
         const cam = this.scene.cameras.main;
         const marginX = 32, marginY = 200;
@@ -125,260 +149,217 @@ export default class NPC extends Phaser.GameObjects.Sprite {
             : cam.scrollX + cam.width - marginX;
 
         if (this.speakerImage) this.speakerImage.destroy();
+
         this.speakerImage = this.scene.add.image(x, y, portraitKey)
             .setOrigin(speaker.toLowerCase().includes("otter") ? 0 : 1, 1)
             .setScale(0.9)
             .setFlipX(!speaker.toLowerCase().includes("otter"))
             .setDepth(2000);
     }
-
+    // ===============================================
+    // PASAR DE DIALOGO
+    // ===============================================
     nextDialog() {
-        if (!this.dialogActive || this.closing) return;
+        if (this.isRejection) return; // Rechazo se cierra solo
 
-        if (this.text?.isAnimating) {
-            this.text.completeText();
+        this.dialogIndex++;
+        if (this.dialogIndex >= this.dialogList.length) {
+            this.closeDialog();
             return;
         }
 
-        this.dialogIndex++;
-        if (this.dialogIndex < this.dialogList.length) {
-            this.showDialog();
-        } else {
-            this.closeDialog();
-        }
-    }
+        const line = this.dialogList[this.dialogIndex];
 
-    closeDialog() {
-        if (this.closing) return;
-        this.closing = true;
-
-        this.destroyDialogVisuals();
-        this.dialogActive = false;
-
-        // Evita abrir minigameInfo si venimos de un rechazo
-        if (this.closingByRejection) {
-            this.closing = false;
-            this.closingByRejection = false;
-            if (this.otter) this.otter.canMove = true;
-            this.scene.time.delayedCall(100, () => {
-                this.interactionCooldown = false;
-            });
-            return; // Se sale antes, sin abrir minijuego
-        }
-
-        if (this.scene && this.scene.UIManager && this.minigameInfo) {
-            const ui = this.scene.UIManager;
-
-            // Limpia listeners antiguos
-            ui.event.removeAllListeners("minigame:accepted");
-            ui.event.removeAllListeners("minigame:rejected");
-            ui.event.removeAllListeners("minigame:closed");
-
-            // --- Aceptar misión ---
-            ui.event.once("minigame:accepted", () => {
-                ui.event.once("minigame:closed", () => {
-                    this.destroyDialogVisuals();
-                    if (this.otter) this.otter.canMove = true;
-                });
-                // Evita que el jugador pulse espacio durante la transición al minigame
-                this.dialogFlowLocked = true;
-
-                ui.appearMinigameInfo(this.minigameInfo);
-
-                // 🔓 Liberar flujo después de que el UIManager cierre el panel
-                ui.event.once("minigame:closed", () => {
-                    this.dialogFlowLocked = false;
-                });
-
-            });
-
-            // --- Rechazar misión ---
-            ui.event.once("minigame:rejected", () => {
-                // Forzar cierre completo del panel del minijuego
-                if (this.scene.UIManager && this.scene.UIManager.disappearMinigameInfo) {
-                    this.scene.UIManager.disappearMinigameInfo();
-                }
-
-                this.closingByRejection = true;
-
-                // Limpiar todos los listeners para que no reaparezca
-                this.scene.UIManager.event.removeAllListeners("minigame:accepted");
-                this.scene.UIManager.event.removeAllListeners("minigame:rejected");
-                this.scene.UIManager.event.removeAllListeners("minigame:closed");
-
-                // Mostrar mensaje de rechazo después de limpiar UI
-                this.scene.time.delayedCall(300, () => {
-                    this.showRejectionDialog();
-                    this.resetDialogNextTime = true;
-                });
-            });
-
-            // --- Mostrar menú de misión ---
-            ui.appearMinigameInfo(this.minigameInfo);
-        } else {
-            if (this.otter) this.otter.canMove = true;
-        }
-
-        this.interactionCooldown = true;
-        this.scene.time.delayedCall(500, () => {
-            this.interactionCooldown = false;
+        this.openDialog({
+            text: line.msgn,
+            portrait: line.portrait,
+            speaker: line.speaker,
+            type: "normal"
         });
-        this.closing = false;
     }
+    // ===============================================
+    // CERRAR DIALOGO CUANDO SE TERMINA O CUANDO SE PULSA 'X'
+    // ===============================================
+    closeDialog() {
+        this.destroyDialogVisuals();
+        this.isDialogOpen = false;
 
+        // Menú de minijuego
+        const ui = this.scene.UIManager;
 
+        ui.event.removeAllListeners("minigame:accepted");
+        ui.event.removeAllListeners("minigame:rejected");
+
+        ui.event.once("minigame:accepted", () => {
+            ui.event.once("minigame:closed", () => {
+                this.otter.canMove = true;
+                this.canInteract = true;
+            });
+        });
+
+        ui.event.once("minigame:rejected", () => {
+            this.showRejectionDialog();
+        });
+
+        ui.appearMinigameInfo(this.minigameInfo);
+    }
+    // ===============================================
+    // ELIMINAR ELEMNTOS VISUALES
+    // ===============================================
     destroyDialogVisuals() {
-        if (!this.text) return;
-        try {
-            if (this.text.timedEvent) this.text.timedEvent.remove();
-            if (this.text.text) this.text.text.destroy();
-            if (this.text.graphics) this.text.graphics.destroy();
-            if (this.text.closeBtn) this.text.closeBtn.destroy();
-        } catch {}
-        this.text = null;
+        if (this.text) {
+            try {
+                if (this.text.timedEvent) this.text.timedEvent.remove();
+                if (this.text.text) this.text.text.destroy();
+                if (this.text.graphics) this.text.graphics.destroy();
+                if (this.text.closeBtn) this.text.closeBtn.destroy();
+            } catch {}
+            this.text = null;
+        }
 
         if (this.speakerImage) {
             try { this.speakerImage.destroy(); } catch {}
             this.speakerImage = null;
         }
+
+        if (this.rejectionPortrait) {
+            try { this.rejectionPortrait.destroy(); } catch {}
+            this.rejectionPortrait = null;
+        }
     }
 
-    // =====================================================
-    // === MENSAJE DE RECHAZO DEL NPC (tras rechazar misión)
-    // =====================================================
+    // ===============================================
+    // DIÁLOGO DE RECHAZO
+    // ===============================================
     showRejectionDialog() {
+    
         const locator = this.findDay(this.scene.currentDay);
-        const rejection = locator.Rechazo;
+        const r = locator.Rechazo;
+        this.openDialog({
+            text: r.msgn,
+            portrait: r.portrait,
+            speaker: r.speaker,
+            type: "rejection"
+        });
+    }
 
-        const msgn = rejection.msgn;
-        const speaker = rejection.speake;
-        const portraitKey = rejection.portrait;
-        const isOtter = (speaker ?? "").toLowerCase().includes("otter");
+
+    // ===============================================
+    // CIERRE GLOBAL DE CUALQUIER DIÁLOGO
+    // ===============================================
+    forceCloseDialog() {
+
+        this.destroyDialogVisuals();
+
+        if (this.rejectionPortrait) {
+            try { this.rejectionPortrait.destroy(); } catch {}
+            this.rejectionPortrait = null;
+        }
+
+        this.isDialogOpen = false;
+        this.isRejection = false;
+
+        this.otter.canMove = true;
+        this.canInteract = true;
+
+        // Asegurar que el jugador queda quieto
+        this.otter.body.setVelocity(0, 0);
+
+        if (this.scene.UIManager) {
+            this.scene.UIManager.disappearMinigameInfo();
+            this.scene.UIManager.event.removeAllListeners("minigame:accepted");
+            this.scene.UIManager.event.removeAllListeners("minigame:rejected");
+            this.scene.UIManager.event.removeAllListeners("minigame:closed");
+        }
+        // Esperar a que el jugador suelte SPACE antes de permitir interacción
+        // Evitar reabrir el diálogo si SPACE sigue pulsado
+        this.canInteract = false;
+        this.waitSpaceRelease = true;
+
+        const check = this.scene.time.addEvent({
+            delay: 50,
+            loop: true,
+            callback: () => {
+
+                // Cuando el jugador suelte SPACE:
+                if (!this.scene.spaceKey.isDown) {
+                    this.waitSpaceRelease = false;
+                    this.canInteract = true;
+                    check.remove();
+                }
+            }
+        });
+
+    }
+    openDialog(config) {
+
+        // ==========================
+        // Destrucción previa
+        // ==========================
+        this.destroyDialogVisuals();
+
+        this.isDialogOpen = true;
+        this.isRejection = (config.type === "rejection");
+        this.canInteract = false;
+
+        // ==========================
+        // Bloquear movimiento
+        // ==========================
+        this.otter.canMove = false;
+        this.otter.body.setVelocity(0, 0);
+
+        // ==========================
+        // Opciones estéticas
+        // ==========================
+        const isOtter = config.speaker?.toLowerCase().includes("otter");
 
         const opts = isOtter
             ? { windowColor: 0x1a3ca8, borderColor: 0x3a6ff7, fontFamily: "bobFont", fontSize: 24, windowAlpha: 0.85 }
             : { windowColor: 0x4d2a0c, borderColor: 0x8b4513, fontFamily: "bobFont", fontSize: 24, windowAlpha: 0.85 };
 
-        const text = new DialogText(this.scene, opts);
-        text.setText(msgn, true);
 
-        // Conectar el cierre por X
-        if (text.closeBtn) {
-            text.closeBtn.on('pointerdown', () => {
+        // ==========================
+        // Crear cuadro de diálogo
+        // ==========================
+        this.text = new DialogText(this.scene, opts);
+        this.text.setText(config.text, true);
+
+        // Cerrar por X
+        if (this.text.closeBtn) {
+            this.text.closeBtn.on("pointerdown", () => {
                 this.forceCloseDialog();
             });
         }
 
-        const cam = this.scene.cameras.main;
-        const marginX = 32, marginY = 200;
-        const y = cam.scrollY + cam.height - marginY;
-        const x = isOtter ? cam.scrollX + marginX : cam.scrollX + cam.width - marginX;
-
-        // Guardar retrato global
-        if (this.rejectionPortrait) {
-            try { this.rejectionPortrait.destroy(); } catch {}
-            this.rejectionPortrait = null;
+        // Cerrar por SPACE si es rechazo
+        if (this.isRejection) {
+            this.scene.input.keyboard.once("keydown-SPACE", () => {
+                this.forceCloseDialog();
+            });
         }
 
-        this.rejectionPortrait = this.scene.add.image(x, y, portraitKey)
+
+        // ==========================
+        // Retrato del personaje
+        // ==========================
+        const cam = this.scene.cameras.main;
+        const y = cam.scrollY + cam.height - 200;
+        const x = isOtter ? cam.scrollX + 32 : cam.scrollX + cam.width - 32;
+
+        if (this.rejectionPortrait) {
+            try { this.rejectionPortrait.destroy(); } catch {}
+        }
+
+        this.rejectionPortrait = this.scene.add.image(x, y, config.portrait)
             .setOrigin(isOtter ? 0 : 1, 1)
             .setScale(0.9)
             .setFlipX(!isOtter)
-            .setDepth(2000)
-            .setAlpha(0);
+            .setDepth(2000);
 
-        this.scene.tweens.add({ targets: this.rejectionPortrait, alpha: 1, duration: 300 });
 
-        this.dialogActive = true;
-        this.rejectionDialogActive = true;
-        if (this.otter) this.otter.canMove = false;
-        this.interactionCooldown = true;
-
-        // Activamos listener de teclado solo para este diálogo
-        this.scene.input.keyboard.once('keydown-SPACE', () => {
-            if (this.rejectionDialogActive) {
-                this.rejectionDialogActive = false;
-                this.dialogActive = false;
-
-                if (text.timedEvent) text.timedEvent.remove();
-                if (text.text) text.text.destroy();
-                if (text.graphics) text.graphics.destroy();
-                if (text.closeBtn) text.closeBtn.destroy();
-
-                if (this.rejectionPortrait) {
-                    try { this.rejectionPortrait.destroy(); } catch {}
-                    this.rejectionPortrait = null;
-                }
-
-                if (this.otter) this.otter.canMove = true;
-
-                // Reiniciar correctamente los flags de bloqueo
-                this.closingByRejection = false;
-                this.dialogFlowLocked = false;
-                this.waitForSpaceRelease = true;
-
-                // Liberar interacción después de que el jugador suelte la barra
-                this.scene.time.delayedCall(300, () => {
-                    this.interactionCooldown = false;
-                });
-
-                // Escuchar cuando el jugador suelte espacio para volver a permitir hablar
-                const checkRelease = this.scene.time.addEvent({
-                    delay: 100,
-                    loop: true,
-                    callback: () => {
-                        if (!this.scene.spaceKey.isDown) {
-                            this.waitForSpaceRelease = false;
-                            checkRelease.remove();
-                        }
-                    }
-                });
-            }
-        });
-
+        // ==========================
+        // Guardar datos del cuadro
+        // ==========================
+        this.currentDialogConfig = config;
     }
-
-    // =====================================================
-    // === Cierre forzado (se usa en X o cierre manual)
-    // =====================================================
-    forceCloseDialog() {
-
-        // Destruir todo el contenido visual del diálogo
-        this.destroyDialogVisuals();
-
-        if (this.speakerImage) {
-            try { this.speakerImage.destroy(); } catch {}
-            this.speakerImage = null;
-        }
-        // Destruir retrato del diálogo de rechazo si existe
-        if (this.rejectionPortrait) {
-            try { this.rejectionPortrait.destroy(); } catch {}
-            this.rejectionPortrait = null;
-        }
-
-
-        // Resetear estados
-        this.dialogActive = false;
-        this.closing = false;
-        this.rejectionDialogActive = false;
-
-        // Desactivar UI residual del minijuego
-        if (this.scene.UIManager) {
-            if (this.scene.UIManager.disappearMinigameInfo)
-                this.scene.UIManager.disappearMinigameInfo();
-            this.scene.UIManager.event.removeAllListeners("minigame:accepted");
-            this.scene.UIManager.event.removeAllListeners("minigame:rejected");
-            this.scene.UIManager.event.removeAllListeners("minigame:closed");
-        }
-
-        // Devolver control al jugador
-        if (this.otter) this.otter.canMove = true;
-
-        // Pequeño cooldown para evitar interacción inmediata
-        this.interactionCooldown = true;
-        this.scene.time.delayedCall(400, () => {
-            this.interactionCooldown = false;
-        });
-    }
-
 }
