@@ -6,6 +6,8 @@ import Aux from './scenes/auxScene.js'
 // === Minigames ===
 import WhackAMole from './scenes/whackAMole.js';
 import LightUpGhosts from './scenes/lightUpGhosts.js';
+import Puzzle from './scenes/puzzle.js';
+
 import IntroScene from './scenes/introductionScene.js';
 
 /**
@@ -23,7 +25,7 @@ let config = {
 		autoCenter: Phaser.Scale.CENTER_BOTH
 	},
 
-	scene: [Aux,Boot,TitleScene,IntroScene,MainScene, WhackAMole, LightUpGhosts],	// Decimos a Phaser cual es nuestra escena
+	scene: [Aux,Boot,TitleScene,IntroScene,MainScene, WhackAMole, LightUpGhosts, Puzzle],	// Decimos a Phaser cual es nuestra escena
 	
 	physics: { 
 		default: 'arcade', 

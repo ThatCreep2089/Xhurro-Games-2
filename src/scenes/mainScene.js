@@ -63,7 +63,7 @@ export default class mainScene extends Phaser.Scene {
                 description: "Aplasta a los topos haciendo clic sobre ellos...",
                 src: 'WAMVideo',
                 price: 25,
-                reward: { amountPerX:2, X: 10 }
+                reward:{ amountPerX:2, X: 10 }
             },
             LightUpGhosts: {
                 name: "Ilumina a los fantasmas",
@@ -73,14 +73,11 @@ export default class mainScene extends Phaser.Scene {
                 reward:{ amountPerX:2, X: 10 }
             },
             Puzzle: {
-                name: "",
-                description: "",
-                src: "",
-                price: "",
-                reward:{
-                    amountPerX:"",
-                    X: ""
-                }
+                name: "Puzle",
+                description: "Haz clic sobre las piezas para rotarlas y consigue que el puzzle encaje",
+                src: 'WAMVideo',
+                price: 25,
+                reward:{ amountPerX:10, X: 1 }
             }
         };
 
@@ -143,6 +140,7 @@ export default class mainScene extends Phaser.Scene {
         const npcData = this.cache.json.get('prueba');
         this.Toni = new NPC(this, 900, 700, 'toni', npcData, this.otter, this.minigamesInfo.WackAMole);
         this.Toni2 = new NPC(this, 800, 700, 'toni', npcData, this.otter, this.minigamesInfo.LightUpGhosts);
+        this.Toni3 = new NPC(this, 1000, 700, 'toni', npcData, this.otter, this.minigamesInfo.Puzzle);
     }
 
     nextDay() {

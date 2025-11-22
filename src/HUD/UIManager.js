@@ -13,10 +13,12 @@ export default class UIManager {
             refuse: null
         };
         this.HUDDepth = 5000;
-        if (this.scene.scene.key == "mainScene") this.MainScene();
-        else if (this.scene.scene.key == "whackAMole") {this.ScoreBar(); this.Timer();}
-        else if (this.scene.scene.key == "lightUpGhosts") {this.ScoreBar(); this.Timer();}
-
+        if (this.scene.scene.key === "mainScene") this.MainScene();
+        else if (this.scene.scene.key === "whackAMole") {this.ScoreBar(); this.Timer();}
+        else if (this.scene.scene.key === "lightUpGhosts") {this.ScoreBar(); this.Timer();}
+        else if (this.scene.scene.key === "puzzle") {this.Timer();}
+        
+        //No aplicar, implicaría recolocar y ampliar objetos
         // === MAXIMIZE SCREEN ===
         
         //this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F).on('down', () => {
@@ -263,11 +265,13 @@ export default class UIManager {
         this.minigameData.refuse.setDepth(this.HUDDepth);
 
         this.minigameData.accept.on('pointerdown', ()=>{
-            this.event.emit("minigame:accepted");
-            if (minigameInfo.price <= this.scene.otter.getStamina()){
+
             const otter = this.scene.otter;
             const price = minigameInfo.price;
+
             if (price <= otter.getStamina()) {
+                this.event.emit("minigame:accepted");
+                
                 // Restar estamina
                 otter.decreaseStaminaAmount(price);
                 this.event.emit("updateStamina");
@@ -283,12 +287,14 @@ export default class UIManager {
                     }else
                     if (minigameInfo.name === 'Ilumina a los fantasmas'){
                         this.scene.scene.start('lightUpGhosts');
+                    }else
+                    if(minigameInfo.name === 'Puzle'){
+                        this.scene.scene.start('puzzle')
                     }
                 });
             } else {
                 this.appearNotEnoughStamina();
             }
-        }
     });
         this.minigameData.refuse.on('pointerdown', ()=>{
             this.disappearMinigameInfo();
