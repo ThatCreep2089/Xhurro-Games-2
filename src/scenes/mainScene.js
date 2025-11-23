@@ -106,12 +106,6 @@ export default class mainScene extends Phaser.Scene {
     }
 
     update() {
-        // Si la estamina llega a 0, pasar al siguiente día
-        if (this.otter.getStamina() <= 0 && !this.dayChanging) {
-            this.dayChanging = true;
-            this.nextDay();
-        }
-
         // Resetear justDown / justUp
         let inputs = [this.spaceKey, this.keyW, this.keyA, this.keyS, this.keyD];
         for (const key in inputs) {
@@ -161,7 +155,5 @@ export default class mainScene extends Phaser.Scene {
             if (ending === "good") console.log("Good ending");
             else if (ending === "bad") console.log("Bad ending");
         });
-
-        this.time.delayedCall(500, () => this.dayChanging = false);
     }
 }
