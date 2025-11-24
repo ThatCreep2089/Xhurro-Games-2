@@ -26,7 +26,7 @@ export default class Navi extends Phaser.GameObjects.Sprite{
         } else {
             this.body.setVelocity(0, 0);
         }
-
-        this.setDepth(this.y);
+        
+        this.setDepth(this.body.y + 100);
     }
 }

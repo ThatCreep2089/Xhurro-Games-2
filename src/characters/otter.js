@@ -11,9 +11,8 @@ export default class Otter extends Phaser.GameObjects.Sprite {
         this.scene.add.existing(this); //Nos añadimos a la escena para ser mostrados.
         scene.physics.add.existing(this);
 
-        this.body.scale = this.scale;
         this.body.setSize(this.width, (this.height) * 0.2);
-        this.body.setOffset(0, (this.height) - (this.body.height/2));
+        this.body.setOffset(0 , this.height - 100);
 
         this.speed = speed;
 
@@ -139,7 +138,7 @@ export default class Otter extends Phaser.GameObjects.Sprite {
         {
             this.body.setVelocity(0,0);
         }
-
-        this.setDepth(this.y);
+        
+        this.setDepth(this.body.y);
     }
 }

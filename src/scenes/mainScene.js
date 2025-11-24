@@ -82,7 +82,7 @@ export default class mainScene extends Phaser.Scene {
         };
 
         // === JUGADOR (Nutria) ===
-        this.otter = new Otter(this, this.scale.width / 2, this.scale.height / 2, 20, 'otter', 0.2);
+        this.otter = new Otter(this, this.scale.width / 2, this.scale.height / 2, 20, 'toni', 0.1);
         this.cameras.main.startFollow(this.otter);
         this.navi = new Navi(this, this.otter, 80, 'otter', 0.15, 17);
 
