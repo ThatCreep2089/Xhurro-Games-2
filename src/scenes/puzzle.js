@@ -79,33 +79,49 @@ export default class puzzle extends Phaser.Scene {
         }
 
         //Hacemos las piezas interactuables y suscribimos a su interacción
+        this.win = false;
         pieces.forEach(piece => {
             piece.setInteractive();
 
             piece.on('pointerdown', () => {
-                //Se rota 90 grados
-                piece.setAngle(piece.angle + 90);
-
-                //Comprobación de victoria
-                this.score = 0;
-                //sumamos un punto por cada pieza bien colocada
-                pieces.forEach(piece => {
-                    if (piece.angle%360 === 0 || piece.angle%360 === 360) this.score++;
-                })
-
-                //si todas están bien colocadas entonces ha ganado
-                if (this.score >= (choosenPuzzle.width * choosenPuzzle.height)) this.timeleft = 1;
+                if (!this.win)
+                {
+                    //Se rota 90 grados
+                    piece.setAngle(piece.angle + 90);
+    
+                    //Comprobación de victoria
+                    this.score = 0;
+                    //sumamos un punto por cada pieza bien colocada
+                    pieces.forEach(piece => {
+                        if (piece.angle%360 === 0 || piece.angle%360 === 360) this.score++;
+                    })
+    
+                    //si todas están bien colocadas entonces ha ganado
+                    if (this.score >= (choosenPuzzle.width * choosenPuzzle.height)){
+                        this.win = true;
+                        this.timeleft = 1;
+                    }
+                }
             });
         })
+
+        this.end = false;
     }
 
     updateTimer() {
         this.timeleft--;
         this.UIManager.event.emit('changeTimer', this.timeleft);
     
-        if (this.timeleft <= 0) {
-    
-            // Recuperar los datos de recompensa desde mainScene
+        if (this.timeleft <= 0 && !this.end) {
+            this.end = true;
+            this.UIManager.appearMinigameEndInfo(this,
+                (Math.floor(this.score /
+                    this.scene.get('mainScene').minigamesInfo.Puzzle.reward.X) * this.scene.get('mainScene').minigamesInfo.Puzzle.reward.amountPerX));
+        }
+    }
+
+    finishGame(){
+        // Recuperar los datos de recompensa desde mainScene
             const mainScene = this.scene.get('mainScene');
             const rewardInfo = mainScene.minigamesInfo.Puzzle.reward;
             const staminaDecrease = mainScene.minigamesInfo.Puzzle.price;
@@ -123,6 +139,5 @@ export default class puzzle extends Phaser.Scene {
             GameDataManager.saveFrom(this.scene.get('mainScene') || this);
             this.input.setDefaultCursor('auto');
             this.scene.start('mainScene');
-        }
     }
 }

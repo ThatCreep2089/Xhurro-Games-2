@@ -48,10 +48,13 @@ export default class lightUpGhosts extends Phaser.Scene {
 
         this.input.on('pointermove', (pointer) => {
             const worldPoint = this.cameras.main.getWorldPoint(pointer.x, pointer.y);
-            this.antorchaLight.x = worldPoint.x;
-            this.antorchaLight.y = worldPoint.y;
 
-            this.event.emit('movingLight', this.antorchaLight);
+            if (this.antorchaLight.x){
+                this.antorchaLight.x = worldPoint.x;
+                this.antorchaLight.y = worldPoint.y;
+    
+                this.event.emit('movingLight', this.antorchaLight);
+            }
         });
 
         // === FANTASMAS ===
@@ -75,15 +78,29 @@ export default class lightUpGhosts extends Phaser.Scene {
         this.spawnTimeLeft = this.spawnTime;
         this.canSpawn = true;
         this.spawnProb = 0.01 //probabilidad de aparición de fantasma por frame sobre 1
+
+        this.end = false;
     }
 
     updateTimer() {
         this.timeleft--;
         this.UIManager.event.emit('changeTimer', this.timeleft);
     
-        if (this.timeleft <= 0) {
-    
-            // Recuperar los datos de recompensa desde mainScene
+        if (this.timeleft <= 0 && !this.end) {
+            this.end = true;
+
+             this.fantasmas.clear(true, true);
+             this.input.setDefaultCursor('default');
+             this.lights.removeLight(this.antorchaLight);
+             
+             this.UIManager.appearMinigameEndInfo(this,
+                (Math.floor(this.score /
+                    this.scene.get('mainScene').minigamesInfo.LightUpGhosts.reward.X) * this.scene.get('mainScene').minigamesInfo.LightUpGhosts.reward.amountPerX));
+        }
+    }
+
+    finishGame(){
+        // Recuperar los datos de recompensa desde mainScene
             const mainScene = this.scene.get('mainScene');
             const rewardInfo = mainScene.minigamesInfo.LightUpGhosts.reward;
             const staminaDecrease = mainScene.minigamesInfo.LightUpGhosts.price;
@@ -101,7 +118,6 @@ export default class lightUpGhosts extends Phaser.Scene {
             GameDataManager.saveFrom(this.scene.get('mainScene') || this);
             this.input.setDefaultCursor('auto');
             this.scene.start('mainScene');
-        }
     }
 
     spawnGhost(){

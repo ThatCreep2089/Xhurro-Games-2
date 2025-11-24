@@ -20,7 +20,8 @@ export default class starer extends Phaser.GameObjects.Image {
         //Cada vez que se mueve el cursor se actualiza la info sobre su radio y distancia de él
         this.scene.event.on('movingLight', (position) => {
             this.light = position;
-            this.maxDistance = position.radius/2;
+
+            this.maxDistance = position.radius/2 || 0;
         });
 
         // == Timer ==
@@ -75,10 +76,10 @@ export default class starer extends Phaser.GameObjects.Image {
 
     preUpdate(t, dt){
         // == Purificación implementación ==
-        if (this.light)
+        if (this.light != null)
         this.lightDistance = Phaser.Math.Distance.Between(this.light.x, this.light.y, this.x, this.y);
 
-        if (!this.onLight){ //Queremos que se mueva con la última dirección registrada al entrar en el circulo de luz
+        if (this.light && !this.onLight){ //Queremos que se mueva con la última dirección registrada al entrar en el circulo de luz
             this.direction = new Phaser.Math.Vector2(this.light.x - this.x, this.light.y - this.y).normalize();
         }
 

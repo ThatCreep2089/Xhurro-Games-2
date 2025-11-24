@@ -101,15 +101,15 @@ export default class UIManager {
         staminaNumber.setOrigin(1, 0.5); staminaNumber.setDisplayOrigin(1, 0);
 
        //suscripción para actualizar inventario
-       this.event.on('updateInventory', ()=>{
+       this.event.on('updateInventory', (sources)=>{
         paintNumber.setText("Pintura: " + backpack.paint);
         paperNumber.setText("Papel: " + backpack.paper);
         clayNumber.setText("Arcilla: " + backpack.clay);
        });
 
        this.event.on('updateStamina', ()=>{
-        staminaNumber.setText("Estamina: " + this.scene.otter.getStamina());
-       })
+            staminaNumber.setText("Estamina: " + this.scene.otter.getStamina());
+        })
        this.event.on('updateDay', () => {
             dayNumber.setText("Día: " + (this.scene.currentDay || 1));
         });
@@ -345,5 +345,35 @@ export default class UIManager {
         }, 1500);
 
         warning.setDepth(this.HUDDepth);
+    }
+
+    appearMinigameEndInfo(scene, reward)
+    {
+        //Creamos toda la información de la pantalla
+        let background = this.scene.add.image(this.scene.scale.width/2, this.scene.scale.height/2, 'MGInfoBG').setOrigin(0.5, 0.5);
+        background.setScale(this.size * 1.5)
+        background.setDepth(this.HUDDepth);
+
+        //Recompensa de minijuego
+        let rewardText = this.scene.add.text(this.scene.scale.width/2, this.scene.scale.height/2, "Recompensa: " + reward,{
+            fontFamily: 'bobFont',
+            fontSize: 35 * this.size + 'px',
+            color: '#000000'
+        }).setOrigin(0.5, 0.5);
+
+        //Botones
+        let continu3 = this.scene.add.image(this.scene.scale.width/2, this.scene.scale.height, 'acceptButton').setInteractive().setOrigin(0.5, 1).setScale(this.size * 0.25);
+
+        background.setScrollFactor(0);
+        rewardText.setScrollFactor(0);
+        continu3.setScrollFactor(0);
+
+        background.setDepth(this.HUDDepth);
+        rewardText.setDepth(this.HUDDepth);
+        continu3.setDepth(this.HUDDepth);
+
+        continu3.on('pointerdown', ()=>{
+            scene.finishGame();
+        });
     }
 }

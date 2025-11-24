@@ -12,8 +12,8 @@ export default class starer extends Phaser.GameObjects.Image {
 
         //Cada vez que se mueve el cursor se actualiza la info sobre su radio y distancia de él
         this.scene.event.on('movingLight', (position) => {
-            this.maxDistance = position.radius/2;
-            this.lightDistance = Phaser.Math.Distance.Between(position.x, position.y, this.x, this.y);
+            this.maxDistance = position.radius/2 || 0;
+            this.lightDistance = Phaser.Math.Distance.Between(position.x, position.y, this.x, this.y) || 0;
         });
 
         // == Timer ==
