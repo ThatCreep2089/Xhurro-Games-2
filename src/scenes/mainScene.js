@@ -14,6 +14,13 @@ export default class mainScene extends Phaser.Scene {
     #inputs;
 
     create() {
+        
+        // === CARGAR DATOS ===
+        import("../GameDataManager.js").then(module => {
+            const GameDataManager = module.default;
+            GameDataManager.applyTo(this);
+        });
+
         this.createAnims();
 
         // === MAPA ===
@@ -93,16 +100,6 @@ export default class mainScene extends Phaser.Scene {
 
         // === HUD ===
         this.createHUD();
-
-        // === CARGAR DATOS ===
-        import("../GameDataManager.js").then(module => {
-            const GameDataManager = module.default;
-            GameDataManager.applyTo(this);
-            this.UIManager.event.emit('updateDay');
-            this.UIManager.event.emit('updateInventory');
-            this.UIManager.event.emit('updateStamina');
-        });
-
     }
 
     update() {
@@ -143,8 +140,7 @@ export default class mainScene extends Phaser.Scene {
 
     nextDay() {
         this.currentDay = (this.currentDay || 1) + 1;
-        this.otter.setStamina(100);
-        this.UIManager.event.emit('updateStamina');
+        this.otter.restartStamina();
         this.UIManager.event.emit('updateDay');
 
         import("../GameDataManager.js").then(module => {

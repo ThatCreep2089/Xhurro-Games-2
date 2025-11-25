@@ -72,6 +72,7 @@ export default class Otter extends Phaser.GameObjects.Sprite {
     //Disminuye la estamina en función del argumento amount
     decreaseStaminaAmount(amount){
         this.stamina -= amount;
+        this.scene.UIManager.event.emit("updateStamina", -amount);
 
         // Si la estamina llega a 0, pasar al siguiente día
         if (this.stamina <= 0) {
@@ -80,8 +81,10 @@ export default class Otter extends Phaser.GameObjects.Sprite {
     }
 
     decreaseStamina(staminaPrice){
+
         if (this.howToDecrease <= 0){
             this.stamina -= staminaPrice;
+            this.scene.UIManager.event.emit("updateStamina", -staminaPrice);
             this.howToDecrease = 4;
         } else this.howToDecrease--;
 
@@ -93,18 +96,12 @@ export default class Otter extends Phaser.GameObjects.Sprite {
     getStamina(){
         return this.stamina;
     }
-    setStamina(amount) {
-        this.stamina = Phaser.Math.Clamp(amount, 0, 100);
-
-        // Si la estamina llega a 0, pasar al siguiente día
-        if (this.stamina <= 0) {
-            this.scene.nextDay();
-        }
-    }
+    
     //Reestablece la estamina
     restartStamina()
     {
         this.stamina = 100;
+        this.scene.UIManager.event.emit("updateStamina");
     }
 
     /**

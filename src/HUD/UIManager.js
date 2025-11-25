@@ -74,6 +74,7 @@ export default class UIManager {
             fontFamily: 'bobFont',
             fontSize: 25 * this.size + 'px',
         });
+
         //Estamina
         let staminaNumber = this.scene.add.text(500, 70, "Estamina: " + this.scene.otter.getStamina(),
         {
@@ -102,12 +103,86 @@ export default class UIManager {
 
        //suscripción para actualizar inventario
        this.event.on('updateInventory', (sources)=>{
-        paintNumber.setText("Pintura: " + backpack.paint);
-        paperNumber.setText("Papel: " + backpack.paper);
-        clayNumber.setText("Arcilla: " + backpack.clay);
+           paintNumber.setText("Pintura: " + backpack.paint);
+           paperNumber.setText("Papel: " + backpack.paper);
+           clayNumber.setText("Arcilla: " + backpack.clay);
+
+           //Activamos mensaje de recompensa por unos segundos
+           if (sources.paint && sources.paint != 0){
+                let paintReward = this.scene.add.text(paintNumber.x + 100, paintNumber.y + 50, "0",
+                {
+                    fontFamily: 'bobFont',
+                    fontSize: 25 * this.size + 'px',
+                });
+
+                cont.add(paintReward);
+                if(sources.paint > 0){
+                    paintReward.setColor('#008000');
+                    paintReward.setText("+" + sources.paint);
+                }
+                else{
+                    paintReward.setColor('#ff0000');
+                    paintReward.setText(sources.paint);
+                }
+                
+                setTimeout(() => {paintReward.destroy()}, 1000);
+           }
+
+           if (sources.paper && sources.paper != 0){
+                let paperReward = this.scene.add.text(paperNumber.x + 75, paperNumber.y + 50, "0",
+                {
+                    fontFamily: 'bobFont',
+                    fontSize: 25 * this.size + 'px',
+                });
+
+                cont.add(paperReward);
+                if(sources.paper > 0){
+                    paperReward.setColor("#008000");
+                    paperReward.setText("+" + sources.paper);
+                }
+                else{
+                    paperReward.setColor("#ff0000");
+                    paperReward.setText(sources.paper);
+                }
+                
+                setTimeout(() => {paperReward.destroy()}, 1000);
+           }
+
+           if (sources.clay && sources.clay != 0){
+                let clayReward = this.scene.add.text(clayNumber.x + 100, clayNumber.y + 50, "0",
+                {
+                    fontFamily: 'bobFont',
+                    fontSize: 25 * this.size + 'px',
+                });
+    
+                cont.add(clayReward);
+                if (sources.clay > 0){
+                    clayReward.setColor('#008000');
+                    clayReward.setText("+" + sources.clay);
+                }
+                else{
+                    clayReward.setColor('#ff0000');
+                    clayReward.setText(sources.clay);
+                }
+                
+                setTimeout(() => {clayReward.destroy()}, 1000);
+           }
        });
 
-       this.event.on('updateStamina', ()=>{
+       this.event.on('updateStamina', (amount)=>{
+
+            if (amount != undefined){
+                let staminaReward = this.scene.add.text(staminaNumber.x + 100, staminaNumber.y + 50, amount,
+                {
+                    color: '#ff0000',
+                    fontFamily: 'bobFont',
+                    fontSize: 25 * this.size + 'px',
+                });
+
+                cont.add(staminaReward);
+                setTimeout(() => {staminaReward.destroy()}, 1000)
+            }
+            
             staminaNumber.setText("Estamina: " + this.scene.otter.getStamina());
         })
        this.event.on('updateDay', () => {
@@ -278,7 +353,7 @@ export default class UIManager {
                 
                 // Restar estamina
                 otter.decreaseStaminaAmount(price);
-                this.event.emit("updateStamina");
+                this.event.emit("updateStamina", price);
 
                 // 🔹 Guardar datos antes de cambiar de escena
                 import("../GameDataManager.js").then(module => {

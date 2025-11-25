@@ -7,14 +7,24 @@ export default class GameDataManager {
 
     static buildsConstructed = [];
     static day = 1; //Nuevo contador de días
-
+    static reward = {
+            paint: 0,
+            paper: 0,
+            clay: 0
+        }
     static saveFrom(scene) {
         if (!scene) return;
-
+        
         if (scene.otter) {
+
+            this.reward.paint = scene.otter.backpack.paint - this.player.backpack.paint;
+            this.reward.paper = scene.otter.backpack.paper - this.player.backpack.paper;
+            this.reward.clay = scene.otter.backpack.clay - this.player.backpack.clay;
+            
             this.player.backpack.paint = scene.otter.backpack.paint;
             this.player.backpack.paper = scene.otter.backpack.paper;
             this.player.backpack.clay = scene.otter.backpack.clay;
+
             if (typeof scene.otter.getStamina === 'function')
                 this.player.stamina = scene.otter.getStamina();
         }
@@ -57,13 +67,13 @@ export default class GameDataManager {
         }
 
         if (scene.UIManager && scene.UIManager.event) {
-            scene.UIManager.event.emit('updateInventory');
+            scene.UIManager.event.emit('updateInventory', this.reward);
             scene.UIManager.event.emit('updateStamina');
             scene.UIManager.event.emit('updateDay'); // 🔹 nuevo evento
         } else {
             scene.time.delayedCall(200, () => {
                 if (scene.UIManager && scene.UIManager.event) {
-                    scene.UIManager.event.emit('updateInventory');
+                    scene.UIManager.event.emit('updateInventory', this.reward);
                     scene.UIManager.event.emit('updateStamina');
                     scene.UIManager.event.emit('updateDay');
                 }

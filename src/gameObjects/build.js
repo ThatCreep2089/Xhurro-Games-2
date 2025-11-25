@@ -60,8 +60,7 @@ export default class Build extends Phaser.GameObjects.Sprite {
 
             // actualizar HUD
             if (this.scene.UIManager && this.scene.UIManager.event) {
-                this.scene.UIManager.event.emit("updateInventory");
-                this.scene.UIManager.event.emit("updateStamina");
+                this.scene.UIManager.event.emit("updateInventory", {paint: -this.sources.paint, paper: -this.sources.paper, clay: -this.sources.clay});
             }
 
             // guardar inmediatamente el estado global

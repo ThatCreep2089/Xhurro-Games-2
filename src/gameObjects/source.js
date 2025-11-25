@@ -88,7 +88,6 @@ export default class Source extends Phaser.GameObjects.Sprite {
                    this.otter.decreaseStamina(this.staminaPrice);
                    //Actualizamos el HUD
                    this.scene.UIManager.event.emit("updateInventory", this.sources);
-                   this.scene.UIManager.event.emit("updateStamina");
                    
                    //En caso de quedarse sin usos destruimos el objeto y sus atributos creados en escena
                    if (this.uses == 0)
