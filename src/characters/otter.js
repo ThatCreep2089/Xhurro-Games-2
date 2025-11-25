@@ -4,15 +4,16 @@ export default class Otter extends Phaser.GameObjects.Sprite {
      * @param {number} x - coordenada x
      * @param {number} y - coordenada y 
      */
-    constructor(scene, x, y, speed,  texture, size = 1, frame) {
+    constructor(scene, x, y, speed,  texture, size = 1, colliderWidthFactor = 1, frame) {
         super(scene, x, y, texture, frame = 0);
-
-        this.setScale(size);
+        
         this.scene.add.existing(this); //Nos añadimos a la escena para ser mostrados.
+        this.setScale(size);
+
         scene.physics.add.existing(this);
 
-        this.body.setSize(this.width, (this.height) * 0.2);
-        this.body.setOffset(0 , this.height - 100);
+        this.body.setSize(this.width * colliderWidthFactor, (this.height) * 0.2);
+        this.body.setOffset((this.width - (this.width*colliderWidthFactor))/2, this.height-100);
 
         this.speed = speed;
 

@@ -2,7 +2,7 @@ import DialogText from "../dialog_plugin.js";
 
 export default class NPC extends Phaser.GameObjects.Sprite {
 
-    constructor(scene, x, y, texture, data, player, minigameInfo, scale = 0.1) {
+    constructor(scene, x, y, texture, data, player, minigameInfo, scale = 0.1, colliderWidthFactor = 1) {
         super(scene, x, y, texture);
         this.scene.add.existing(this);
 
@@ -24,11 +24,11 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         this.setScale(scale);
         scene.physics.add.existing(this, true);
         
-        this.zone = scene.add.zone(x, y).setSize(this.width*scale + 10, (this.height*scale * 0.2) + 10);
+        this.zone = scene.add.zone(x, y).setSize(this.width*scale*colliderWidthFactor + 10, (this.height*scale * 0.2) + 10);
         scene.physics.add.existing(this.zone, true);
         scene.physics.add.existing(this, true);
 
-        this.body.setSize(this.width*scale, (this.height*scale) * 0.2);
+        this.body.setSize(this.width*scale*colliderWidthFactor, (this.height*scale) * 0.2);
         this.body.y = this.body.y + ((this.height*scale / 2) - (this.body.height / 2));
         this.zone.body.y = this.zone.body.y + ((this.height*scale / 2) - (this.body.height / 2));
 

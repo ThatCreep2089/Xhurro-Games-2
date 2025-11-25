@@ -89,7 +89,7 @@ export default class mainScene extends Phaser.Scene {
         };
 
         // === JUGADOR (Nutria) ===
-        this.otter = new Otter(this, this.scale.width / 2, this.scale.height / 2, 20, 'toni', 0.1);
+        this.otter = new Otter(this, this.scale.width / 2, this.scale.height / 2, 20, 'toni', 0.1, 0.25);
         this.cameras.main.startFollow(this.otter);
         this.navi = new Navi(this, this.otter, 80, 'otter', 0.15, 17);
 
@@ -129,13 +129,13 @@ export default class mainScene extends Phaser.Scene {
 
     createNPCs() {
         const npcData = this.cache.json.get('prueba');
-        this.Toni = new NPC(this, 900, 700, 'toni', npcData, this.otter, this.minigamesInfo.WackAMole);
+        this.Toni = new NPC(this, 900, 700, 'toni', npcData, this.otter, this.minigamesInfo.WackAMole, 0.1, 0.25);
 
         const cleonRomeData = this.cache.json.get('cleonRome');
-        this.Cleon = new NPC(this, 1000, 700, 'toni', cleonRomeData, this.otter, this.minigamesInfo.LightUpGhosts);
+        this.Cleon = new NPC(this, 1000, 700, 'toni', cleonRomeData, this.otter, this.minigamesInfo.LightUpGhosts, 0.1, 0.25);
 
         const ishmaelData = this.cache.json.get('ishmael');
-        this.Ishmael = new NPC(this, 1100, 700, 'toni', ishmaelData, this.otter, this.minigamesInfo.Puzzle);
+        this.Ishmael = new NPC(this, 1100, 700, 'toni', ishmaelData, this.otter, this.minigamesInfo.Puzzle, 0.1, 0.25);
     }
 
     nextDay() {
