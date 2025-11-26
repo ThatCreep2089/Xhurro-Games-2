@@ -59,19 +59,24 @@ export default class UIManager {
         background.setScale(this.size * 0.5)
         background.setDepth(this.HUDDepth);
 
-        let paintNumber = this.scene.add.text(100*this.size, 20, "x" + backpack.paint,
+        let paintImg = this.scene.add.image(20*this.size, 15, 'paintIcon').setScale(this.size*0.5).setDisplayOrigin(0.5,0.5);
+        let paintNumber = this.scene.add.text(60*this.size, 20, "x" + backpack.paint,
         {
             fontFamily: 'bobFont',
             fontSize: 25 * this.size + 'px',
             color: '#000000'
         });
-        let paperNumber = this.scene.add.text(200*this.size, 20, "x" + backpack.paper,
+
+        let paperImg = this.scene.add.image(145*this.size, 11, 'paperIcon').setScale(this.size*0.5).setDisplayOrigin(0.5,0.5);
+        let paperNumber = this.scene.add.text(185*this.size, 20, "x" + backpack.paper,
         {
             fontFamily: 'bobFont',
             fontSize: 25 * this.size + 'px',
             color: '#000000'
         });
-        let clayNumber = this.scene.add.text(300*this.size, 20, "x" + backpack.clay,
+
+        let clayImg = this.scene.add.image(260*this.size, 15, 'clayIcon').setScale(this.size*0.5).setDisplayOrigin(0.5,0.5);
+        let clayNumber = this.scene.add.text(310*this.size, 20, "x" + backpack.clay,
         {
             fontFamily: 'bobFont',
             fontSize: 25 * this.size + 'px',
@@ -79,13 +84,17 @@ export default class UIManager {
         });
 
         //Estamina
+        let staminaImg = this.scene.add.image(642*this.size, 20, 'stamina').setScale(this.size*0.5).setDisplayOrigin(0.5,0.5);
         let staminaNumber = this.scene.add.text(670*this.size, 20, "x" + this.scene.otter.getStamina(),
         {
             fontFamily: 'bobFont',
             fontSize: 25 * this.size + 'px',
             color: '#000000'
         });
-        let dayNumber = this.scene.add.text(750*this.size, 20, (this.scene.currentDay || 1),
+
+        //Dia
+        let dayImg = this.scene.add.image(725*this.size, 17, 'day').setScale(this.size*0.5).setDisplayOrigin(0.5,0.5);
+        let dayNumber = this.scene.add.text(765*this.size, 20, (this.scene.currentDay || 1),
         {
             fontFamily: 'bobFont',
             fontSize: 25 * this.size + 'px',
@@ -93,17 +102,24 @@ export default class UIManager {
         });
 
         //HUD recursos en inventario
-        cont.add([background, paintNumber, paperNumber, clayNumber, staminaNumber,dayNumber])
+        cont.add([background,
+            paintNumber, paintImg,
+            paperNumber, paperImg,
+            clayNumber, clayImg,
+            staminaNumber, staminaImg,
+            dayNumber, dayImg]);
+
         cont.setDepth(this.HUDDepth);
         
 
         //Reposicionamos
         cont.setScrollFactor(0);
-        background.setOrigin(0, 0.5); background.setDisplayOrigin(0, 0.5);
-        paintNumber.setOrigin(0, 0.5); paintNumber.setDisplayOrigin(0, 0.5);
-        paperNumber.setOrigin(0.5, 0.5); paperNumber.setDisplayOrigin(0.5, 0.5);
-        clayNumber.setOrigin(1, 0.5); clayNumber.setDisplayOrigin(1, 0.5);
-        staminaNumber.setOrigin(1, 0.5); staminaNumber.setDisplayOrigin(1, 0);
+        background.setDisplayOrigin(0, 0.5);
+        paintNumber.setDisplayOrigin(0, 0.5);
+        paperNumber.setDisplayOrigin(0, 0.5);
+        clayNumber.setDisplayOrigin(0, 0.5);
+        staminaNumber.setDisplayOrigin(0, 0.5);
+        dayNumber.setDisplayOrigin(0, 0.5);
 
        //suscripción para actualizar inventario
        this.event.on('updateInventory', (sources)=>{
