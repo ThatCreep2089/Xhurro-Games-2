@@ -86,5 +86,7 @@ export default class Boot extends Phaser.Scene {
     this.load.json('ishmael', './data/IshmaelDialogo.json');
      this.load.json('dialogos', './data/DialogScene.json');
     this.first = false;
+
+    this.load.image('backpack', './assetsAux/backpack.png');
   }
 }

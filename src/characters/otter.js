@@ -40,7 +40,7 @@ export default class Otter extends Phaser.GameObjects.Sprite {
         this.canMove = true //Controla cuando el jugador puede o no puede moverse
 
         //Energía del jugador
-        this.stamina = 27;
+        this.stamina = 100;
         this.howToDecrease = 4;
     }
 

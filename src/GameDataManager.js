@@ -2,7 +2,7 @@
 export default class GameDataManager {
     static player = {
         backpack: { paint: 0, paper: 0, clay: 0 },
-        stamina: 27
+        stamina: 100
     };
 
     static buildsConstructed = [];

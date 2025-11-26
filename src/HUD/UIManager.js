@@ -55,39 +55,43 @@ export default class UIManager {
         let cont = this.scene.add.container(0, 0);
 
         //Declaramos todo el contenido del contenedor
-        let background = this.scene.add.image(0, 0, 'house');
-        background.setScale(this.size,0)
+        let background = this.scene.add.image(0, 0, 'backpack');
+        background.setScale(this.size * 0.5)
         background.setDepth(this.HUDDepth);
 
-        let paintNumber = this.scene.add.text(50*this.size, 70, "Pintura: " + backpack.paint,
-        {
-            fontFamily: 'bobFont',
-            fontSize: 25 * this.size + 'px',
-        });
-        let paperNumber = this.scene.add.text(200*this.size, 70, "Papel: " + backpack.paper,
-        {
-            fontFamily: 'bobFont',
-            fontSize: 25 * this.size + 'px',
-        });
-        let clayNumber = this.scene.add.text(350*this.size, 70, "Arcilla: " + backpack.clay,
-        {
-            fontFamily: 'bobFont',
-            fontSize: 25 * this.size + 'px',
-        });
-
-        //Estamina
-        let staminaNumber = this.scene.add.text(500, 70, "Estamina: " + this.scene.otter.getStamina(),
-        {
-            fontFamily: 'bobFont',
-            fontSize: 25 * this.size + 'px'
-        });
-        let dayNumber = this.scene.add.text(675, 70, "Día: " + (this.scene.currentDay || 1),
+        let paintNumber = this.scene.add.text(100*this.size, 20, "x" + backpack.paint,
         {
             fontFamily: 'bobFont',
             fontSize: 25 * this.size + 'px',
             color: '#000000'
         });
-        cont.add(dayNumber);
+        let paperNumber = this.scene.add.text(200*this.size, 20, "x" + backpack.paper,
+        {
+            fontFamily: 'bobFont',
+            fontSize: 25 * this.size + 'px',
+            color: '#000000'
+        });
+        let clayNumber = this.scene.add.text(300*this.size, 20, "x" + backpack.clay,
+        {
+            fontFamily: 'bobFont',
+            fontSize: 25 * this.size + 'px',
+            color: '#000000'
+        });
+
+        //Estamina
+        let staminaNumber = this.scene.add.text(670*this.size, 20, "x" + this.scene.otter.getStamina(),
+        {
+            fontFamily: 'bobFont',
+            fontSize: 25 * this.size + 'px',
+            color: '#000000'
+        });
+        let dayNumber = this.scene.add.text(750*this.size, 20, (this.scene.currentDay || 1),
+        {
+            fontFamily: 'bobFont',
+            fontSize: 25 * this.size + 'px',
+            color: '#000000'
+        });
+
         //HUD recursos en inventario
         cont.add([background, paintNumber, paperNumber, clayNumber, staminaNumber,dayNumber])
         cont.setDepth(this.HUDDepth);
@@ -103,9 +107,9 @@ export default class UIManager {
 
        //suscripción para actualizar inventario
        this.event.on('updateInventory', (sources)=>{
-           paintNumber.setText("Pintura: " + backpack.paint);
-           paperNumber.setText("Papel: " + backpack.paper);
-           clayNumber.setText("Arcilla: " + backpack.clay);
+           paintNumber.setText("x" + backpack.paint);
+           paperNumber.setText("x" + backpack.paper);
+           clayNumber.setText("x" + backpack.clay);
 
            //Activamos mensaje de recompensa por unos segundos
            if (sources.paint && sources.paint != 0){
@@ -129,7 +133,7 @@ export default class UIManager {
            }
 
            if (sources.paper && sources.paper != 0){
-                let paperReward = this.scene.add.text(paperNumber.x + 75, paperNumber.y + 50, "0",
+                let paperReward = this.scene.add.text(paperNumber.x, paperNumber.y + 50, "0",
                 {
                     fontFamily: 'bobFont',
                     fontSize: 25 * this.size + 'px',
@@ -149,7 +153,7 @@ export default class UIManager {
            }
 
            if (sources.clay && sources.clay != 0){
-                let clayReward = this.scene.add.text(clayNumber.x + 100, clayNumber.y + 50, "0",
+                let clayReward = this.scene.add.text(clayNumber.x, clayNumber.y + 50, "0",
                 {
                     fontFamily: 'bobFont',
                     fontSize: 25 * this.size + 'px',
@@ -172,7 +176,7 @@ export default class UIManager {
        this.event.on('updateStamina', (amount)=>{
 
             if (amount != undefined){
-                let staminaReward = this.scene.add.text(staminaNumber.x + 100, staminaNumber.y + 50, amount,
+                let staminaReward = this.scene.add.text(staminaNumber.x, staminaNumber.y + 50, amount,
                 {
                     color: '#ff0000',
                     fontFamily: 'bobFont',
@@ -182,11 +186,11 @@ export default class UIManager {
                 cont.add(staminaReward);
                 setTimeout(() => {staminaReward.destroy()}, 1000)
             }
-            
-            staminaNumber.setText("Estamina: " + this.scene.otter.getStamina());
+
+            staminaNumber.setText("x" + this.scene.otter.getStamina());
         })
        this.event.on('updateDay', () => {
-            dayNumber.setText("Día: " + (this.scene.currentDay || 1));
+            dayNumber.setText((this.scene.currentDay || 1));
         });
        
     }
