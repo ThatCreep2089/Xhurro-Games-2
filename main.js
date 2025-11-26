@@ -45,7 +45,7 @@ window.onload = function() {
   observer.observe(cont[0]);
 }
 
-let moscaAudio = new Audio('assets/audiosWeb/mosca.mp3');
+let moscaAudio = new Audio('assets/audios/audiosWeb/mosca.mp3');
 function moveFly(mosca)
 {
   moscaAudio.load();
