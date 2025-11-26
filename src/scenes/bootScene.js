@@ -63,22 +63,47 @@ export default class Boot extends Phaser.Scene {
   }
 
   loadResources() {
-    this.load.image('toni', './assets/imagenes/NPC/Toni.png');
+    // === MAPA ===
     this.load.image('map', './assets/imagenes/HUD/map.png');
-    this.load.image('paint', './assets/imagenes/sources/paint.jpg');
+
+    // === NPC ===
+    this.load.image('toni', './assets/imagenes/NPC/Toni.png');
+    this.load.image('pablo', './assets/imagenes/NPC/Pablo.png');
+    this.load.image('ismael', './assets/imagenes/NPC/Ishmael.png');
+    
+    // === BUILDS ===
     this.load.image('destroyedHouse', './assets/imagenes/builds/destroyedHouse.jpg');
     this.load.image('house', './assets/imagenes/builds/house.png');
+
+    // === SOURCES ===
+    this.load.image('paint', './assets/imagenes/sources/paint.jpg');
+    
+    // === HUD ===
     this.load.image('buildSources', './assets/imagenes/HUD/buttons/buildSources.jpg');
     this.load.image('spaceKey', './assets/imagenes/HUD/popups/keyboard_space.png');
-    this.load.image('topo', './assets/imagenes/minigames/WhackAMole/objects/boa.jpg');
-    this.load.image('hoyo', './assets/imagenes/minigames/WhackAMole/objects/hole.png');
-    this.load.image('dinamita', './assets/imagenes/minigames/WhackAMole/objects/bomba.png');
-
-    // === RECURSOS DESCRIPCIÓN MINIJUEGOS ===
-    this.load.video('WAMVideo', './assets/imagenes/minigames/WhackAMole/background/WAMVideo.mp4');
-    this.load.image('MGInfoBG', './assets/imagenes/HUD/popups/MGInfoBG.jpg');
     this.load.image('acceptButton', './assets/imagenes/HUD/buttons/acceptButton.jpg');
     this.load.image('refuseButton', './assets/imagenes/HUD/buttons/refuseButton.jpg');
+    this.load.image('backpack', './assets/imagenes/HUD/sources/backpack.png');
+    this.load.image('paintIcon', './assets/imagenes/HUD/sources/paintIcon.png');
+    this.load.image('paperIcon', './assets/imagenes/HUD/sources/paperIcon.png');
+    this.load.image('clayIcon', './assets/imagenes/HUD/sources/clayIcon.png');
+    this.load.image('stamina', './assets/imagenes/HUD/sources/stamina.png');
+    this.load.image('day', './assets/imagenes/HUD/sources/dia.png');
+
+    // === MINIGAMES ===
+    this.load.image('MGInfoBG', './assets/imagenes/HUD/popups/MGInfoBG.jpg');
+
+      // == WHACK A MOLE ==
+       this.load.image('topo', './assets/imagenes/minigames/WhackAMole/objects/boa.jpg');
+       this.load.image('hoyo', './assets/imagenes/minigames/WhackAMole/objects/hole.png');
+       this.load.image('dinamita', './assets/imagenes/minigames/WhackAMole/objects/bomba.png');
+       this.load.video('WAMVideo', './assets/imagenes/minigames/WhackAMole/background/WAMVideo.mp4');
+
+      // == LIGHT UP GHOSTS ==
+
+      // == PUZZLE ==
+    
+    //
 
     // === RECURSOS DIÁLOGOS ===
     this.load.json('prueba', './data/DialogoPrueba.json');
