@@ -106,18 +106,33 @@ Para poder pasar ese proceso con éxito tendrá que reconstruir su subconsciente
 </tr>
 </table>
 
+<table>
+<tr>
+<td width="10"></td>
+<td>
 <details>
 	<summary> Objetivo del juego</summary>
 	
 ## Objetivo del juego
 El objetivo del juego es reconstruir el subconsciente de la nutria con los recursos obtenidos antes de que acaben los seis días
 </details>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="10"></td>
+<td>
 <details>
 	<summary> CoreLoop</summary>
 	
 ## CoreLoop
 <img width="608" height="468" alt="image" src="https://github.com/user-attachments/assets/7f237e4b-969a-4fda-8f43-a01723906bc8" />
 </details>
+</td>
+</tr>
+</table>
 
 <details>
 <summary> Mecánicas </summary>
