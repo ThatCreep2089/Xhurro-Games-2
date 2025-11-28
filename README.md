@@ -30,15 +30,16 @@ El juego es un RPG sin combates donde tenemos a una nutria como protagonista que
 <details>
 <summary> GDD </summary>
 <details>
-<div align="right">
 <summary> Resumen </summary>
-
+	
+<div align="right">
 <details>
 <summary> Género y PEGI </summary>
 	
 ## Género y PEGI
 Se trata de un juego RPG/Aventura,donde el protagonista tendrá que recolectar recursos para reconstruir si subsoncietne.EL PEGI es /, ya que es un juego que aunque toque algún tema algo más profundo no contiene ningún acto de violencia, uso de sustancias, etc.
 </details>
+</div>
 
 <details>
 	<summary> Lore </summary>
@@ -329,7 +330,6 @@ Stardew Valley y Animal Crossing: por el modo de paso de días y gestión de rec
 
 Mario Party: los minijuegos y como se muestran al jugador se asemejan mucho a los de esta saga.
 </details>
-</div>
 </details>
 
 <details>
