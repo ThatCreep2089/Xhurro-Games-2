@@ -427,7 +427,12 @@ Si se interactúa y se tiene los recursos necesarios la estructura/objeto se con
 	<summary> Camara </summary>
 	
 ## Camara
-La cámara se colocará en posición cenital siguiendo a la nutria constantemente. Esta será del tamaño de la ventana del juego en la página web.
+La cámara se colocará en posición cenital siguiendo a la nutria constantemente. 
+
+
+Esta será del tamaño de la ventana del juego en la página web.
+
+
 Si el movimiento de la cámara implica que este se salga de los límites del layout del nivel, esta no se moverá (para que no se salga del mapa).
 </details></td>
 </tr>
@@ -441,7 +446,10 @@ Si el movimiento de la cámara implica que este se salga de los límites del lay
 <summary> HUD </summary>
 		
 ## HUD
-En cuanto al HUD, en la zona superior izquierda de la pantalla se podrán apreciar los recursos obtenidos. En la zona superior derecha se podrá obtener la estamina que se tiene en cada momento.
+En cuanto al HUD, en la zona superior izquierda de la pantalla se podrán apreciar los recursos obtenidos. 
+
+
+En la zona superior derecha se podrá obtener la estamina que se tiene en cada momento.
 
 
 <img width="760" height="443" alt="image" src="https://github.com/user-attachments/assets/019e444a-a54c-4b8c-9089-ca9c41cb737f" />
@@ -453,8 +461,16 @@ En cuanto a los diálogos aparecerá en la zona inferior un recuadro con una ima
 <img width="701" height="414" alt="image" src="https://github.com/user-attachments/assets/7c1226a7-fbff-4c92-bb8f-ebe284284bc8" />
 
 
-Para las misiones encontraremos un pop-up que cubrirá toda la pantalla, contendrá el nombre de la misión en la zona superior izquierda, un poco más abajo una descripción detallada junto con una o varias imágenes que ayuden a entender el minijuego de la misión de un vistazo.
-Encontraremos además el coste de la misión (estamina) y la recompensa (las recompensas van en función de los puntos conseguidos a final de la partida, información más detallada en minijuegos). En la zona inferior podemos ver los botones para rechazar o aceptar la misión.
+Para las misiones encontraremos un pop-up que cubrirá toda la pantalla, contendrá el nombre de la misión en la zona superior izquierda, 
+
+
+un poco más abajo una descripción detallada junto con una o varias imágenes que ayuden a entender el minijuego de la misión de un vistazo.
+
+
+Encontraremos además el coste de la misión (estamina) y la recompensa (las recompensas van en función de los puntos conseguidos a final de la partida, información más detallada en minijuegos). 
+
+
+En la zona inferior podemos ver los botones para rechazar o aceptar la misión.
 
 
 <img width="753" height="460" alt="image" src="https://github.com/user-attachments/assets/ea02e9e5-5d64-454f-8f63-6b30f361ee33" />
@@ -468,13 +484,23 @@ Encontraremos además el coste de la misión (estamina) y la recompensa (las rec
 </tr>
 </table>
 
+<table>
+<tr>
+<td width="10"></td>
+<td>
 <details>
-	<summary> Mundo del juego </summary>
+<summary> Mundo del juego </summary>
+<table>
+<tr>
+<td width="20"></td>
+<td>
 <details>
 	<summary> Personajes </summary>
 	
 ## Personajes
-Nutria: protagonista de la historia. Es el personaje que controla el jugador. Es una nutria con un sombrero y pintada de manera abstracta tipo Picasso .
+Nutria: protagonista de la historia. Es el personaje que controla el jugador. 
+
+Es una nutria con un sombrero y pintada de manera abstracta tipo Picasso .
 
 
 <img width="342" height="313" alt="image" src="https://github.com/user-attachments/assets/bc7dee86-5351-4b5f-9dfc-657c5b466d58" />
@@ -482,7 +508,6 @@ Nutria: protagonista de la historia. Es el personaje que controla el jugador. Es
 
 NPCs para obtener misiones:
 Toni: se parecerá a Timmy Turner pero con el aspceto de TOni.
-
 
 
 <img width="256" height="256" alt="image" src="https://github.com/user-attachments/assets/a2a56a00-f4e5-47fc-9934-a8c2d6337d90" />
@@ -503,12 +528,25 @@ Ma: Forma parte de la banda EXODIA y no puede separarse de sus dos queridos comp
 El: Forma parte de la banda EXODIA y no puede separarse de sus dos queridos compañeros de aventuras, Ish y Ma. Tiene el aspecto de un brazo izquierdo con mucha masa muscular.
 
 
-
 <img width="587" height="296" alt="image" src="https://github.com/user-attachments/assets/fba897a9-2549-4413-8358-253b7822c677" />
 
 
-Cleon y Rome: Una pareja feliz con una enorme determinación para seguir adelante con su relación. Cleon, que tendrá el aspecto de uno de los profesores de P2 con el vestido de novia, no puede separarse de su mujer con el traje de novia, Rome, con la apariencia de uno de los profesores de P2.
+Cleon y Rome: Una pareja feliz con una enorme determinación para seguir adelante con su relación. 
+
+
+Cleon, que tendrá el aspecto de uno de los profesores de P2 con el vestido de novia, no puede separarse de su mujer con el traje de novia; 
+
+
+Rome, con la apariencia de uno de los profesores de P2.
 </details>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="20"></td>
+<td>
 <details>
 	<summary> Mapa del mundo </summary>
 
@@ -517,9 +555,16 @@ Representa la mente de la nutria, posiblemente se divida estéticamente en 5 zon
 
 
 <img width="525" height="394" alt="image" src="https://github.com/user-attachments/assets/113e546b-6576-46c4-8bc7-c76897a69a2e" />
+</details>
+</td>
+</tr>
+</table>
 
 </details>
-</details>
+</td>
+</tr>
+</table>
+
 <details>
 	<summary> Experiencia de juego </summary>
 
