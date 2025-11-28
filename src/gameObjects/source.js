@@ -11,7 +11,7 @@ export default class Source extends Phaser.GameObjects.Sprite {
 
         this.setScale(size);
         this.scene.add.existing(this); //Nos añadimos a la escena para ser mostrados.
-
+        this.setDepth(this.y);
         //Variables únicas
         this.uses = uses; //Número de usos antes de desaparecer, si es 0 el recurso será ilimitado
         this.otter = this.scene.otter; //personaje controlado por usuario (tiene el inventario y se usa para calcular distancias con el objeto)

@@ -250,7 +250,7 @@
 				"portrait": "house",
 				"msgn": "Me he dado cuenta de que el problema siempre fue Twitter."
 				},
-			 {
+			    {
 				"speaker": "NPC",
 				"portrait": "house",
 				"msgn": " Siempre que entro me lleno de pensamientos intrusivos y recuerdos incómodos. Es un no parar."
@@ -277,6 +277,8 @@
 				}
 	
 			]
+		},
+		{
 		"val": 1,
 		"Dialog": [
 			{ "speaker": "Otter", "portrait": "otter", "msgn": "¡Hola!" },
@@ -300,7 +302,6 @@
 			"msgn": "Bueno... será otro día entonces."
 		}
 		}
-		
 	]
 	
 }

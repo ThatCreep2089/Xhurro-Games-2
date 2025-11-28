@@ -1,4 +1,5 @@
 // Menu Scene
+import UIManager from "../HUD/UIManager.js";
 export default class MenuScene extends Phaser.Scene {
     constructor() {
         super({key: 'menuScene'});
@@ -52,5 +53,27 @@ export default class MenuScene extends Phaser.Scene {
              playButton.on('pointerdown', () => this.scene.start('testScene'));
            
 
+<<<<<<< HEAD
+=======
+        //exit button
+        let exitButton = this.add.text(400, 400, 'EXIT', {
+        fontFamily: 'bobFont',
+        fontSize: '40px',
+        color: '#ff4444'
+        }).setOrigin(0.5).setInteractive();
+
+        //button interactivity
+        playButton.on('pointerover', () => playButton.setStyle({ color: '#ffffff' }));
+        playButton.on('pointerout', () => playButton.setStyle({ color: '#00ffcc' }));
+
+        exitButton.on('pointerover', () => exitButton.setStyle({ color: '#ffffff' }));
+        exitButton.on('pointerout', () => exitButton.setStyle({ color: '#ff4444' }));
+
+        //actions on click
+        playButton.on('pointerdown', () => this.scene.start('introScene'));
+        exitButton.on('pointerdown', () => alert('BYE BYE!'));
+
+        this.UIManager = new UIManager(this);
+>>>>>>> XurroGamesWeb
     }
 }

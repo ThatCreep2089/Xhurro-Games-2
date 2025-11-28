@@ -63,22 +63,22 @@ export default class Boot extends Phaser.Scene {
   }
 
   loadResources() {
-    this.load.image('toni', './assets/imagenes/Toni.png');
-    this.load.image('map', './assets/mainScene/map.png');
-    this.load.image('paint', './assets/mainScene/paint.jpg');
-    this.load.image('destroyedHouse', './assets/mainScene/destroyedHouse.jpg');
-    this.load.image('house', './assets/mainScene/house.png');
-    this.load.image('buildSources', './assets/mainScene/buildSources.jpg');
-    this.load.image('spaceKey', './assets/mainScene/keyboard_space.png');
-    this.load.image('topo', './assets/imagenes/boa.jpg');
-    this.load.image('hoyo', './assets/imagenes/hole.png');
-    this.load.image('dinamita', './assets/imagenes/bomba.png');
+    this.load.image('toni', './assets/imagenes/NPC/Toni.png');
+    this.load.image('map', './assets/imagenes/HUD/map.png');
+    this.load.image('paint', './assets/imagenes/sources/paint.jpg');
+    this.load.image('destroyedHouse', './assets/imagenes/builds/destroyedHouse.jpg');
+    this.load.image('house', './assets/imagenes/builds/house.png');
+    this.load.image('buildSources', './assets/imagenes/HUD/buttons/buildSources.jpg');
+    this.load.image('spaceKey', './assets/imagenes/HUD/popups/keyboard_space.png');
+    this.load.image('topo', './assets/imagenes/minigames/WhackAMole/objects/boa.jpg');
+    this.load.image('hoyo', './assets/imagenes/minigames/WhackAMole/objects/hole.png');
+    this.load.image('dinamita', './assets/imagenes/minigames/WhackAMole/objects/bomba.png');
 
     // === RECURSOS DESCRIPCIÓN MINIJUEGOS ===
-    this.load.video('WAMVideo', './assets/WackAMole/WAMVideo.mp4');
-    this.load.image('MGInfoBG', './assets/mainScene/MGInfoBG.jpg');
-    this.load.image('acceptButton', './assets/mainScene/acceptButton.jpg');
-    this.load.image('refuseButton', './assets/mainScene/refuseButton.jpg');
+    this.load.video('WAMVideo', './assets/imagenes/minigames/WhackAMole/background/WAMVideo.mp4');
+    this.load.image('MGInfoBG', './assets/imagenes/HUD/popups/MGInfoBG.jpg');
+    this.load.image('acceptButton', './assets/imagenes/HUD/buttons/acceptButton.jpg');
+    this.load.image('refuseButton', './assets/imagenes/HUD/buttons/refuseButton.jpg');
 
     // === RECURSOS DIÁLOGOS ===
     this.load.json('prueba', './data/DialogoPrueba.json');

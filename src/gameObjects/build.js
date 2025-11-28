@@ -6,6 +6,8 @@ export default class Build extends Phaser.GameObjects.Sprite {
 
         this.setScale(size);
         this.scene.add.existing(this);
+        this.setDepth(this.y);
+        
 
         // Identificador único (por defecto posición)
         this.id = id || `${Math.round(x)}_${Math.round(y)}`;

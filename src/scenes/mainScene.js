@@ -63,15 +63,28 @@ export default class mainScene extends Phaser.Scene {
                 description: "Aplasta a los topos haciendo clic sobre ellos...",
                 src: 'WAMVideo',
                 price: 25,
-                reward: { amountPerX:2, X: 10 }
+                reward:{ amountPerX:2, X: 10 }
+            },
+            LightUpGhosts: {
+                name: "Ilumina a los fantasmas",
+                description: "Arrastra la antorcha hacia los fantasmas hasta destruirlos antes de que se escapen.",
+                src: 'WAMVideo',
+                price: 25,
+                reward:{ amountPerX:2, X: 10 }
+            },
+            Puzzle: {
+                name: "Puzle",
+                description: "Haz clic sobre las piezas para rotarlas y consigue que el puzzle encaje",
+                src: 'WAMVideo',
+                price: 25,
+                reward:{ amountPerX:10, X: 1 }
             }
-            // ...otros minijuegos
         };
 
         // === JUGADOR (Nutria) ===
         this.otter = new Otter(this, this.scale.width / 2, this.scale.height / 2, 20, 'otter', 0.2);
         this.cameras.main.startFollow(this.otter);
-        this.navi = new Navi(this, this.otter, -30, 0, 'otter', 0.15, 300);
+        this.navi = new Navi(this, this.otter, 80, 'otter', 0.15, 17);
 
         // === FUENTES, CONSTRUCCIONES Y NPCs ===
         this.createSources();
@@ -125,13 +138,13 @@ export default class mainScene extends Phaser.Scene {
 
     createNPCs() {
         const npcData = this.cache.json.get('prueba');
-        this.Toni = new NPC(this, 900, 700, 'toni', 0, npcData, this.otter, this.minigamesInfo.WackAMole);
+        this.Toni = new NPC(this, 900, 700, 'toni', npcData, this.otter, this.minigamesInfo.WackAMole);
 
         const cleonRomeData = this.cache.json.get('cleonRome');
-        this.Cleon = new NPC(this, 1000, 700, 'toni', 0, cleonRomeData, this.otter, this.minigamesInfo.WackAMole);
+        this.Cleon = new NPC(this, 1000, 700, 'toni', cleonRomeData, this.otter, this.minigamesInfo.LightUpGhosts);
 
         const ishmaelData = this.cache.json.get('ishmael');
-        this.Ishmael = new NPC(this, 1100, 700, 'toni', 0, ishmaelData, this.otter, this.minigamesInfo.WackAMole);
+        this.Ishmael = new NPC(this, 1100, 700, 'toni', ishmaelData, this.otter, this.minigamesInfo.Puzzle);
     }
 
     nextDay() {
