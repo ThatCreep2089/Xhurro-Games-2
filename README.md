@@ -29,8 +29,8 @@ El juego es un RPG sin combates donde tenemos a una nutria como protagonista que
   
 <details>
 <summary> GDD </summary>
+<div style="margin-left: 30px;">
 <details>
-<div style="margin-left: 30px">
 <summary> Resumen </summary>
 	
 
