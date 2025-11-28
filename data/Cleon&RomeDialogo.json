@@ -69,32 +69,37 @@
                 "msgn": "Me da igual que no puedas con todos, pero... ¿con Pedro Pablo? ¡Por favor! Nadie le ha invitado."
                 },
                 {
-                    "speaker": "Otter",
-                    "portrait": "otter",
-                    "msgn": "Vale pero necesitaré una lin-"
+                "speaker": "Otter",
+                "portrait": "otter",
+                "msgn": "Vale pero necesitaré una lin-"
                 },
                 {
-                    "speaker": "NPC",
-                    "portrait": "house",
-                    "msgn": "*Se besan intensamente*"
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "*Se besan intensamente*"
                 },
                 {
-                    "speaker": "Otter",
-                    "portrait": "otter",
-                    "msgn": "-terna..."
+                "speaker": "Otter",
+                "portrait": "otter",
+                "msgn": "-terna..."
                 },
                 {
-                    "speaker": "NPC",
-                    "portrait": "house",
-                    "msgn": "Ah, sisi toma, anda vete un rato."
+                "speaker": "NPC",
+                "portrait": "house",
+                "msgn": "Ah, sisi toma, anda vete un rato."
                 },
                 {
-                    "speaker": "Otter",
-                    "portrait": "otter",
-                    "msgn": "..."
+                "speaker": "Otter",
+                "portrait": "otter",
+                "msgn": "..."
                 }
 
-			]
+			],
+			"Rechazo": {
+			    "speaker": "NPC",
+			    "portrait": "house",
+			    "msgn": "*Siguen besandose intensamente*"
+		    }
     	},	
 		{
 			"val": 2,
@@ -133,7 +138,7 @@
 		    "Rechazo": {
 			    "speaker": "NPC",
 			    "portrait": "house",
-			    "msgn": "Bueno... será otro día entonces."
+			    "msgn": "Ni para esto sirves"
 		    }
 		},
         {
@@ -179,7 +184,12 @@
                 "portrait": "otter",
                 "msgn": "No quiero hablar del tema."
                 }
-            ]
+            ],
+			"Rechazo": {
+			    "speaker": "NPC",
+			    "portrait": "house",
+			    "msgn": "No huyas, afrotna tus miedos"
+		    }
         },
         {
         "val": 4,
@@ -204,7 +214,12 @@
                 "portrait": "otter",
                 "msgn": "¡¡¡NOOOOOOO!!!"
                 }
-            ]
+            ],
+			"Rechazo": {
+			    "speaker": "NPC",
+			    "portrait": "house",
+			    "msgn": "¡Dale una oportunidad!"
+		    }
         },
         {
         "val": 5,
@@ -229,7 +244,12 @@
                 "portrait": "otter",
                 "msgn": "._."
                 }
-            ]
+            ],
+			"Rechazo": {
+			    "speaker": "NPC",
+			    "portrait": "house",
+			    "msgn": "... ¿Sigues ahí?"
+		    }
         },
         {
         "val": 6,
@@ -284,7 +304,12 @@
                 "portrait": "otter",
                 "msgn": ":O" 
                 }
-            ]
+            ],
+			"Rechazo": {
+			    "speaker": "NPC",
+			    "portrait": "house",
+			    "msgn": "¿Pero te parece bien?"
+		    }
         }
         
 	]
