@@ -369,11 +369,10 @@ Terminar una misión consumirá 30 de estamina (cantidad elevada).
 </tr>
 </table>
 
-</details>
-</td>
-</tr>
-</table>
-
+<table>
+<tr>
+<td width="20"></td>
+<td>
 <details>
 	<summary> Reconstrucción </summary>
 	
