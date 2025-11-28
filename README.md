@@ -30,6 +30,7 @@ El juego es un RPG sin combates donde tenemos a una nutria como protagonista que
 <details>
 <summary> GDD </summary>
 <details>
+<div align="right">
 <summary> Resumen </summary>
 
 <details>
@@ -328,6 +329,7 @@ Stardew Valley y Animal Crossing: por el modo de paso de días y gestión de rec
 
 Mario Party: los minijuegos y como se muestran al jugador se asemejan mucho a los de esta saga.
 </details>
+</div>
 </details>
 
 <details>
