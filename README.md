@@ -392,8 +392,17 @@ Si se interactúa y se tiene los recursos necesarios la estructura/objeto se con
 </td>
 </tr>
 </table>
+
+<table>
+<tr>
+<td width="10"></td>
+<td>
 <details>
 	<summary> Interfaz </summary>
+<table>
+<tr>
+<td width="20"></td>
+<td>
 <details>
 	<summary> Controles </summary>
 	
@@ -406,15 +415,30 @@ Si se interactúa y se tiene los recursos necesarios la estructura/objeto se con
 
 [Esc]: acceder al menú.
 </details>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="20"></td>
+<td>
 <details>
 	<summary> Camara </summary>
 	
 ## Camara
 La cámara se colocará en posición cenital siguiendo a la nutria constantemente. Esta será del tamaño de la ventana del juego en la página web.
 Si el movimiento de la cámara implica que este se salga de los límites del layout del nivel, esta no se moverá (para que no se salga del mapa).
-</details>
-	<details>
-	<summary> HUD </summary>
+</details></td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="20"></td>
+<td>
+<details>
+<summary> HUD </summary>
 		
 ## HUD
 En cuanto al HUD, en la zona superior izquierda de la pantalla se podrán apreciar los recursos obtenidos. En la zona superior derecha se podrá obtener la estamina que se tiene en cada momento.
@@ -434,9 +458,16 @@ Encontraremos además el coste de la misión (estamina) y la recompensa (las rec
 
 
 <img width="753" height="460" alt="image" src="https://github.com/user-attachments/assets/ea02e9e5-5d64-454f-8f63-6b30f361ee33" />
+</details>
+</td>
+</tr>
+</table>
 
 </details>
-</details>
+</td>
+</tr>
+</table>
+
 <details>
 	<summary> Mundo del juego </summary>
 <details>
