@@ -2,10 +2,9 @@ import DialogText from "../dialog_plugin.js";
 
 export default class NPC extends Phaser.GameObjects.Sprite {
 
-    constructor(scene, x, y, texture, data, player, minigameInfo, scale = 0.1) {
+    constructor(scene, x, y, texture, data, player, minigameInfo, scale = 0.1, colliderWidthFactor = 1) {
         super(scene, x, y, texture);
         this.scene.add.existing(this);
-        scene.physics.add.existing(this, true);
 
         this.datos = data;
         this.otter = player;
@@ -21,19 +20,19 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         // ============================
         // FÍSICAS Y ÁREA DE INTERACCIÓN
         // ============================
+
         this.setScale(scale);
-        this.setOrigin(0.5, 1);
-        const dw = this.displayWidth;
-        const dh = this.displayHeight;
-
-        this.body.setSize(dw, dh);
-        this.body.x = this.x - (dw / 2);
-        this.body.y = this.y - dh;
-
-        this.zone = scene.add.zone(x, y).setSize(dw + 10, dh + 10);
+        scene.physics.add.existing(this, true);
+        
+        this.zone = scene.add.zone(x, y).setSize(this.width*scale*colliderWidthFactor + 10, (this.height*scale * 0.2) + 10);
         scene.physics.add.existing(this.zone, true);
-        this.zone.body.x = this.x - (this.zone.body.width / 2);
-        this.zone.body.y = this.y - (dh / 2) - (this.zone.body.height / 2);
+        scene.physics.add.existing(this, true);
+
+        this.body.setSize(this.width*scale*colliderWidthFactor, (this.height*scale) * 0.2);
+        this.body.y = this.body.y + ((this.height*scale / 2) - (this.body.height / 2));
+        this.zone.body.y = this.zone.body.y + ((this.height*scale / 2) - (this.body.height / 2));
+
+        this.setDepth(this.body.y);
 
         this.touching = false;
         this.wasTouching = false;

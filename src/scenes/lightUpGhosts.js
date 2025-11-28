@@ -48,10 +48,13 @@ export default class lightUpGhosts extends Phaser.Scene {
 
         this.input.on('pointermove', (pointer) => {
             const worldPoint = this.cameras.main.getWorldPoint(pointer.x, pointer.y);
-            this.antorchaLight.x = worldPoint.x;
-            this.antorchaLight.y = worldPoint.y;
 
-            this.event.emit('movingLight', this.antorchaLight);
+            if (this.antorchaLight.x){
+                this.antorchaLight.x = worldPoint.x;
+                this.antorchaLight.y = worldPoint.y;
+    
+                this.event.emit('movingLight', this.antorchaLight);
+            }
         });
 
         // === FANTASMAS ===
@@ -75,33 +78,51 @@ export default class lightUpGhosts extends Phaser.Scene {
         this.spawnTimeLeft = this.spawnTime;
         this.canSpawn = true;
         this.spawnProb = 0.01 //probabilidad de aparición de fantasma por frame sobre 1
+
+        this.end = false;
     }
 
     updateTimer() {
         this.timeleft--;
         this.UIManager.event.emit('changeTimer', this.timeleft);
     
-        if (this.timeleft <= 0) {
-    
-            // Recuperar los datos de recompensa desde mainScene
+        if (this.timeleft <= 0 && !this.end) {
+            this.end = true;
+
+             this.fantasmas.clear(true, true);
+             this.input.setDefaultCursor('default');
+             this.lights.removeLight(this.antorchaLight);
+             
+             this.UIManager.appearMinigameEndInfo(this,
+                ({
+                    paint: (Math.floor(this.score / this.scene.get('mainScene').minigamesInfo.LightUpGhosts.reward.X) * this.scene.get('mainScene').minigamesInfo.LightUpGhosts.reward.amountPerX.paint),
+                    paper: (Math.floor(this.score / this.scene.get('mainScene').minigamesInfo.LightUpGhosts.reward.X) * this.scene.get('mainScene').minigamesInfo.LightUpGhosts.reward.amountPerX.paper),
+                    clay: (Math.floor(this.score / this.scene.get('mainScene').minigamesInfo.LightUpGhosts.reward.X) * this.scene.get('mainScene').minigamesInfo.LightUpGhosts.reward.amountPerX.clay)
+                }));
+        }
+    }
+
+    finishGame(){
+        // Recuperar los datos de recompensa desde mainScene
             const mainScene = this.scene.get('mainScene');
             const rewardInfo = mainScene.minigamesInfo.LightUpGhosts.reward;
             const staminaDecrease = mainScene.minigamesInfo.LightUpGhosts.price;
     
             // Calcular la recompensa según la puntuación
             const times = Math.floor(this.score / rewardInfo.X);
-            const rewardAmount = times * rewardInfo.amountPerX;
-    
+            const rewardAmount = rewardInfo.amountPerX;
+            
             // Aplicar la recompensa
             if (mainScene.otter && mainScene.otter.backpack) {
-                mainScene.otter.backpack.paper += rewardAmount; // o el recurso que prefieras
+                mainScene.otter.backpack.paint += rewardAmount.paint * times;
+                mainScene.otter.backpack.paper += rewardAmount.paper * times;
+                mainScene.otter.backpack.clay += rewardAmount.clay * times;
             }
     
             GameDataManager.player.stamina = GameDataManager.player.stamina - staminaDecrease;
             GameDataManager.saveFrom(this.scene.get('mainScene') || this);
             this.input.setDefaultCursor('auto');
             this.scene.start('mainScene');
-        }
     }
 
     spawnGhost(){

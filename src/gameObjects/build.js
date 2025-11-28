@@ -6,8 +6,6 @@ export default class Build extends Phaser.GameObjects.Sprite {
 
         this.setScale(size);
         this.scene.add.existing(this);
-        this.setDepth(this.y);
-        
 
         // Identificador único (por defecto posición)
         this.id = id || `${Math.round(x)}_${Math.round(y)}`;
@@ -26,6 +24,8 @@ export default class Build extends Phaser.GameObjects.Sprite {
         this.body.setSize(this.width, (this.height) * 0.2);
         this.body.y = this.body.y + ((this.height / 2) - (this.body.height / 2));
         this.zone.body.y = this.zone.body.y + ((this.height / 2) - (this.body.height / 2));
+
+        this.setDepth(this.body.y);
 
         scene.physics.add.collider(this.otter, this);
         scene.physics.add.overlap(this.otter, this.zone, () => { this.touching = true; });
@@ -60,8 +60,7 @@ export default class Build extends Phaser.GameObjects.Sprite {
 
             // actualizar HUD
             if (this.scene.UIManager && this.scene.UIManager.event) {
-                this.scene.UIManager.event.emit("updateInventory");
-                this.scene.UIManager.event.emit("updateStamina");
+                this.scene.UIManager.event.emit("updateInventory", {paint: -this.sources.paint, paper: -this.sources.paper, clay: -this.sources.clay});
             }
 
             // guardar inmediatamente el estado global

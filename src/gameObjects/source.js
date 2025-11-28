@@ -11,7 +11,7 @@ export default class Source extends Phaser.GameObjects.Sprite {
 
         this.setScale(size);
         this.scene.add.existing(this); //Nos añadimos a la escena para ser mostrados.
-        this.setDepth(this.y);
+        
         //Variables únicas
         this.uses = uses; //Número de usos antes de desaparecer, si es 0 el recurso será ilimitado
         this.otter = this.scene.otter; //personaje controlado por usuario (tiene el inventario y se usa para calcular distancias con el objeto)
@@ -31,6 +31,7 @@ export default class Source extends Phaser.GameObjects.Sprite {
          this.body.setSize(this.width, (this.height) * 0.2);
          this.body.y = this.body.y + ((this.height / 2) - (this.body.height/2));
          this.zone.body.y = this.zone.body.y + ((this.height / 2) - (this.body.height/2));
+         this.setDepth(this.body.y);
           //Añadimos colisiones y overlaps
          scene.physics.add.collider(this.otter, this); //Contacto con recurso
          scene.physics.add.overlap(this.otter, this.zone, ()=>{this.touching = true;}); //Contacto con zona
@@ -86,8 +87,7 @@ export default class Source extends Phaser.GameObjects.Sprite {
                    //Reducimos estamina
                    this.otter.decreaseStamina(this.staminaPrice);
                    //Actualizamos el HUD
-                   this.scene.UIManager.event.emit("updateInventory");
-                   this.scene.UIManager.event.emit("updateStamina");
+                   this.scene.UIManager.event.emit("updateInventory", this.sources);
                    
                    //En caso de quedarse sin usos destruimos el objeto y sus atributos creados en escena
                    if (this.uses == 0)

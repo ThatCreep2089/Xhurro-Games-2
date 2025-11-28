@@ -14,6 +14,13 @@ export default class mainScene extends Phaser.Scene {
     #inputs;
 
     create() {
+        
+        // === CARGAR DATOS ===
+        import("../GameDataManager.js").then(module => {
+            const GameDataManager = module.default;
+            GameDataManager.applyTo(this);
+        });
+
         this.createAnims();
 
         // === MAPA ===
@@ -63,26 +70,26 @@ export default class mainScene extends Phaser.Scene {
                 description: "Aplasta a los topos haciendo clic sobre ellos...",
                 src: 'WAMVideo',
                 price: 25,
-                reward:{ amountPerX:2, X: 10 }
+                reward:{ amountPerX: {paint: 2, paper: 0, clay: 0}, X: 10 }
             },
             LightUpGhosts: {
                 name: "Ilumina a los fantasmas",
                 description: "Arrastra la antorcha hacia los fantasmas hasta destruirlos antes de que se escapen.",
                 src: 'WAMVideo',
                 price: 25,
-                reward:{ amountPerX:2, X: 10 }
+                reward:{ amountPerX:{paint: 0, paper: 2, clay: 0}, X: 10 }
             },
             Puzzle: {
                 name: "Puzle",
                 description: "Haz clic sobre las piezas para rotarlas y consigue que el puzzle encaje",
                 src: 'WAMVideo',
                 price: 25,
-                reward:{ amountPerX:10, X: 1 }
+                reward:{ amountPerX:{paint: 0, paper: 0, clay: 10}, X: 1 }
             }
         };
 
         // === JUGADOR (Nutria) ===
-        this.otter = new Otter(this, this.scale.width / 2, this.scale.height / 2, 20, 'otter', 0.2);
+        this.otter = new Otter(this, this.scale.width / 2, this.scale.height / 2, 20, 'toni', 0.1, 0.25);
         this.cameras.main.startFollow(this.otter);
         this.navi = new Navi(this, this.otter, 30, 'otter', 0.15, 17);
 
@@ -93,16 +100,6 @@ export default class mainScene extends Phaser.Scene {
 
         // === HUD ===
         this.createHUD();
-
-        // === CARGAR DATOS ===
-        import("../GameDataManager.js").then(module => {
-            const GameDataManager = module.default;
-            GameDataManager.applyTo(this);
-            this.UIManager.event.emit('updateDay');
-            this.UIManager.event.emit('updateInventory');
-            this.UIManager.event.emit('updateStamina');
-        });
-
     }
 
     update() {
@@ -132,19 +129,18 @@ export default class mainScene extends Phaser.Scene {
 
     createNPCs() {
         const npcData = this.cache.json.get('prueba');
-        this.Toni = new NPC(this, 900, 700, 'toni', npcData, this.otter, this.minigamesInfo.WackAMole);
+        this.Toni = new NPC(this, 900, 700, 'toni', npcData, this.otter, this.minigamesInfo.WackAMole, 0.1, 0.25);
 
         const cleonRomeData = this.cache.json.get('cleonRome');
-        this.Cleon = new NPC(this, 1000, 700, 'toni', cleonRomeData, this.otter, this.minigamesInfo.LightUpGhosts);
+        this.Cleon = new NPC(this, 1000, 700, 'toni', cleonRomeData, this.otter, this.minigamesInfo.LightUpGhosts, 0.1, 0.25);
 
         const ishmaelData = this.cache.json.get('ishmael');
-        this.Ishmael = new NPC(this, 1100, 700, 'toni', ishmaelData, this.otter, this.minigamesInfo.Puzzle);
+        this.Ishmael = new NPC(this, 1100, 700, 'toni', ishmaelData, this.otter, this.minigamesInfo.Puzzle, 0.1, 0.25);
     }
 
     nextDay() {
         this.currentDay = (this.currentDay || 1) + 1;
-        this.otter.setStamina(100);
-        this.UIManager.event.emit('updateStamina');
+        this.otter.restartStamina();
         this.UIManager.event.emit('updateDay');
 
         import("../GameDataManager.js").then(module => {

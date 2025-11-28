@@ -35,16 +35,14 @@ export default class WhackAMole extends Phaser.Scene {
         //topos y dinamitas
         this.entities = [];
 
-        const rndTime = Phaser.Math.Between(2100, 5000);
-
         this.time.addEvent({
-            delay: rndTime,
+            delay: Phaser.Math.Between(2100, 5000),
             callback: this.showRandomEntities,
             callbackScope: this,
             loop: true
         });
 
-        
+        // === TIMER ===
         this.timeleft = 30; //tiempo inicial en seg
         this.UIManager.event.emit('changeTimer', this.timeleft);
 
@@ -55,45 +53,42 @@ export default class WhackAMole extends Phaser.Scene {
             loop: true
         });
 
+        this.end = false;
     }
 
     showRandomEntities() {
-        const availableHoles = Phaser.Utils.Array.Shuffle([...this.holes]);
-        let num;
-        const isMax = Math.random() < 0.1;
-        const isMin = Math.random() < 0.01;
-        const isMid = Math.random() < 0.2;
-
-        if (isMax) {
-            num = 3;
-        } else if (isMin) {
-            num = 5;
-        } else if (isMid) {
-            num = 2;
-        }
-        else {
-            num = 1;
-        }
-
-        for (let i = 0; i < num; i++) {
-            const hole = availableHoles[i];
-            
-            const isDynamite = Math.random() < 0.1;
-
-            let entity;
-            if (isDynamite) {
-                entity = new Dynamite(this, hole.x, hole.y);
-            } else {
-                entity = new Mole(this, hole.x, hole.y);
+        if (!this.end){
+            const availableHoles = Phaser.Utils.Array.Shuffle([...this.holes]);
+            let num;
+            const isMax = Math.random() < 0.1;
+            const isMin = Math.random() < 0.01;
+            const isMid = Math.random() < 0.2;
+    
+            if (isMax) num = 3;
+            else if (isMin) num = 5;
+            else if (isMid) num = 2;
+            else num = 1;
+    
+            for (let i = 0; i < num; i++) {
+                const hole = availableHoles[i];
+                
+                const isDynamite = Math.random() < 0.1;
+    
+                let entity;
+                if (isDynamite) {
+                    entity = new Dynamite(this, hole.x, hole.y);
+                } else {
+                    entity = new Mole(this, hole.x, hole.y);
+                }
+    
+                this.entities.push(entity);
+                entity.showAt(hole.x, hole.y);
             }
-
-            this.entities.push(entity);
-            entity.showAt(hole.x, hole.y);
+            
+            /*setTimeout(() => {
+                this.mole.setVisible(false);
+            }, 2000);*/
         }
-        
-        /*setTimeout(() => {
-            this.mole.setVisible(false);
-        }, 2000);*/
     }
 
     updateScore(amount) {
@@ -107,26 +102,36 @@ export default class WhackAMole extends Phaser.Scene {
         this.timeleft--;
         this.UIManager.event.emit('changeTimer', this.timeleft);
 
-        if (this.timeleft <= 0) {
+        if (this.timeleft <= 0 && !this.end) {
+            this.end = true;
+            this.UIManager.appearMinigameEndInfo(this,
+                ({
+                    paint: (Math.floor(this.score / this.scene.get('mainScene').minigamesInfo.WackAMole.reward.X) * this.scene.get('mainScene').minigamesInfo.WackAMole.reward.amountPerX.paint),
+                    paper: (Math.floor(this.score / this.scene.get('mainScene').minigamesInfo.WackAMole.reward.X) * this.scene.get('mainScene').minigamesInfo.WackAMole.reward.amountPerX.paper),
+                    clay: (Math.floor(this.score / this.scene.get('mainScene').minigamesInfo.WackAMole.reward.X) * this.scene.get('mainScene').minigamesInfo.WackAMole.reward.amountPerX.clay),
+                }));
+        }
+    }
 
-            // Recuperar los datos de recompensa desde mainScene
+    finishGame(){
+        // Recuperar los datos de recompensa desde mainScene
             const mainScene = this.scene.get('mainScene');
             const rewardInfo = mainScene.minigamesInfo.WackAMole.reward;
             const staminaDecrease = mainScene.minigamesInfo.WackAMole.price;
 
             // Calcular la recompensa según la puntuación
             const times = Math.floor(this.score / rewardInfo.X);
-            const rewardAmount = times * rewardInfo.amountPerX;
+            const rewardAmount = rewardInfo.amountPerX;
 
             // Aplicar la recompensa
             if (mainScene.otter && mainScene.otter.backpack) {
-                mainScene.otter.backpack.paint += rewardAmount; // o el recurso que prefieras
+                mainScene.otter.backpack.paint += rewardAmount.paint * times;
+                mainScene.otter.backpack.paper += rewardAmount.paper * times;
+                mainScene.otter.backpack.clay += rewardAmount.clay * times;
             }
 
             GameDataManager.player.stamina = GameDataManager.player.stamina - staminaDecrease;
             GameDataManager.saveFrom(this.scene.get('mainScene') || this);
             this.scene.start('mainScene');
-        }
     }
-
 }
