@@ -29,24 +29,54 @@ El juego es un RPG sin combates donde tenemos a una nutria como protagonista que
   
 <details>
 <summary> GDD </summary>
+<table>
+<tr>
+<td width="10"></td>
+<td>
 <details>
 <summary> Resumen </summary>
 
+<table>
+<tr>
+<td width="20"></td>
+<td>
 <details>
 <summary> Género y PEGI </summary>
 	
 ## Género y PEGI
-Se trata de un juego RPG/Aventura,donde el protagonista tendrá que recolectar recursos para reconstruir si subsoncietne.EL PEGI es /, ya que es un juego que aunque toque algún tema algo más profundo no contiene ningún acto de violencia, uso de sustancias, etc.
-</details>
+Se trata de un juego RPG/Aventura,donde el protagonista tendrá que recolectar recursos para reconstruir si subsoncietne.
 
+
+EL PEGI es /, ya que es un juego que aunque toque algún tema algo más profundo no contiene ningún acto de violencia, uso de sustancias, etc.
+</details>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="20"></td>
+<td>
 <details>
 	<summary> Lore </summary>
   
 ## Lore
 Una nutria tenía una vida normal como la de cualquier otra nutria, pero todas las nutrias cambiamos, nunca somos la misma nutria…
-La nutria entra en un proceso de desarrollo personal debido a un trastorno disociativo donde su mente cambia y su subconsciente está en un proceso de reconstrucción. Para poder pasar ese proceso con éxito tendrá que reconstruir su subconsciente en menos de seis días.
-</details>
 
+
+La nutria entra en un proceso de desarrollo personal debido a un trastorno disociativo donde su mente cambia y su subconsciente está en un proceso de reconstrucción. 
+
+
+Para poder pasar ese proceso con éxito tendrá que reconstruir su subconsciente en menos de seis días.
+</details>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="20"></td>
+<td>
 <details>
 	<summary> Características principales </summary>
   
@@ -68,30 +98,74 @@ La nutria entra en un proceso de desarrollo personal debido a un trastorno disoc
 
 -Controla a la nutria con el teclado y el ratón.
 </details>
+</td>
+</tr>
+</table>
 </details>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="10"></td>
+<td>
 <details>
 	<summary> Objetivo del juego</summary>
 	
 ## Objetivo del juego
 El objetivo del juego es reconstruir el subconsciente de la nutria con los recursos obtenidos antes de que acaben los seis días
 </details>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="10"></td>
+<td>
 <details>
 	<summary> CoreLoop</summary>
 	
 ## CoreLoop
-<img width="608" height="468" alt="image" src="https://github.com/user-attachments/assets/7f237e4b-969a-4fda-8f43-a01723906bc8" />
+<img width="608" height="468" alt="image" src="https://github.com/user-attachments/assets/7f237e4b-969a-4fda-8f43-a01723906bc8" style="display:block; margin: 0 auto;" />
 </details>
+</td>
+</tr>
+</table>
 
+<table>
+<tr>
+<td width="10"></td>
+<td>
 <details>
 <summary> Mecánicas </summary>
+<table>
+<tr>
+<td width="20"></td>
+<td>
 <details>
 	<summary> Movimiento </summary>	
 
 ## Movimiento
-El jugador podrá moverse en 4 direcciones, siendo los vectores de movimiento sobre el eje x (0,1), (1,0), (0,-1), (-1,0) y mirará hacia donde se mueve en todo momento. También estará normalizado, de forma que no se mueva más rápido en diagonal que en los ejes.
+El jugador podrá moverse en 4 direcciones, siendo los vectores de movimiento sobre el eje x (0,1), (1,0), (0,-1), (-1,0) 
+
+y mirará hacia donde se mueve en todo momento. También estará normalizado, de forma que no se mueva más rápido en diagonal que en los ejes.
+
+
 El movimiento será inmediato, sin aceleración y digital para hacer unos controles más responsivos.
+
+
 El personaje frenará completamente con la colisión con estructuras y objetos sobre el suelo en el mapa (decoraciones, casas y recursos naturales).
-</details>	
+</details>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="20"></td>
+<td>
 <details>
 	<summary> Recursos </summary>
 
@@ -108,25 +182,63 @@ Arcilla (determinación / valentía)
 
 
 Estos se conseguirán de diversas maneras, una de ellas será completando misiones y otra será recolectarlos de su medio natural.
-Para recolectarlos en su medio natural, el jugador deberá acercarse a la fuente del recurso y mantener pulsado la tecla de interacción unos segundos, obteniendo así poco a poco el recurso de la fuente. Este requerirá de una cantidad determinada de energía para conseguirlo, si no, no se podrá extraer.
 
-Solo habrá tres fuentes de recurso en todo el mapa y no se agotan. Un río de pintura de donde se obtendrá la pintura, unas flores de papel de donde se obtendrá el origami y unas piedras de donde se obtendrá la arcilla.
+
+Para recolectarlos en su medio natural, el jugador deberá acercarse a la fuente del recurso y 
+
+
+mantener pulsado la tecla de interacción unos segundos, obteniendo así poco a poco el recurso de la fuente. Este requerirá de una cantidad determinada de energía para conseguirlo, si no, no se podrá extraer.
+
+
+Solo habrá tres fuentes de recurso en todo el mapa y no se agotan. 
+
+
+Un río de pintura de donde se obtendrá la pintura, unas flores de papel de donde se obtendrá el origami y unas piedras de donde se obtendrá la arcilla.
 </details>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="20"></td>
+<td>
 <details>
 	<summary> Dialogos </summary>
 	
 ## Dialogos
-Los personajes podrán hablar, para ello aparecerá una burbuja de texto en pantalla donde empezarán a aparecer las frases letra por letra junto con una imagen ampliada del personaje que habla y su nombre.
+Los personajes podrán hablar, para ello aparecerá una burbuja de texto en pantalla donde empezarán a aparecer 
+
+las frases letra por letra junto con una imagen ampliada del personaje que habla y su nombre.
+
+
 Si se interactúa mientras el texto se está escribiendo, el texto se completará al instante.
-Si se interactúa cuando el texto ha terminado de escribirse, aparecerá el siguiente texto junto con la imagen del personaje que habla y su nombre (todo esto sin que desaparezca la burbuja). En caso de no haber siguiente  texto, la burbuja desaparecerá junto con el texto, la imagen y el nombre del personaje.
+
+
+Si se interactúa cuando el texto ha terminado de escribirse, aparecerá el siguiente texto junto con la imagen del personaje 
+
+que habla y su nombre (todo esto sin que desaparezca la burbuja). En caso de no haber siguiente  texto, la burbuja desaparecerá junto con el texto, la imagen y el nombre del personaje.
 </details>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="20"></td>
+<td>
 <details>
-	<summary> Misiones </summary>
+	<summary> Minijuegos </summary>
 	
-## Misiones
-Mientras la nutria explora el mundo se encontrará con NPCs  que tendrán una misión, esta misión dará una cantidad elevada de recursos a cambio de gastar una cantidad elevada de estamina.
+## Minijuegos
+Mientras la nutria explora el mundo se encontrará con NPCs  que tendrán una misión, 
+
+esta misión dará una cantidad elevada de recursos a cambio de gastar una cantidad elevada de estamina.
+
 
 Al interactuar con el NPC, Toni empezará a hablar con el NPC explicando el minijuego, y tras esto aparecerá un pop-up donde aparecerán los siguientes elementos:
+
+
 Nombre de la misión.
 
 
@@ -149,24 +261,92 @@ Botón de rechazar que cerrará el pop-up junto con todos sus elementos al ser p
 
 
 Las misiones serán minijuegos que darán NPCs los cuales son:
-Whack-A-Mole: aparecerán topos cada cierto tiempo en un hoyo aleatorio y se tendrá que aplastarlos con el click del ratón. Los topos darán cierta cantidad de puntuación al golpearlos. Obstáculos surgirán aleatoriamente en lugar de topos, estos serán dinamitas que, al ser golpeadas, restarán una cantidad fija de puntos.  El objetivo será llegar a una puntuación en el tiempo límite. El jugador verá 9 agujeros en pantalla (3x3) de los cuales saldrán los topos o las dinamitas (pueden aparecer topos y dinamitas simultáneamente en distintos agujeros o solo un topo/dinamita).
 
 
-Ilumina los fantasmas: por medio de una antorcha la cual se puede arrastrar (moviendo el ratón), se tendrá que alumbrar a distintos fantasmas para que desaparezcan (disminuirán su tamaño poco a poco). Si consigues eliminarlos te darán una cantidad fija de puntos, por el contrario al no conseguirlo, se acercarán a ti y te quitarán puntos. El objetivo, al igual que en el minijuego anterior, será llegar a una puntuación determinada en un tiempo límite. El jugador verá un escenario/paisaje oscuro y empezarán a aparecer fantasmas por la pantalla (cada vez en más abundancia conforme pase el tiempo). Estos se encontrarán en una posición fija o moviéndose por la pantalla.
+**Whack-A-Mole:** 
+
+Aparecerán topos cada cierto tiempo en un hoyo aleatorio y se tendrá que aplastarlos con el click del ratón. 
 
 
-Puzzle: se tendrá que completar una imagen la cual se dividirá en piezas y tendrán una rotación distinta de 0 en el eje z. El jugador tendrá que girar las piezas haciendo clic en ellas. La perspectiva del jugador será una cuadrícula en la que tendremos que las piezas. Si no se completa la imagen en el tiempo establecido, no se darán puntos, por el contrario si se consigue se entregará una cantidad fija de estos.
+Los topos darán cierta cantidad de puntuación al golpearlos. Obstáculos surgirán aleatoriamente en lugar de topos, estos serán dinamitas que, al ser golpeadas, restarán una cantidad fija de puntos.  
 
 
-La puntuación de los minijuegos dará una cantidad de recursos en función de los puntos, de forma que existe la posibilidad de que el gasto de estamina no salga rentable dependiendo de completar o no el minijuego (el minijuego del puzle solo te da puntos si completas la imagen en el tiempo establecido) o los puntos que consigues (en el minijuego de los topos y de los fantasmas siempre se ganan puntos, pero pueden ser más o menos). Todos los minijuegos se desarrollan en pantalla completa y en primera persona.
+El objetivo será llegar a una puntuación en el tiempo límite. El jugador verá 9 agujeros en pantalla (3x3) de los cuales saldrán los topos o las dinamitas 
+
+
+(pueden aparecer topos y dinamitas simultáneamente en distintos agujeros o solo un topo/dinamita).
+
+
+**Ilumina los fantasmas:** 
+
+Por medio de una antorcha la cual se puede arrastrar (moviendo el ratón), se tendrá que alumbrar a distintos fantasmas para que desaparezcan (disminuirán su tamaño poco a poco). 
+
+
+Si consigues eliminarlos te darán una cantidad fija de puntos, por el contrario al no conseguirlo, se acercarán a ti y te quitarán puntos. 
+
+
+El objetivo, al igual que en el minijuego anterior, será llegar a una puntuación determinada en un tiempo límite. 
+
+
+El jugador verá un escenario/paisaje oscuro y empezarán a aparecer fantasmas por la pantalla (cada vez en más abundancia conforme pase el tiempo). 
+
+
+Estos se encontrarán en una posición fija o moviéndose por la pantalla.
+
+
+**Puzzle:** 
+
+Se tendrá que completar una imagen la cual se dividirá en piezas y tendrán una rotación distinta de 0 en el eje z. 
+
+
+El jugador tendrá que girar las piezas haciendo clic en ellas. 
+
+
+La perspectiva del jugador será una cuadrícula en la que tendremos que las piezas. 
+
+
+Si no se completa la imagen en el tiempo establecido, no se darán puntos, por el contrario si se consigue se entregará una cantidad fija de estos.
+
+
+La puntuación de los minijuegos dará una cantidad de recursos en función de los puntos, de forma que existe la posibilidad de que el gasto de estamina 
+
+
+no salga rentable dependiendo de completar o no el minijuego (el minijuego del puzle solo te da puntos si completas la imagen en el tiempo establecido) 
+
+
+o los puntos que consigues (en el minijuego de los topos y de los fantasmas siempre se ganan puntos, pero pueden ser más o menos). 
+
+
+Todos los minijuegos se desarrollan en pantalla completa y en primera persona.
 </details>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="20"></td>
+<td>
 <details>
 	<summary> Paso del tiempo </summary>
 	
 ## Paso del tiempo
-La nutria tiene 6 días para terminar de construir su subconsciente pero, ¿cómo pasa el tiempo?
+La nutria tiene 6 días para terminar de construir su subconsciente pero, ¿cómo pasa el tiempo?.
+
+
 El jugador cuenta con una barra de estamina, cuando esta llegue a 0 el día pasará.
+
+
 La nutria aparece todos los días en el mismo sitio (su caseta).
+</details>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="20"></td>
+<td>
 <details>
 	<summary> Estamina </summary>
 	
@@ -185,17 +365,44 @@ Recoger 4 de cualquier recurso independientemente del que sea y el orden gastar�
 
 Terminar una misión consumirá 30 de estamina (cantidad elevada).
 </details>
-</details>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="20"></td>
+<td>
 <details>
 	<summary> Reconstrucción </summary>
 	
 ## Reconstrucción
 En el juego se encontrarán estructuras u objetos destruidos/distorsionados, estos se podrán reconstruir y para ello se necesitará una cantidad de recursos específicos.
-Al acercarse al objeto/estructura aparecerá un pequeño texto con el nombre del objeto y los recursos necesarios para repararlo. Si se interactúa y se tiene los recursos necesarios la estructura/objeto se construirá/dejará de estar distorsionada.
+
+
+Al acercarse al objeto/estructura aparecerá un pequeño texto con el nombre del objeto y los recursos necesarios para repararlo. 
+
+
+Si se interactúa y se tiene los recursos necesarios la estructura/objeto se construirá/dejará de estar distorsionada.
 </details>
+</td>
+</tr>
+</table>
 </details>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="10"></td>
+<td>
 <details>
 	<summary> Interfaz </summary>
+<table>
+<tr>
+<td width="20"></td>
+<td>
 <details>
 	<summary> Controles </summary>
 	
@@ -208,61 +415,108 @@ Al acercarse al objeto/estructura aparecerá un pequeño texto con el nombre del
 
 [Esc]: acceder al menú.
 </details>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="20"></td>
+<td>
 <details>
 	<summary> Camara </summary>
 	
 ## Camara
-La cámara se colocará en posición cenital siguiendo a la nutria constantemente. Esta será del tamaño de la ventana del juego en la página web.
+La cámara se colocará en posición cenital siguiendo a la nutria constantemente. 
+
+
+Esta será del tamaño de la ventana del juego en la página web.
+
+
 Si el movimiento de la cámara implica que este se salga de los límites del layout del nivel, esta no se moverá (para que no se salga del mapa).
-</details>
-	<details>
-	<summary> HUD </summary>
+</details></td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="20"></td>
+<td>
+<details>
+<summary> HUD </summary>
 		
 ## HUD
-En cuanto al HUD, en la zona superior izquierda de la pantalla se podrán apreciar los recursos obtenidos. En la zona superior derecha se podrá obtener la estamina que se tiene en cada momento.
+En cuanto al HUD, en la zona superior izquierda de la pantalla se podrán apreciar los recursos obtenidos. 
 
 
-<img width="760" height="443" alt="image" src="https://github.com/user-attachments/assets/019e444a-a54c-4b8c-9089-ca9c41cb737f" />
+En la zona superior derecha se podrá obtener la estamina que se tiene en cada momento.
+
+
+<img width="760" height="443" alt="image" src="https://github.com/user-attachments/assets/019e444a-a54c-4b8c-9089-ca9c41cb737f" style="display:block; margin: 0 auto;" />
 
 
 En cuanto a los diálogos aparecerá en la zona inferior un recuadro con una imagen del personaje que está hablando, su nombre y el texto.
 
 
-<img width="701" height="414" alt="image" src="https://github.com/user-attachments/assets/7c1226a7-fbff-4c92-bb8f-ebe284284bc8" />
+<img width="701" height="414" alt="image" src="https://github.com/user-attachments/assets/7c1226a7-fbff-4c92-bb8f-ebe284284bc8" style="display:block; margin: 0 auto;" />
 
 
-Para las misiones encontraremos un pop-up que cubrirá toda la pantalla, contendrá el nombre de la misión en la zona superior izquierda, un poco más abajo una descripción detallada junto con una o varias imágenes que ayuden a entender el minijuego de la misión de un vistazo.
-Encontraremos además el coste de la misión (estamina) y la recompensa (las recompensas van en función de los puntos conseguidos a final de la partida, información más detallada en minijuegos). En la zona inferior podemos ver los botones para rechazar o aceptar la misión.
+Para las misiones encontraremos un pop-up que cubrirá toda la pantalla, contendrá el nombre de la misión en la zona superior izquierda, 
 
 
-<img width="753" height="460" alt="image" src="https://github.com/user-attachments/assets/ea02e9e5-5d64-454f-8f63-6b30f361ee33" />
+un poco más abajo una descripción detallada junto con una o varias imágenes que ayuden a entender el minijuego de la misión de un vistazo.
+
+
+Encontraremos además el coste de la misión (estamina) y la recompensa (las recompensas van en función de los puntos conseguidos a final de la partida, información más detallada en minijuegos). 
+
+
+En la zona inferior podemos ver los botones para rechazar o aceptar la misión.
+
+
+<img width="753" height="460" alt="image" src="https://github.com/user-attachments/assets/ea02e9e5-5d64-454f-8f63-6b30f361ee33" style="display:block; margin: 0 auto;" />
+</details>
+</td>
+</tr>
+</table>
 
 </details>
-</details>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="10"></td>
+<td>
 <details>
-	<summary> Mundo del juego </summary>
+<summary> Mundo del juego </summary>
+<table>
+<tr>
+<td width="20"></td>
+<td>
 <details>
 	<summary> Personajes </summary>
 	
 ## Personajes
-Nutria: protagonista de la historia. Es el personaje que controla el jugador. Es una nutria con un sombrero y pintada de manera abstracta tipo Picasso .
+Nutria: protagonista de la historia. Es el personaje que controla el jugador. 
+
+Es una nutria con un sombrero y pintada de manera abstracta tipo Picasso .
 
 
-<img width="342" height="313" alt="image" src="https://github.com/user-attachments/assets/bc7dee86-5351-4b5f-9dfc-657c5b466d58" />
+<img width="342" height="313" alt="image" src="https://github.com/user-attachments/assets/bc7dee86-5351-4b5f-9dfc-657c5b466d58"style="display:block; margin: 0 auto;" />
 
 
 NPCs para obtener misiones:
 Toni: se parecerá a Timmy Turner pero con el aspceto de TOni.
 
 
-
-<img width="256" height="256" alt="image" src="https://github.com/user-attachments/assets/a2a56a00-f4e5-47fc-9934-a8c2d6337d90" />
+<img width="256" height="256" alt="image" src="https://github.com/user-attachments/assets/a2a56a00-f4e5-47fc-9934-a8c2d6337d90" style="display:block; margin: 0 auto;" />
 
 
 Pablo: se pareceerá a Jimmy Neutron pero con los aspectos de Pablo 
 
 
-<img width="201" height="327" alt="image" src="https://github.com/user-attachments/assets/06745476-ef1c-47b4-8cfb-a8e4e9914a69" />
+<img width="201" height="327" alt="image" src="https://github.com/user-attachments/assets/06745476-ef1c-47b4-8cfb-a8e4e9914a69" style="display:block; margin: 0 auto;" />
 
 
 Ish: Forma parte de la banda EXODIA y no puede separarse de sus dos queridos compañeros de aventuras, Ma y El. Tiene el aspecto de un brazo derecho con mucha masa muscular.
@@ -274,12 +528,25 @@ Ma: Forma parte de la banda EXODIA y no puede separarse de sus dos queridos comp
 El: Forma parte de la banda EXODIA y no puede separarse de sus dos queridos compañeros de aventuras, Ish y Ma. Tiene el aspecto de un brazo izquierdo con mucha masa muscular.
 
 
+<img width="587" height="296" alt="image" src="https://github.com/user-attachments/assets/fba897a9-2549-4413-8358-253b7822c677" style="display:block; margin: 0 auto;" />
 
-<img width="587" height="296" alt="image" src="https://github.com/user-attachments/assets/fba897a9-2549-4413-8358-253b7822c677" />
+
+Cleon y Rome: Una pareja feliz con una enorme determinación para seguir adelante con su relación. 
 
 
-Cleon y Rome: Una pareja feliz con una enorme determinación para seguir adelante con su relación. Cleon, que tendrá el aspecto de uno de los profesores de P2 con el vestido de novia, no puede separarse de su mujer con el traje de novia, Rome, con la apariencia de uno de los profesores de P2.
+Cleon, que tendrá el aspecto de uno de los profesores de P2 con el vestido de novia, no puede separarse de su mujer con el traje de novia; 
+
+
+Rome, con la apariencia de uno de los profesores de P2.
 </details>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="20"></td>
+<td>
 <details>
 	<summary> Mapa del mundo </summary>
 
@@ -287,10 +554,21 @@ Cleon y Rome: Una pareja feliz con una enorme determinación para seguir adelant
 Representa la mente de la nutria, posiblemente se divida estéticamente en 5 zonas temáticas, por ejemplo: Un bosque quemado, una laguna, un parque, una zona de río y un campo de flores o jardín. Las zonas estarán interconectadas entre sí.
 
 
-<img width="525" height="394" alt="image" src="https://github.com/user-attachments/assets/113e546b-6576-46c4-8bc7-c76897a69a2e" />
+<img width="525" height="394" alt="image" src="https://github.com/user-attachments/assets/113e546b-6576-46c4-8bc7-c76897a69a2e" style="display:block; margin: 0 auto;" />
+</details>
+</td>
+</tr>
+</table>
 
 </details>
-</details>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="10"></td>
+<td>
 <details>
 	<summary> Experiencia de juego </summary>
 
@@ -299,6 +577,14 @@ El jugador se sumergirá en una historia de superación donde poco a poco empeza
 En cuanto a los minijuegos a pesar de ser sencillos y no requerir de una respuesta rápida de forma que no se pone al jugador en tensión sí que requieren un poco de concentración, todo esto sin alejarse de la experiencia relajada del gameplay.
 En general, el juego busca constantemente una experiencia relajada para el jugador de forma que pueda jugar al juego sin requerir mucha concentración en la mayoría de los casos.
 </details>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="10"></td>
+<td>
 <details>
 	<summary> Estética y contenido </summary>
 
@@ -307,6 +593,14 @@ La estética del juego está enfocada a manualidades y arte, de esta forma el co
 
 En cuanto a la música se encontrarán temas tranquilos y que transmitan relajación y los efectos de sonido serán grabaciones de audio creadas por los desarrolladores con sus voces y sonidos encontrados en la vida cotidiana como puede ser el sonido de dejar un tenedor en un plato, de abrir una lata de refresco, entre otras cosas.
 </details>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="10"></td>
+<td>
 <details>
 	<summary> Referencias </summary>
 
@@ -328,8 +622,11 @@ Stardew Valley y Animal Crossing: por el modo de paso de días y gestión de rec
 
 Mario Party: los minijuegos y como se muestran al jugador se asemejan mucho a los de esta saga.
 </details>
-</details>
+</td>
+</tr>
+</table>
 
+</details>
 <details>
 	<summary>Assets</summary>
 
@@ -345,9 +642,9 @@ Los assets creados por los encargados de arte durante el desarrollo del proyecto
 <sumary> **CAPTURAS DEL JUEGO** </sumary> 
 <details>
 <summary></summary>
-  <img width="896" height="672" alt="image" src="https://github.com/user-attachments/assets/236c1336-a5d0-4316-8869-bc00380bb4fc" />
-  <img width="900" height="663" alt="image" src="https://github.com/user-attachments/assets/0fc99237-2715-4ecb-8891-9fdc1325f6b3" />
-  <img width="901" height="674" alt="image" src="https://github.com/user-attachments/assets/07b20de9-df9a-4ad3-8138-b045af80195a" />
-  <img width="899" height="672" alt="image" src="https://github.com/user-attachments/assets/a1826e9c-d26a-4918-9beb-6598b4cfad56" />
-  <img width="897" height="672" alt="image" src="https://github.com/user-attachments/assets/42cff4b7-49c7-4967-9a80-2741ff2d59c9" />
+  <img width="896" height="672" alt="image" src="https://github.com/user-attachments/assets/236c1336-a5d0-4316-8869-bc00380bb4fc" style="display:block; margin: 0 auto;" />
+  <img width="900" height="663" alt="image" src="https://github.com/user-attachments/assets/0fc99237-2715-4ecb-8891-9fdc1325f6b3" style="display:block; margin: 0 auto;" />
+  <img width="901" height="674" alt="image" src="https://github.com/user-attachments/assets/07b20de9-df9a-4ad3-8138-b045af80195a" style="display:block; margin: 0 auto;" />
+  <img width="899" height="672" alt="image" src="https://github.com/user-attachments/assets/a1826e9c-d26a-4918-9beb-6598b4cfad56" style="display:block; margin: 0 auto;" />
+  <img width="897" height="672" alt="image" src="https://github.com/user-attachments/assets/42cff4b7-49c7-4967-9a80-2741ff2d59c9" style="display:block; margin: 0 auto;" />
 </details>
