@@ -565,6 +565,10 @@ Representa la mente de la nutria, posiblemente se divida estéticamente en 5 zon
 </tr>
 </table>
 
+<table>
+<tr>
+<td width="10"></td>
+<td>
 <details>
 	<summary> Experiencia de juego </summary>
 
@@ -573,6 +577,14 @@ El jugador se sumergirá en una historia de superación donde poco a poco empeza
 En cuanto a los minijuegos a pesar de ser sencillos y no requerir de una respuesta rápida de forma que no se pone al jugador en tensión sí que requieren un poco de concentración, todo esto sin alejarse de la experiencia relajada del gameplay.
 En general, el juego busca constantemente una experiencia relajada para el jugador de forma que pueda jugar al juego sin requerir mucha concentración en la mayoría de los casos.
 </details>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="10"></td>
+<td>
 <details>
 	<summary> Estética y contenido </summary>
 
@@ -581,6 +593,14 @@ La estética del juego está enfocada a manualidades y arte, de esta forma el co
 
 En cuanto a la música se encontrarán temas tranquilos y que transmitan relajación y los efectos de sonido serán grabaciones de audio creadas por los desarrolladores con sus voces y sonidos encontrados en la vida cotidiana como puede ser el sonido de dejar un tenedor en un plato, de abrir una lata de refresco, entre otras cosas.
 </details>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="10"></td>
+<td>
 <details>
 	<summary> Referencias </summary>
 
@@ -602,6 +622,10 @@ Stardew Valley y Animal Crossing: por el modo de paso de días y gestión de rec
 
 Mario Party: los minijuegos y como se muestran al jugador se asemejan mucho a los de esta saga.
 </details>
+</td>
+</tr>
+</table>
+
 </details>
 <details>
 	<summary>Assets</summary>
