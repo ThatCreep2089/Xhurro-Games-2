@@ -299,11 +299,11 @@ El objetivo será llegar a una puntuación en el tiempo límite. El jugador ver�
 (pueden aparecer topos y dinamitas simultáneamente en distintos agujeros o solo un topo/dinamita).
 
 
-<img width="900" height="672" alt="image" src="https://github.com/user-attachments/assets/1920e37e-a0da-4234-a6c0-07ad8d59f288" />
+<div><img width="900" height="672" alt="image" src="https://github.com/user-attachments/assets/1920e37e-a0da-4234-a6c0-07ad8d59f288" /></div>
 
 
 
-<img width="896" height="665" alt="image" src="https://github.com/user-attachments/assets/bcb561e8-a1de-4081-a9e2-9415eb36df4c" />
+<div><img width="896" height="665" alt="image" src="https://github.com/user-attachments/assets/bcb561e8-a1de-4081-a9e2-9415eb36df4c" /></div>
 
 
 **Ilumina los fantasmas:** 
@@ -323,11 +323,11 @@ El jugador verá un escenario/paisaje oscuro y empezarán a aparecer fantasmas p
 Estos se encontrarán en una posición fija o moviéndose por la pantalla.
 
 
-<img width="902" height="678" alt="image" src="https://github.com/user-attachments/assets/8c80ca9a-3988-4999-a2d7-488a2411492b" />
+<div><img width="902" height="678" alt="image" src="https://github.com/user-attachments/assets/8c80ca9a-3988-4999-a2d7-488a2411492b" /></div>
 
 
 
-<img width="900" height="671" alt="image" src="https://github.com/user-attachments/assets/7fe74feb-6f75-49d7-ad60-207b1ff41b61" />
+<div><img width="900" height="671" alt="image" src="https://github.com/user-attachments/assets/7fe74feb-6f75-49d7-ad60-207b1ff41b61" /></div>
 
 
 **Puzzle:** 
@@ -353,11 +353,11 @@ no salga rentable dependiendo de completar o no el minijuego (el minijuego del p
 o los puntos que consigues (en el minijuego de los topos y de los fantasmas siempre se ganan puntos, pero pueden ser más o menos). 
 
 
-<img width="898" height="672" alt="image" src="https://github.com/user-attachments/assets/c1e8ba48-74f6-4f57-b448-29792d28d74a" />
+<div><img width="898" height="672" alt="image" src="https://github.com/user-attachments/assets/c1e8ba48-74f6-4f57-b448-29792d28d74a" /></div>
 
 
 
-<img width="893" height="670" alt="image" src="https://github.com/user-attachments/assets/d963223d-1bf8-45f2-9c3f-43bfc11be7b2" />
+<div><img width="893" height="670" alt="image" src="https://github.com/user-attachments/assets/d963223d-1bf8-45f2-9c3f-43bfc11be7b2" /></div>
 
 
 
