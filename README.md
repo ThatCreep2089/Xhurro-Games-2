@@ -134,16 +134,38 @@ El objetivo del juego es reconstruir el subconsciente de la nutria con los recur
 </tr>
 </table>
 
+<table>
+<tr>
+<td width="10"></td>
+<td>
 <details>
 <summary> Mecánicas </summary>
+<table>
+<tr>
+<td width="20"></td>
+<td>
 <details>
 	<summary> Movimiento </summary>	
 
 ## Movimiento
-El jugador podrá moverse en 4 direcciones, siendo los vectores de movimiento sobre el eje x (0,1), (1,0), (0,-1), (-1,0) y mirará hacia donde se mueve en todo momento. También estará normalizado, de forma que no se mueva más rápido en diagonal que en los ejes.
+El jugador podrá moverse en 4 direcciones, siendo los vectores de movimiento sobre el eje x (0,1), (1,0), (0,-1), (-1,0) 
+
+y mirará hacia donde se mueve en todo momento. También estará normalizado, de forma que no se mueva más rápido en diagonal que en los ejes.
+
+
 El movimiento será inmediato, sin aceleración y digital para hacer unos controles más responsivos.
+
+
 El personaje frenará completamente con la colisión con estructuras y objetos sobre el suelo en el mapa (decoraciones, casas y recursos naturales).
-</details>	
+</details>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="20"></td>
+<td>
 <details>
 	<summary> Recursos </summary>
 
@@ -160,25 +182,63 @@ Arcilla (determinación / valentía)
 
 
 Estos se conseguirán de diversas maneras, una de ellas será completando misiones y otra será recolectarlos de su medio natural.
-Para recolectarlos en su medio natural, el jugador deberá acercarse a la fuente del recurso y mantener pulsado la tecla de interacción unos segundos, obteniendo así poco a poco el recurso de la fuente. Este requerirá de una cantidad determinada de energía para conseguirlo, si no, no se podrá extraer.
 
-Solo habrá tres fuentes de recurso en todo el mapa y no se agotan. Un río de pintura de donde se obtendrá la pintura, unas flores de papel de donde se obtendrá el origami y unas piedras de donde se obtendrá la arcilla.
+
+Para recolectarlos en su medio natural, el jugador deberá acercarse a la fuente del recurso y 
+
+
+mantener pulsado la tecla de interacción unos segundos, obteniendo así poco a poco el recurso de la fuente. Este requerirá de una cantidad determinada de energía para conseguirlo, si no, no se podrá extraer.
+
+
+Solo habrá tres fuentes de recurso en todo el mapa y no se agotan. 
+
+
+Un río de pintura de donde se obtendrá la pintura, unas flores de papel de donde se obtendrá el origami y unas piedras de donde se obtendrá la arcilla.
 </details>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="20"></td>
+<td>
 <details>
 	<summary> Dialogos </summary>
 	
 ## Dialogos
-Los personajes podrán hablar, para ello aparecerá una burbuja de texto en pantalla donde empezarán a aparecer las frases letra por letra junto con una imagen ampliada del personaje que habla y su nombre.
+Los personajes podrán hablar, para ello aparecerá una burbuja de texto en pantalla donde empezarán a aparecer 
+
+las frases letra por letra junto con una imagen ampliada del personaje que habla y su nombre.
+
+
 Si se interactúa mientras el texto se está escribiendo, el texto se completará al instante.
-Si se interactúa cuando el texto ha terminado de escribirse, aparecerá el siguiente texto junto con la imagen del personaje que habla y su nombre (todo esto sin que desaparezca la burbuja). En caso de no haber siguiente  texto, la burbuja desaparecerá junto con el texto, la imagen y el nombre del personaje.
+
+
+Si se interactúa cuando el texto ha terminado de escribirse, aparecerá el siguiente texto junto con la imagen del personaje 
+
+que habla y su nombre (todo esto sin que desaparezca la burbuja). En caso de no haber siguiente  texto, la burbuja desaparecerá junto con el texto, la imagen y el nombre del personaje.
 </details>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="20"></td>
+<td>
 <details>
-	<summary> Misiones </summary>
+	<summary> Minijuegos </summary>
 	
-## Misiones
-Mientras la nutria explora el mundo se encontrará con NPCs  que tendrán una misión, esta misión dará una cantidad elevada de recursos a cambio de gastar una cantidad elevada de estamina.
+## Minijuegos
+Mientras la nutria explora el mundo se encontrará con NPCs  que tendrán una misión, 
+
+esta misión dará una cantidad elevada de recursos a cambio de gastar una cantidad elevada de estamina.
+
 
 Al interactuar con el NPC, Toni empezará a hablar con el NPC explicando el minijuego, y tras esto aparecerá un pop-up donde aparecerán los siguientes elementos:
+
+
 Nombre de la misión.
 
 
@@ -212,6 +272,14 @@ Puzzle: se tendrá que completar una imagen la cual se dividirá en piezas y ten
 
 La puntuación de los minijuegos dará una cantidad de recursos en función de los puntos, de forma que existe la posibilidad de que el gasto de estamina no salga rentable dependiendo de completar o no el minijuego (el minijuego del puzle solo te da puntos si completas la imagen en el tiempo establecido) o los puntos que consigues (en el minijuego de los topos y de los fantasmas siempre se ganan puntos, pero pueden ser más o menos). Todos los minijuegos se desarrollan en pantalla completa y en primera persona.
 </details>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="20"></td>
+<td>
 <details>
 	<summary> Paso del tiempo </summary>
 	
@@ -219,6 +287,15 @@ La puntuación de los minijuegos dará una cantidad de recursos en función de l
 La nutria tiene 6 días para terminar de construir su subconsciente pero, ¿cómo pasa el tiempo?
 El jugador cuenta con una barra de estamina, cuando esta llegue a 0 el día pasará.
 La nutria aparece todos los días en el mismo sitio (su caseta).
+</details>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="20"></td>
+<td>
 <details>
 	<summary> Estamina </summary>
 	
@@ -237,7 +314,15 @@ Recoger 4 de cualquier recurso independientemente del que sea y el orden gastar�
 
 Terminar una misión consumirá 30 de estamina (cantidad elevada).
 </details>
+</td>
+</tr>
+</table>
+
 </details>
+</td>
+</tr>
+</table>
+
 <details>
 	<summary> Reconstrucción </summary>
 	
@@ -245,7 +330,13 @@ Terminar una misión consumirá 30 de estamina (cantidad elevada).
 En el juego se encontrarán estructuras u objetos destruidos/distorsionados, estos se podrán reconstruir y para ello se necesitará una cantidad de recursos específicos.
 Al acercarse al objeto/estructura aparecerá un pequeño texto con el nombre del objeto y los recursos necesarios para repararlo. Si se interactúa y se tiene los recursos necesarios la estructura/objeto se construirá/dejará de estar distorsionada.
 </details>
+</td>
+</tr>
+</table>
 </details>
+</td>
+</tr>
+</table>
 <details>
 	<summary> Interfaz </summary>
 <details>
