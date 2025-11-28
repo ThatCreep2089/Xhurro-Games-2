@@ -258,7 +258,7 @@
 			"Rechazo": {
 			    "speaker": "NPC",
 			    "portrait": "house",
-			    "msgn": "+Besa el puzle de nuevo*"
+			    "msgn": "*Besa el puzle de nuevo*"
 		    }
         },
         {
@@ -374,7 +374,7 @@
 			"Rechazo": {
 			    "speaker": "NPC",
 			    "portrait": "house",
-			    "msgn": "*Flexea a Ish y a EL"
+			    "msgn": "*Flexea a Ish y a EL*"
 		    }
         }
 	]
