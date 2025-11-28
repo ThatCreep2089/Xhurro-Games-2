@@ -64,10 +64,10 @@ EL PEGI es /, ya que es un juego que aunque toque algún tema algo más profundo
 Una nutria tenía una vida normal como la de cualquier otra nutria, pero todas las nutrias cambiamos, nunca somos la misma nutria…
 
 
-La nutria entra en un proceso de desarrollo personal debido a un trastorno disociativo donde su mente cambia y su subconsciente está en un proceso de reconstrucción. Para poder pasar ese proceso con éxito tendrá
+La nutria entra en un proceso de desarrollo personal debido a un trastorno disociativo donde su mente cambia y su subconsciente está en un proceso de reconstrucción. 
 
 
-que reconstruir su subconsciente en menos de seis días.
+Para poder pasar ese proceso con éxito tendrá que reconstruir su subconsciente en menos de seis días.
 </details>
 </td>
 </tr>
