@@ -44,7 +44,10 @@ El juego es un RPG sin combates donde tenemos a una nutria como protagonista que
 <summary> Género y PEGI </summary>
 	
 ## Género y PEGI
-Se trata de un juego RPG/Aventura,donde el protagonista tendrá que recolectar recursos para reconstruir si subsoncietne.EL PEGI es /, ya que es un juego que aunque toque algún tema algo más profundo no contiene ningún acto de violencia, uso de sustancias, etc.
+Se trata de un juego RPG/Aventura,donde el protagonista tendrá que recolectar recursos para reconstruir si subsoncietne.
+
+
+EL PEGI es /, ya que es un juego que aunque toque algún tema algo más profundo no contiene ningún acto de violencia, uso de sustancias, etc.
 </details>
 </td>
 </tr>
@@ -59,7 +62,12 @@ Se trata de un juego RPG/Aventura,donde el protagonista tendrá que recolectar r
   
 ## Lore
 Una nutria tenía una vida normal como la de cualquier otra nutria, pero todas las nutrias cambiamos, nunca somos la misma nutria…
-La nutria entra en un proceso de desarrollo personal debido a un trastorno disociativo donde su mente cambia y su subconsciente está en un proceso de reconstrucción. Para poder pasar ese proceso con éxito tendrá que reconstruir su subconsciente en menos de seis días.
+
+
+La nutria entra en un proceso de desarrollo personal debido a un trastorno disociativo donde su mente cambia y su subconsciente está en un proceso de reconstrucción. Para poder pasar ese proceso con éxito tendrá
+
+
+que reconstruir su subconsciente en menos de seis días.
 </details>
 </td>
 </tr>
