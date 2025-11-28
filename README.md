@@ -232,6 +232,13 @@ que habla y su nombre (todo esto sin que desaparezca la burbuja). En caso de no 
 
 
 Cada vuadro de texto tendrá un colar para diferenciar quien habla, además de que todos los cuadros de texto tienen la misma fuente.
+
+
+<img width="898" height="422" alt="image" src="https://github.com/user-attachments/assets/15a3fe0e-a00c-4e6a-9efd-19586ff9d856" />
+
+
+
+<img width="829" height="361" alt="image" src="https://github.com/user-attachments/assets/25d0ceba-db88-4932-b9a7-e4f571225bfd" />
 </details>
 </td>
 </tr>
