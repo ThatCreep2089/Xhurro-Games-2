@@ -32,8 +32,8 @@ El juego es un RPG sin combates donde tenemos a una nutria como protagonista que
 <summary> GDD </summary>
 <table>
 <tr>
+<td width="20"></td>
 <td>
-<details>
 <summary> Resumen </summary>
 
 <table>
@@ -295,6 +295,7 @@ El objetivo será llegar a una puntuación en el tiempo límite. El jugador ver�
 <img width="900" height="672" alt="image" src="https://github.com/user-attachments/assets/1920e37e-a0da-4234-a6c0-07ad8d59f288" />
 
 
+
 <img width="896" height="665" alt="image" src="https://github.com/user-attachments/assets/bcb561e8-a1de-4081-a9e2-9415eb36df4c" />
 
 
@@ -316,6 +317,7 @@ Estos se encontrarán en una posición fija o moviéndose por la pantalla.
 
 
 <img width="902" height="678" alt="image" src="https://github.com/user-attachments/assets/8c80ca9a-3988-4999-a2d7-488a2411492b" />
+
 
 
 <img width="900" height="671" alt="image" src="https://github.com/user-attachments/assets/7fe74feb-6f75-49d7-ad60-207b1ff41b61" />
@@ -347,7 +349,9 @@ o los puntos que consigues (en el minijuego de los topos y de los fantasmas siem
 <img width="898" height="672" alt="image" src="https://github.com/user-attachments/assets/c1e8ba48-74f6-4f57-b448-29792d28d74a" />
 
 
+
 <img width="893" height="670" alt="image" src="https://github.com/user-attachments/assets/d963223d-1bf8-45f2-9c3f-43bfc11be7b2" />
+
 
 
 Todos los minijuegos se desarrollan en pantalla completa y en primera persona.
