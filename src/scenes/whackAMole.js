@@ -105,8 +105,11 @@ export default class WhackAMole extends Phaser.Scene {
         if (this.timeleft <= 0 && !this.end) {
             this.end = true;
             this.UIManager.appearMinigameEndInfo(this,
-                (Math.floor(this.score /
-                    this.scene.get('mainScene').minigamesInfo.WackAMole.reward.X) * this.scene.get('mainScene').minigamesInfo.WackAMole.reward.amountPerX));
+                ({
+                    paint: (Math.floor(this.score / this.scene.get('mainScene').minigamesInfo.WackAMole.reward.X) * this.scene.get('mainScene').minigamesInfo.WackAMole.reward.amountPerX.paint),
+                    paper: (Math.floor(this.score / this.scene.get('mainScene').minigamesInfo.WackAMole.reward.X) * this.scene.get('mainScene').minigamesInfo.WackAMole.reward.amountPerX.paper),
+                    clay: (Math.floor(this.score / this.scene.get('mainScene').minigamesInfo.WackAMole.reward.X) * this.scene.get('mainScene').minigamesInfo.WackAMole.reward.amountPerX.clay),
+                }));
         }
     }
 
@@ -118,11 +121,13 @@ export default class WhackAMole extends Phaser.Scene {
 
             // Calcular la recompensa según la puntuación
             const times = Math.floor(this.score / rewardInfo.X);
-            const rewardAmount = times * rewardInfo.amountPerX;
+            const rewardAmount = rewardInfo.amountPerX;
 
             // Aplicar la recompensa
             if (mainScene.otter && mainScene.otter.backpack) {
-                mainScene.otter.backpack.paint += rewardAmount; // o el recurso que prefieras
+                mainScene.otter.backpack.paint += rewardAmount.paint * times;
+                mainScene.otter.backpack.paper += rewardAmount.paper * times;
+                mainScene.otter.backpack.clay += rewardAmount.clay * times;
             }
 
             GameDataManager.player.stamina = GameDataManager.player.stamina - staminaDecrease;

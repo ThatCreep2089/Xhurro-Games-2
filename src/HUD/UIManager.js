@@ -122,20 +122,26 @@ export default class UIManager {
         dayNumber.setDisplayOrigin(0, 0.5);
 
        //suscripción para actualizar inventario
-       this.event.on('updateInventory', (sources)=>{
+       this.event.on('updateInventory', (sources) => {
+
            paintNumber.setText("x" + backpack.paint);
            paperNumber.setText("x" + backpack.paper);
            clayNumber.setText("x" + backpack.clay);
 
            //Activamos mensaje de recompensa por unos segundos
            if (sources.paint && sources.paint != 0){
-                let paintReward = this.scene.add.text(paintNumber.x + 100, paintNumber.y + 50, "0",
+                let bg = this.scene.add.image(paintNumber.x + 20, paintNumber.y + 70, 'sourceWarning').setScale(0.5);
+                let paintReward = this.scene.add.text(paintNumber.x, paintNumber.y + 50, "0",
                 {
                     fontFamily: 'bobFont',
                     fontSize: 25 * this.size + 'px',
                 });
 
                 cont.add(paintReward);
+                cont.add(bg);
+                cont.sendToBack(paintReward);
+                cont.sendToBack(bg);
+
                 if(sources.paint > 0){
                     paintReward.setColor('#008000');
                     paintReward.setText("+" + sources.paint);
@@ -145,10 +151,11 @@ export default class UIManager {
                     paintReward.setText(sources.paint);
                 }
                 
-                setTimeout(() => {paintReward.destroy()}, 1000);
+                setTimeout(() => {paintReward.destroy(); bg.destroy()}, 1000);
            }
 
            if (sources.paper && sources.paper != 0){
+                let bg = this.scene.add.image(paperNumber.x + 20, paperNumber.y + 70, 'sourceWarning').setScale(0.5);
                 let paperReward = this.scene.add.text(paperNumber.x, paperNumber.y + 50, "0",
                 {
                     fontFamily: 'bobFont',
@@ -156,6 +163,10 @@ export default class UIManager {
                 });
 
                 cont.add(paperReward);
+                cont.add(bg);
+                cont.sendToBack(paperReward);
+                cont.sendToBack(bg);
+
                 if(sources.paper > 0){
                     paperReward.setColor("#008000");
                     paperReward.setText("+" + sources.paper);
@@ -165,10 +176,11 @@ export default class UIManager {
                     paperReward.setText(sources.paper);
                 }
                 
-                setTimeout(() => {paperReward.destroy()}, 1000);
+                setTimeout(() => {paperReward.destroy(); bg.destroy()}, 1000);
            }
 
            if (sources.clay && sources.clay != 0){
+                let bg = this.scene.add.image(clayNumber.x + 20, clayNumber.y + 70, 'sourceWarning').setScale(0.5)
                 let clayReward = this.scene.add.text(clayNumber.x, clayNumber.y + 50, "0",
                 {
                     fontFamily: 'bobFont',
@@ -176,6 +188,10 @@ export default class UIManager {
                 });
     
                 cont.add(clayReward);
+                cont.add(bg);
+                cont.sendToBack(clayReward);
+                cont.sendToBack(bg);
+
                 if (sources.clay > 0){
                     clayReward.setColor('#008000');
                     clayReward.setText("+" + sources.clay);
@@ -185,13 +201,14 @@ export default class UIManager {
                     clayReward.setText(sources.clay);
                 }
                 
-                setTimeout(() => {clayReward.destroy()}, 1000);
+                setTimeout(() => {clayReward.destroy(); bg.destroy()}, 1000);
            }
        });
 
        this.event.on('updateStamina', (amount)=>{
 
             if (amount != undefined){
+                let bg = this.scene.add.image(staminaNumber.x + 20, staminaNumber.y + 70, 'sourceWarning').setScale(0.5)
                 let staminaReward = this.scene.add.text(staminaNumber.x, staminaNumber.y + 50, amount,
                 {
                     color: '#ff0000',
@@ -200,7 +217,11 @@ export default class UIManager {
                 });
 
                 cont.add(staminaReward);
-                setTimeout(() => {staminaReward.destroy()}, 1000)
+                cont.add(bg);
+                cont.sendToBack(staminaReward);
+                cont.sendToBack(bg);
+
+                setTimeout(() => {staminaReward.destroy(); bg.destroy()}, 1000)
             }
 
             staminaNumber.setText("x" + this.scene.otter.getStamina());
@@ -342,19 +363,40 @@ export default class UIManager {
             fontSize: 35 * this.size + 'px',
             color: '#000000'
         }).setOrigin(0, 0);
+        let priceImg = this.scene.add.image(price.x + 160, price.y, 'stamina').setOrigin(0,0).setScale(0.5);
 
         //Recompensa de minijuego
-        let reward = this.scene.add.text(-395, 125, "Recompensa: " + minigameInfo.reward.amountPerX + " cada " + minigameInfo.reward.X + " puntos",{
+        let icon;
+        let reward_;
+        if (minigameInfo.reward.amountPerX.paint != 0){ icon = 'paintIcon'; reward_= minigameInfo.reward.amountPerX.paint;}
+        else if (minigameInfo.reward.amountPerX.paper != 0) {icon = 'paperIcon'; reward_= minigameInfo.reward.amountPerX.paper;}
+        else {icon = 'clayIcon'; reward_= minigameInfo.reward.amountPerX.clay;}
+
+        let recompensa = this.scene.add.text(-395, 125, "Recompensa: ",{
             fontFamily: 'bobFont',
             fontSize: 35 * this.size + 'px',
             color: '#000000'
         }).setOrigin(0, 0);
 
+        let reward = this.scene.add.text(recompensa.x + 250, recompensa.y, "x" + reward_,{
+            fontFamily: 'bobFont',
+            fontSize: 35 * this.size + 'px',
+            color: '#000000'
+        }).setOrigin(0, 0);
+
+        let puntos = this.scene.add.text(recompensa.x + 300, recompensa.y, " cada " + minigameInfo.reward.X + " puntos",{
+            fontFamily: 'bobFont',
+            fontSize: 35 * this.size + 'px',
+            color: '#000000'
+        }).setOrigin(0, 0);
+        
+        let rewardImg = this.scene.add.image(recompensa.x + 200, recompensa.y, icon).setScale(0.5).setOrigin(0, 0);
+
         //Botones
         this.minigameData.accept = this.scene.add.image(450, 500, 'acceptButton').setInteractive().setOrigin(0, 0).setScale(this.size * 0.25);
         this.minigameData.refuse = this.scene.add.image(250, 500, 'refuseButton').setInteractive().setOrigin(0, 0).setScale(this.size * 0.2);
 
-        this.minigameData.container.add([background, name, source, description, price, reward]);
+        this.minigameData.container.add([background, name, source, description, price, priceImg, reward, recompensa, puntos, rewardImg]);
         this.minigameData.container.setScrollFactor(0);
         this.minigameData.accept.setScrollFactor(0);
         this.minigameData.refuse.setScrollFactor(0);
@@ -444,27 +486,54 @@ export default class UIManager {
 
     appearMinigameEndInfo(scene, reward)
     {
+        let reward_;
+        let icon;
+
+        if (reward.paint != 0){
+            reward_ = reward.paint;
+            icon = 'paintIcon';
+        } else if (reward.paper != 0) {
+            reward_ = reward.paper;
+            icon = 'paperIcon';
+        } else {
+            reward_ = reward.clay;
+            icon = 'clayIcon';
+        }
+
         //Creamos toda la información de la pantalla
         let background = this.scene.add.image(this.scene.scale.width/2, this.scene.scale.height/2, 'MGInfoBG').setOrigin(0.5, 0.5);
         background.setScale(this.size * 1.5)
         background.setDepth(this.HUDDepth);
 
         //Recompensa de minijuego
-        let rewardText = this.scene.add.text(this.scene.scale.width/2, this.scene.scale.height/2, "Recompensa: " + reward,{
+        
+        let rewardImg = this.scene.add.image(this.scene.scale.width/2 , this.scene.scale.height/2, icon);
+
+        let recompensa = this.scene.add.text(rewardImg.x - 20, rewardImg.y, "Recompensa: ",{
             fontFamily: 'bobFont',
             fontSize: 35 * this.size + 'px',
             color: '#000000'
-        }).setOrigin(0.5, 0.5);
+        }).setOrigin(1, 0.5)
+
+        let rewardText = this.scene.add.text(rewardImg.x + 25, rewardImg.y, "x" + reward_,{
+            fontFamily: 'bobFont',
+            fontSize: 35 * this.size + 'px',
+            color: '#000000'
+        }).setOrigin(0, 0.5);
 
         //Botones
         let continu3 = this.scene.add.image(this.scene.scale.width/2, this.scene.scale.height, 'acceptButton').setInteractive().setOrigin(0.5, 1).setScale(this.size * 0.25);
 
         background.setScrollFactor(0);
+        recompensa.setScrollFactor(0);
         rewardText.setScrollFactor(0);
+        rewardImg.setScrollFactor(0).setScale(0.5*this.size);
         continu3.setScrollFactor(0);
 
         background.setDepth(this.HUDDepth);
+        recompensa.setDepth(this.HUDDepth);
         rewardText.setDepth(this.HUDDepth);
+        rewardImg.setDepth(this.HUDDepth);
         continu3.setDepth(this.HUDDepth);
 
         continu3.on('pointerdown', ()=>{

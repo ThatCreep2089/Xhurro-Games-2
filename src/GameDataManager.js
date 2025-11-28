@@ -65,7 +65,7 @@ export default class GameDataManager {
                 }
             });
         }
-
+        
         if (scene.UIManager && scene.UIManager.event) {
             scene.UIManager.event.emit('updateInventory', this.reward);
             scene.UIManager.event.emit('updateStamina');
