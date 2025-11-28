@@ -28,10 +28,10 @@ El juego es un RPG sin combates donde tenemos a una nutria como protagonista que
 
   
 <details>
+<td width="10"></td>
 <summary> GDD </summary>
 <table>
 <tr>
-<td width="10"></td>
 <td>
 <details>
 <summary> Resumen </summary>
@@ -44,7 +44,7 @@ El juego es un RPG sin combates donde tenemos a una nutria como protagonista que
 <summary> Género y PEGI </summary>
 	
 ## Género y PEGI
-Se trata de un juego RPG/Aventura,donde el protagonista tendrá que recolectar recursos para reconstruir si subsoncietne.
+Se trata de un juego RPG/Aventura y recolección de recursos,donde el protagonista tendrá que recolectar recursos para reconstruir si subsoncietne.
 
 
 EL PEGI es /, ya que es un juego que aunque toque algún tema algo más profundo no contiene ningún acto de violencia, uso de sustancias, etc.
@@ -114,7 +114,9 @@ Para poder pasar ese proceso con éxito tendrá que reconstruir su subconsciente
 	<summary> Objetivo del juego</summary>
 	
 ## Objetivo del juego
-El objetivo del juego es reconstruir el subconsciente de la nutria con los recursos obtenidos antes de que acaben los seis días
+El objetivo del juego es reconstruir el subconsciente de la nutria con los recursos obtenidos antes de que acaben los seis días, si consigue reconstruir
+
+todos los edificios/estructuras ganará en caso, contrario perderá.
 </details>
 </td>
 </tr>
@@ -157,6 +159,13 @@ El movimiento será inmediato, sin aceleración y digital para hacer unos contro
 
 
 El personaje frenará completamente con la colisión con estructuras y objetos sobre el suelo en el mapa (decoraciones, casas y recursos naturales).
+
+
+Si se encuentra dentro de un dialogo se bloqueará el movimiento del juegadro hasat que salga de él.
+
+
+<img width="361" height="162" alt="image" src="https://github.com/user-attachments/assets/ebe38496-31a2-4f32-9103-eb32a81e2946" />
+
 </details>
 </td>
 </tr>
@@ -172,13 +181,13 @@ El personaje frenará completamente con la colisión con estructuras y objetos s
 ## Recursos
 En el juego se podrán encontrar tres recursos:
 
-Pintura (integridad / bondad)
+**Pintura:** la cual representa integridad / bondad
 
 	
-Origami (perseverancia / paciencia)
+**Origami:** la cual representa perseverancia / paciencia
 
 
-Arcilla (determinación / valentía)
+**Arcilla:** la cual representa determinación / valentía
 
 
 Estos se conseguirán de diversas maneras, una de ellas será completando misiones y otra será recolectarlos de su medio natural.
@@ -187,10 +196,10 @@ Estos se conseguirán de diversas maneras, una de ellas será completando mision
 Para recolectarlos en su medio natural, el jugador deberá acercarse a la fuente del recurso y 
 
 
-mantener pulsado la tecla de interacción unos segundos, obteniendo así poco a poco el recurso de la fuente. Este requerirá de una cantidad determinada de energía para conseguirlo, si no, no se podrá extraer.
+pulsar la tecla de interacción unos segundos, obteniendo así poco a poco el recurso de la fuente. Este requerirá de una cantidad determinada de energía para conseguirlo, si no, no se podrá extraer.
 
 
-Solo habrá tres fuentes de recurso en todo el mapa y no se agotan. 
+Solo habrá tres tipo de fuentes de recurso en todo el mapa y no se agotan. 
 
 
 Un río de pintura de donde se obtendrá la pintura, unas flores de papel de donde se obtendrá el origami y unas piedras de donde se obtendrá la arcilla.
@@ -207,7 +216,8 @@ Un río de pintura de donde se obtendrá la pintura, unas flores de papel de don
 	<summary> Dialogos </summary>
 	
 ## Dialogos
-Los personajes podrán hablar, para ello aparecerá una burbuja de texto en pantalla donde empezarán a aparecer 
+Los personajes podrán hablar entre ellos, para ello aparecerá un cuadro de texto en pantalla donde empezarán a aparecer 
+
 
 las frases letra por letra junto con una imagen ampliada del personaje que habla y su nombre.
 
@@ -217,7 +227,11 @@ Si se interactúa mientras el texto se está escribiendo, el texto se completar�
 
 Si se interactúa cuando el texto ha terminado de escribirse, aparecerá el siguiente texto junto con la imagen del personaje 
 
-que habla y su nombre (todo esto sin que desaparezca la burbuja). En caso de no haber siguiente  texto, la burbuja desaparecerá junto con el texto, la imagen y el nombre del personaje.
+
+que habla y su nombre (todo esto sin que desaparezca la burbuja). En caso de no haber siguiente texto, la burbuja desaparecerá junto con el texto, la imagen y el nombre del personaje.
+
+
+Cada vuadro de texto tendrá un colar para diferenciar quien habla, además de que todos los cuadros de texto tienen la misma fuente.
 </details>
 </td>
 </tr>
@@ -233,31 +247,32 @@ que habla y su nombre (todo esto sin que desaparezca la burbuja). En caso de no 
 ## Minijuegos
 Mientras la nutria explora el mundo se encontrará con NPCs  que tendrán una misión, 
 
-esta misión dará una cantidad elevada de recursos a cambio de gastar una cantidad elevada de estamina.
+
+esta misión es un pequeño minijuego el cual dará una cantidad de recursos a cambio de gastar una cantidad de estamina.
 
 
-Al interactuar con el NPC, Toni empezará a hablar con el NPC explicando el minijuego, y tras esto aparecerá un pop-up donde aparecerán los siguientes elementos:
+Al interactuar con el NPC, Navi(el hada que sigue al personaje) empezará a hablar con el NPC, este le explicará el minijuego, y tras esto aparecerá un pop-up donde aparecerán los siguientes elementos:
 
 
-Nombre de la misión.
+**Nombre de la misión.**
 
 
-Recompensa.
+**Tipo de recompensa.**
 
 
-Coste de la misión.
+**Coste de la misión.**
 
 
-Imágenes descriptivas.
+**Imágenes descriptivas.**
 
 
-Descripción detallada.
+**Descripción detallada.**
 
 
-Botón de aceptar que iniciará la misión al ser pulsado.
+**Botón de aceptar que iniciará la misión al ser pulsado.**
 
 
-Botón de rechazar que cerrará el pop-up junto con todos sus elementos al ser pulsado.
+**Botón de rechazar, que cerrará el pop-up junto con todos sus elementos al ser pulsado.**
 
 
 Las misiones serán minijuegos que darán NPCs los cuales son:
@@ -277,6 +292,12 @@ El objetivo será llegar a una puntuación en el tiempo límite. El jugador ver�
 (pueden aparecer topos y dinamitas simultáneamente en distintos agujeros o solo un topo/dinamita).
 
 
+<img width="900" height="672" alt="image" src="https://github.com/user-attachments/assets/1920e37e-a0da-4234-a6c0-07ad8d59f288" />
+
+
+<img width="896" height="665" alt="image" src="https://github.com/user-attachments/assets/bcb561e8-a1de-4081-a9e2-9415eb36df4c" />
+
+
 **Ilumina los fantasmas:** 
 
 Por medio de una antorcha la cual se puede arrastrar (moviendo el ratón), se tendrá que alumbrar a distintos fantasmas para que desaparezcan (disminuirán su tamaño poco a poco). 
@@ -292,6 +313,12 @@ El jugador verá un escenario/paisaje oscuro y empezarán a aparecer fantasmas p
 
 
 Estos se encontrarán en una posición fija o moviéndose por la pantalla.
+
+
+<img width="902" height="678" alt="image" src="https://github.com/user-attachments/assets/8c80ca9a-3988-4999-a2d7-488a2411492b" />
+
+
+<img width="900" height="671" alt="image" src="https://github.com/user-attachments/assets/7fe74feb-6f75-49d7-ad60-207b1ff41b61" />
 
 
 **Puzzle:** 
@@ -315,6 +342,12 @@ no salga rentable dependiendo de completar o no el minijuego (el minijuego del p
 
 
 o los puntos que consigues (en el minijuego de los topos y de los fantasmas siempre se ganan puntos, pero pueden ser más o menos). 
+
+
+<img width="898" height="672" alt="image" src="https://github.com/user-attachments/assets/c1e8ba48-74f6-4f57-b448-29792d28d74a" />
+
+
+<img width="893" height="670" alt="image" src="https://github.com/user-attachments/assets/d963223d-1bf8-45f2-9c3f-43bfc11be7b2" />
 
 
 Todos los minijuegos se desarrollan en pantalla completa y en primera persona.
@@ -573,8 +606,15 @@ Representa la mente de la nutria, posiblemente se divida estéticamente en 5 zon
 	<summary> Experiencia de juego </summary>
 
 ## Experiencia de juego
-El jugador se sumergirá en una historia de superación donde poco a poco empezará a reconstruir su subconsciente, se trata de una experiencia de juego tranquila con una dinámica simple de recolección de recursos y construcción en la que el jugador no se enfrenta a situaciones frenéticas como combates o similares.
+El jugador se sumergirá en una historia de superación donde poco a poco empezará a reconstruir su subconsciente, 
+
+
+se trata de una experiencia de juego tranquila con una dinámica simple de recolección de recursos y construcción en la que el jugador no se enfrenta a situaciones frenéticas como combates o similares.
+
+
 En cuanto a los minijuegos a pesar de ser sencillos y no requerir de una respuesta rápida de forma que no se pone al jugador en tensión sí que requieren un poco de concentración, todo esto sin alejarse de la experiencia relajada del gameplay.
+
+
 En general, el juego busca constantemente una experiencia relajada para el jugador de forma que pueda jugar al juego sin requerir mucha concentración en la mayoría de los casos.
 </details>
 </td>
