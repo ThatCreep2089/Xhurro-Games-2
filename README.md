@@ -128,7 +128,7 @@ El objetivo del juego es reconstruir el subconsciente de la nutria con los recur
 	<summary> CoreLoop</summary>
 	
 ## CoreLoop
-<img width="608" height="468" alt="image" src="https://github.com/user-attachments/assets/7f237e4b-969a-4fda-8f43-a01723906bc8" />
+<img width="608" height="468" alt="image" src="https://github.com/user-attachments/assets/7f237e4b-969a-4fda-8f43-a01723906bc8" style="display:block; margin: 0 auto;" />
 </details>
 </td>
 </tr>
