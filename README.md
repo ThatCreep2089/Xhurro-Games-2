@@ -29,10 +29,11 @@ El juego es un RPG sin combates donde tenemos a una nutria como protagonista que
   
 <details>
 <summary> GDD </summary>
-> <details>
-> <summary> Resumen </summary>
->> <details>
->><summary> Género y PEGI </summary>
+<details>
+<summary> Resumen </summary>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<details>
+<summary> Género y PEGI </summary>
 	
 >>## Género y PEGI
 >>Se trata de un juego RPG/Aventura,donde el protagonista tendrá que recolectar recursos para reconstruir si subsoncietne.EL PEGI es /, ya que es un juego que aunque toque algún tema algo más profundo no >>contiene ningún acto de violencia, uso de sustancias, etc.
