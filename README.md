@@ -261,16 +261,63 @@ Botón de rechazar que cerrará el pop-up junto con todos sus elementos al ser p
 
 
 Las misiones serán minijuegos que darán NPCs los cuales son:
-Whack-A-Mole: aparecerán topos cada cierto tiempo en un hoyo aleatorio y se tendrá que aplastarlos con el click del ratón. Los topos darán cierta cantidad de puntuación al golpearlos. Obstáculos surgirán aleatoriamente en lugar de topos, estos serán dinamitas que, al ser golpeadas, restarán una cantidad fija de puntos.  El objetivo será llegar a una puntuación en el tiempo límite. El jugador verá 9 agujeros en pantalla (3x3) de los cuales saldrán los topos o las dinamitas (pueden aparecer topos y dinamitas simultáneamente en distintos agujeros o solo un topo/dinamita).
 
 
-Ilumina los fantasmas: por medio de una antorcha la cual se puede arrastrar (moviendo el ratón), se tendrá que alumbrar a distintos fantasmas para que desaparezcan (disminuirán su tamaño poco a poco). Si consigues eliminarlos te darán una cantidad fija de puntos, por el contrario al no conseguirlo, se acercarán a ti y te quitarán puntos. El objetivo, al igual que en el minijuego anterior, será llegar a una puntuación determinada en un tiempo límite. El jugador verá un escenario/paisaje oscuro y empezarán a aparecer fantasmas por la pantalla (cada vez en más abundancia conforme pase el tiempo). Estos se encontrarán en una posición fija o moviéndose por la pantalla.
+Whack-A-Mole: 
+
+Aparecerán topos cada cierto tiempo en un hoyo aleatorio y se tendrá que aplastarlos con el click del ratón. 
 
 
-Puzzle: se tendrá que completar una imagen la cual se dividirá en piezas y tendrán una rotación distinta de 0 en el eje z. El jugador tendrá que girar las piezas haciendo clic en ellas. La perspectiva del jugador será una cuadrícula en la que tendremos que las piezas. Si no se completa la imagen en el tiempo establecido, no se darán puntos, por el contrario si se consigue se entregará una cantidad fija de estos.
+Los topos darán cierta cantidad de puntuación al golpearlos. Obstáculos surgirán aleatoriamente en lugar de topos, estos serán dinamitas que, al ser golpeadas, restarán una cantidad fija de puntos.  
 
 
-La puntuación de los minijuegos dará una cantidad de recursos en función de los puntos, de forma que existe la posibilidad de que el gasto de estamina no salga rentable dependiendo de completar o no el minijuego (el minijuego del puzle solo te da puntos si completas la imagen en el tiempo establecido) o los puntos que consigues (en el minijuego de los topos y de los fantasmas siempre se ganan puntos, pero pueden ser más o menos). Todos los minijuegos se desarrollan en pantalla completa y en primera persona.
+El objetivo será llegar a una puntuación en el tiempo límite. El jugador verá 9 agujeros en pantalla (3x3) de los cuales saldrán los topos o las dinamitas 
+
+
+(pueden aparecer topos y dinamitas simultáneamente en distintos agujeros o solo un topo/dinamita).
+
+
+Ilumina los fantasmas: 
+
+Por medio de una antorcha la cual se puede arrastrar (moviendo el ratón), se tendrá que alumbrar a distintos fantasmas para que desaparezcan (disminuirán su tamaño poco a poco). 
+
+
+Si consigues eliminarlos te darán una cantidad fija de puntos, por el contrario al no conseguirlo, se acercarán a ti y te quitarán puntos. 
+
+
+El objetivo, al igual que en el minijuego anterior, será llegar a una puntuación determinada en un tiempo límite. 
+
+
+El jugador verá un escenario/paisaje oscuro y empezarán a aparecer fantasmas por la pantalla (cada vez en más abundancia conforme pase el tiempo). 
+
+
+Estos se encontrarán en una posición fija o moviéndose por la pantalla.
+
+
+Puzzle: 
+
+Se tendrá que completar una imagen la cual se dividirá en piezas y tendrán una rotación distinta de 0 en el eje z. 
+
+
+El jugador tendrá que girar las piezas haciendo clic en ellas. 
+
+
+La perspectiva del jugador será una cuadrícula en la que tendremos que las piezas. 
+
+
+Si no se completa la imagen en el tiempo establecido, no se darán puntos, por el contrario si se consigue se entregará una cantidad fija de estos.
+
+
+La puntuación de los minijuegos dará una cantidad de recursos en función de los puntos, de forma que existe la posibilidad de que el gasto de estamina 
+
+
+no salga rentable dependiendo de completar o no el minijuego (el minijuego del puzle solo te da puntos si completas la imagen en el tiempo establecido) 
+
+
+o los puntos que consigues (en el minijuego de los topos y de los fantasmas siempre se ganan puntos, pero pueden ser más o menos). 
+
+
+Todos los minijuegos se desarrollan en pantalla completa y en primera persona.
 </details>
 </td>
 </tr>
@@ -284,8 +331,12 @@ La puntuación de los minijuegos dará una cantidad de recursos en función de l
 	<summary> Paso del tiempo </summary>
 	
 ## Paso del tiempo
-La nutria tiene 6 días para terminar de construir su subconsciente pero, ¿cómo pasa el tiempo?
+La nutria tiene 6 días para terminar de construir su subconsciente pero, ¿cómo pasa el tiempo?.
+
+
 El jugador cuenta con una barra de estamina, cuando esta llegue a 0 el día pasará.
+
+
 La nutria aparece todos los días en el mismo sitio (su caseta).
 </details>
 </td>
@@ -328,7 +379,12 @@ Terminar una misión consumirá 30 de estamina (cantidad elevada).
 	
 ## Reconstrucción
 En el juego se encontrarán estructuras u objetos destruidos/distorsionados, estos se podrán reconstruir y para ello se necesitará una cantidad de recursos específicos.
-Al acercarse al objeto/estructura aparecerá un pequeño texto con el nombre del objeto y los recursos necesarios para repararlo. Si se interactúa y se tiene los recursos necesarios la estructura/objeto se construirá/dejará de estar distorsionada.
+
+
+Al acercarse al objeto/estructura aparecerá un pequeño texto con el nombre del objeto y los recursos necesarios para repararlo. 
+
+
+Si se interactúa y se tiene los recursos necesarios la estructura/objeto se construirá/dejará de estar distorsionada.
 </details>
 </td>
 </tr>
