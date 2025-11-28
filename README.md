@@ -50,6 +50,10 @@ Se trata de un juego RPG/Aventura,donde el protagonista tendrá que recolectar r
 </tr>
 </table>
 
+<table>
+<tr>
+<td width="20"></td>
+<td>
 <details>
 	<summary> Lore </summary>
   
@@ -57,7 +61,14 @@ Se trata de un juego RPG/Aventura,donde el protagonista tendrá que recolectar r
 Una nutria tenía una vida normal como la de cualquier otra nutria, pero todas las nutrias cambiamos, nunca somos la misma nutria…
 La nutria entra en un proceso de desarrollo personal debido a un trastorno disociativo donde su mente cambia y su subconsciente está en un proceso de reconstrucción. Para poder pasar ese proceso con éxito tendrá que reconstruir su subconsciente en menos de seis días.
 </details>
+</td>
+</tr>
+</table>
 
+<table>
+<tr>
+<td width="20"></td>
+<td>
 <details>
 	<summary> Características principales </summary>
   
@@ -79,6 +90,9 @@ La nutria entra en un proceso de desarrollo personal debido a un trastorno disoc
 
 -Controla a la nutria con el teclado y el ratón.
 </details>
+</td>
+</tr>
+</table>
 </details>
 </td>
 </tr>
