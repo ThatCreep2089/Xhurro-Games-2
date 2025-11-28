@@ -263,7 +263,7 @@ Botón de rechazar que cerrará el pop-up junto con todos sus elementos al ser p
 Las misiones serán minijuegos que darán NPCs los cuales son:
 
 
-Whack-A-Mole: 
+**Whack-A-Mole:** 
 
 Aparecerán topos cada cierto tiempo en un hoyo aleatorio y se tendrá que aplastarlos con el click del ratón. 
 
@@ -277,7 +277,7 @@ El objetivo será llegar a una puntuación en el tiempo límite. El jugador ver�
 (pueden aparecer topos y dinamitas simultáneamente en distintos agujeros o solo un topo/dinamita).
 
 
-Ilumina los fantasmas: 
+**Ilumina los fantasmas:** 
 
 Por medio de una antorcha la cual se puede arrastrar (moviendo el ratón), se tendrá que alumbrar a distintos fantasmas para que desaparezcan (disminuirán su tamaño poco a poco). 
 
@@ -294,7 +294,7 @@ El jugador verá un escenario/paisaje oscuro y empezarán a aparecer fantasmas p
 Estos se encontrarán en una posición fija o moviéndose por la pantalla.
 
 
-Puzzle: 
+**Puzzle:** 
 
 Se tendrá que completar una imagen la cual se dividirá en piezas y tendrán una rotación distinta de 0 en el eje z. 
 
