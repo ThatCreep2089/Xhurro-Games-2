@@ -15,6 +15,8 @@ export default class mainScene extends Phaser.Scene {
 
     create() {
         
+        this.createAnims();
+
         // === CARGAR DATOS ===
         import("../GameDataManager.js").then(module => {
             const GameDataManager = module.default;
@@ -66,14 +68,14 @@ export default class mainScene extends Phaser.Scene {
         // === MINIJUEGOS_INFO ===
         this.minigamesInfo = {
             WackAMole:{
-                name: "Wack A Mole",
+                name: "Whack A Mole",
                 description: "Aplasta a los topos haciendo clic sobre ellos...",
                 src: 'WAMVideo',
                 price: 25,
                 reward:{ amountPerX: {paint: 2, paper: 0, clay: 0}, X: 10 }
             },
             LightUpGhosts: {
-                name: "Ilumina a los fantasmas",
+                name: "Ilumina a \n los fantasmas",
                 description: "Arrastra la antorcha hacia los fantasmas hasta destruirlos antes de que se escapen.",
                 src: 'WAMVideo',
                 price: 25,
@@ -111,7 +113,10 @@ export default class mainScene extends Phaser.Scene {
         }
     }
 
-    createAnims() {}
+    createAnims() {
+        // === HUD ===
+
+    }
 
     createSources() {
         new Source(this, 1200, 1200, 'paint', 0, 0, 1, 5);

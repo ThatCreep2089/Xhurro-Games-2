@@ -98,7 +98,7 @@ export default class lightUpGhosts extends Phaser.Scene {
                     paint: (Math.floor(this.score / this.scene.get('mainScene').minigamesInfo.LightUpGhosts.reward.X) * this.scene.get('mainScene').minigamesInfo.LightUpGhosts.reward.amountPerX.paint),
                     paper: (Math.floor(this.score / this.scene.get('mainScene').minigamesInfo.LightUpGhosts.reward.X) * this.scene.get('mainScene').minigamesInfo.LightUpGhosts.reward.amountPerX.paper),
                     clay: (Math.floor(this.score / this.scene.get('mainScene').minigamesInfo.LightUpGhosts.reward.X) * this.scene.get('mainScene').minigamesInfo.LightUpGhosts.reward.amountPerX.clay)
-                }));
+                }), this.scene.get('mainScene').minigamesInfo.LightUpGhosts.name, 'fantasmasEnd');
         }
     }
 
