@@ -90,6 +90,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('stamina', './assets/imagenes/HUD/sources/stamina.png');
     this.load.image('day', './assets/imagenes/HUD/sources/dia.png');
     this.load.image('sourceWarning', './assets/imagenes/HUD/sources/warningBG.png')
+    this.load.image('notEnoughStamina', './assets/imagenes/HUD/popups/notEnoughStamina.png');
 
     // === MINIGAMES ===
     this.load.image('MGInfoBG', './assets/imagenes/HUD/popups/MGInfoBG.png');

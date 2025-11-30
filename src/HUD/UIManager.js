@@ -299,6 +299,14 @@ export default class UIManager {
 
         //Reposicionamos
         backgroundB.setOrigin(0.5, 1);
+
+        //notEnoughStamina
+        this.warning = this.scene.add.image(this.scene.scale.width/2, this.scene.scale.height+500, 'notEnoughStamina')
+        .setScale(this.size*0.5)
+        .setOrigin(0.5, 1)
+        .setScrollFactor(0)
+        .setDepth(this.HUDDepth + 1);
+        this.warningT = [];
     }
 
     warningDown(msg, amount, exitAtEnd = false, duration = 500){
@@ -313,7 +321,7 @@ export default class UIManager {
 
         let t2;
         if (exitAtEnd) {
-            t2 = this.warningUp(msg, 0);
+            t2 = this.warningUp(msg, 0, duration);
             t.once('complete', () => {t2.play()});
         }
 
@@ -563,17 +571,9 @@ export default class UIManager {
 
     appearNotEnoughStamina()
     {
-        let warning = this.scene.add.image(0, 0, 'spaceKey');
-        warning.setScale(this.size*0.3);
-        warning.setOrigin(0.5, 1); warning.setPosition(this.scene.scale.width/2, this.scene.scale.height);
-
-        warning.setScrollFactor(0);
-
-        setTimeout(()=>{
-            warning.destroy();
-        }, 1500);
-
-        warning.setDepth(this.HUDDepth);
+        if (this.warningT.every(e => e.finished === true)){
+            this.warningT = this.warningDown(this.warning, this.scene.scale.height - this.warning.y, true, 750);
+        }
     }
 
     appearMinigameEndInfo(scene, reward, mgName, mgImage)
