@@ -17,12 +17,6 @@ export default class mainScene extends Phaser.Scene {
         
         this.createAnims();
 
-        // === CARGAR DATOS ===
-        import("../GameDataManager.js").then(module => {
-            const GameDataManager = module.default;
-            GameDataManager.applyTo(this);
-        });
-
         this.createAnims();
 
         // === MAPA ===
@@ -102,6 +96,12 @@ export default class mainScene extends Phaser.Scene {
 
         // === HUD ===
         this.createHUD();
+
+        // === CARGAR DATOS ===
+        import("../GameDataManager.js").then(module => {
+            const GameDataManager = module.default;
+            GameDataManager.applyTo(this);
+        });
     }
 
     update() {
@@ -115,11 +115,12 @@ export default class mainScene extends Phaser.Scene {
 
     createAnims() {
         // === HUD ===
-
+        // THE GAME 😃
     }
 
     createSources() {
-        new Source(this, 1200, 1200, 'paint', 0, 0, 1, 5);
+        this.sources = [];
+        this.sources.push(new Source(this, 1200, 1200, 'paint', 0, 0, 1, 5));
     }
 
     createBuilds() {
