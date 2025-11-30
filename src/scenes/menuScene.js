@@ -12,33 +12,20 @@ export default class MenuScene extends Phaser.Scene {
         this.add.image(0, 0, 'map').setOrigin(0, 0);
 
         //title text
-        this.add.text(400, 180, 'The Otter Side', 
-            { 
-                fontFamily:'bobFont', 
-                fontSize: '60px', 
-                color: 'white',
-            }).setOrigin(0.5);
+        this.add.image(400, 150, 'TitleBanner').setScale(0.5);
 
         //start button
-        let playButton = this.add.text(400, 300, 'PLAY', {
-        fontFamily: 'bobFont',
-        fontSize: '40px',
-        color: '#00ffcc'
-        }).setOrigin(0.5).setInteractive();
+        let playButton = this.add.image(400, 300, 'playGame').setOrigin(0.5).setInteractive().setScale(0.3);
 
         //exit button
-        let exitButton = this.add.text(400, 400, 'EXIT', {
-        fontFamily: 'bobFont',
-        fontSize: '40px',
-        color: '#ff4444'
-        }).setOrigin(0.5).setInteractive();
+        let exitButton = this.add.image(400, 500, 'exitGame').setOrigin(0.5).setInteractive().setScale(0.5);
 
         //button interactivity
-        playButton.on('pointerover', () => playButton.setStyle({ color: '#ffffff' }));
-        playButton.on('pointerout', () => playButton.setStyle({ color: '#00ffcc' }));
+        playButton.on('pointerover', () => playButton.setTexture('playGameHover'));
+        playButton.on('pointerout', () => playButton.setTexture('playGame'));
 
-        exitButton.on('pointerover', () => exitButton.setStyle({ color: '#ffffff' }));
-        exitButton.on('pointerout', () => exitButton.setStyle({ color: '#ff4444' }));
+        exitButton.on('pointerover', () => exitButton.setTexture('exitGameHover'));
+        exitButton.on('pointerout', () => exitButton.setTexture('exitGame'));
 
         //actions on click
         playButton.on('pointerdown', () => this.scene.start('introScene'));

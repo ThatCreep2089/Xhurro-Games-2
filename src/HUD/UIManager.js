@@ -472,6 +472,21 @@ export default class UIManager {
         this.minigameData.accept = this.scene.add.image(450, -50, 'acceptButton').setInteractive().setOrigin(0, 1).setScale(this.size * 0.5);
         this.minigameData.refuse = this.scene.add.image(250, -50, 'refuseButton').setInteractive().setOrigin(0, 1).setScale(this.size * 0.5);
 
+        this.minigameData.accept.on('pointerover', () => {
+            this.minigameData.accept.setTexture('acceptButtonHover');
+        });
+        this.minigameData.accept.on('pointerout', () => {
+            this.minigameData.accept.setTexture('acceptButton');
+        });
+
+        this.minigameData.refuse.on('pointerover', () => {
+            this.minigameData.refuse.setTexture('refuseButtonHover');
+        });
+        this.minigameData.refuse.on('pointerout', () => {
+            this.minigameData.refuse.setTexture('refuseButton');
+        });
+
+
         this.minigameData.container.add([background, name, source, description, price, priceImg, reward, recompensa, puntos, rewardImg, stamina]);
         this.minigameData.container.setScrollFactor(0);
         this.minigameData.accept.setScrollFactor(0);
@@ -624,6 +639,12 @@ export default class UIManager {
 
         //Botones
         let continu3 = this.scene.add.image(this.scene.scale.width/2, this.scene.scale.height, 'acceptButton').setInteractive().setOrigin(0.5, 1).setScale(this.size * 0.5);
+        continu3.on('pointerover', () => {
+            continu3.setTexture('acceptButtonHover');
+        });
+        continu3.on('pointerout', () => {
+            continu3.setTexture('acceptButton');
+        });
 
         background.setScrollFactor(0);
         recompensa.setScrollFactor(0);
