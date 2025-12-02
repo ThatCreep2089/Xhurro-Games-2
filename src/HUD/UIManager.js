@@ -663,6 +663,7 @@ export default class UIManager {
         image.setDepth(this.HUDDepth);
 
         continu3.on('pointerdown', ()=>{
+            this.scene.music.stop();
             scene.finishGame();
         });
     }

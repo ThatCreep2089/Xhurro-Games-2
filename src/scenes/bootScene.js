@@ -124,5 +124,15 @@ export default class Boot extends Phaser.Scene {
     this.load.json('ishmael', './data/IshmaelDialogo.json');
     this.load.json('dialogos', './data/DialogScene.json');
     this.first = false;
+
+    // === AUDIO ===
+
+    // === MÚSICA ===
+    this.load.audio('lightUpGhostsMusic', './assets/audios/LightUpGhosts.mp3');
+    this.load.audio('puzzleMusic', './assets/audios/Puzzle.mp3');
+    this.load.audio('whackAMoleMusic', './assets/audios/Topos.mp3');
+    this.load.audio('titleMusic', './assets/audios/Title.mp3');
+    this.load.audio('mainSceneMusic', './assets/audios/mainScene.mp3');
+    this.load.audio('minigameInfoMusic', './assets/audios/MinigameInfo.mp3');
   }
 }

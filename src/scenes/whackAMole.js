@@ -21,6 +21,13 @@ export default class WhackAMole extends Phaser.Scene {
         let iniY = 150;
         let gap = 150;
 
+        // = MÚSICA =
+        this.music = this.sound.add('whackAMoleMusic', {
+                volume: 3,
+                loop: true,
+        });
+        this.music.play();
+
         //cuadrícula de agujeros
         for (let i = 0; i < 3; i++) {
             for (let j = 0; j < 3; j++) {

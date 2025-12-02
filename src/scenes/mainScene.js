@@ -97,6 +97,11 @@ export default class mainScene extends Phaser.Scene {
         // === HUD ===
         this.createHUD();
 
+        // === MUSICA ===
+        this.music = this.sound.add('mainSceneMusic', {
+            loop: true,
+        }); this.music.play();
+
         // === CARGAR DATOS ===
         import("../GameDataManager.js").then(module => {
             const GameDataManager = module.default;

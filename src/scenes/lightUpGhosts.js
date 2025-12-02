@@ -16,6 +16,12 @@ export default class lightUpGhosts extends Phaser.Scene {
     create() {
         this.event = new Phaser.Events.EventEmitter();
 
+        // = MÚSICA =
+        this.music = this.sound.add('lightUpGhostsMusic', {
+                loop: true,
+        });
+        this.music.play();
+
         let background = this.add.image(0, 0, 'MGInfoBG').setOrigin(0.5, 0.5);
         this.input.setDefaultCursor('none');
         

@@ -11,10 +11,10 @@ export default class GameDataManager {
 
     static navi = {
         position: {
-            x: 5,
-            y: 5
+            x: 450,
+            y: 250
         }
-    }
+    };
 
     static buildsConstructed = [];
     static collectedSources = [];
