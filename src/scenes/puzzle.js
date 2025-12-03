@@ -136,8 +136,7 @@ export default class puzzle extends Phaser.Scene {
         // Recuperar los datos de recompensa desde mainScene
             const mainScene = this.scene.get('mainScene');
             const rewardInfo = mainScene.minigamesInfo.Puzzle.reward;
-            const staminaDecrease = mainScene.minigamesInfo.Puzzle.price;
-    
+
             // Calcular la recompensa según la puntuación
             const times = Math.floor(this.score / rewardInfo.X);
             const rewardAmount = rewardInfo.amountPerX;
@@ -148,10 +147,13 @@ export default class puzzle extends Phaser.Scene {
                 mainScene.otter.backpack.paper += rewardAmount.paper * times;
                 mainScene.otter.backpack.clay += rewardAmount.clay * times;
             }
-    
-            GameDataManager.player.stamina = GameDataManager.player.stamina - staminaDecrease;
+            
             GameDataManager.saveFrom(this.scene.get('mainScene') || this);
             this.input.setDefaultCursor('auto');
-            this.scene.start('mainScene');
+
+            if (mainScene.fade) this.UIManager.FadeIn();
+            else{
+                this.scene.start('mainScene');
+            }
     }
 }

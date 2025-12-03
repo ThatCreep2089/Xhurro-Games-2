@@ -20,13 +20,15 @@ export default class GameDataManager {
     static collectedSources = [];
 
     static day = 1; //Nuevo contador de días
-    static lastDay = 1;
 
     static reward = {
         paint: 0,
         paper: 0,
         clay: 0
     };
+
+    static fade = true;
+
     static saveFrom(scene) {
         if (!scene) return;
         
@@ -51,6 +53,8 @@ export default class GameDataManager {
             this.navi.position.x = scene.navi.x;
             this.navi.position.y = scene.navi.y;
         }
+
+        if (this.fade != undefined) this.fade = scene.fade;
 
         if (scene.builds && Array.isArray(scene.builds)) {
             this.buildsConstructed = scene.builds
@@ -91,6 +95,10 @@ export default class GameDataManager {
             scene.navi.x = this.navi.position.x;
             scene.navi.y = this.navi.position.y;
         }
+        
+        scene.fade = this.fade;
+
+        if (scene.otter && scene.fade) scene.otter.restartStamina();
 
         // Restaurar día
         scene.currentDay = this.day;
@@ -103,7 +111,7 @@ export default class GameDataManager {
             });
         }
 
-        if (this.day === this.lastDay && scene.sources && this.collectedSources.length){
+        if (!scene.fade && scene.sources && this.collectedSources.length){
             scene.sources.forEach(s => {
                 let emitter = this.collectedSources.find(source => source.id === s.id);
 
@@ -127,8 +135,6 @@ export default class GameDataManager {
                 }
             });
         }
-
-        this.lastDay = this.day;
     }
 
     static getEnding(requiredDays, totalBuilds) {

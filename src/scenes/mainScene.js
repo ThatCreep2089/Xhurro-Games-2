@@ -17,8 +17,6 @@ export default class mainScene extends Phaser.Scene {
         
         this.createAnims();
 
-        this.createAnims();
-
         // === MAPA ===
         let map = this.add.image(0, 0, 'map').setOrigin(0, 0);
         this.physics.world.setBounds(0, 0, map.width, map.height);
@@ -103,10 +101,9 @@ export default class mainScene extends Phaser.Scene {
         }); this.music.play();
 
         // === CARGAR DATOS ===
-        import("../GameDataManager.js").then(module => {
-            const GameDataManager = module.default;
-            GameDataManager.applyTo(this);
-        });
+        this.fade = false;
+        GameDataManager.applyTo(this);
+        if(this.fade){ this.fade = false; this.UIManager.FadeOut();}
     }
 
     update() {
@@ -151,16 +148,12 @@ export default class mainScene extends Phaser.Scene {
 
     nextDay() {
         this.currentDay = (this.currentDay || 1) + 1;
-        this.otter.restartStamina();
-        this.UIManager.event.emit('updateDay');
+        this.fade = true;
 
-        import("../GameDataManager.js").then(module => {
-            const GameDataManager = module.default;
-            GameDataManager.saveFrom(this);
+        GameDataManager.saveFrom(this);
 
-            const ending = GameDataManager.getEnding(6, 2);
-            if (ending === "good") console.log("Good ending");
-            else if (ending === "bad") console.log("Bad ending");
-        });
+        const ending = GameDataManager.getEnding(6, 2);
+        if (ending === "good") console.log("Good ending");
+        else if (ending === "bad") console.log("Bad ending");
     }
 }

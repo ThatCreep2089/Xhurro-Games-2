@@ -111,8 +111,8 @@ export default class lightUpGhosts extends Phaser.Scene {
     finishGame(){
         // Recuperar los datos de recompensa desde mainScene
             const mainScene = this.scene.get('mainScene');
+            
             const rewardInfo = mainScene.minigamesInfo.LightUpGhosts.reward;
-            const staminaDecrease = mainScene.minigamesInfo.LightUpGhosts.price;
     
             // Calcular la recompensa según la puntuación
             const times = Math.floor(this.score / rewardInfo.X);
@@ -124,11 +124,15 @@ export default class lightUpGhosts extends Phaser.Scene {
                 mainScene.otter.backpack.paper += rewardAmount.paper * times;
                 mainScene.otter.backpack.clay += rewardAmount.clay * times;
             }
-    
-            GameDataManager.player.stamina = GameDataManager.player.stamina - staminaDecrease;
+
             GameDataManager.saveFrom(this.scene.get('mainScene') || this);
             this.input.setDefaultCursor('auto');
-            this.scene.start('mainScene');
+
+            if (mainScene.fade) this.UIManager.FadeIn();
+            else{
+                this.scene.start('mainScene');
+            }
+            
     }
 
     spawnGhost(){
