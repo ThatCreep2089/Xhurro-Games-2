@@ -335,6 +335,9 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         // ==========================
         this.text = new DialogText(this.scene, opts);
         this.text.setText(config.text, true);
+        this.text.graphics.setDepth(this.scene.UIManager.HUDDepth);
+        this.text.text.setDepth(this.scene.UIManager.HUDDepth);
+        this.text.closeBtn.setDepth(this.scene.UIManager.HUDDepth);
 
         // Cerrar por X
         if (this.text.closeBtn) {
