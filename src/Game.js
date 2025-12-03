@@ -25,11 +25,9 @@ let config = {
 		autoCenter: Phaser.Scale.CENTER_BOTH
 	},
 
-<<<<<<< HEAD
-	scene: [Aux,Boot,TitleScene,IntroScene,MainScene, WhackAMole, TestScene],	// Decimos a Phaser cual es nuestra escena
-=======
-	scene: [Aux,Boot,TitleScene,IntroScene,MainScene, WhackAMole, LightUpGhosts, Puzzle],	// Decimos a Phaser cual es nuestra escena
->>>>>>> XurroGamesWeb
+
+	scene: [Aux,Boot,TitleScene,IntroScene,MainScene, WhackAMole, LightUpGhosts, Puzzle, TestScene],	// Decimos a Phaser cual es nuestra escena
+
 	
 	physics: { 
 		default: 'arcade', 

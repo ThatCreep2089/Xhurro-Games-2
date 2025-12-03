@@ -45,22 +45,21 @@ export default class MenuScene extends Phaser.Scene {
             exitButton.on('pointerdown', () => alert('BYE BYE!'));
            
             //test scene button
-            let testButton = this.add.text(400, 300, 'test', {
+            let testButton = this.add.text(400, 500, 'test', {
             fontFamily: 'bobFont',
             fontSize: '40px',
             color: '#00ffcc'
             }).setOrigin(0.5).setInteractive();
-             playButton.on('pointerdown', () => this.scene.start('testScene'));
+             testButton.on('pointerdown', () => this.scene.start('testScene'));
            
 
-<<<<<<< HEAD
-=======
-        //exit button
-        let exitButton = this.add.text(400, 400, 'EXIT', {
-        fontFamily: 'bobFont',
-        fontSize: '40px',
-        color: '#ff4444'
-        }).setOrigin(0.5).setInteractive();
+
+       // //exit button
+       // let exitButton = this.add.text(400, 400, 'EXIT', {
+       // fontFamily: 'bobFont',
+        //fontSize: '40px',
+       // color: '#ff4444'
+       // }).setOrigin(0.5).setInteractive();
 
         //button interactivity
         playButton.on('pointerover', () => playButton.setStyle({ color: '#ffffff' }));
@@ -74,6 +73,6 @@ export default class MenuScene extends Phaser.Scene {
         exitButton.on('pointerdown', () => alert('BYE BYE!'));
 
         this.UIManager = new UIManager(this);
->>>>>>> XurroGamesWeb
+
     }
 }
