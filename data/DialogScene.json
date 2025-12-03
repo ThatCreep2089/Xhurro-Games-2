@@ -1,0 +1,19 @@
+{
+  "escena_inicial": [
+    {   "tipo": "personaje",
+        "fondo": "house", 
+        "nombre": "Otter",
+        "texto": "Porque todo se me hace borroso y extraño" 
+    },
+    {   "tipo": "personaje",
+        "fondo": "topo", 
+        "nombre": "Otter",
+        "texto": "¿Quien,soy?,¿Que es este sitio?" 
+    },
+    {   "tipo": "personaje",
+        "fondo": "dinamita", 
+        "nombre": "Otter",
+        "texto": "Tengo que salir de aquí" 
+    }
+  ]
+}

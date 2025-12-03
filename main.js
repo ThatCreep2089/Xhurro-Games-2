@@ -29,7 +29,6 @@ window.onload = function() {
     cont.forEach(function (contenedor) {
 
         let text = contenedor.querySelectorAll('p');
-        //let scale = Math.min(contenedor.clientWidth / text[0].scrollWidth, 1);
         let scale = Math.min((contenedor.clientWidth/text.clientWidth));
         text.forEach(function (elem){
         elem.style.fontSize = Math.round(scale);
@@ -46,7 +45,7 @@ window.onload = function() {
   observer.observe(cont[0]);
 }
 
-let moscaAudio = new Audio('assets/audiosWeb/mosca.mp3');
+let moscaAudio = new Audio('assets/audios/audiosWeb/mosca.mp3');
 function moveFly(mosca)
 {
   moscaAudio.load();

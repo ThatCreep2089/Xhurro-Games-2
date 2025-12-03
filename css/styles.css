@@ -1,11 +1,22 @@
+@font-face {
+	font-family: 'bobFont';
+	src: url('../assets/CrayonLibre.ttf') format('truetype');
+}
+
 body{
-    background-image: url("../assets/imagenesWeb/webBackground.jpg");
-    background-size: cover;
+    background-image: url("../assets/imagenes/imagenesWeb/diseño/webBackground.jpg");
     background-repeat: none;
+    background-size:400vmin;
 }
 
 p{
     font-size: 2.5vmin;
+    font-family: 'bobFont';
+}
+
+#play canvas {
+    position: relative;
+    top: 50%;
 }
 
 img{
@@ -18,8 +29,8 @@ img{
 
 .container
 {
-    width: 33.3%;
-    height:50vmin;
+    width: 50%;
+    height:80vmin;
     
     perspective: 1000px;
 
@@ -40,21 +51,22 @@ img{
 }
 
 .containerFront, .containerBack{
+    background-color: transparent;
+    background-size:contain;
+    background-position:center;
+    background-repeat: no-repeat;
     position: absolute;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    border: 0.5vmin solid black;
     display:flex;
     align-items: center;
 }
 
 .containerFront{
-    background: #53243F;
     justify-content: center;
 }
 .containerBack{
-    background:grey;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -77,12 +89,19 @@ img{
   padding-bottom: 0.5vmin;
   text-wrap: initial;
 }
-
+.contentBackground{
+    background-image: url("../assets/imagenes/imagenesWeb/diseño/contentBackground.jpg");
+    background-repeat:repeat;
+    background-size: 50vmin;
+    display: flex;
+    justify-self: center;
+    max-width: 165vmin;
+    padding: 2vmin;
+}
 .nonInitialContent{
     display: none;
 }
 .banner{
-
     display: flex;
     flex-direction: row;
     height: 10vmin;
@@ -107,9 +126,9 @@ img{
     justify-content: center;
     align-items: center;
 
-    background-color: grey;
-
-    border: 0.5vmin, solid, black;
+    background-image: url("../assets/imagenes/imagenesWeb/diseño/tabsBackground.png");
+    background-size: contain;
+    background-repeat: repeat;
 }
 
 .tabs button{
@@ -124,6 +143,7 @@ img{
     border: none;
     background-color: transparent;
 
+    font-family: 'bobFont';
     font-size: 3.5vmin;
     font-weight: bold;
     white-space: nowrap;
@@ -136,7 +156,6 @@ img{
 .redesL{
     max-width: 100%;
     max-height: 100%;
-
     display: flex;
     flex-direction: column;
     justify-content: top;
@@ -173,8 +192,9 @@ img{
 .Instagram
 {
     border:none;
-    background-image: url("../assets/imagenesWeb/instagram.png");
-    background-size: contain;
+    background-image: url("../assets/imagenes/imagenesWeb/redes/instagram.png");
+    background-size: 8vmin;
+    background-position: center;
     width: 11.5vmin;
     height: 11.5vmin;
     border-radius: 100%;
@@ -184,8 +204,9 @@ img{
 
 .Tiktok{
     border:none;
-    background-image: url("../assets/imagenesWeb/tiktok.png");
-    background-size: contain;
+    background-image: url("../assets/imagenes/imagenesWeb/redes/tiktok.png");
+    background-size: 13vmin;
+    background-position: center;
     width: 11.5vmin;
     height: 11.5vmin;
     border-radius: 100%;
@@ -195,8 +216,9 @@ img{
 
 .Github{
     border:none;
-    background-image: url("../assets/imagenesWeb/github.png");
-    background-size: cover;
+    background-image: url("../assets/imagenes/imagenesWeb/redes/github.png");
+    background-size: 14vmin;
+    background-position: center;
     width: 11.5vmin;
     height: 11.5vmin;
     border-radius: 100%;
@@ -206,8 +228,9 @@ img{
 
 .Youtube{
     border:none;
-    background-image: url("../assets/imagenesWeb/youtube.png");
-    background-size: contain;
+    background-image: url("../assets/imagenes/imagenesWeb/redes/youtube.png");
+    background-size: 10vmin;
+    background-position:center;
     width: 11.5vmin;
     height: 11.5vmin;
     border-radius: 100%;
@@ -217,8 +240,8 @@ img{
 
 .Twitter{
     border:none;
-    background-image: url("../assets/imagenesWeb/twitter.png");
-    background-size: cover;
+    background-image: url("../assets/imagenes/imagenesWeb/redes/twitter.png");
+    background-size: 9vmin;
     background-position: center;
     width: 11.5vmin;
     height: 11.5vmin;
