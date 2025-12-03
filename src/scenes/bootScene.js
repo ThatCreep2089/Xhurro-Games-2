@@ -79,30 +79,42 @@ export default class Boot extends Phaser.Scene {
     this.load.image('paint', './assets/imagenes/sources/paint.jpg');
     
     // === HUD ===
-    this.load.image('buildSources', './assets/imagenes/HUD/buttons/buildSources.jpg');
+    this.load.image('buildSources', './assets/imagenes/HUD/buttons/buildSources.png');
     this.load.image('spaceKey', './assets/imagenes/HUD/popups/keyboard_space.png');
-    this.load.image('acceptButton', './assets/imagenes/HUD/buttons/acceptButton.jpg');
-    this.load.image('refuseButton', './assets/imagenes/HUD/buttons/refuseButton.jpg');
+    this.load.image('acceptButtonHover', './assets/imagenes/HUD/buttons/acceptButtonHover.png');
+    this.load.image('acceptButton', './assets/imagenes/HUD/buttons/acceptButton.png');
+    this.load.image('refuseButtonHover', './assets/imagenes/HUD/buttons/refuseButtonHover.png');
+    this.load.image('refuseButton', './assets/imagenes/HUD/buttons/refuseButton.png');
     this.load.image('backpack', './assets/imagenes/HUD/sources/backpack.png');
     this.load.image('paintIcon', './assets/imagenes/HUD/sources/paintIcon.png');
     this.load.image('paperIcon', './assets/imagenes/HUD/sources/paperIcon.png');
     this.load.image('clayIcon', './assets/imagenes/HUD/sources/clayIcon.png');
     this.load.image('stamina', './assets/imagenes/HUD/sources/stamina.png');
     this.load.image('day', './assets/imagenes/HUD/sources/dia.png');
-    this.load.image('sourceWarning', './assets/imagenes/HUD/sources/warningBG.png')
+    this.load.image('sourceWarning', './assets/imagenes/HUD/sources/warningBG.png');
+    this.load.image('notEnoughStamina', './assets/imagenes/HUD/popups/notEnoughStamina.png');
+    this.load.image('TitleBanner', './assets/imagenes/imagenesWeb/diseño/banner.png');
+    this.load.image('exitGame', './assets/imagenes/HUD/buttons/exitGame.png');
+    this.load.image('exitGameHover', './assets/imagenes/HUD/buttons/exitGameHover.png');
+    this.load.image('playGame', './assets/imagenes/HUD/buttons/playGame.png');
+    this.load.image('playGameHover', './assets/imagenes/HUD/buttons/playGameHover.png');
+    this.load.image('titleBg', './assets/imagenes/HUD/titleBg.png');
 
     // === MINIGAMES ===
-    this.load.image('MGInfoBG', './assets/imagenes/HUD/popups/MGInfoBG.jpg');
+    this.load.image('MGInfoBG', './assets/imagenes/HUD/popups/MGInfoBG.png');
 
       // == WHACK A MOLE ==
        this.load.image('topo', './assets/imagenes/minigames/WhackAMole/objects/boa.jpg');
        this.load.image('hoyo', './assets/imagenes/minigames/WhackAMole/objects/hole.png');
        this.load.image('dinamita', './assets/imagenes/minigames/WhackAMole/objects/bomba.png');
        this.load.video('WAMVideo', './assets/imagenes/minigames/WhackAMole/background/WAMVideo.mp4');
-
+       this.load.image('toposEnd', './assets/imagenes/minigames/WhackAMole/endImg.png');
+       
       // == LIGHT UP GHOSTS ==
+      this.load.image('fantasmasEnd', './assets/imagenes/minigames/LightUpGhosts/endImg.png');
 
       // == PUZZLE ==
+      this.load.image('puzleEnd', './assets/imagenes/minigames/Puzzle/endImg.png');
     
     //
 
@@ -110,9 +122,7 @@ export default class Boot extends Phaser.Scene {
     this.load.json('prueba', './data/DialogoToniPablo.json');
     this.load.json('cleonRome', './data/Cleon&RomeDialogo.json');
     this.load.json('ishmael', './data/IshmaelDialogo.json');
-     this.load.json('dialogos', './data/DialogScene.json');
+    this.load.json('dialogos', './data/DialogScene.json');
     this.first = false;
-
-    this.load.image('backpack', './assetsAux/backpack.png');
   }
 }

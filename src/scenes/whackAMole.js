@@ -109,7 +109,7 @@ export default class WhackAMole extends Phaser.Scene {
                     paint: (Math.floor(this.score / this.scene.get('mainScene').minigamesInfo.WackAMole.reward.X) * this.scene.get('mainScene').minigamesInfo.WackAMole.reward.amountPerX.paint),
                     paper: (Math.floor(this.score / this.scene.get('mainScene').minigamesInfo.WackAMole.reward.X) * this.scene.get('mainScene').minigamesInfo.WackAMole.reward.amountPerX.paper),
                     clay: (Math.floor(this.score / this.scene.get('mainScene').minigamesInfo.WackAMole.reward.X) * this.scene.get('mainScene').minigamesInfo.WackAMole.reward.amountPerX.clay),
-                }));
+                }), this.scene.get('mainScene').minigamesInfo.WackAMole.name, 'toposEnd');
         }
     }
 

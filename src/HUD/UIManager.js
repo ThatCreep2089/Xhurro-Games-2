@@ -49,7 +49,6 @@ export default class UIManager {
     }
 
     MainScene(){
-        this.scene.add.existing(this); //Nos añadimos a la escena para ser mostrados.
         //inventario interno de materiales del jugador
         let backpack = this.scene.otter.backpack
         let cont = this.scene.add.container(0, 0);
@@ -121,6 +120,46 @@ export default class UIManager {
         staminaNumber.setDisplayOrigin(0, 0.5);
         dayNumber.setDisplayOrigin(0, 0.5);
 
+        //Warnings Recursos
+        let paintReward = this.scene.add.text(paintNumber.x, paintNumber.y, "0",
+        {
+            fontFamily: 'bobFont',
+            fontSize: 25 * this.size + 'px',
+        });
+
+        let paperReward = this.scene.add.text(paperNumber.x, paperNumber.y, "0",
+        {
+            fontFamily: 'bobFont',
+            fontSize: 25 * this.size + 'px',
+        });
+
+        let clayReward = this.scene.add.text(clayNumber.x, clayNumber.y, "0",
+        {
+            fontFamily: 'bobFont',
+            fontSize: 25 * this.size + 'px',
+        });
+
+        let staminaReward = this.scene.add.text(staminaNumber.x, staminaNumber.y, "0",
+        {
+            color: '#ff0000',
+            fontFamily: 'bobFont',
+            fontSize: 25 * this.size + 'px',
+        });
+
+        cont.add([paintReward, paperReward, clayReward, staminaReward]);
+        cont.sendToBack(paintReward); cont.sendToBack(paperReward); cont.sendToBack(clayReward); cont.sendToBack(staminaReward);
+
+        let bgPaint = this.scene.add.image(paintNumber.x + 20, paintNumber.y + 20, 'sourceWarning').setScale(0.5);
+        let bgPaper = this.scene.add.image(paperNumber.x + 20, paperNumber.y + 20, 'sourceWarning').setScale(0.5);
+        let bgClay = this.scene.add.image(clayNumber.x + 15, clayNumber.y + 20, 'sourceWarning').setScale(0.5);
+        let bgStamina = this.scene.add.image(staminaNumber.x + 20, staminaNumber.y + 20, 'sourceWarning').setScale(0.5);
+
+        cont.add([bgPaint, bgPaper, bgClay, bgStamina]);
+        cont.sendToBack(bgPaint); cont.sendToBack(bgPaper); cont.sendToBack(bgClay); cont.sendToBack(bgStamina);
+
+        let warningPaint = []; let warningPaper = []; let warningClay = []; let warningStamina = [];
+        let accumulatedPaint = 0; let accumulatedPaper = 0; let accumulatedClay = 0; let accumulatedStamina = 0;
+
        //suscripción para actualizar inventario
        this.event.on('updateInventory', (sources) => {
 
@@ -130,106 +169,183 @@ export default class UIManager {
 
            //Activamos mensaje de recompensa por unos segundos
            if (sources.paint && sources.paint != 0){
-                let bg = this.scene.add.image(paintNumber.x + 20, paintNumber.y + 70, 'sourceWarning').setScale(0.5);
-                let paintReward = this.scene.add.text(paintNumber.x, paintNumber.y + 50, "0",
-                {
-                    fontFamily: 'bobFont',
-                    fontSize: 25 * this.size + 'px',
-                });
 
-                cont.add(paintReward);
-                cont.add(bg);
-                cont.sendToBack(paintReward);
-                cont.sendToBack(bg);
+                if (warningPaint.every(e => e.finished === true)){
+                    accumulatedPaint = 0;
+                    warningPaint = this.warningDown(bgPaint, 45, true);
+                    this.warningDown(paintReward, 45, true);
+                }
+                else accumulatedPaint += sources.paint;
 
-                if(sources.paint > 0){
+                let number = sources.paint + accumulatedPaint;
+                if(number > 0){
                     paintReward.setColor('#008000');
-                    paintReward.setText("+" + sources.paint);
+                    paintReward.setText("+" + number);
                 }
                 else{
                     paintReward.setColor('#ff0000');
-                    paintReward.setText(sources.paint);
+                    paintReward.setText(number);
                 }
-                
-                setTimeout(() => {paintReward.destroy(); bg.destroy()}, 1000);
            }
 
            if (sources.paper && sources.paper != 0){
-                let bg = this.scene.add.image(paperNumber.x + 20, paperNumber.y + 70, 'sourceWarning').setScale(0.5);
-                let paperReward = this.scene.add.text(paperNumber.x, paperNumber.y + 50, "0",
-                {
-                    fontFamily: 'bobFont',
-                    fontSize: 25 * this.size + 'px',
-                });
+                if (warningPaper.every(e => e.finished === true)){
+                    accumulatedPaper = 0;
+                    warningPaper = this.warningDown(bgPaper, 45, true);
+                    this.warningDown(paperReward, 45, true);
+                } else accumulatedPaper += sources.paper;
 
-                cont.add(paperReward);
-                cont.add(bg);
-                cont.sendToBack(paperReward);
-                cont.sendToBack(bg);
-
-                if(sources.paper > 0){
+                let number = sources.paper + accumulatedPaper;
+                if(number > 0){
                     paperReward.setColor("#008000");
-                    paperReward.setText("+" + sources.paper);
+                    paperReward.setText("+" + number);
                 }
                 else{
                     paperReward.setColor("#ff0000");
-                    paperReward.setText(sources.paper);
+                    paperReward.setText(number);
                 }
-                
-                setTimeout(() => {paperReward.destroy(); bg.destroy()}, 1000);
            }
 
            if (sources.clay && sources.clay != 0){
-                let bg = this.scene.add.image(clayNumber.x + 20, clayNumber.y + 70, 'sourceWarning').setScale(0.5)
-                let clayReward = this.scene.add.text(clayNumber.x, clayNumber.y + 50, "0",
-                {
-                    fontFamily: 'bobFont',
-                    fontSize: 25 * this.size + 'px',
-                });
-    
-                cont.add(clayReward);
-                cont.add(bg);
-                cont.sendToBack(clayReward);
-                cont.sendToBack(bg);
+                if (warningClay.every(e => e.finished === true)){
+                    accumulatedClay = 0;
+                    warningClay = this.warningDown(bgClay, 45, true);
+                    this.warningDown(clayReward, 45, true);
+                } else accumulatedClay += sources.clay;
 
-                if (sources.clay > 0){
+                let number = sources.clay + accumulatedClay;
+                if (number > 0){
                     clayReward.setColor('#008000');
-                    clayReward.setText("+" + sources.clay);
+                    clayReward.setText("+" + number);
                 }
                 else{
                     clayReward.setColor('#ff0000');
-                    clayReward.setText(sources.clay);
+                    clayReward.setText(number);
                 }
-                
-                setTimeout(() => {clayReward.destroy(); bg.destroy()}, 1000);
-           }
+            }
        });
 
        this.event.on('updateStamina', (amount)=>{
 
             if (amount != undefined){
-                let bg = this.scene.add.image(staminaNumber.x + 20, staminaNumber.y + 70, 'sourceWarning').setScale(0.5)
-                let staminaReward = this.scene.add.text(staminaNumber.x, staminaNumber.y + 50, amount,
-                {
-                    color: '#ff0000',
-                    fontFamily: 'bobFont',
-                    fontSize: 25 * this.size + 'px',
-                });
+                if (warningStamina.every(e => e.finished === true)){
+                    accumulatedStamina = 0;
+                    warningStamina = this.warningDown(bgStamina, 45, true);
+                    this.warningDown(staminaReward, 45, true);
+                } else accumulatedStamina += amount;
 
-                cont.add(staminaReward);
-                cont.add(bg);
-                cont.sendToBack(staminaReward);
-                cont.sendToBack(bg);
-
-                setTimeout(() => {staminaReward.destroy(); bg.destroy()}, 1000)
+                let number = amount + accumulatedStamina;
+                staminaReward.setText(number);
             }
 
             staminaNumber.setText("x" + this.scene.otter.getStamina());
-        })
+        });
+
        this.event.on('updateDay', () => {
             dayNumber.setText((this.scene.currentDay || 1));
         });
-       
+
+        //popUp interaction
+        this.interactMessage = this.scene.add.image(this.scene.scale.width/2, this.scene.scale.height + 100, 'spaceKey');
+        this.interactMessage.setScale(this.size*0.5);
+        this.interactMessage.setOrigin(0.5, 1);
+
+        this.interactMessage.setScrollFactor(0);
+        this.interactMessage.setDepth(this.HUDDepth);
+
+        //PopUp builds
+        this.buildData = this.scene.add.container(this.scene.scale.width/2, this.scene.scale.height + 500); //Contenedor para añadir imagenes junto a texto y tratarlos como un solo objeto
+
+        //Declaramos todo el contenido del contenedor
+        let backgroundB = this.scene.add.image(0, 0, 'buildSources');
+        let size = this.size*0.3;
+        backgroundB.setScale(this.size * 0.5);
+        backgroundB.setDepth(this.HUDDepth);
+
+        
+        let paintNumberB = this.scene.add.text(-15, -600*size, "Pintura: ",
+             {
+                fontFamily: 'bobFont',
+                fontSize: 100 * size + 'px',
+                color: '#000000'
+            }).setOrigin(0, 0.5);
+        paintNumberB.name = "paintNumberB"
+        let paintImgB = this.scene.add.image(paintNumberB.x - 20, paintNumberB.y, 'paintIcon').setScale(0.5);
+
+        let paperNumberB = this.scene.add.text(-15, -450*size, "Papel: ",
+            {
+                fontFamily: 'bobFont',
+                fontSize: 100 * size + 'px',
+                color: '#000000'
+            }).setOrigin(0, 0.5);
+        paperNumberB.name = "paperNumberB"
+        let paperImgB = this.scene.add.image(paperNumberB.x - 20, paperNumberB.y, 'paperIcon').setScale(0.5);
+
+        let clayNumberB = this.scene.add.text(-15, -300*size, "Arcilla: ",
+            {
+                fontFamily: 'bobFont',
+                fontSize: 100 * size + 'px',
+                color: '#000000'
+            }).setOrigin(0, 0.5);
+        clayNumberB.name = "clayNumberB"
+        let clayImgB = this.scene.add.image(clayNumberB.x - 22, clayNumberB.y, 'clayIcon').setScale(0.5);
+
+        let key = this.scene.add.image(0 * size, -165*size,'spaceKey').setScale(size);
+        key.name = "key"
+        this.buildData.add([backgroundB, paintNumberB, paperNumberB, clayNumberB, key, paintImgB, paperImgB, clayImgB]);
+
+        this.buildData.setScrollFactor(0);
+        this.buildData.setDepth(this.HUDDepth);
+
+        //Reposicionamos
+        backgroundB.setOrigin(0.5, 1);
+
+        //notEnoughStamina
+        this.warning = this.scene.add.image(this.scene.scale.width/2, this.scene.scale.height+500, 'notEnoughStamina')
+        .setScale(this.size*0.5)
+        .setOrigin(0.5, 1)
+        .setScrollFactor(0)
+        .setDepth(this.HUDDepth + 1);
+        this.warningT = [];
+    }
+
+    warningDown(msg, amount, exitAtEnd = false, duration = 500){
+        let t = this.scene.tweens.add({
+            targets: msg,
+            y: msg.y + amount,
+            ease: 'Back.easeOut',
+            duration: duration,
+            onComplete: () => t.finished = true
+        });
+        t.finished = false;
+
+        let t2;
+        if (exitAtEnd) {
+            t2 = this.warningUp(msg, 0, duration);
+            t.once('complete', () => {t2.play()});
+        }
+
+        t.play();
+
+        //Solo Dios y yo sabemos por qué he hecho esto
+        //Y a mi se me está empezando a olvidar...
+        if (exitAtEnd) {
+            return [t, t2];
+        }
+        else return [t];
+    }
+
+    warningUp (msg, amount, duration = 500){
+        let t = this.scene.tweens.add({
+            targets: msg,
+            y: msg.y + amount,
+            ease: 'Quint.easeIn',
+            duration: duration,
+            paused: true,
+            onComplete: () => t.finished = true
+        });
+        t.finished = false
+        return t;
     }
 
     ScoreBar(){
@@ -254,21 +370,12 @@ export default class UIManager {
 
     //Hace aparecer el mensaje de interacción
     appearInteractMessage(){
-        if (this.interactMessage == null){
-             this.interactMessage = this.scene.add.image(0, 0, 'spaceKey');
-             this.interactMessage.setScale(this.size*0.3);
-             this.interactMessage.setOrigin(0.5, 1); this.interactMessage.setPosition(this.scene.scale.width/2, this.scene.scale.height);
-     
-             this.interactMessage.setScrollFactor(0);
-             this.interactMessage.setDepth(this.HUDDepth);
-        }
+        this.warningDown(this.interactMessage, this.scene.scale.height - this.interactMessage.y);
     }
+
     //Hace desaparecer el mensaje de interacción
     disappearInteractMessage(){
-        if (this.interactMessage != null){
-            this.interactMessage.destroy();
-            this.interactMessage = null;
-        }
+        this.warningUp(this.interactMessage, (this.scene.scale.height + 100) - this.interactMessage.y).play();
     }
 
     appearBuildData(sources){
@@ -277,76 +384,40 @@ export default class UIManager {
         this.scene.otter.backpack.paper >= sources.paper &&
         this.scene.otter.backpack.clay >= sources.clay
 
-        this.buildData = this.scene.add.container(this.scene.scale.width/2, this.scene.scale.height); //Contenedor para añadir imagenes junto a texto y tratarlos como un solo objeto
+        if (enough) this.buildData.getByName("key").setVisible(true);
+        else this.buildData.getByName("key").setVisible(false);
 
-        //Declaramos todo el contenido del contenedor
-        let background = this.scene.add.image(0, 0, 'buildSources');
-        let size = this.size*0.3
-        background.setScale(size);
-        background.setDepth(this.HUDDepth);
+        this.buildData.getByName("paintNumberB").setText("x" + sources.paint + " (" + this.scene.otter.backpack.paint + ")");
+        this.buildData.getByName("paperNumberB").setText("x" + sources.paper + " (" + this.scene.otter.backpack.paper + ")");
+        this.buildData.getByName("clayNumberB").setText("x" + sources.clay + " (" + this.scene.otter.backpack.clay + ")");
 
-        let paintNumber = this.scene.add.text(-100, -700*size, "Pintura: " + sources.paint,
-             {
-                fontFamily: 'bobFont',
-                fontSize: 100 * size + 'px',
-                color: '#000000'
-            });
-        let paperNumber = this.scene.add.text(-100, -550*size, "Papel: " + sources.paper,
-            {
-                fontFamily: 'bobFont',
-                fontSize: 100 * size + 'px',
-                color: '#000000'
-            });
-        let clayNumber = this.scene.add.text(-100, -400*size, "Arcilla: " + sources.clay,
-            {
-                fontFamily: 'bobFont',
-                fontSize: 100 * size + 'px',
-                color: '#000000'
-            });
-
-        if (enough)
-        {
-            let key = this.scene.add.image(0 * size, -200*size,'spaceKey');
-                key.setScale(size * 0.6);
-            this.buildData.add([background, paintNumber, paperNumber, clayNumber, key]);
-        }
-        else//Insertamos en el contenedor todo el contenido que queremos que aparezca, en orden
-        this.buildData.add([background, paintNumber, paperNumber, clayNumber]);
-
-        this.buildData.setScrollFactor(0);
-        this.buildData.setDepth(this.HUDDepth);
-
-        //Reposicionamos
-        background.setOrigin(0.5, 1);
+        this.warningDown(this.buildData, this.scene.scale.height - this.buildData.y);
     }
 
     disappearBuildData(){
-        if (this.buildData != null){
-            this.buildData.destroy();
-            this.buildData = null;
-        }
+        this.warningUp(this.buildData, (this.scene.scale.height + 500) - this.buildData.y).play();
     }
 
     appearMinigameInfo(minigameInfo)
     {
-        this.minigameData.container = this.scene.add.container(this.scene.scale.width/2, this.scene.scale.height/2);
+        this.minigameData.container = this.scene.add.container(this.scene.scale.width/2, 0);
 
         //Creamos toda la información de la pantalla
-        let background = this.scene.add.image(0, 0, 'MGInfoBG').setOrigin(0.5, 0.5);
-        background.setScale(this.size * 1.5)
+        let background = this.scene.add.image(0, (this.scene.scale.height/2) - 600, 'MGInfoBG').setOrigin(0.5, 0);
+        background.setScale(this.size * 0.5);
         background.setDepth(this.HUDDepth);
 
         //Nombre de minijuego
-        let name = this.scene.add.text(-395, -300, minigameInfo.name, {
+        let name = this.scene.add.text(-200, -252, minigameInfo.name, {
             fontFamily: 'bobFont',
-            fontSize: 50 * this.size + 'px',
+            fontSize: 35 * this.size + 'px',
             color: '#000000',
             wordWrap: { width: 400 }
-        }).setOrigin(0,0);
+        }).setOrigin(0.5,0.5);
 
         //Video
-        let source = this.scene.add.video(0, 0, minigameInfo.src).play(true);
-        source.setOrigin(0, 1);
+        let source = this.scene.add.video(200, -145, minigameInfo.src).play(true);
+        source.setOrigin(0.5, 0.5);
         source.setScale(this.size * 0.8);
 
         //Descripción de minijuego
@@ -364,6 +435,11 @@ export default class UIManager {
             color: '#000000'
         }).setOrigin(0, 0);
         let priceImg = this.scene.add.image(price.x + 160, price.y, 'stamina').setOrigin(0,0).setScale(0.5);
+        let stamina = this.scene.add.text(priceImg.x + 30, priceImg.y, "(" + this.scene.otter.getStamina() + ")", {
+            fontFamily: 'bobFont',
+            fontSize: 35 * this.size + 'px',
+            color: '#000000'
+        }).setOrigin(0, 0);
 
         //Recompensa de minijuego
         let icon;
@@ -393,10 +469,25 @@ export default class UIManager {
         let rewardImg = this.scene.add.image(recompensa.x + 200, recompensa.y, icon).setScale(0.5).setOrigin(0, 0);
 
         //Botones
-        this.minigameData.accept = this.scene.add.image(450, 500, 'acceptButton').setInteractive().setOrigin(0, 0).setScale(this.size * 0.25);
-        this.minigameData.refuse = this.scene.add.image(250, 500, 'refuseButton').setInteractive().setOrigin(0, 0).setScale(this.size * 0.2);
+        this.minigameData.accept = this.scene.add.image(450, -50, 'acceptButton').setInteractive().setOrigin(0, 1).setScale(this.size * 0.5);
+        this.minigameData.refuse = this.scene.add.image(250, -50, 'refuseButton').setInteractive().setOrigin(0, 1).setScale(this.size * 0.5);
 
-        this.minigameData.container.add([background, name, source, description, price, priceImg, reward, recompensa, puntos, rewardImg]);
+        this.minigameData.accept.on('pointerover', () => {
+            this.minigameData.accept.setTexture('acceptButtonHover');
+        });
+        this.minigameData.accept.on('pointerout', () => {
+            this.minigameData.accept.setTexture('acceptButton');
+        });
+
+        this.minigameData.refuse.on('pointerover', () => {
+            this.minigameData.refuse.setTexture('refuseButtonHover');
+        });
+        this.minigameData.refuse.on('pointerout', () => {
+            this.minigameData.refuse.setTexture('refuseButton');
+        });
+
+
+        this.minigameData.container.add([background, name, source, description, price, priceImg, reward, recompensa, puntos, rewardImg, stamina]);
         this.minigameData.container.setScrollFactor(0);
         this.minigameData.accept.setScrollFactor(0);
         this.minigameData.refuse.setScrollFactor(0);
@@ -423,10 +514,10 @@ export default class UIManager {
                     GameDataManager.saveFrom(this.scene);
 
                     // 🔹 Cambiar a la escena del minijuego
-                    if (minigameInfo.name === 'Wack A Mole') {
+                    if (minigameInfo.name === 'Whack A Mole') {
                         this.scene.scene.start('whackAMole');
                     }else
-                    if (minigameInfo.name === 'Ilumina a los fantasmas'){
+                    if (minigameInfo.name === 'Ilumina a \n los fantasmas'){
                         this.scene.scene.start('lightUpGhosts');
                     }else
                     if(minigameInfo.name === 'Puzle'){
@@ -436,28 +527,52 @@ export default class UIManager {
             } else {
                 this.appearNotEnoughStamina();
             }
-    });
+        });
+        this.pressed = false;
         this.minigameData.refuse.on('pointerdown', ()=>{
-            this.disappearMinigameInfo();
-            this.event.emit("minigame:rejected");
+            if (!this.pressed){
+                this.pressed = true;
+                this.disappearMinigameInfo();
+                this.event.emit("minigame:rejected");
+            }
+            
         })
+
+        this.warningDown(this.minigameData.container, (this.scene.scale.height/2) - this.minigameData.container.y, false, 1000);
+        this.warningDown(this.minigameData.accept, (600) - this.minigameData.accept.y, false, 1000);
+        this.warningDown(this.minigameData.refuse, (600) - this.minigameData.refuse.y, false, 1000);
     }
 
     disappearMinigameInfo()
     {
         if (this.minigameData.container != null){
-            this.minigameData.container.destroy();
-            this.minigameData.container = null;
+            let t = this.warningUp(this.minigameData.container, ((this.scene.scale.height/2) - 600) - this.minigameData.container.y, 1000).play();
+            t.once('complete', () => {
+                if (this.minigameData.container != null){
+                    this.minigameData.container.destroy();
+                    this.minigameData.container = null;
+                }
+            });
         }
 
         if (this.minigameData.accept != null){
-            this.minigameData.accept.destroy();
-            this.minigameData.accept = null;
+            let t = this.warningUp(this.minigameData.accept, -50 - this.minigameData.accept.y, 1000).play();
+            t.once('complete', () => {
+                if (this.minigameData.accept != null){
+                    this.minigameData.accept.destroy();
+                    this.minigameData.accept = null;
+                }
+            });
         }
         
         if (this.minigameData.refuse != null){
-            this.minigameData.refuse.destroy();
-            this.minigameData.refuse = null;
+            let t = this.warningUp(this.minigameData.refuse, -50 - this.minigameData.refuse.y, 1000).play();
+            t.once('complete', () => {
+                if (this.minigameData.refuse != null){
+                    this.minigameData.refuse.destroy();
+                    this.minigameData.refuse = null;
+                }
+            });
         }
 
         if (this.scene.otter){
@@ -471,28 +586,20 @@ export default class UIManager {
 
     appearNotEnoughStamina()
     {
-        let warning = this.scene.add.image(0, 0, 'spaceKey');
-        warning.setScale(this.size*0.3);
-        warning.setOrigin(0.5, 1); warning.setPosition(this.scene.scale.width/2, this.scene.scale.height);
-
-        warning.setScrollFactor(0);
-
-        setTimeout(()=>{
-            warning.destroy();
-        }, 1500);
-
-        warning.setDepth(this.HUDDepth);
+        if (this.warningT.every(e => e.finished === true)){
+            this.warningT = this.warningDown(this.warning, this.scene.scale.height - this.warning.y, true, 750);
+        }
     }
 
-    appearMinigameEndInfo(scene, reward)
+    appearMinigameEndInfo(scene, reward, mgName, mgImage)
     {
         let reward_;
         let icon;
 
-        if (reward.paint != 0){
+        if (mgName === "Whack A Mole"){
             reward_ = reward.paint;
             icon = 'paintIcon';
-        } else if (reward.paper != 0) {
+        } else if (mgName === "Ilumina a \n los fantasmas") {
             reward_ = reward.paper;
             icon = 'paperIcon';
         } else {
@@ -502,12 +609,21 @@ export default class UIManager {
 
         //Creamos toda la información de la pantalla
         let background = this.scene.add.image(this.scene.scale.width/2, this.scene.scale.height/2, 'MGInfoBG').setOrigin(0.5, 0.5);
-        background.setScale(this.size * 1.5)
+        background.setScale(this.size * 0.5);
         background.setDepth(this.HUDDepth);
 
+        //Nombre del minijuego
+        let name = this.scene.add.text(this.scene.scale.width/2 - 200, this.scene.scale.height/2 - 255, mgName, {
+            fontFamily: 'bobFont',
+            fontSize: 35 * this.size + 'px',
+            color: '#000000',
+            wordWrap: { width: 400 }
+        }).setOrigin(0.5,0.5);
+
+        //ImagenPizarra
+        let image = this.scene.add.image(this.scene.scale.width/2 + 200, this.scene.scale.height/4 + 10, mgImage).setOrigin(0.5, 0.5).setScale(0.5);
         //Recompensa de minijuego
-        
-        let rewardImg = this.scene.add.image(this.scene.scale.width/2 , this.scene.scale.height/2, icon);
+        let rewardImg = this.scene.add.image(this.scene.scale.width/2 - 170 , this.scene.scale.height/2 - 75, icon);
 
         let recompensa = this.scene.add.text(rewardImg.x - 20, rewardImg.y, "Recompensa: ",{
             fontFamily: 'bobFont',
@@ -522,19 +638,29 @@ export default class UIManager {
         }).setOrigin(0, 0.5);
 
         //Botones
-        let continu3 = this.scene.add.image(this.scene.scale.width/2, this.scene.scale.height, 'acceptButton').setInteractive().setOrigin(0.5, 1).setScale(this.size * 0.25);
+        let continu3 = this.scene.add.image(this.scene.scale.width/2, this.scene.scale.height, 'acceptButton').setInteractive().setOrigin(0.5, 1).setScale(this.size * 0.5);
+        continu3.on('pointerover', () => {
+            continu3.setTexture('acceptButtonHover');
+        });
+        continu3.on('pointerout', () => {
+            continu3.setTexture('acceptButton');
+        });
 
         background.setScrollFactor(0);
         recompensa.setScrollFactor(0);
         rewardText.setScrollFactor(0);
         rewardImg.setScrollFactor(0).setScale(0.5*this.size);
         continu3.setScrollFactor(0);
+        name.setScrollFactor(0);
+        image.setScrollFactor(0);
 
         background.setDepth(this.HUDDepth);
         recompensa.setDepth(this.HUDDepth);
         rewardText.setDepth(this.HUDDepth);
         rewardImg.setDepth(this.HUDDepth);
         continu3.setDepth(this.HUDDepth);
+        name.setDepth(this.HUDDepth);
+        image.setDepth(this.HUDDepth);
 
         continu3.on('pointerdown', ()=>{
             scene.finishGame();
