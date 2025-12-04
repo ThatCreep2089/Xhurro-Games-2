@@ -123,6 +123,7 @@ export default class Boot extends Phaser.Scene {
     this.load.json('cleonRome', './data/Cleon&RomeDialogo.json');
     this.load.json('ishmael', './data/IshmaelDialogo.json');
     this.load.json('dialogos', './data/DialogScene.json');
+    this.load.json('buildDialogs', './data/BuildDialogs.json');
     this.first = false;
 
     // === AUDIO ===
