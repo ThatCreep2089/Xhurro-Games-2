@@ -126,9 +126,6 @@ export default class IntroScene extends Phaser.Scene {
 
         mostrarSiguiente();
     }
-    mostrarSiguiente(){
-        
-    }
     cambiarFondoDialogo(tipo) {
         const colores = {
             narracion: 0x303030,
@@ -145,17 +142,16 @@ export default class IntroScene extends Phaser.Scene {
     }
 
     cambiarFondoDeEscena(nombreFondo) {
-        const scene = this;
 
         // Si ya tenemos el mismo fondo, no hacemos nada
-        if (scene.dialogBackground && scene.fondoActual === nombreFondo) return;
+        if (this.dialogBackground && this.fondoActual === nombreFondo) return;
 
-        const oldBackground = scene.dialogBackground;
+        const oldBackground = this.dialogBackground;
 
         // Creamos nuevo fondo con alpha 0
-        const newBackground = scene.add.image(
-            scene.cameras.main.centerX,
-            scene.cameras.main.centerY,
+        const newBackground =  this.add.image(
+            this.cameras.main.centerX,
+            this.cameras.main.centerY,
             nombreFondo
         )
             .setOrigin(0.5)
@@ -164,7 +160,7 @@ export default class IntroScene extends Phaser.Scene {
             .setAlpha(0);
 
         // Hacemos fade-in
-        scene.tweens.add({
+        this.tweens.add({
             targets: newBackground,
             alpha: 1,
             duration: 100,
@@ -174,16 +170,16 @@ export default class IntroScene extends Phaser.Scene {
             }
         });
 
-        // 🔧 NUEVO: aseguramos que el fondo se “repinte” tras el primer frame del plugin
-        scene.time.delayedCall(50, () => {
+        // Aaseguramos que el fondo se “repinte” tras el primer frame del plugin
+        this.time.delayedCall(50, () => {
             if (!newBackground.scene) return;
             // Lo traemos al fondo de nuevo para evitar que el plugin lo tape
             newBackground.setDepth(-100);
         });
 
         // Guardamos referencia
-        scene.dialogBackground = newBackground;
-        scene.fondoActual = nombreFondo;
+        this.dialogBackground = newBackground;
+        this.fondoActual = nombreFondo;
     }
 
 
@@ -229,7 +225,5 @@ export default class IntroScene extends Phaser.Scene {
             this.dialogNameText.destroy();
             this.dialogNameText = null;
         }
-
-        // Mantenemos el fondo hasta cambiar de escena (no lo destruimos aquí)
     }
 }

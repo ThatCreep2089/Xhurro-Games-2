@@ -2,27 +2,68 @@
 export default class GameDataManager {
     static player = {
         backpack: { paint: 0, paper: 0, clay: 0 },
-        stamina: 27
+        stamina: 100,
+        position: {
+            x: 400,
+            y: 300
+        }
+    };
+
+    static navi = {
+        position: {
+            x: 450,
+            y: 250
+        }
     };
 
     static buildsConstructed = [];
+    static collectedSources = [];
+
     static day = 1; //Nuevo contador de días
+
+    static reward = {
+        paint: 0,
+        paper: 0,
+        clay: 0
+    };
+
+    static fade = true;
 
     static saveFrom(scene) {
         if (!scene) return;
-
+        
         if (scene.otter) {
+
+            this.reward.paint = scene.otter.backpack.paint - this.player.backpack.paint;
+            this.reward.paper = scene.otter.backpack.paper - this.player.backpack.paper;
+            this.reward.clay = scene.otter.backpack.clay - this.player.backpack.clay;
+            
             this.player.backpack.paint = scene.otter.backpack.paint;
             this.player.backpack.paper = scene.otter.backpack.paper;
             this.player.backpack.clay = scene.otter.backpack.clay;
+
+            this.player.position.x = scene.otter.x;
+            this.player.position.y = scene.otter.y;
+
             if (typeof scene.otter.getStamina === 'function')
                 this.player.stamina = scene.otter.getStamina();
         }
+
+        if (scene.navi){
+            this.navi.position.x = scene.navi.x;
+            this.navi.position.y = scene.navi.y;
+        }
+
+        if (this.fade != undefined) this.fade = scene.fade;
 
         if (scene.builds && Array.isArray(scene.builds)) {
             this.buildsConstructed = scene.builds
                 .filter(b => b && b.built)
                 .map(b => b.id);
+        }
+
+        if (scene.sources){
+            this.collectedSources = scene.sources
         }
 
         //Guardamos el día actual
@@ -32,18 +73,32 @@ export default class GameDataManager {
     static applyTo(scene) {
         if (!scene) return;
 
-        if (scene.otter && scene.otter.backpack) {
-            scene.otter.backpack.paint = this.player.backpack.paint;
-            scene.otter.backpack.paper = this.player.backpack.paper;
-            scene.otter.backpack.clay = this.player.backpack.clay;
-        }
         if (scene.otter) {
+
+            if (scene.otter.backpack){
+                scene.otter.backpack.paint = this.player.backpack.paint;
+                scene.otter.backpack.paper = this.player.backpack.paper;
+                scene.otter.backpack.clay = this.player.backpack.clay;
+            }
+
+            scene.otter.x = this.player.position.x;
+            scene.otter.y = this.player.position.y;
+
             if (typeof scene.otter.setStamina === 'function') {
                 scene.otter.setStamina(this.player.stamina);
             } else if (scene.otter.stamina !== undefined) {
                 scene.otter.stamina = this.player.stamina;
             }
         }
+
+        if (scene.navi){
+            scene.navi.x = this.navi.position.x;
+            scene.navi.y = this.navi.position.y;
+        }
+        
+        scene.fade = this.fade;
+
+        if (scene.otter && scene.fade) scene.otter.restartStamina();
 
         // Restaurar día
         scene.currentDay = this.day;
@@ -56,14 +111,25 @@ export default class GameDataManager {
             });
         }
 
+        if (!scene.fade && scene.sources && this.collectedSources.length){
+            scene.sources.forEach(s => {
+                let emitter = this.collectedSources.find(source => source.id === s.id);
+
+                if (emitter){
+                    s.uses = emitter.uses;
+                    s.comproveUses();
+                }
+            });
+        }
+        
         if (scene.UIManager && scene.UIManager.event) {
-            scene.UIManager.event.emit('updateInventory');
+            scene.UIManager.event.emit('updateInventory', this.reward);
             scene.UIManager.event.emit('updateStamina');
             scene.UIManager.event.emit('updateDay'); // 🔹 nuevo evento
         } else {
             scene.time.delayedCall(200, () => {
                 if (scene.UIManager && scene.UIManager.event) {
-                    scene.UIManager.event.emit('updateInventory');
+                    scene.UIManager.event.emit('updateInventory', this.reward);
                     scene.UIManager.event.emit('updateStamina');
                     scene.UIManager.event.emit('updateDay');
                 }

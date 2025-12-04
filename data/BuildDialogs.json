@@ -1,0 +1,19 @@
+{
+   "house_400_1000": [
+        {
+            "speaker": "Otter",
+            "portrait": "otter",
+            "msgn": "Trabajo bien hecho"
+        },
+        {
+            "speaker": "Otter",
+            "portrait": "otter",
+            "msgn": "Sigamos con el resto"
+        },
+        {
+            "speaker": "Otter",
+            "portrait": "otter",
+            "msgn": "Esto no se va a hacer solo"
+        }
+    ]
+}

@@ -14,6 +14,7 @@ export default class mainScene extends Phaser.Scene {
     #inputs;
 
     create() {
+        
         this.createAnims();
 
         // === MAPA ===
@@ -59,32 +60,32 @@ export default class mainScene extends Phaser.Scene {
         // === MINIJUEGOS_INFO ===
         this.minigamesInfo = {
             WackAMole:{
-                name: "Wack A Mole",
+                name: "Whack A Mole",
                 description: "Aplasta a los topos haciendo clic sobre ellos...",
                 src: 'WAMVideo',
                 price: 25,
-                reward:{ amountPerX:2, X: 10 }
+                reward:{ amountPerX: {paint: 2, paper: 0, clay: 0}, X: 10 }
             },
             LightUpGhosts: {
-                name: "Ilumina a los fantasmas",
+                name: "Ilumina a \n los fantasmas",
                 description: "Arrastra la antorcha hacia los fantasmas hasta destruirlos antes de que se escapen.",
                 src: 'WAMVideo',
                 price: 25,
-                reward:{ amountPerX:2, X: 10 }
+                reward:{ amountPerX:{paint: 0, paper: 2, clay: 0}, X: 10 }
             },
             Puzzle: {
                 name: "Puzle",
                 description: "Haz clic sobre las piezas para rotarlas y consigue que el puzzle encaje",
                 src: 'WAMVideo',
                 price: 25,
-                reward:{ amountPerX:10, X: 1 }
+                reward:{ amountPerX:{paint: 0, paper: 0, clay: 10}, X: 1 }
             }
         };
 
         // === JUGADOR (Nutria) ===
-        this.otter = new Otter(this, this.scale.width / 2, this.scale.height / 2, 20, 'otter', 0.2);
+        this.otter = new Otter(this, this.scale.width / 2, this.scale.height / 2, 20, 'toni', 0.1, 0.25);
         this.cameras.main.startFollow(this.otter);
-        this.navi = new Navi(this, this.otter, 80, 'otter', 0.15, 17);
+        this.navi = new Navi(this, this.otter, 30, 'otter', 0.15, 17);
 
         // === FUENTES, CONSTRUCCIONES Y NPCs ===
         this.createSources();
@@ -94,36 +95,35 @@ export default class mainScene extends Phaser.Scene {
         // === HUD ===
         this.createHUD();
 
-        // === CARGAR DATOS ===
-        import("../GameDataManager.js").then(module => {
-            const GameDataManager = module.default;
-            GameDataManager.applyTo(this);
-            this.UIManager.event.emit('updateDay');
-            this.UIManager.event.emit('updateInventory');
-            this.UIManager.event.emit('updateStamina');
-        });
+        // === MUSICA ===
+        this.music = this.sound.add('mainSceneMusic', {
+            loop: true,
+        }); this.music.play();
 
+        // === CARGAR DATOS ===
+        this.fade = false;
+        GameDataManager.applyTo(this);
+        if(this.fade){ this.fade = false; this.UIManager.FadeOut();}
     }
 
     update() {
-        // Si la estamina llega a 0, pasar al siguiente día
-        if (this.otter.getStamina() <= 0 && !this.dayChanging) {
-            this.dayChanging = true;
-            this.nextDay();
-        }
-
         // Resetear justDown / justUp
         let inputs = [this.spaceKey, this.keyW, this.keyA, this.keyS, this.keyD];
         for (const key in inputs) {
             inputs[key].justDown = false;
             inputs[key].justUp = false;
         }
+        this.builds.forEach(build => build.update && build.update());
     }
 
-    createAnims() {}
+    createAnims() {
+        // === HUD ===
+        // THE GAME 😃
+    }
 
     createSources() {
-        new Source(this, 1200, 1200, 'paint', 0, 0, 1, 5);
+        this.sources = [];
+        this.sources.push(new Source(this, 1200, 1200, 'paint', 0, 0, 1, 5));
     }
 
     createBuilds() {
@@ -138,30 +138,24 @@ export default class mainScene extends Phaser.Scene {
 
     createNPCs() {
         const npcData = this.cache.json.get('prueba');
-        this.Toni = new NPC(this, 900, 700, 'toni', npcData, this.otter, this.minigamesInfo.WackAMole);
+        this.Toni = new NPC(this, 900, 700, 'toni', npcData, this.otter, this.minigamesInfo.WackAMole, 0.1, 0.25);
 
         const cleonRomeData = this.cache.json.get('cleonRome');
-        this.Cleon = new NPC(this, 1000, 700, 'toni', cleonRomeData, this.otter, this.minigamesInfo.LightUpGhosts);
+        this.Cleon = new NPC(this, 1000, 700, 'toni', cleonRomeData, this.otter, this.minigamesInfo.LightUpGhosts, 0.1, 0.25);
 
         const ishmaelData = this.cache.json.get('ishmael');
-        this.Ishmael = new NPC(this, 1100, 700, 'toni', ishmaelData, this.otter, this.minigamesInfo.Puzzle);
+        this.Ishmael = new NPC(this, 1100, 700, 'toni', ishmaelData, this.otter, this.minigamesInfo.Puzzle, 0.1, 0.25);
     }
 
     nextDay() {
         this.currentDay = (this.currentDay || 1) + 1;
-        this.otter.setStamina(100);
-        this.UIManager.event.emit('updateStamina');
-        this.UIManager.event.emit('updateDay');
+        this.fade = true;
 
-        import("../GameDataManager.js").then(module => {
-            const GameDataManager = module.default;
-            GameDataManager.saveFrom(this);
+        GameDataManager.saveFrom(this);
 
             const ending = GameDataManager.getEnding(6, 2); //6 dias y 2 construcciones
             if (ending === "good") this.scene.start('ending', { good: true });
             else if (ending === "bad") this.scene.start('ending', { good: false });
-        });
-
-        this.time.delayedCall(500, () => this.dayChanging = false);
     }
+    
 }

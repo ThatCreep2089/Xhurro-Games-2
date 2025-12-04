@@ -69,7 +69,12 @@
 				"msgn": "Otro loco más... eramos pocos y parió la abuela."
 				}
 
-			]
+			],
+			"Rechazo": {
+			    "speaker": "NPC",
+			    "portrait": "house",
+			    "msgn": "Bueno... será otro día entonces."
+		    }
     	},	
 		{
 			"val": 2,
@@ -95,7 +100,12 @@
 					"msgn": "a"
 				}
 					
-			]
+			],
+			"Rechazo": {
+			    "speaker": "NPC",
+			    "portrait": "house",
+			    "msgn": "Ayudame, otro dia con los topos anda"
+		    }
 		},
 		{
 			"val": 3,
@@ -125,7 +135,12 @@
 				"portrait": "otter",
 				"msgn": "... A por más topos."
 				}
-			]
+			],
+			"Rechazo": {
+			    "speaker": "NPC",
+			    "portrait": "house",
+			    "msgn": "Vuelve otro dia, pero nada de Twitter"
+		    }
 		},
 		{
 			"val": 4,
@@ -170,7 +185,12 @@
 				"portrait": "house",
 				"msgn": "¡Bah! Eso fue hace años, no me acuerdo ni de ese tuit."
 				}
-			]
+			],
+			"Rechazo": {
+			    "speaker": "NPC",
+			    "portrait": "house",
+			    "msgn": "Nada de caballos, solo topos"
+		    }
 		},
 		{
 			"val": 5,
@@ -205,7 +225,12 @@
 				"portrait": "house",
 				"msgn": "..."
 				}
-			]
+			],
+			"Rechazo": {
+			    "speaker": "NPC",
+			    "portrait": "house",
+			    "msgn": "..."
+		    }
 		},
 		{
 			"val": 6,
@@ -276,32 +301,12 @@
 				"msgn": "Bueno, hasta la próxima."
 				}
 	
-			]
-		},
-		{
-		"val": 1,
-		"Dialog": [
-			{ "speaker": "Otter", "portrait": "otter", "msgn": "¡Hola!" },
-			{ "speaker": "NPC", "portrait": "house", "msgn": "¿Quieres ayudarme hoy?" }
-		],
-		"Rechazo": {
-			"speaker": "NPC",
-			"portrait": "house",
-			"msgn": "Bueno... será otro día entonces."
-		}
-		},
-		{
-		"val": 2,
-		"Dialog": [
-			{ "speaker": "Otter", "portrait": "otter", "msgn": "¡Hola de nuevo!" },
-			{ "speaker": "NPC", "portrait": "house", "msgn": "¿Quieres ayudarme hoy tambien?" }
-		],
-		"Rechazo": {
-			"speaker": "NPC",
-			"portrait": "house",
-			"msgn": "Bueno... será otro día entonces."
-		}
+			],
+			"Rechazo": {
+			    "speaker": "NPC",
+			    "portrait": "house",
+			    "msgn": "Una ultima vez, si no no te volveré a ver"
+		    }
 		}
 	]
-	
 }

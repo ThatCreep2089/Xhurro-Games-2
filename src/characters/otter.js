@@ -4,16 +4,16 @@ export default class Otter extends Phaser.GameObjects.Sprite {
      * @param {number} x - coordenada x
      * @param {number} y - coordenada y 
      */
-    constructor(scene, x, y, speed,  texture, size = 1, frame) {
+    constructor(scene, x, y, speed,  texture, size = 1, colliderWidthFactor = 1, frame) {
         super(scene, x, y, texture, frame = 0);
-
-        this.setScale(size);
+        
         this.scene.add.existing(this); //Nos añadimos a la escena para ser mostrados.
+        this.setScale(size);
+
         scene.physics.add.existing(this);
 
-        this.body.scale = this.scale;
-        this.body.setSize(this.width, (this.height) * 0.2);
-        this.body.setOffset(0, (this.height) - (this.body.height/2));
+        this.body.setSize(this.width * colliderWidthFactor, (this.height) * 0.2);
+        this.body.setOffset((this.width - (this.width*colliderWidthFactor))/2, this.height-100);
 
         this.speed = speed;
 
@@ -40,7 +40,7 @@ export default class Otter extends Phaser.GameObjects.Sprite {
         this.canMove = true //Controla cuando el jugador puede o no puede moverse
 
         //Energía del jugador
-        this.stamina = 27;
+        this.stamina = 100;
         this.howToDecrease = 4;
     }
 
@@ -73,23 +73,36 @@ export default class Otter extends Phaser.GameObjects.Sprite {
     //Disminuye la estamina en función del argumento amount
     decreaseStaminaAmount(amount){
         this.stamina -= amount;
+        this.scene.UIManager.event.emit("updateStamina", -amount);
+
+        // Si la estamina llega a 0, pasar al siguiente día
+        if (this.stamina <= 0) {
+            this.scene.nextDay();
+        }
     }
+
     decreaseStamina(staminaPrice){
         if (this.howToDecrease <= 0){
             this.stamina -= staminaPrice;
+            this.scene.UIManager.event.emit("updateStamina", -staminaPrice);
             this.howToDecrease = 4;
         } else this.howToDecrease--;
+
+        // Si la estamina llega a 0, pasar al siguiente día
+        if (this.stamina <= 0) {
+            this.scene.nextDay();
+            this.scene.UIManager.FadeIn();
+        }
     }
     getStamina(){
         return this.stamina;
     }
-    setStamina(amount) {
-        this.stamina = Phaser.Math.Clamp(amount, 0, 100);
-    }
+    
     //Reestablece la estamina
     restartStamina()
     {
-        this.stamina = 100;
+        this.stamina = 52;
+        this.scene.UIManager.event.emit("updateStamina");
     }
 
     /**
@@ -100,7 +113,11 @@ export default class Otter extends Phaser.GameObjects.Sprite {
     preUpdate(t, dt) {
         // Es muy imporante llamar al preUpdate del padre (Sprite), sino no se ejecutará la animación
         super.preUpdate(t, dt);
-        
+
+        if (!this.canMove) {
+            this.body.setVelocity(0, 0);
+            return;
+        }
         //Movemos el objeto en función de las teclas pulsadas por el usuario
         //Priorizando la última usada
         if (this.scene.keyW.isDown && (this.lastKey == 'W' || this.lastKey == null) && this.canMove)
@@ -123,7 +140,7 @@ export default class Otter extends Phaser.GameObjects.Sprite {
         {
             this.body.setVelocity(0,0);
         }
-
-        this.setDepth(this.y);
+        
+        this.setDepth(this.body.y);
     }
 }
