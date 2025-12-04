@@ -136,6 +136,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         this.text.setText(current.msgn, true);
 
         this.showSpeakerImage(current.portrait, current.speaker);
+        this.showDialogName(current);
     }
     // ===============================================
     // ENSEÑAR IMAGEN DEL HABALNTE
@@ -229,6 +230,11 @@ export default class NPC extends Phaser.GameObjects.Sprite {
             this.text = null;
         }
 
+        if (this.dialogNameText) {
+            try { this.dialogNameText.destroy(); } catch {}
+            this.dialogNameText = null;
+        }
+
         if (this.speakerImage) {
             try { this.speakerImage.destroy(); } catch {}
             this.speakerImage = null;
@@ -238,14 +244,20 @@ export default class NPC extends Phaser.GameObjects.Sprite {
             try { this.rejectionPortrait.destroy(); } catch {}
             this.rejectionPortrait = null;
         }
+
+        if (this._updateNamePosition) {
+            this.scene.events.off('postupdate', this._updateNamePosition);
+            this._updateNamePosition = null;
+        }
     }
 
     // ===============================================
     // DIÁLOGO DE RECHAZO
     // ===============================================
     showRejectionDialog() {
-    
         const locator = this.findDay(this.scene.currentDay);
+        if (!locator || !locator.Rechazo) return;
+
         const r = locator.Rechazo;
         this.openDialog({
             text: r.msgn,
@@ -326,8 +338,8 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         const isOtter = config.speaker?.toLowerCase().includes("otter");
 
         const opts = isOtter
-            ? { windowColor: 0x1a3ca8, borderColor: 0x3a6ff7, fontFamily: "bobFont", fontSize: 24, windowAlpha: 0.85 }
-            : { windowColor: 0x4d2a0c, borderColor: 0x8b4513, fontFamily: "bobFont", fontSize: 24, windowAlpha: 0.85 };
+        ? { windowColor: 0x1a3ca8, borderColor: 0x3a6ff7, fontFamily: "bobFont", fontSize: 24, windowAlpha: 0.85, windowHeight: 150, padding: 32 }
+        : { windowColor: 0x4d2a0c, borderColor: 0x8b4513, fontFamily: "bobFont", fontSize: 24, windowAlpha: 0.85, windowHeight: 150, padding: 32 };
 
 
         // ==========================
@@ -338,7 +350,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         this.text.graphics.setDepth(this.scene.UIManager.HUDDepth);
         this.text.text.setDepth(this.scene.UIManager.HUDDepth);
         this.text.closeBtn.setDepth(this.scene.UIManager.HUDDepth);
-
+                
         // Cerrar por X
         if (this.text.closeBtn) {
             this.text.closeBtn.on("pointerdown", () => {
@@ -357,6 +369,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         // ==========================
         // Retrato del personaje
         // ==========================
+        // Crear retrato del personaje
         const cam = this.scene.cameras.main;
         const y = cam.scrollY + cam.height - 200;
         const x = isOtter ? cam.scrollX + 32 : cam.scrollX + cam.width - 32;
@@ -371,10 +384,64 @@ export default class NPC extends Phaser.GameObjects.Sprite {
             .setFlipX(!isOtter)
             .setDepth(2000);
 
+        this.speakerImage = !this.isRejection ? this.rejectionPortrait : null;
 
+        // **Después de crear la imagen, llamar a showDialogName**
+        this.showDialogName(config);
         // ==========================
         // Guardar datos del cuadro
         // ==========================
         this.currentDialogConfig = config;
     }
+    showDialogName(data) {
+        if (!data || !data.speaker || !this.text) return;
+
+        // Destruir nombre previo
+        if (this.dialogNameText) {
+            this.dialogNameText.destroy();
+            this.dialogNameText = null;
+        }
+
+        const isOtter = data.speaker.toLowerCase().includes("otter");
+
+        this.dialogNameText = this.scene.add.text(0, 0, data.speaker, {
+            fontFamily: 'bobFont',
+            fontSize: 24,
+            fontStyle: 'bold',
+            color: '#ffd700',
+            stroke: '#000000',
+            strokeThickness: 3
+        })
+        .setDepth(2001)
+        .setScrollFactor(0);
+
+        const updatePosition = () => {
+            if (!this.text) return;
+
+            const padding = 10;
+            const x = isOtter 
+                ? this.text.windowX + padding
+                : this.text.windowX + this.text.windowWidth - padding;
+            const y = this.text.windowY - 5;
+
+            this.dialogNameText.setOrigin(isOtter ? 0 : 1, 1);
+            this.dialogNameText.setPosition(x, y);
+        };
+
+        // Esperar un tick para asegurarnos de que this.text esté listo
+        this.scene.time.addEvent({
+            delay: 10,
+            callback: () => {
+                updatePosition();
+
+                // Actualizar cada frame
+                if (this._updateNamePosition) this.scene.events.off('postupdate', this._updateNamePosition);
+                this._updateNamePosition = updatePosition;
+                this.scene.events.on('postupdate', this._updateNamePosition);
+            }
+        });
+    }
+
+
+
 }

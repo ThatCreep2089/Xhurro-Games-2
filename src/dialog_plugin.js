@@ -196,6 +196,11 @@ export default class DialogText{
 		var dimensions = this._calculateWindowDimensions(gameWidth, gameHeight);
 		this.graphics = this.scene.add.graphics();
 		
+		this.windowX = dimensions.x;
+		this.windowY = dimensions.y;
+		this.windowWidth = dimensions.rectWidth;
+		this.windowHeightActual = dimensions.rectHeight;
+
 		//Se crean las ventanas interior y exterior
 		this._createOuterWindow(dimensions.x, dimensions.y, dimensions.rectWidth, dimensions.rectHeight);
 		this._createInnerWindow(dimensions.x, dimensions.y, dimensions.rectWidth, dimensions.rectHeight);
@@ -295,5 +300,24 @@ export default class DialogText{
 				fontFamily: this.fontFamily
 			}
 		});
+	}
+	_calculateWindowDimensions(width, height) {
+		var x = this.padding;
+		var y = height - this.windowHeight - this.padding;
+		var rectWidth = width - (this.padding * 2);
+		var rectHeight = this.windowHeight;
+
+		// Guardamos para usar luego
+		this.windowX = x;
+		this.windowY = y;
+		this.windowWidth = rectWidth;
+		this.windowHeightActual = rectHeight;
+
+		return {
+			x,
+			y,
+			rectWidth,
+			rectHeight
+		};
 	}
 };
