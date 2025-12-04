@@ -34,8 +34,10 @@ export default class starer extends Phaser.GameObjects.Image {
             this.light.intensity -= this.scene.intensity * this.factor;
    
             this.scene.time.delayedCall(this.effectDuration*1000, ()=>{
-               this.light.radius += this.scene.radius * this.factor;
-               this.light.intensity += this.scene.intensity * this.factor;
+                if (this.light != null && this.light != undefined){
+                    this.light.radius += this.scene.radius * this.factor;
+                    this.light.intensity += this.scene.intensity * this.factor;
+                }
             });
    
             //desativar objeto de pool

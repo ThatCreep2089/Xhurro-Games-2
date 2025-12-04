@@ -21,6 +21,13 @@ export default class WhackAMole extends Phaser.Scene {
         let iniY = 150;
         let gap = 150;
 
+        // = MÚSICA =
+        this.music = this.sound.add('whackAMoleMusic', {
+                volume: 3,
+                loop: true,
+        });
+        this.music.play();
+
         //cuadrícula de agujeros
         for (let i = 0; i < 3; i++) {
             for (let j = 0; j < 3; j++) {
@@ -117,7 +124,6 @@ export default class WhackAMole extends Phaser.Scene {
         // Recuperar los datos de recompensa desde mainScene
             const mainScene = this.scene.get('mainScene');
             const rewardInfo = mainScene.minigamesInfo.WackAMole.reward;
-            const staminaDecrease = mainScene.minigamesInfo.WackAMole.price;
 
             // Calcular la recompensa según la puntuación
             const times = Math.floor(this.score / rewardInfo.X);
@@ -129,9 +135,11 @@ export default class WhackAMole extends Phaser.Scene {
                 mainScene.otter.backpack.paper += rewardAmount.paper * times;
                 mainScene.otter.backpack.clay += rewardAmount.clay * times;
             }
-
-            GameDataManager.player.stamina = GameDataManager.player.stamina - staminaDecrease;
+            
             GameDataManager.saveFrom(this.scene.get('mainScene') || this);
-            this.scene.start('mainScene');
+            if (mainScene.fade) this.UIManager.FadeIn();
+            else{
+                this.scene.start('mainScene');
+            }
     }
 }

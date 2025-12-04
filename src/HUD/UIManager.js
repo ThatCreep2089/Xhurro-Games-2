@@ -1,6 +1,7 @@
 export default class UIManager {
 
     constructor(scene, size = 1, color = '#FFFFFF'){
+
         this.event = new Phaser.Events.EventEmitter();
         this.size = size;
         this.scene = scene;
@@ -515,6 +516,7 @@ export default class UIManager {
 
                     // 🔹 Cambiar a la escena del minijuego
                     if (minigameInfo.name === 'Whack A Mole') {
+                        
                         this.scene.scene.start('whackAMole');
                     }else
                     if (minigameInfo.name === 'Ilumina a \n los fantasmas'){
@@ -663,7 +665,17 @@ export default class UIManager {
         image.setDepth(this.HUDDepth);
 
         continu3.on('pointerdown', ()=>{
+            this.scene.music.stop();
             scene.finishGame();
         });
+    }
+
+    FadeIn(){
+        console.log("FadeIn");
+        this.scene.scene.start('mainScene');
+    }
+
+    FadeOut(){
+        console.log("FadeOut");
     }
 }
