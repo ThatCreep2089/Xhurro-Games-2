@@ -75,7 +75,7 @@ export default class GameDataManager {
         if (this.day < requiredDays) return null; //no final
 
         const builtCount = this.buildsConstructed.length;
-        if (this.day >= requiredDays) {
+        if (this.day > requiredDays) {
             if (builtCount >= totalBuilds) return "good";//todas construidas
             return "bad"; //no alcanza el mínimo
         }
