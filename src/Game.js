@@ -9,6 +9,8 @@ import LightUpGhosts from './scenes/lightUpGhosts.js';
 import Puzzle from './scenes/puzzle.js';
 
 import IntroScene from './scenes/introductionScene.js';
+import EndingScene from './scenes/endingScene.js';
+import CreditsScene from './scenes/creditsScene.js';
 
 /**
  * Inicio del juego en Phaser. Creamos el archivo de configuración del juego y creamos
@@ -25,7 +27,7 @@ let config = {
 		autoCenter: Phaser.Scale.CENTER_BOTH
 	},
 
-	scene: [Aux,Boot,TitleScene,IntroScene,MainScene, WhackAMole, LightUpGhosts, Puzzle],	// Decimos a Phaser cual es nuestra escena
+	scene: [Aux,Boot,TitleScene,IntroScene,MainScene, WhackAMole, LightUpGhosts, Puzzle, EndingScene, CreditsScene],	// Decimos a Phaser cual es nuestra escena
 	
 	physics: { 
 		default: 'arcade', 

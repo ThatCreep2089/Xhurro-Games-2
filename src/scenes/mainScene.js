@@ -157,9 +157,9 @@ export default class mainScene extends Phaser.Scene {
             const GameDataManager = module.default;
             GameDataManager.saveFrom(this);
 
-            const ending = GameDataManager.getEnding(6, 2);
-            if (ending === "good") console.log("Good ending");
-            else if (ending === "bad") console.log("Bad ending");
+            const ending = GameDataManager.getEnding(6, 2); //6 dias y 2 construcciones
+            if (ending === "good") this.scene.start('ending', { good: true });
+            else if (ending === "bad") this.scene.start('ending', { good: false });
         });
 
         this.time.delayedCall(500, () => this.dayChanging = false);
