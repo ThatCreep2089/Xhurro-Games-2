@@ -93,8 +93,8 @@ export default class UIManager {
         });
 
         //Dia
-        let dayImg = this.scene.add.image(725*this.size, 17, 'day').setScale(this.size*0.5).setDisplayOrigin(0.5,0.5);
-        let dayNumber = this.scene.add.text(765*this.size, 20, (this.scene.currentDay || 1),
+        let dayImg = this.scene.add.image(718*this.size, 17, 'day').setScale(this.size*0.5).setDisplayOrigin(0.5,0.5);
+        let dayNumber = this.scene.add.text(763*this.size, 20, (this.scene.currentDay || 1),
         {
             fontFamily: 'bobFont',
             fontSize: 25 * this.size + 'px',
@@ -509,15 +509,15 @@ export default class UIManager {
                 otter.decreaseStaminaAmount(price);
                 this.event.emit("updateStamina", price);
 
-                // 🔹 Guardar datos antes de cambiar de escena
+                // Guardar datos antes de cambiar de escena
                 import("../GameDataManager.js").then(module => {
                     const GameDataManager = module.default;
                     GameDataManager.saveFrom(this.scene);
 
-                    // 🔹 Cambiar a la escena del minijuego
+                    // Cambiar a la escena del minijuego
                     if (minigameInfo.name === 'Whack A Mole') {
                         
-                        this.scene.scene.start('whackAMole');
+                        this.scene.scene.start('whackAMoleBall');
                     }else
                     if (minigameInfo.name === 'Ilumina a \n los fantasmas'){
                         this.scene.scene.start('lightUpGhosts');
@@ -671,11 +671,56 @@ export default class UIManager {
     }
 
     FadeIn(){
-        console.log("FadeIn");
-        this.scene.scene.start('mainScene');
+        const cam = this.scene.cameras.main;
+        const mainScene = this.scene.scene.get('mainScene');
+
+        let rect = this.scene.add.rectangle(cam.width/2, cam.height/2, cam.width, cam.height, 0x000000); rect.alpha = 0;
+        let text = this.scene.add.text(cam.width/2, cam.height/2, "DÍA " + mainScene.currentDay,{
+            fontFamily: 'bobFont',
+            fontSize: 200 * this.size + 'px',
+            color: '#ffffff'
+        }).setOrigin(0.5, 0.5); text.alpha = 0;
+
+        rect.setScrollFactor(0);
+        text.setScrollFactor(0);
+        rect.setDepth(this.HUDDepth);
+        text.setDepth(this.HUDDepth);
+
+        //Animación de Fade
+        let t = this.scene.tweens.add({
+            targets: [rect, text],
+            alpha: 1,
+            ease: 'Expo.easeOut',
+            duration: 2500,
+        });
+        
+        t.once('complete', () => {this.scene.scene.start('mainScene')});
+        t.play();
     }
 
     FadeOut(){
-        console.log("FadeOut");
+        const cam = this.scene.cameras.main;
+        const mainScene = this.scene.scene.get('mainScene');
+
+        let rect = this.scene.add.rectangle(cam.width/2, cam.height/2, cam.width, cam.height, 0x000000); rect.alpha = 1;
+        let text = this.scene.add.text(cam.width/2, cam.height/2, "DÍA " + mainScene.currentDay,{
+            fontFamily: 'bobFont',
+            fontSize: 200 * this.size + 'px',
+            color: '#ffffff'
+        }).setOrigin(0.5, 0.5); text.alpha = 1;
+
+        rect.setScrollFactor(0);
+        text.setScrollFactor(0);
+        rect.setDepth(this.HUDDepth);
+        text.setDepth(this.HUDDepth);
+
+        //Animación de Fade
+        let t = this.scene.tweens.add({
+            targets: [rect, text],
+            alpha: 0,
+            ease: 'Expo.easeIn',
+            duration: 2500,
+        });
+        t.play();
     }
 }
