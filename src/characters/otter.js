@@ -101,7 +101,7 @@ export default class Otter extends Phaser.GameObjects.Sprite {
     //Reestablece la estamina
     restartStamina()
     {
-        this.stamina = 100;
+        this.stamina = 25;
         this.scene.UIManager.event.emit("updateStamina");
     }
 
