@@ -1,0 +1,46 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "": {
+            "scaleInDock": 0.12
+        },
+        "cardbord.tsx": {
+            "scaleInDock": 0.25,
+            "scaleInEditor": 1
+        },
+        "papeobstacles.tsx": {
+            "scaleInDock": 0.12,
+            "scaleInEditor": 0.75
+        },
+        "tree.tsx": {
+            "scaleInDock": 0.12,
+            "scaleInEditor": 1
+        }
+    },
+    "last.externalTilesetPath": "C:/Users/alici/Desktop/usagimodoki/universidad/motores/Xhurro-Games-2/tiled",
+    "last.imagePath": "C:/Users/alici/Desktop/usagimodoki/universidad/motores/Xhurro-Games-2/tiled",
+    "map.lastUsedFormat": "json",
+    "map.tileHeight": 200,
+    "map.tileWidth": 200,
+    "map.width": 20,
+    "openFiles": [
+    ],
+    "project": "map_final.tiled-project",
+    "recentFiles": [
+        "tree.tsx",
+        "cardbord.tsx",
+        "papeobstacles.tsx"
+    ],
+    "tileset.lastUsedFilter": "Archivos de conjuntos de patrones Tiled (*.tsx *.xml)",
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 200,
+        "width": 200
+    }
+}
