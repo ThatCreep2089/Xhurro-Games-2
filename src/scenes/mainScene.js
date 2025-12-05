@@ -113,6 +113,7 @@ export default class mainScene extends Phaser.Scene {
             inputs[key].justDown = false;
             inputs[key].justUp = false;
         }
+        this.builds.forEach(build => build.update && build.update());
     }
 
     createAnims() {
