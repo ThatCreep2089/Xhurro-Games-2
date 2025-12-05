@@ -509,15 +509,15 @@ export default class UIManager {
                 otter.decreaseStaminaAmount(price);
                 this.event.emit("updateStamina", price);
 
-                // 🔹 Guardar datos antes de cambiar de escena
+                // Guardar datos antes de cambiar de escena
                 import("../GameDataManager.js").then(module => {
                     const GameDataManager = module.default;
                     GameDataManager.saveFrom(this.scene);
 
-                    // 🔹 Cambiar a la escena del minijuego
+                    // Cambiar a la escena del minijuego
                     if (minigameInfo.name === 'Whack A Mole') {
                         
-                        this.scene.scene.start('whackAMole');
+                        this.scene.scene.start('whackAMoleBall');
                     }else
                     if (minigameInfo.name === 'Ilumina a \n los fantasmas'){
                         this.scene.scene.start('lightUpGhosts');
