@@ -2,7 +2,7 @@
 <tileset version="1.10" tiledversion="1.11.2" name="paperfloor" tilewidth="200" tileheight="200" tilecount="48" columns="12">
  <image source="paperfloor.png" width="2400" height="800"/>
  <wangsets>
-  <wangset name="Unnamed Set" type="mixed" tile="-1">
+  <wangset name="paperFloor" type="mixed" tile="-1">
    <wangcolor name="" color="#ff0000" tile="-1" probability="1"/>
    <wangtile tileid="0" wangid="0,0,0,0,1,0,0,0"/>
    <wangtile tileid="1" wangid="0,0,1,0,1,0,0,0"/>
