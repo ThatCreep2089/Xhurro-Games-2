@@ -1,0 +1,52 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "": {
+            "scaleInDock": 1
+        },
+        "mapa.json": {
+            "scale": 2.5111666666666665,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 150.12942191544437,
+                "y": 100.1526514900113
+            }
+        },
+        "mapa.json#afshtsj-export": {
+            "scaleInDock": 1
+        },
+        "mapa2.json": {
+            "scale": 0.07107075471698113,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 5304.572907679035,
+                "y": 4003.0530298002254
+            }
+        },
+        "mapa2.json#afshtsj": {
+            "scaleInDock": 1
+        }
+    },
+    "last.exportedFilePath": "C:/Users/alici/Desktop/usagimodoki/universidad/motores/Xhurro-Games-2/assets/mainScene",
+    "last.imagePath": "C:/Users/alici/Desktop/usagimodoki/universidad/motores/Xhurro-Games-2/assets/mainScene",
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
+    "map.lastUsedFormat": "json",
+    "map.tileHeight": 10,
+    "map.tileWidth": 10,
+    "openFiles": [
+    ],
+    "project": "tiledproyect.tiled-project",
+    "recentFiles": [
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 10,
+        "width": 10
+    }
+}
