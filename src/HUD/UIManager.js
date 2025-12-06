@@ -671,19 +671,32 @@ export default class UIManager {
         }).setOrigin(0, 0.5);
 
         //Botones
-        let continu3 = this.scene.add.image(this.scene.scale.width/2, this.scene.scale.height, 'acceptButton').setInteractive().setOrigin(0.5, 1).setScale(this.size * 0.5);
-        continu3.on('pointerover', () => {
-            continu3.setTexture('acceptButtonHover');
+        this.continu3 = this.scene.add.image(this.scene.scale.width/2, this.scene.scale.height, 'acceptButton').setInteractive().setOrigin(0.5, 1).setScale(this.size * 0.5);
+        const continue3OriginalScaleX = this.continu3.scaleX;
+        const continue3OriginalScaleY = this.continu3.scaleY;
+        this.continu3.on('pointerover', () => {
+            this.continu3.setTexture('acceptButtonHover');
+            this.continue = this.scene.tweens.add({
+                targets: this.continu3,
+                scaleX: this.continu3.scaleX * 1.05, // expansión horizontal ligera
+                scaleY: this.continu3.scaleY * 1.05, // expansión vertical ligera
+                duration: 400,            // tiempo de expansión
+                yoyo: true,                // vuelve al tamaño original
+                repeat: -1,                // repetir infinitamente
+                ease: 'Sine.easeInOut'     // movimiento suave
+            });
         });
-        continu3.on('pointerout', () => {
-            continu3.setTexture('acceptButton');
+        this.continu3.on('pointerout', () => {
+            this.continu3.setTexture('acceptButton');
+            this.continue.stop()
+            this.continu3.setScale( continue3OriginalScaleX,continue3OriginalScaleY)
         });
 
         background.setScrollFactor(0);
         recompensa.setScrollFactor(0);
         rewardText.setScrollFactor(0);
         rewardImg.setScrollFactor(0).setScale(0.5*this.size);
-        continu3.setScrollFactor(0);
+        this.continu3.setScrollFactor(0);
         name.setScrollFactor(0);
         image.setScrollFactor(0);
 
@@ -691,11 +704,11 @@ export default class UIManager {
         recompensa.setDepth(this.HUDDepth);
         rewardText.setDepth(this.HUDDepth);
         rewardImg.setDepth(this.HUDDepth);
-        continu3.setDepth(this.HUDDepth);
+        this.continu3.setDepth(this.HUDDepth);
         name.setDepth(this.HUDDepth);
         image.setDepth(this.HUDDepth);
 
-        continu3.on('pointerdown', ()=>{
+        this.continu3.on('pointerdown', ()=>{
             this.scene.music.stop();
             scene.finishGame();
         });

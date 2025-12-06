@@ -68,7 +68,7 @@ export default class WhachAMoleBall extends Phaser.Scene{
         this.ballGroup = this.ballPool._group;
 
         // Input
-        this.Ekey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
+        this.spacekey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
         // Overlap entre jugador y pelotas
         this.physics.add.overlap(this.player, this.ballGroup, (player, ball) => {
@@ -235,7 +235,7 @@ export default class WhachAMoleBall extends Phaser.Scene{
     update() {
         if(this.gameEnded) return;
 
-        if (Phaser.Input.Keyboard.JustDown(this.Ekey)) {
+        if (Phaser.Input.Keyboard.JustDown(this.spacekey)) {
 
             if (this.player.holdingBall) {
                 this.player.holdingBall.throw();
