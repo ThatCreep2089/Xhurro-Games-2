@@ -19,7 +19,7 @@ export default class GameDataManager {
     static buildsConstructed = [];
     static collectedSources = [];
 
-    static day = 1; //Nuevo contador de días
+    static day = 6; //Nuevo contador de días
 
     static reward = {
         paint: 0,
@@ -141,7 +141,7 @@ export default class GameDataManager {
         if (this.day < requiredDays) return null; //no final
 
         const builtCount = this.buildsConstructed.length;
-        if (this.day >= requiredDays) {
+        if (this.day > requiredDays) {
             if (builtCount >= totalBuilds) return "good";//todas construidas
             return "bad"; //no alcanza el mínimo
         }

@@ -104,6 +104,13 @@ export default class mainScene extends Phaser.Scene {
         this.fade = false;
         GameDataManager.applyTo(this);
         if(this.fade){ this.fade = false; this.UIManager.FadeOut();}
+
+        // === FINAL ===
+        const ending = GameDataManager.getEnding(6, 2); //6 dias y 2 construcciones
+            if (ending === "good") {
+                this.scene.start('ending', { good: true });}
+            else if (ending === "bad") {
+                this.scene.start('ending', { good: false });}
     }
 
     update() {
@@ -150,11 +157,12 @@ export default class mainScene extends Phaser.Scene {
     nextDay() {
         this.currentDay = (this.currentDay || 1) + 1;
         this.fade = true;
+        if(this.currentDay > 6){
+            console.log("final")
+            GameDataManager.saveFrom(this);
 
-        GameDataManager.saveFrom(this);
-
-        const ending = GameDataManager.getEnding(6, 2);
-        if (ending === "good") console.log("Good ending");
-        else if (ending === "bad") console.log("Bad ending");
+            
+        }
     }
+    
 }

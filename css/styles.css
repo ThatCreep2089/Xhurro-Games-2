@@ -3,7 +3,7 @@
 	src: url('../assets/CrayonLibre.ttf') format('truetype');
 }
 
-body{
+ body{
     background-image: url("../assets/imagenes/imagenesWeb/diseño/webBackground.jpg");
     background-repeat: none;
     background-size:400vmin;
@@ -95,9 +95,21 @@ img{
     background-size: 50vmin;
     display: flex;
     justify-self: center;
-    max-width: 165vmin;
+    max-width: 140vmin;
     padding: 2vmin;
 }
+
+.contentBackground2{
+    background-image: url("../assets/imagenes/imagenesWeb/diseño/contentBackground.jpg");
+    background-repeat:repeat;
+    background-size: 50vmin;
+    display: flex;
+    justify-self: center;
+    max-width: 140vmin;
+    height: 80vmin;
+    padding: 2vmin;
+}
+
 .nonInitialContent{
     display: none;
 }
@@ -252,12 +264,8 @@ img{
 
 .XhurrogamesContent {
     margin-top: 1vmin;
-    width: 50%;
-    height: 75vh;
-    
-    display: flex;
-    justify-self: flex-start;
-    flex-direction: column;
+    width: 100%;
+    height: 30vmin;
 
     margin-right:1vmin;
 }
@@ -354,4 +362,30 @@ legend{
     transform: rotateZ(25deg);
     
     z-index:2;
+}
+
+.description-box{
+    background: rgba(255,255,255,0.95);
+    border-radius: 1.5vmin;
+    padding: 2.5vmin;
+    max-width: 140vmin;
+    margin: 1vmin auto;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    color: #222;
+}
+
+#description p{
+    display: inline-flex;
+    width: fit-content;
+   margin: 3vmin auto;
+   padding: 2vmin;
+   box-sizing: border-box;
+}
+
+.description-box2{
+    background-image: url("../assets/imagenes/imagenesWeb/diseño/pintada.png");
+    border-radius: 1.5vmin;
+    padding: 2.5vmin;
+    max-width: 140vmin;
+    margin: 1vmin auto;
 }
