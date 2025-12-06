@@ -8,7 +8,6 @@ export default class EndingScene extends Phaser.Scene {
     }
 
     create() {
-        console.log("fin")
         //this.add.image(0, 0, 'ending').setOrigin(0, 0);
         this.add.text(400, 300, this.goodEnding ? 'Good Ending' : 'Bad Ending', {
             fontFamily: 'bobFont',
