@@ -22,7 +22,7 @@ export default class CreditsScene extends Phaser.Scene {
 
         Music: Marco Antonio
 
-        Special Thanks: Your inner Otter 🦦
+        Special Thanks To: Your inner Otter 🦦
 
         Thank you for playing!
 
@@ -263,7 +263,7 @@ export default class CreditsScene extends Phaser.Scene {
 
         El hype crece.
         El misterio crece.
-        El pan… quién sabe.
+        El pan… quién sabe.      
         `;
 
         // El texto empieza debajo del logo
@@ -282,12 +282,19 @@ export default class CreditsScene extends Phaser.Scene {
 
         // Velocidad del scroll
         this.scrollSpeed = 0.4;
+        this.chakeStartY = this.text.y - (this.game.config.height + 200); // aprox donde empieza el chiste
     }
 
     update() {
-        this.logo.y -= this.scrollSpeed;
-        this.text.y -= this.scrollSpeed;
-        // Si el texto ha salido completamente de la pantalla, volver al mainScene
+        // Aumentar velocidad cuando se llega al chiste del pan que habla
+        let currentSpeed = this.scrollSpeed;
+        if (this.text.y < this.chakeStartY) {
+            currentSpeed = this.scrollSpeed * 100; // 100x más rápido en el chiste
+        }
+        
+        this.logo.y -= currentSpeed;
+        this.text.y -= currentSpeed;
+        // Si el texto ha salido completamente de la pantalla, volver a menuScene
         if (this.text.y < -this.text.height) {
             GameDataManager.resetGame();
             this.scene.start('menuScene');
