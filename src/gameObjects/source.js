@@ -49,6 +49,15 @@ export default class Source extends Phaser.GameObjects.Sprite {
         
         //Estamina a reducir
         this.staminaPrice = 2;
+
+        this.scene.tweens.add({
+            targets: this,
+            angle: { from: -3, to: 3 }, 
+            duration: 1000, 
+            yoyo: true,      
+            repeat: -1,      
+            ease: 'Sine.easeInOut' 
+        });
     }
 
     /**

@@ -50,6 +50,17 @@ export default class Build extends Phaser.GameObjects.Sprite {
         });
         this.dialog.toggleWindow(); // oculto inicialmente
         this.keySpace = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+
+        this.pulseTween = this.scene.tweens.add({
+            targets: this,
+            scaleX: this.scaleX * 1.05,
+            scaleY: this.scaleY * 1.05,
+            duration: 900,
+            yoyo: true,
+            repeat: -1,
+            ease: 'Sine.easeInOut',
+            paused: false
+        });
     }
     update() {
         if (!this.dialogShown) return;
@@ -112,6 +123,19 @@ export default class Build extends Phaser.GameObjects.Sprite {
         if (this.zone) { this.zone.destroy(); this.zone = null; }
         // ocultar UI de build si está visible
         if (this.scene.UIManager) this.scene.UIManager.disappearBuildData();
+
+        if (this.pulseTween) {
+            this.pulseTween.stop();
+            this.setScale(1); // resetear escala para evitar deformación
+        }
+        this.scene.tweens.add({
+            targets: this,
+            angle: { from: -4, to: 4 }, // balanceo de -5 a 5 grados
+            duration: 500,               // medio segundo para ir de un lado a otro
+            yoyo: true,                  // volver al inicio
+            repeat: -1,                  // repetir infinitamente
+            ease: 'Sine.easeInOut'       // suaviza el movimiento
+        });
 
         const dialogData = this.scene.cache.json.get('buildDialogs');
 

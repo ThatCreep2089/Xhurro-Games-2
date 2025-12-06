@@ -471,20 +471,51 @@ export default class UIManager {
 
         //Botones
         this.minigameData.accept = this.scene.add.image(450, -50, 'acceptButton').setInteractive().setOrigin(0, 1).setScale(this.size * 0.5);
+        const acceptDataOriginalScaleX = this.minigameData.accept.scaleX;
+        const acceptOriginalScaleY = this.minigameData.accept.scaleY;
+
         this.minigameData.refuse = this.scene.add.image(250, -50, 'refuseButton').setInteractive().setOrigin(0, 1).setScale(this.size * 0.5);
+        const refuseDataOriginalScaleX = this.minigameData.refuse.scaleX;
+        const refuseDataOriginalScaleY = this.minigameData.refuse.scaleY;
+
 
         this.minigameData.accept.on('pointerover', () => {
             this.minigameData.accept.setTexture('acceptButtonHover');
+
+            this.acceptTween = this.scene.tweens.add({
+                targets: this.minigameData.accept,
+                scaleX: this.minigameData.accept.scaleX * 1.05, // expansión horizontal ligera
+                scaleY: this.minigameData.accept.scaleY * 1.05, // expansión vertical ligera
+                duration: 400,            // tiempo de expansión
+                yoyo: true,                // vuelve al tamaño original
+                repeat: -1,                // repetir infinitamente
+                ease: 'Sine.easeInOut'     // movimiento suave
+            });
         });
         this.minigameData.accept.on('pointerout', () => {
+            
             this.minigameData.accept.setTexture('acceptButton');
+            this.acceptTween.stop()
+            this.minigameData.accept.setScale(acceptDataOriginalScaleX,acceptOriginalScaleY)
         });
 
         this.minigameData.refuse.on('pointerover', () => {
             this.minigameData.refuse.setTexture('refuseButtonHover');
+
+            this.refuseTween = this.scene.tweens.add({
+                targets: this.minigameData.refuse,
+                scaleX: this.minigameData.refuse.scaleX * 1.05, // expansión horizontal ligera
+                scaleY: this.minigameData.refuse.scaleY * 1.05, // expansión vertical ligera
+                duration: 400,            // tiempo de expansión
+                yoyo: true,                // vuelve al tamaño original
+                repeat: -1,                // repetir infinitamente
+                ease: 'Sine.easeInOut'     // movimiento suave
+            });
         });
         this.minigameData.refuse.on('pointerout', () => {
             this.minigameData.refuse.setTexture('refuseButton');
+            this.refuseTween.stop()
+            this.minigameData.refuse.setScale(refuseDataOriginalScaleX,refuseDataOriginalScaleY)
         });
 
 

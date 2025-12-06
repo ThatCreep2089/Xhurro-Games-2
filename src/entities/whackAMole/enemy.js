@@ -10,6 +10,10 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
         this.setActive(false);
         this.setVisible(false);
         this.setScale(0.25);
+        
+    }
+    preUpdate(t,dt){
+        super.preUpdate(t,dt)        
     }
 
     appear(x, y) {
@@ -19,12 +23,22 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
     }
 
     hide() {
-        this.setActive(false);
+        this.setActive(false); // Necesario para mostrar la animación
         this.setVisible(false);
     }
 
     destroyEnemy() {
         this.hide();
         // Aquí puedes agregar puntuación o efectos
+
+        // Crear un sprite temporal para la explosión
+        const explosion = this.scene.add.sprite(this.x, this.y, 'explosion');
+        explosion.setScale(1.5); // Ajustar tamaño como tu enemigo
+        explosion.play('explote');
+
+        // Destruir el sprite de explosión después de 2 segundos
+        this.scene.time.delayedCall(1000, () => {
+            explosion.destroy();
+        });
     }
 }

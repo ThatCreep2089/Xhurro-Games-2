@@ -9,6 +9,15 @@ export default class WhachAMoleBall extends Phaser.Scene{
         super({key:'whackAMoleBall'})
     }
     create(){
+
+        this.anims.create({
+            key: 'explote',
+            frames: this.anims.generateFrameNumbers('explosion', { start: 0, end: 8 }),
+            frameRate: 7, // Velocidad de la animación
+            repeat: -1    // Animación en bucle
+        })
+
+
         this.input.keyboard.enabled = true;
         this.player = new Character(this,200,500,'otter',400)
         
