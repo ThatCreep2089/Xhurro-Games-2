@@ -146,4 +146,17 @@ export default class GameDataManager {
             return "bad"; //no alcanza el mínimo
         }
     }
+
+    static resetGame() {
+        this.player = { backpack: { paint: 0, paper: 0, clay: 0 },
+            stamina: 100,
+            position: { x: 400, y: 300 } };
+
+        this.navi = { position: { x: 450, y: 250 } };
+        this.buildsConstructed = [];
+        this.collectedSources = [];
+        this.day = 6;
+        this.reward = { paint: 0, paper: 0, clay: 0 };
+        this.fade = true;
+    }
 }

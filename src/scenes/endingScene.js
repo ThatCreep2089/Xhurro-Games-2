@@ -26,6 +26,8 @@ export default class EndingScene extends Phaser.Scene {
         continueButton.on('pointerover', () => continueButton.setStyle({ color: '#ffffff' }));
         continueButton.on('pointerout', () => continueButton.setStyle({ color: '#00ffcc' }));
         continueButton.on('pointerdown', () => {
+            this.sound.stopAll();
+            //this.scene.audio.play('titleMusic');
             this.scene.start('credits');
         });
     }
