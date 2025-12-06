@@ -138,12 +138,14 @@ export default class Boot extends Phaser.Scene {
 
     // === AUDIO ===
 
-    // === MÚSICA ===
-    this.load.audio('lightUpGhostsMusic', './assets/audios/LightUpGhosts.mp3');
-    this.load.audio('puzzleMusic', './assets/audios/Puzzle.mp3');
-    this.load.audio('whackAMoleMusic', './assets/audios/Topos.mp3');
+    // == MÚSICA ==
+    this.load.audio('lightUpGhostsMusic', './assets/audios/minigames/LightUpGhosts/LightUpGhosts.mp3');
+    this.load.audio('puzzleMusic', './assets/audios/minigames/Puzzle/Puzzle.mp3');
+    this.load.audio('whackAMoleMusic', './assets/audios/minigames/WhackAMole/Topos.mp3');
     this.load.audio('titleMusic', './assets/audios/Title.mp3');
     this.load.audio('mainSceneMusic', './assets/audios/mainScene.mp3');
-    this.load.audio('minigameInfoMusic', './assets/audios/MinigameInfo.mp3');
+    this.load.audio('minigameInfoMusic', './assets/audios/minigames/MinigameInfo.mp3');
+
+    // == SFX ==
   }
 }
