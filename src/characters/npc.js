@@ -156,6 +156,14 @@ export default class NPC extends Phaser.GameObjects.Sprite {
             .setScale(0.9)
             .setFlipX(!speaker.toLowerCase().includes("otter"))
             .setDepth(2000);
+        this.scene.tweens.add({
+            targets: this.speakerImage,
+            scaleX: 1.0,
+            scaleY: 1.0,
+            duration: 180,
+            ease: "Back.Out", // Da el efecto de rebote suave
+            from: { scaleX: 0.75, scaleY: 0.75 }
+        });
     }
     // ===============================================
     // PASAR DE DIALOGO
@@ -385,7 +393,15 @@ export default class NPC extends Phaser.GameObjects.Sprite {
             .setDepth(2000);
 
         this.speakerImage = !this.isRejection ? this.rejectionPortrait : null;
-
+        this.scene.tweens.add({
+            targets: this.speakerImage,
+            scaleX: 1.0,
+            scaleY: 1.0,
+            duration: 180,
+            ease: "Back.Out", // Da el efecto de rebote suave
+            from: { scaleX: 0.75, scaleY: 0.75 }
+        });
+        
         // **Después de crear la imagen, llamar a showDialogName**
         this.showDialogName(config);
         // ==========================

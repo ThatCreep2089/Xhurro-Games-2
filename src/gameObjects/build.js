@@ -191,6 +191,14 @@ export default class Build extends Phaser.GameObjects.Sprite {
             .setScale(0.9)
             .setFlipX(!isOtter)
             .setDepth(5000);
+        this.scene.tweens.add({
+            targets: this.speakerImage,
+            scaleX: 1.0,
+            scaleY: 1.0,
+            duration: 180,
+            ease: "Back.Out", // Da el efecto de rebote suave
+            from: { scaleX: 0.75, scaleY: 0.75 }
+        });
     }
 
     nextDialog() {
