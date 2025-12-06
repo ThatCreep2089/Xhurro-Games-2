@@ -34,11 +34,42 @@ export default class MenuScene extends Phaser.Scene {
         let exitButton = this.add.image(400, 450, 'exitGame').setOrigin(0.5).setInteractive().setScale(0.5);
         
         //button interactivity
-        playButton.on('pointerover', () => playButton.setTexture('playGameHover'));
-        playButton.on('pointerout', () => playButton.setTexture('playGame'));
+        playButton.on('pointerover', () => {            
+            playButton.setTexture('playGameHover')
 
-        exitButton.on('pointerover', () => exitButton.setTexture('exitGameHover'));
-        exitButton.on('pointerout', () => exitButton.setTexture('exitGame'));
+            this.playTween = this.tweens.add({
+                targets: playButton,
+                angle: { from: -15, to: 15 },
+                duration: 200,
+                yoyo: true,
+                repeat: -1,
+                ease: 'Sine.easeInOut'
+            });
+        });
+        playButton.on('pointerout', () => {
+            playButton.setTexture('playGame')
+
+            if (this.playTween) this.playTween.stop();
+            playButton.setAngle(0)
+        });
+
+        exitButton.on('pointerover', () => {
+            
+            exitButton.setTexture('exitGameHover')
+            this.exitTween= this.tweens.add({
+                targets: exitButton,
+                angle: { from: -15, to: 15 },
+                duration: 200,
+                yoyo: true,
+                repeat: -1,
+                ease: 'Sine.easeInOut'
+            });
+        });
+        exitButton.on('pointerout', () => {
+            exitButton.setTexture('exitGame')
+            if (this.exitTween) this.exitTween.stop();
+            exitButton.setAngle(0)
+        });
 
         //actions on click
         playButton.on('pointerup', () => {music.stop(); this.scene.start('introScene');});

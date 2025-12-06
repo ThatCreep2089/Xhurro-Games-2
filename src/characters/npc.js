@@ -54,6 +54,21 @@ export default class NPC extends Phaser.GameObjects.Sprite {
 
             this.nextDialog();
         });
+
+        if (this.breathTween) this.breathTween.stop();
+
+        const baseScaleX = this.scaleX;
+        const baseScaleY = this.scaleY;
+
+        this.breathTween = this.scene.tweens.add({
+            targets: this,
+            scaleX: baseScaleX * 1.05, // expansión horizontal ligera
+            scaleY: baseScaleY * 1.05, // expansión vertical ligera
+            duration: 700,            // tiempo de expansión
+            yoyo: true,                // vuelve al tamaño original
+            repeat: -1,                // repetir infinitamente
+            ease: 'Sine.easeInOut'     // movimiento suave
+        });
     }
 
     // ==============================
@@ -109,13 +124,14 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         this.dialogIndex = 0;
 
         const first = this.dialogList[0];
-
-        this.openDialog({
-            text: first.msgn,
-            portrait: first.portrait,
-            speaker: first.speaker,
-            type: "normal"
-        });
+        if(first != undefined){
+                this.openDialog({
+                text: first.msgn,
+                portrait: first.portrait,
+                speaker: first.speaker,
+                type: "normal"
+            });
+        }
 
         this.scene.currentNPC = this;
     }
@@ -156,6 +172,14 @@ export default class NPC extends Phaser.GameObjects.Sprite {
             .setScale(0.9)
             .setFlipX(!speaker.toLowerCase().includes("otter"))
             .setDepth(2000);
+        this.scene.tweens.add({
+            targets: this.speakerImage,
+            scaleX: 1.0,
+            scaleY: 1.0,
+            duration: 180,
+            ease: "Back.Out", // Da el efecto de rebote suave
+            from: { scaleX: 0.75, scaleY: 0.75 }
+        });
     }
     // ===============================================
     // PASAR DE DIALOGO
@@ -259,12 +283,14 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         if (!locator || !locator.Rechazo) return;
 
         const r = locator.Rechazo;
-        this.openDialog({
-            text: r.msgn,
-            portrait: r.portrait,
-            speaker: r.speaker,
-            type: "rejection"
-        });
+        if(r != undefined){
+            this.openDialog({
+                text: r.msgn,
+                portrait: r.portrait,
+                speaker: r.speaker,
+                type: "rejection"
+            });
+        }
     }
 
 
@@ -316,7 +342,10 @@ export default class NPC extends Phaser.GameObjects.Sprite {
 
     }
     openDialog(config) {
-
+        if (!config || !config.text) {
+            console.warn("Dialog text is null or undefined!", config);
+            config.text = ""; // default
+        }
         // ==========================
         // Destrucción previa
         // ==========================
@@ -384,8 +413,16 @@ export default class NPC extends Phaser.GameObjects.Sprite {
             .setFlipX(!isOtter)
             .setDepth(2000);
 
+        this.scene.tweens.add({
+            targets: this.rejectionPortrait,
+            scaleX: 1.0,
+            scaleY: 1.0,
+            duration: 180,
+            ease: "Back.Out", // Da el efecto de rebote suave
+            from: { scaleX: 0.75, scaleY: 0.75 }
+        });
         this.speakerImage = !this.isRejection ? this.rejectionPortrait : null;
-
+        
         // **Después de crear la imagen, llamar a showDialogName**
         this.showDialogName(config);
         // ==========================

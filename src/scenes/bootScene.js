@@ -39,6 +39,15 @@ export default class Boot extends Phaser.Scene {
     img.setOrigin(0.5);
     img.setScale(0.3);
 
+    this.tweens.add({
+      targets: img,
+      y: img.y - 10,       // Mueve hacia arriba 20 píxeles
+      duration: 1000,       // Duración del movimiento hacia arriba
+      yoyo: true,          // Reproduce en reversa (sube y baja)
+      repeat: -1,          // Repite infinitamente
+      ease: 'Sine.easeInOut' // Movimiento suave
+  });
+
     // Vincular progreso real del cargador
     this.load.on('progress', (value) => {
       progressBar.clear();
@@ -109,6 +118,7 @@ export default class Boot extends Phaser.Scene {
        this.load.image('dinamita', './assets/imagenes/minigames/WhackAMole/objects/bomba.png');
        this.load.video('WAMVideo', './assets/imagenes/minigames/WhackAMole/background/WAMVideo.mp4');
        this.load.image('toposEnd', './assets/imagenes/minigames/WhackAMole/endImg.png');
+       this.load.spritesheet('explosion','./assets/imagenes/minigames/WhackAMole/objects/explosion.png', {frameWidth: 32,frameHeight:32})
        
       // == LIGHT UP GHOSTS ==
       this.load.image('fantasmasEnd', './assets/imagenes/minigames/LightUpGhosts/endImg.png');
