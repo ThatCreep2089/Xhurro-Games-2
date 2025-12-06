@@ -11,6 +11,7 @@ export default class starer extends Phaser.GameObjects.Image {
         this.factor = 0.3;
         this.effectDuration = 5; //Seg
 
+        this.hitedBool = false;
         //Cada vez que se mueve el cursor se actualiza la info sobre su radio y distancia de él
         this.scene.event.on('movingLight', (position) => {
             this.light = position;
@@ -20,25 +21,37 @@ export default class starer extends Phaser.GameObjects.Image {
                 let maxDistance = position.radius/2;
                 let lightDistance = Phaser.Math.Distance.Between(position.x, position.y, this.x, this.y);
     
-                if(lightDistance < maxDistance && this.active) {
+                if(!this.hitedBool && lightDistance < maxDistance && this.active) {
                     this.hited();
                 }
             }
         });
+
+        this.hitedBool = false;
     }
 
     hited() {
          //Este fantasma desaparece en el primer hit y reduce el radio e intensidad de la antorcha durante unos segundos
-         if (this.light != null && this.light != undefined){
-            this.light.radius -= this.scene.radius * this.factor;
-            this.light.intensity -= this.scene.intensity * this.factor;
-   
+         if (this.light != null && this.light != undefined && this.light.radius != null && this.light.radius != undefined){
+
             this.scene.time.delayedCall(this.effectDuration*1000, ()=>{
-                if (this.light != null && this.light != undefined){
-                    this.light.radius += this.scene.radius * this.factor;
-                    this.light.intensity += this.scene.intensity * this.factor;
+                if (this.light != null && this.light != undefined && this.light.radius != null && this.light.radius != undefined){
+                    this.scene.tweens.add({
+                        targets: this.light,
+                        radius: this.light.radius + (this.scene.radius * this.factor),
+                        duration: 600,  // duración total del "desvanecimiento"
+                        ease: 'Sine.easeOut',
+                    });
                 }
             });
+
+            this.scene.tweens.add({
+                targets: this.light,
+                radius: this.light.radius - (this.scene.radius * this.factor),
+                duration: 600,  // duración total del "desvanecimiento"
+                ease: 'Sine.easeIn',
+            });
+            
             const rotationTween = this.scene.tweens.add({
                 targets: this,
                 angle: 15,       // gira 15° a un lado
@@ -61,6 +74,8 @@ export default class starer extends Phaser.GameObjects.Image {
                     this.setAlpha(1);
                     this.setScale(0.4);
                     this.setAngle(0);
+                    this.hidedBool = false;
+                    this.scene.event.emit('hideGhost', this, this.punish);
                 }
             });
 

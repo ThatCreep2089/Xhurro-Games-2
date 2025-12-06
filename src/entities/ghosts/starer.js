@@ -22,11 +22,13 @@ export default class starer extends Phaser.GameObjects.Image {
 
         this.time = 6; //tiempo inicial en segundos
         this.timeLeft = this.time;
+
+        this.hided = false;
     }
 
     hide(scaped) { //desativar objeto de pool y reiniciar tiempo de vida
+        this.hided = true;
         let reward = scaped? this.punish : this.score;
-        this.scene.event.emit('hideGhost', this, reward);
         this.timeLeft = this.time;
 
         const rotationTween = this.scene.tweens.add({
@@ -51,6 +53,8 @@ export default class starer extends Phaser.GameObjects.Image {
                 this.setAlpha(1);
                 this.setScale(0.4);
                 this.setAngle(0);
+                this.hided = false;
+                this.scene.event.emit('hideGhost', this, reward);
             }
         });
     }
@@ -61,7 +65,7 @@ export default class starer extends Phaser.GameObjects.Image {
         else this.alpha -= this.disappearSpeed * (dt/1000);
 
         //Desactivar el objeto de la pool y reiniciamos tiempo de vida
-        if (this.alpha <= 0.25){
+        if (this.alpha <= 0.25 && !this.hided){
             this.hide(false);
         }
     }
@@ -74,7 +78,7 @@ export default class starer extends Phaser.GameObjects.Image {
 
         this.timeLeft -= dt/1000;
 
-        if (this.timeLeft <= 0) {
+        if (this.timeLeft <= 0 && !this.hided) {
             this.hide(true)
         }
     }

@@ -30,11 +30,13 @@ export default class starer extends Phaser.GameObjects.Image {
 
         this.time = 6; //tiempo inicial en segundos
         this.timeLeft = this.time;
+
+        this.hided = false;
     }
 
     hide(scaped) { //desativar objeto de pool y reiniciar tiempo de vida
+        this.hided = true;
         let reward = scaped? this.punish : this.score;
-        this.scene.event.emit('hideGhost', this, reward);
         if (this.body) this.body.setVelocity(0,0);
         this.timeLeft = this.time;
 
@@ -48,7 +50,7 @@ export default class starer extends Phaser.GameObjects.Image {
         });
 
         // Tween de desaparición (escala y alpha)
-        this.scene.tweens.add({
+        let t = this.scene.tweens.add({
             targets: this,
             alpha: 0,
             scale: 0,
@@ -60,6 +62,8 @@ export default class starer extends Phaser.GameObjects.Image {
                 this.setAlpha(1);
                 this.setScale(0.4);
                 this.setAngle(0);
+                this.hided = false;
+                this.scene.event.emit('hideGhost', this, reward);
             }
         });
     }
@@ -94,7 +98,7 @@ export default class starer extends Phaser.GameObjects.Image {
             this.body.setVelocity(-this.direction.x * this.speed * dt, -this.direction.y * this.speed * dt);
 
         //Desactivar el objeto de la pool y reiniciamos tiempo de vida
-        if (this.alpha <= 0.25){
+        if (this.alpha <= 0.25 && !this.hided){
             this.hide(false);
         }
     }
@@ -118,7 +122,7 @@ export default class starer extends Phaser.GameObjects.Image {
             this.timeLeft -= dt/1000 //Solo corre el tiempo de vida si no le alcanza la luz
         }
 
-        if (this.timeLeft <= 0) {
+        if (this.timeLeft <= 0 && !this.hided) {
             this.hide(true)
         }
     }
