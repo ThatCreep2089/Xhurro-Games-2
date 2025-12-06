@@ -28,6 +28,31 @@ export default class starer extends Phaser.GameObjects.Image {
         let reward = scaped? this.punish : this.score;
         this.scene.event.emit('hideGhost', this, reward);
         this.timeLeft = this.time;
+
+        const rotationTween = this.scene.tweens.add({
+            targets: this,
+            angle: 15,       // gira 15° a un lado
+            duration: 200,   // velocidad de giro
+            yoyo: true,      // regresa al ángulo original
+            repeat: -1,      // repite indefinidamente hasta terminar la escala
+            ease: 'Sine.easeInOut'
+        });
+
+        // Tween de desaparición (escala y alpha)
+        this.scene.tweens.add({
+            targets: this,
+            alpha: 0,
+            scale: 0,
+            duration: 600,  // duración total del "desvanecimiento"
+            ease: 'Cubic.easeIn',
+            onComplete: () => {
+                // Detener rotación y reiniciar propiedades
+                rotationTween.stop();
+                this.setAlpha(1);
+                this.setScale(0.4);
+                this.setAngle(0);
+            }
+        });
     }
 
     hitting(dt) {
