@@ -16,19 +16,9 @@ export default class TestScene extends Phaser.Scene {
     create() {
        
         // === MAPA ===
-      // this.createMap();
-         	this.map = this.make.tilemap({ 
-			key: 'tilemap', 
-			tileWidth: 10, 
-			tileHeight: 10 
-		});
-        
-         const tiles = this.map.addTilesetImage( "afshtsj-export", 'tiles');
-		 this.groundLayer = this.map.createLayer ('floor', tiles);
-         this.wallLayer= this.map.createLayer ('wall',tiles);
-         this.wallLayer.setCollision(145); 
-         //this.map = this.add.tilemap("tilemap")
-        this.setPositionsMap();
+      this.createMap();
+    
+       // this.setPositionsMap();
 
         this.physics.world.setBounds(0, 0, 1000, 1000);
         this.cameras.main.setBounds(0, 0, 1000, 1000);
@@ -103,13 +93,18 @@ export default class TestScene extends Phaser.Scene {
 
 
     createMap(){
-       const map = this.add.tilemap("tilemap")
-      
-        const tiles = this.map.addTilesetImage( "afshtsj", 'tiles');
-		this.groundLayer= this.map.createLayer ('Capa de patrones 1',tiles);
-      this.wallLayer= this.map.createLayer ('Capa de patrones 2',tiles);
-      this.wallLayer.setCollision(14); 
-        this.physics.add.collider(this.otter, this.wallLayer);
+         	this.map = this.make.tilemap({ 
+			key: 'tilemap', 
+			tileWidth: 40, 
+			tileHeight: 40 
+		});
+        
+         const tiles = this.map.addTilesetImage( "afshtsj-export", 'tiles');
+		 this.groundLayer = this.map.createLayer ('floor', tiles);
+         this.wallLayer= this.map.createLayer ('wall',tiles);
+         this.wallLayer.setCollision(145); 
+        
+        //this.physics.add.collider(this.otter, this.wallLayer);
     }
 
     setPositionsMap(){

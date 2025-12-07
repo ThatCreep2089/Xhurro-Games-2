@@ -87,7 +87,17 @@ export default class Boot extends Phaser.Scene {
      this.load.json('dialogos', './data/DialogScene.json');
 
      this.load.image("tiles", "./assets/mainScene/afshtsj-export.png");
-     this.load.tilemapTiledJSON("tilemap", "./assets/mainscene/mapa.json");
+     //this.load.tilemapTiledJSON("tilemap", "./assets/mainscene/mapa.json");
+
+     // === TILEMAP ===
+       this.load.tilemapTiledJSON("tilemap", "./assets/mainscene/map_final.json");
+       this.load.image("cardboard", "./assets/mainScene/cardboard.png");
+       this.load.image("foresttiles", "./assets/mainScene/foresttiles.png");
+       this.load.image("grass", "./assets/mainScene/grass.png");
+       this.load.image("paintriver", "./assets/mainScene/grass.png");
+       this.load.image("paperobstacles", "./assets/mainScene/paperpbstacles.png");
+        
+        this.load.image("tree", "./assets/mainScene/tree.png");
     this.first = false;
   }
 }
