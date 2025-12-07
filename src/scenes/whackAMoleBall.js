@@ -54,7 +54,7 @@ export default class WhachAMoleBall extends Phaser.Scene{
 
         const ballList = [];
         for (let i = 0; i < 5; i++) {
-            const ball = new Ball(this, 0, 0, 'house', 400, null);
+            const ball = new Ball(this, 0, 0, 'house', 550, null);
             ballList.push(ball);
         }
 
@@ -115,7 +115,7 @@ export default class WhachAMoleBall extends Phaser.Scene{
 
         // Spawn aleatorio de enemigos
         this.time.addEvent({
-            delay: 2000,
+            delay: 3000,
             callback: this.spawnRandomEnemy,
             callbackScope: this,
             loop: true
@@ -174,7 +174,7 @@ export default class WhachAMoleBall extends Phaser.Scene{
         enemy.appear(position.x, position.y);
 
         // Ocultar después de 1-2 segundos
-        const hideTime = Phaser.Math.Between(1000, 2000);
+        const hideTime = Phaser.Math.Between(2000, 5000);
         this.time.delayedCall(hideTime, () => {
             if (enemy.active) enemy.hide();
         });
