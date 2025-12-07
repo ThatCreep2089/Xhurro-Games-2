@@ -53,16 +53,37 @@ export default class lightUpGhosts extends Phaser.Scene {
         this.radius = 80;
         this.intensity = 0.7;
         this.antorchaLight = this.lights.addLight(10, 10, this.radius).setColor(0xe25822).setIntensity(this.intensity);
+        this.antorchaLight.x = this.input.activePointer.x;
+        this.antorchaLight.y = this.input.activePointer.y;
 
+        this.input.mouse.requestPointerLock();
         this.input.on('pointermove', (pointer) => {
-            const worldPoint = this.cameras.main.getWorldPoint(pointer.x, pointer.y);
+            if (this.input.mouse.locked){
+                this.antorchaLight.x += pointer.movementX;
+                this.antorchaLight.y += pointer.movementY;
 
-            if (this.antorchaLight.x){
-                this.antorchaLight.x = worldPoint.x;
-                this.antorchaLight.y = worldPoint.y;
-    
-                this.event.emit('movingLight', this.antorchaLight);
+                //Luz no sale de CANVAS
+                this.antorchaLight.x = Phaser.Math.Clamp(
+                    this.antorchaLight.x, 
+                    this.cameras.main.worldView.x, 
+                    this.cameras.main.worldView.x + this.cameras.main.worldView.width
+                );
+
+                this.antorchaLight.y = Phaser.Math.Clamp(
+                    this.antorchaLight.y, 
+                    this.cameras.main.worldView.y, 
+                    this.cameras.main.worldView.y + this.cameras.main.worldView.height
+                );
             }
+            else{
+                const worldPoint = this.cameras.main.getWorldPoint(pointer.x, pointer.y);
+                if (this.antorchaLight.x){
+                    this.antorchaLight.x = worldPoint.x;
+                    this.antorchaLight.y = worldPoint.y;
+                }
+            }
+
+            this.event.emit('movingLight', this.antorchaLight);
         });
 
         // === FANTASMAS ===
@@ -98,6 +119,9 @@ export default class lightUpGhosts extends Phaser.Scene {
             this.end = true;
             this.timerSFX.stop();
              this.fantasmas.clear(true, true);
+             if (this.input.mouse.locked) {
+                this.input.mouse.releasePointerLock();
+             }
              this.input.setDefaultCursor('default');
              this.lights.removeLight(this.antorchaLight);
              
@@ -124,8 +148,6 @@ export default class lightUpGhosts extends Phaser.Scene {
             GameDataManager.updateReward({paint: rewardAmount.paint * times, paper: rewardAmount.paper * times, clay: rewardAmount.clay * times});
 
             GameDataManager.saveFrom(this.scene.get('mainScene') || this);
-
-            this.input.setDefaultCursor('auto');
 
             if (mainScene.fade) this.UIManager.FadeIn();
             else{
