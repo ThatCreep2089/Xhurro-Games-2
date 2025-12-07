@@ -138,14 +138,28 @@ export default class Boot extends Phaser.Scene {
 
     // === AUDIO ===
 
-    // == MÚSICA ==
-    this.load.audio('lightUpGhostsMusic', './assets/audios/minigames/LightUpGhosts/LightUpGhosts.mp3');
-    this.load.audio('puzzleMusic', './assets/audios/minigames/Puzzle/Puzzle.mp3');
-    this.load.audio('whackAMoleMusic', './assets/audios/minigames/WhackAMole/Topos.mp3');
-    this.load.audio('titleMusic', './assets/audios/Title.mp3');
-    this.load.audio('mainSceneMusic', './assets/audios/mainScene.mp3');
-    this.load.audio('minigameInfoMusic', './assets/audios/minigames/MinigameInfo.mp3');
+      // == MÚSICA ==
+       this.load.audio('titleMusic', './assets/audios/Title.mp3');
+       this.load.audio('mainSceneMusic', './assets/audios/mainScene.mp3');
+       this.load.audio('minigameInfoMusic', './assets/audios/minigames/MinigameInfo.mp3');
+       // = MINIGAMES =
+         this.load.audio('lightUpGhostsMusic', './assets/audios/minigames/LightUpGhosts/LightUpGhosts.mp3');
+         this.load.audio('puzzleMusic', './assets/audios/minigames/Puzzle/Puzzle.mp3');
+         this.load.audio('whackAMoleMusic', './assets/audios/minigames/WhackAMole/Topos.mp3');
 
-    // == SFX ==
+      // == SFX ==
+       this.load.audio('walkingSFX', './assets/audios/walking.mp3');
+        // = HUD =
+         this.load.audio('appearWarningSFX', './assets/audios/HUD/appearWarning.mp3');
+         this.load.audio('disappearWarningSFX', './assets/audios/HUD/disappearWarning.mp3');
+         this.load.audio('acceptSFX', './assets/audios/HUD/accept.mp3');
+         this.load.audio('refuseSFX', './assets/audios/HUD/refuse.mp3');
+        // = MINIGAMES =
+         this.load.audio('timerSFX', './assets/audios/minigames/timer.mp3');
+         this.load.audio('rotatePieceSFX', './assets/audios/minigames/Puzzle/rotatePiece.mp3');
+         this.load.audio('appearMoleSFX', './assets/audios/minigames/WhackAMole/appearMole.mp3');
+        // = SOURCES =
+         this.load.audio('grabSFX', './assets/audios/sources/grab.mp3');
+         this.load.audio('changingDaySFX', './assets/audios/sources/changingDay.mp3');
   }
 }

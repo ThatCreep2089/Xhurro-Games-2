@@ -162,68 +162,75 @@ export default class UIManager {
         let accumulatedPaint = 0; let accumulatedPaper = 0; let accumulatedClay = 0; let accumulatedStamina = 0;
 
        //suscripción para actualizar inventario
-       this.event.on('updateInventory', (sources) => {
+       this.event.on('updateInventory', (sources, fade = false) => {
 
-           paintNumber.setText("x" + backpack.paint);
-           paperNumber.setText("x" + backpack.paper);
-           clayNumber.setText("x" + backpack.clay);
+        let duration = 0;
+        if (fade) duration = 4000;
 
-           //Activamos mensaje de recompensa por unos segundos
-           if (sources.paint && sources.paint != 0){
+        const cSources = {paint: sources.paint, paper: sources.paper, clay: sources.clay};
 
-                if (warningPaint.every(e => e.finished === true)){
-                    accumulatedPaint = 0;
-                    warningPaint = this.warningDown(bgPaint, 45, true);
-                    this.warningDown(paintReward, 45, true);
-                }
-                else accumulatedPaint += sources.paint;
+        setTimeout(() => {
+            paintNumber.setText("x" + backpack.paint);
+            paperNumber.setText("x" + backpack.paper);
+            clayNumber.setText("x" + backpack.clay);
 
-                let number = sources.paint + accumulatedPaint;
-                if(number > 0){
-                    paintReward.setColor('#008000');
-                    paintReward.setText("+" + number);
-                }
-                else{
-                    paintReward.setColor('#ff0000');
-                    paintReward.setText(number);
-                }
-           }
+            //Activamos mensaje de recompensa por unos segundos
+            if (cSources.paint && cSources.paint != 0){
 
-           if (sources.paper && sources.paper != 0){
-                if (warningPaper.every(e => e.finished === true)){
-                    accumulatedPaper = 0;
-                    warningPaper = this.warningDown(bgPaper, 45, true);
-                    this.warningDown(paperReward, 45, true);
-                } else accumulatedPaper += sources.paper;
+                 if (warningPaint.every(e => e.finished === true)){
+                     accumulatedPaint = 0;
+                     warningPaint = this.warningDown(bgPaint, 45, true);
+                     this.warningDown(paintReward, 45, true);
+                 }
+                 else accumulatedPaint += cSources.paint;
 
-                let number = sources.paper + accumulatedPaper;
-                if(number > 0){
-                    paperReward.setColor("#008000");
-                    paperReward.setText("+" + number);
-                }
-                else{
-                    paperReward.setColor("#ff0000");
-                    paperReward.setText(number);
-                }
-           }
-
-           if (sources.clay && sources.clay != 0){
-                if (warningClay.every(e => e.finished === true)){
-                    accumulatedClay = 0;
-                    warningClay = this.warningDown(bgClay, 45, true);
-                    this.warningDown(clayReward, 45, true);
-                } else accumulatedClay += sources.clay;
-
-                let number = sources.clay + accumulatedClay;
-                if (number > 0){
-                    clayReward.setColor('#008000');
-                    clayReward.setText("+" + number);
-                }
-                else{
-                    clayReward.setColor('#ff0000');
-                    clayReward.setText(number);
-                }
+                 let number = cSources.paint + accumulatedPaint;
+                 if(number > 0){
+                     paintReward.setColor('#008000');
+                     paintReward.setText("+" + number);
+                 }
+                 else{
+                     paintReward.setColor('#ff0000');
+                     paintReward.setText(number);
+                 }
             }
+
+            if (cSources.paper && cSources.paper != 0){
+                 if (warningPaper.every(e => e.finished === true)){
+                     accumulatedPaper = 0;
+                     warningPaper = this.warningDown(bgPaper, 45, true);
+                     this.warningDown(paperReward, 45, true);
+                 } else accumulatedPaper += cSources.paper;
+
+                 let number = cSources.paper + accumulatedPaper;
+                 if(number > 0){
+                     paperReward.setColor("#008000");
+                     paperReward.setText("+" + number);
+                 }
+                 else{
+                     paperReward.setColor("#ff0000");
+                     paperReward.setText(number);
+                 }
+            }
+
+            if (cSources.clay && cSources.clay != 0){
+                 if (warningClay.every(e => e.finished === true)){
+                     accumulatedClay = 0;
+                     warningClay = this.warningDown(bgClay, 45, true);
+                     this.warningDown(clayReward, 45, true);
+                 } else accumulatedClay += cSources.clay;
+
+                 let number = cSources.clay + accumulatedClay;
+                 if (number > 0){
+                     clayReward.setColor('#008000');
+                     clayReward.setText("+" + number);
+                 }
+                 else{
+                     clayReward.setColor('#ff0000');
+                     clayReward.setText(number);
+                 }
+             }
+        }, duration);
        });
 
        this.event.on('updateStamina', (amount)=>{
@@ -718,6 +725,8 @@ export default class UIManager {
         const cam = this.scene.cameras.main;
         const mainScene = this.scene.scene.get('mainScene');
 
+        this.scene.sound.add('changingDaySFX', {volume: 5,}).play();
+
         let rect = this.scene.add.rectangle(cam.width/2, cam.height/2, cam.width, cam.height, 0x000000); rect.alpha = 0;
         let text = this.scene.add.text(cam.width/2, cam.height/2, "DÍA " + mainScene.currentDay,{
             fontFamily: 'bobFont',
@@ -735,7 +744,7 @@ export default class UIManager {
             targets: [rect, text],
             alpha: 1,
             ease: 'Expo.easeOut',
-            duration: 2500,
+            duration: 4000,
         });
         
         t.once('complete', () => {this.scene.scene.start('mainScene')});
@@ -763,7 +772,7 @@ export default class UIManager {
             targets: [rect, text],
             alpha: 0,
             ease: 'Expo.easeIn',
-            duration: 2500,
+            duration: 4000,
         });
         t.play();
     }

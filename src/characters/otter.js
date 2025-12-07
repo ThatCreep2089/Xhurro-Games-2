@@ -1,3 +1,4 @@
+import GameDataManager from '../GameDataManager.js'
 export default class Otter extends Phaser.GameObjects.Sprite {
     /**
      * @param {Scene} scene - escena en la que aparece
@@ -6,7 +7,9 @@ export default class Otter extends Phaser.GameObjects.Sprite {
      */
     constructor(scene, x, y, speed,  texture, size = 1, colliderWidthFactor = 1, frame) {
         super(scene, x, y, texture, frame = 0);
-        
+
+        this.scene = scene;
+
         this.scene.add.existing(this); //Nos añadimos a la escena para ser mostrados.
         this.setScale(size);
 
@@ -42,6 +45,13 @@ export default class Otter extends Phaser.GameObjects.Sprite {
         //Energía del jugador
         this.stamina = 100;
         this.howToDecrease = 4;
+
+        //SFX
+        this.walkingSFX = this.scene.sound.add('walkingSFX', {
+            loop: true,
+            volume: 30
+        });
+        this.isWalkingSFXPlaying = false;
     }
 
     // === GESTIÓN DE INVENTARIO ===
@@ -55,11 +65,21 @@ export default class Otter extends Phaser.GameObjects.Sprite {
     }
 
     //Auenta los recursos de la mochila
-    collect(bag)
+    collect(bag, fade = false)
     {
-        this.backpack.paint += bag.paint;
-        this.backpack.paper += bag.paper;
-        this.backpack.clay += bag.clay
+        let duration = 0;
+        if (fade) duration = 4000;
+
+        const {paint, paper, clay} = bag;
+
+        setTimeout(() => {
+            if (paint > 0 || paper > 0 || clay > 0) this.scene.sound.add('grabSFX', { volume: 2,}).play();
+
+            this.backpack.paint += paint;
+            this.backpack.paper += paper;
+            this.backpack.clay += clay;
+
+        }, duration);
     }
 
     //Comprueba si se tienen suficientes materiales para comprar
@@ -91,6 +111,7 @@ export default class Otter extends Phaser.GameObjects.Sprite {
         // Si la estamina llega a 0, pasar al siguiente día
         if (this.stamina <= 0) {
             this.scene.nextDay();
+            GameDataManager.saveFrom(this.scene.scene.get('mainScene') || this);
             this.scene.UIManager.FadeIn();
         }
     }
@@ -101,7 +122,7 @@ export default class Otter extends Phaser.GameObjects.Sprite {
     //Reestablece la estamina
     restartStamina()
     {
-        this.stamina = 25;
+        this.stamina = 2;
         this.scene.UIManager.event.emit("updateStamina");
     }
 
@@ -114,30 +135,31 @@ export default class Otter extends Phaser.GameObjects.Sprite {
         // Es muy imporante llamar al preUpdate del padre (Sprite), sino no se ejecutará la animación
         super.preUpdate(t, dt);
 
-        if (!this.canMove) {
-            this.body.setVelocity(0, 0);
-            return;
-        }
         //Movemos el objeto en función de las teclas pulsadas por el usuario
         //Priorizando la última usada
         if (this.scene.keyW.isDown && (this.lastKey == 'W' || this.lastKey == null) && this.canMove)
         {
+            if (!this.isWalkingSFXPlaying) {this.walkingSFX.play(); this.isWalkingSFXPlaying = true;}
             this.body.setVelocity(0, -this.speed * dt);
         }
         else if (this.scene.keyS.isDown && (this.lastKey == 'S' || this.lastKey == null) && this.canMove)
         {
+            if (!this.isWalkingSFXPlaying) {this.walkingSFX.play(); this.isWalkingSFXPlaying = true;}
             this.body.setVelocity(0, this.speed * dt);
         }
         else if (this.scene.keyA.isDown && (this.lastKey == 'A' || this.lastKey == null) && this.canMove)
         {
+            if (!this.isWalkingSFXPlaying) {this.walkingSFX.play(); this.isWalkingSFXPlaying = true;}
             this.body.setVelocity(-this.speed * dt, 0);
         }
         else if (this.scene.keyD.isDown && (this.lastKey == 'D' || this.lastKey == null) && this.canMove)
         {
+            if (!this.isWalkingSFXPlaying) {this.walkingSFX.play(); this.isWalkingSFXPlaying = true;}
             this.body.setVelocity(this.speed * dt, 0);
         }
         else
         {
+            if (this.isWalkingSFXPlaying) {this.walkingSFX.stop(); this.isWalkingSFXPlaying = false;}
             this.body.setVelocity(0,0);
         }
         

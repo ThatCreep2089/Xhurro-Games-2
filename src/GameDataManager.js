@@ -19,7 +19,7 @@ export default class GameDataManager {
     static buildsConstructed = [];
     static collectedSources = [];
 
-    static day = 6; //Nuevo contador de días
+    static day = 1; //Nuevo contador de días
 
     static reward = {
         paint: 0,
@@ -27,17 +27,18 @@ export default class GameDataManager {
         clay: 0
     };
 
+    static updateReward(reward){
+        this.reward.paint = reward.paint;
+        this.reward.paper = reward.paper;
+        this.reward.clay = reward.clay;
+    }
+
     static fade = true;
 
     static saveFrom(scene) {
         if (!scene) return;
         
         if (scene.otter) {
-
-            this.reward.paint = scene.otter.backpack.paint - this.player.backpack.paint;
-            this.reward.paper = scene.otter.backpack.paper - this.player.backpack.paper;
-            this.reward.clay = scene.otter.backpack.clay - this.player.backpack.clay;
-            
             this.player.backpack.paint = scene.otter.backpack.paint;
             this.player.backpack.paper = scene.otter.backpack.paper;
             this.player.backpack.clay = scene.otter.backpack.clay;
@@ -76,9 +77,16 @@ export default class GameDataManager {
         if (scene.otter) {
 
             if (scene.otter.backpack){
+
+                //Restablecemos la mochila
                 scene.otter.backpack.paint = this.player.backpack.paint;
                 scene.otter.backpack.paper = this.player.backpack.paper;
                 scene.otter.backpack.clay = this.player.backpack.clay;
+
+                //Aplicamos recompensa
+                if (this.reward.paint > 0 || this.reward.paper > 0 || this.reward.clay > 0){
+                    scene.otter.collect(this.reward, this.fade);
+                }
             }
 
             scene.otter.x = this.player.position.x;
@@ -123,18 +131,24 @@ export default class GameDataManager {
         }
         
         if (scene.UIManager && scene.UIManager.event) {
-            scene.UIManager.event.emit('updateInventory', this.reward);
+            scene.UIManager.event.emit('updateInventory', scene.otter.backpack);
+            scene.UIManager.event.emit('updateInventory', this.reward, this.fade);
             scene.UIManager.event.emit('updateStamina');
             scene.UIManager.event.emit('updateDay'); // 🔹 nuevo evento
         } else {
             scene.time.delayedCall(200, () => {
                 if (scene.UIManager && scene.UIManager.event) {
-                    scene.UIManager.event.emit('updateInventory', this.reward);
+                    scene.UIManager.event.emit('updateInventory', scene.otter.backpack);
+                    scene.UIManager.event.emit('updateInventory', this.reward, this.fade);
                     scene.UIManager.event.emit('updateStamina');
                     scene.UIManager.event.emit('updateDay');
                 }
             });
         }
+
+        this.reward.paint = 0;
+        this.reward.paper = 0;
+        this.reward.clay = 0;
     }
 
     static getEnding(requiredDays, totalBuilds) {

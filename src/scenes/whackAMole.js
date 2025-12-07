@@ -130,13 +130,10 @@ export default class WhackAMole extends Phaser.Scene {
             const rewardAmount = rewardInfo.amountPerX;
 
             // Aplicar la recompensa
-            if (mainScene.otter && mainScene.otter.backpack) {
-                mainScene.otter.backpack.paint += rewardAmount.paint * times;
-                mainScene.otter.backpack.paper += rewardAmount.paper * times;
-                mainScene.otter.backpack.clay += rewardAmount.clay * times;
-            }
+            GameDataManager.updateReward({paint: rewardAmount.paint * times, paper: rewardAmount.paper * times, clay: rewardAmount.clay * times});
             
             GameDataManager.saveFrom(this.scene.get('mainScene') || this);
+
             if (mainScene.fade) this.UIManager.FadeIn();
             else{
                 this.scene.start('mainScene');

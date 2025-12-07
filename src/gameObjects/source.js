@@ -94,13 +94,15 @@ export default class Source extends Phaser.GameObjects.Sprite {
 
                    //Actualizamos la mochila con los recursos obtenidos
                    this.otter.collect(this.sources);
-                   //Reducimos estamina
-                   this.otter.decreaseStamina(this.staminaPrice);
+
                    //Actualizamos el HUD
                    this.scene.UIManager.event.emit("updateInventory", this.sources);
                    
                    //En caso de quedarse sin usos destruimos el objeto y sus atributos creados en escena
                    this.comproveUses();
+
+                   //Reducimos estamina
+                   setTimeout(()=>this.otter.decreaseStamina(this.staminaPrice), 10);
                }
                else this.scene.UIManager.appearNotEnoughStamina();
             }

@@ -14,7 +14,6 @@ export default class mainScene extends Phaser.Scene {
     #inputs;
 
     create() {
-        
         this.createAnims();
 
         // === MAPA ===
@@ -63,21 +62,21 @@ export default class mainScene extends Phaser.Scene {
                 name: "Whack A Mole",
                 description: "Aplasta a los topos haciendo clic sobre ellos...",
                 src: 'WAMVideo',
-                price: 25,
+                price: 24,
                 reward:{ amountPerX: {paint: 2, paper: 0, clay: 0}, X: 10 }
             },
             LightUpGhosts: {
                 name: "Ilumina a \n los fantasmas",
                 description: "Arrastra la antorcha hacia los fantasmas hasta destruirlos antes de que se escapen.",
                 src: 'WAMVideo',
-                price: 25,
+                price: 24,
                 reward:{ amountPerX:{paint: 0, paper: 2, clay: 0}, X: 10 }
             },
             Puzzle: {
                 name: "Puzle",
                 description: "Haz clic sobre las piezas para rotarlas y consigue que el puzzle encaje",
                 src: 'WAMVideo',
-                price: 25,
+                price: 24,
                 reward:{ amountPerX:{paint: 0, paper: 0, clay: 10}, X: 1 }
             }
         };
@@ -103,7 +102,6 @@ export default class mainScene extends Phaser.Scene {
         // === CARGAR DATOS ===
         this.fade = false;
         GameDataManager.applyTo(this);
-        if(this.fade){ this.fade = false; this.UIManager.FadeOut();}
 
         // === FINAL ===
         const ending = GameDataManager.getEnding(6, 2); //6 dias y 2 construcciones
@@ -111,6 +109,9 @@ export default class mainScene extends Phaser.Scene {
                 this.scene.start('ending', { good: true });}
             else if (ending === "bad") {
                 this.scene.start('ending', { good: false });}
+
+        //Una vez se ha preparado toda la escena, si tiene que hacer Fade, lo hace
+        if(this.fade){ this.fade = false; this.UIManager.FadeOut();}
     }
 
     update() {
@@ -160,8 +161,6 @@ export default class mainScene extends Phaser.Scene {
         if(this.currentDay > 6){
             console.log("final")
             GameDataManager.saveFrom(this);
-
-            
         }
     }
     
