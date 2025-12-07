@@ -40,32 +40,34 @@ export default class starer extends Phaser.GameObjects.Image {
         if (this.body) this.body.setVelocity(0,0);
         this.timeLeft = this.time;
 
-        const rotationTween = this.scene.tweens.add({
-            targets: this,
-            angle: 15,       // gira 15° a un lado
-            duration: 200,   // velocidad de giro
-            yoyo: true,      // regresa al ángulo original
-            repeat: -1,      // repite indefinidamente hasta terminar la escala
-            ease: 'Sine.easeInOut'
-        });
+        if (this.scene?.tweens){
+            const rotationTween = this.scene.tweens.add({
+                targets: this,
+                angle: 15,       // gira 15° a un lado
+                duration: 200,   // velocidad de giro
+                yoyo: true,      // regresa al ángulo original
+                repeat: -1,      // repite indefinidamente hasta terminar la escala
+                ease: 'Sine.easeInOut'
+            });
 
-        // Tween de desaparición (escala y alpha)
-        let t = this.scene.tweens.add({
-            targets: this,
-            alpha: 0,
-            scale: 0,
-            duration: 600,  // duración total del "desvanecimiento"
-            ease: 'Cubic.easeIn',
-            onComplete: () => {
-                // Detener rotación y reiniciar propiedades
-                rotationTween.stop();
-                this.setAlpha(1);
-                this.setScale(0.4);
-                this.setAngle(0);
-                this.hided = false;
-                this.scene.event.emit('hideGhost', this, reward);
-            }
-        });
+            // Tween de desaparición (escala y alpha)
+            let t = this.scene.tweens.add({
+                targets: this,
+                alpha: 0,
+                scale: 0,
+                duration: 600,  // duración total del "desvanecimiento"
+                ease: 'Cubic.easeIn',
+                onComplete: () => {
+                    // Detener rotación y reiniciar propiedades
+                    rotationTween.stop();
+                    this.setAlpha(1);
+                    this.setScale(0.4);
+                    this.setAngle(0);
+                    this.hided = false;
+                    this.scene?.event?.emit('hideGhost', this, reward);
+                }
+            });
+        }
     }
 
     hitting(dt) {
@@ -105,7 +107,7 @@ export default class starer extends Phaser.GameObjects.Image {
 
     preUpdate(t, dt){
         // == Purificación implementación ==
-        if (this.light != null)
+        if (this.light)
         this.lightDistance = Phaser.Math.Distance.Between(this.light.x, this.light.y, this.x, this.y);
 
         if (this.light && !this.onLight){ //Queremos que se mueva con la última dirección registrada al entrar en el circulo de luz

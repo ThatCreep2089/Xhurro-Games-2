@@ -16,7 +16,7 @@ export default class starer extends Phaser.GameObjects.Image {
         this.scene.event.on('movingLight', (position) => {
             this.light = position;
 
-            if (this.light.radius)
+            if (this.light?.radius)
             {
                 let maxDistance = position.radius/2;
                 let lightDistance = Phaser.Math.Distance.Between(position.x, position.y, this.x, this.y);
@@ -26,32 +26,19 @@ export default class starer extends Phaser.GameObjects.Image {
                 }
             }
         });
-
-        this.hitedBool = false;
     }
 
     hited() {
+         this.hitedBool = true;
          //Este fantasma desaparece en el primer hit y reduce el radio e intensidad de la antorcha durante unos segundos
-         if (this.light != null && this.light != undefined && this.light.radius != null && this.light.radius != undefined){
+         if (this.light?.radius){
+                this.light.radius -= this.scene.radius * this.factor;
+                this.scene.time.delayedCall(this.effectDuration*1000, ()=>{
+                    if (this.light?.radius)this.light.radius += this.scene.radius * this.factor;
+                });
+            }
 
-            this.scene.time.delayedCall(this.effectDuration*1000, ()=>{
-                if (this.light != null && this.light != undefined && this.light.radius != null && this.light.radius != undefined){
-                    this.scene.tweens.add({
-                        targets: this.light,
-                        radius: this.light.radius + (this.scene.radius * this.factor),
-                        duration: 600,  // duración total del "desvanecimiento"
-                        ease: 'Sine.easeOut',
-                    });
-                }
-            });
-
-            this.scene.tweens.add({
-                targets: this.light,
-                radius: this.light.radius - (this.scene.radius * this.factor),
-                duration: 600,  // duración total del "desvanecimiento"
-                ease: 'Sine.easeIn',
-            });
-            
+        if (this.scene?.tweens){
             const rotationTween = this.scene.tweens.add({
                 targets: this,
                 angle: 15,       // gira 15° a un lado
@@ -60,7 +47,6 @@ export default class starer extends Phaser.GameObjects.Image {
                 repeat: -1,      // repite indefinidamente hasta terminar la escala
                 ease: 'Sine.easeInOut'
             });
-
             // Tween de desaparición (escala y alpha)
             this.scene.tweens.add({
                 targets: this,
@@ -74,11 +60,10 @@ export default class starer extends Phaser.GameObjects.Image {
                     this.setAlpha(1);
                     this.setScale(0.4);
                     this.setAngle(0);
-                    this.hidedBool = false;
-                    this.scene.event.emit('hideGhost', this, this.punish);
+                    this.hitedBool = false;
+                    this.scene?.event?.emit('hideGhost', this, this.punish);
                 }
             });
-
         }
     }
 }
