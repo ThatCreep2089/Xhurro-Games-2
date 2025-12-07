@@ -22,7 +22,6 @@ export default class starer extends Phaser.GameObjects.Image {
 
         this.time = 6; //tiempo inicial en segundos
         this.timeLeft = this.time;
-
         this.hided = false;
     }
 

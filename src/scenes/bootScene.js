@@ -155,7 +155,7 @@ export default class Boot extends Phaser.Scene {
          this.load.audio('acceptSFX', './assets/audios/HUD/accept.mp3');
          this.load.audio('refuseSFX', './assets/audios/HUD/refuse.mp3');
         // = MINIGAMES =
-         this.load.audio('timerSFX', './assets/audios/minigames/timer.mp3');
+         this.load.audio('timer', './assets/audios/minigames/timerSFX.mp3');
          this.load.audio('rotatePieceSFX', './assets/audios/minigames/Puzzle/rotatePiece.mp3');
          this.load.audio('appearMoleSFX', './assets/audios/minigames/WhackAMole/appearMole.mp3');
         // = SOURCES =

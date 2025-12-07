@@ -33,6 +33,9 @@ export default class puzzle extends Phaser.Scene {
         this.timeleft = 15; //tiempo inicial en seg
         this.UIManager.event.emit('changeTimer', this.timeleft);
 
+        this.timerSFX = this.sound.add('timer', {loop: true});
+        this.timerSFX.play();
+
         this.time.addEvent({
             delay: 1000,
             callback: this.updateTimer,
@@ -127,6 +130,7 @@ export default class puzzle extends Phaser.Scene {
         if (this.timeleft <= 0 && !this.end) {
             this.win = true;
             this.end = true;
+            this.timerSFX.stop();
             this.UIManager.appearMinigameEndInfo(this,
                 ({
                     paint: (Math.floor(this.score / this.scene.get('mainScene').minigamesInfo.Puzzle.reward.X) * this.scene.get('mainScene').minigamesInfo.Puzzle.reward.amountPerX.paint),

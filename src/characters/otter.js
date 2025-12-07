@@ -112,6 +112,7 @@ export default class Otter extends Phaser.GameObjects.Sprite {
         if (this.stamina <= 0) {
             this.scene.nextDay();
             GameDataManager.saveFrom(this.scene.scene.get('mainScene') || this);
+            this.canMove = false;
             this.scene.UIManager.FadeIn();
         }
     }
@@ -122,7 +123,7 @@ export default class Otter extends Phaser.GameObjects.Sprite {
     //Reestablece la estamina
     restartStamina()
     {
-        this.stamina = 28;
+        this.stamina = 26;
         this.scene.UIManager.event.emit("updateStamina");
     }
 

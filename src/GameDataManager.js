@@ -56,6 +56,12 @@ export default class GameDataManager {
         }
 
         if (this.fade != undefined) this.fade = scene.fade;
+        if (this.fade){
+            this.player.position.x = 400;
+            this.player.position.y = 300;
+            this.navi.position.x = 450;
+            this.navi.position.y = 250;
+        }
 
         if (scene.builds && Array.isArray(scene.builds)) {
             this.buildsConstructed = scene.builds
@@ -131,14 +137,14 @@ export default class GameDataManager {
         }
         
         if (scene.UIManager && scene.UIManager.event) {
-            scene.UIManager.event.emit('updateInventory', scene.otter.backpack);
+            scene.UIManager.event.emit('updateInventory', scene.otter.backpack, false, false);
             scene.UIManager.event.emit('updateInventory', this.reward, this.fade);
             scene.UIManager.event.emit('updateStamina');
             scene.UIManager.event.emit('updateDay'); // 🔹 nuevo evento
         } else {
             scene.time.delayedCall(200, () => {
                 if (scene.UIManager && scene.UIManager.event) {
-                    scene.UIManager.event.emit('updateInventory', scene.otter.backpack);
+                    scene.UIManager.event.emit('updateInventory', scene.otter.backpack, false, false);
                     scene.UIManager.event.emit('updateInventory', this.reward, this.fade);
                     scene.UIManager.event.emit('updateStamina');
                     scene.UIManager.event.emit('updateDay');

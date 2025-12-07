@@ -10,13 +10,14 @@ export default class WhachAMoleBall extends Phaser.Scene{
     }
     create(){
 
-        this.anims.create({
-            key: 'explote',
-            frames: this.anims.generateFrameNumbers('explosion', { start: 0, end: 8 }),
-            frameRate: 7, // Velocidad de la animación
-            repeat: -1    // Animación en bucle
-        })
-
+        if (!this.anims.exists('explote')){
+            this.anims.create({
+                key: 'explote',
+                frames: this.anims.generateFrameNumbers('explosion', { start: 0, end: 8 }),
+                frameRate: 7, // Velocidad de la animación
+                repeat: -1    // Animación en bucle
+            })
+        }
 
         this.input.keyboard.enabled = true;
         this.player = new Character(this,200,500,'otter',400)
@@ -25,8 +26,9 @@ export default class WhachAMoleBall extends Phaser.Scene{
         this.UIManager.ScoreBar();
         this.UIManager.Timer();
 
-        this.music = this.sound.add('lightUpGhostsMusic', {
+        this.music = this.sound.add('whackAMoleMusic', {
             loop: true,
+            volume: 3,
         });
         this.input.setDefaultCursor('none');
         this.music.play();
@@ -41,7 +43,8 @@ export default class WhachAMoleBall extends Phaser.Scene{
         if(this.UIManager) {
             this.UIManager.event.emit('changeTimer', this.timeLeft);
         }
-
+        this.timerSFX = this.sound.add('timer', {loop: true});
+        this.timerSFX.play();
         // Timer decrece cada segundo
         this.time.addEvent({
             delay: 1000,
@@ -196,6 +199,7 @@ export default class WhachAMoleBall extends Phaser.Scene{
         }
 
         if(this.timeLeft <= 0 && !this.gameEnded) {
+            this.timerSFX.stop();
             this.input.setDefaultCursor('default');
             this.input.keyboard.enabled = false;
             this.gameEnded = true;
@@ -219,13 +223,9 @@ export default class WhachAMoleBall extends Phaser.Scene{
         const rewardAmount = rewardInfo.amountPerX;
         
         // Aplicar la recompensa
-        if (mainScene.otter && mainScene.otter.backpack) {
-            mainScene.otter.backpack.paint += rewardAmount.paint * times;
-            mainScene.otter.backpack.paper += rewardAmount.paper * times;
-            mainScene.otter.backpack.clay += rewardAmount.clay * times;
-        }
-
+        GameDataManager.updateReward({paint: rewardAmount.paint * times, paper: rewardAmount.paper * times, clay: rewardAmount.clay * times});
         GameDataManager.saveFrom(this.scene.get('mainScene') || this);
+
         this.input.setDefaultCursor('auto');
 
         if (mainScene.fade) this.UIManager.FadeIn();
