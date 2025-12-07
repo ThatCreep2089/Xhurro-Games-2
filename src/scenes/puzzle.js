@@ -47,13 +47,15 @@ export default class puzzle extends Phaser.Scene {
         let puzzle0 = {
             height: 2,
             width: 2,
-            piezas:['topo', 'topo', 'topo', 'topo']
+            piezas:['puzzle0_0', 'puzzle0_1', 'puzzle0_2', 'puzzle0_3'],
+            scale: 0.2
         }
 
         let puzzle1 = {
             height: 3,
             width: 3,
-            piezas:['house', 'house', 'house', 'house', 'house', 'house', 'house', 'house', 'house']
+            piezas:['puzzle1_0', 'puzzle1_1', 'puzzle1_2', 'puzzle1_3', 'puzzle1_4', 'puzzle1_5', 'puzzle1_6', 'puzzle1_7', 'puzzle1_8'],
+            scale: 0.15
         }
 
         this.Puzzles = [puzzle0, puzzle1]
@@ -63,10 +65,10 @@ export default class puzzle extends Phaser.Scene {
         let choosenPuzzle = this.Puzzles[Math.floor(Math.random() * this.Puzzles.length)];
 
         // Colocamos las piezas en pantalla
-        let betweenSpace = 10; //espacio entre piezas
+        let betweenSpace = 5; //espacio entre piezas
         //posición X e Y inicial (mitad de camara - tamaño de puzzle con espacio entre piezas + la mitad del tamaño de una imagen (porque el origen de la imagen es 0.5,0.5 y no 0,0))
-        let iniPosX = this.cameras.main.centerX - (((this.textures.get(choosenPuzzle.piezas[0]).getSourceImage().width * choosenPuzzle.width) + (betweenSpace * (choosenPuzzle.width -1)))/2) + (this.textures.get(choosenPuzzle.piezas[0]).getSourceImage().width/2);
-        let iniPosY = this.cameras.main.centerY - (((this.textures.get(choosenPuzzle.piezas[0]).getSourceImage().height * choosenPuzzle.height) + (betweenSpace * (choosenPuzzle.height -1)))/2 - (this.textures.get(choosenPuzzle.piezas[0]).getSourceImage().height/2));
+        let iniPosX = this.cameras.main.centerX - (((this.textures.get(choosenPuzzle.piezas[0]).getSourceImage().width * choosenPuzzle.width * choosenPuzzle.scale) + (betweenSpace * (choosenPuzzle.width -1)))/2) + (this.textures.get(choosenPuzzle.piezas[0]).getSourceImage().width/2 * choosenPuzzle.scale);
+        let iniPosY = this.cameras.main.centerY - (((this.textures.get(choosenPuzzle.piezas[0]).getSourceImage().height * choosenPuzzle.height * choosenPuzzle.scale) + (betweenSpace * (choosenPuzzle.height -1)))/2 - (this.textures.get(choosenPuzzle.piezas[0]).getSourceImage().height/2 * choosenPuzzle.scale));
         //array con las piezas del puzle
         let pieces = [];
 
@@ -75,8 +77,8 @@ export default class puzzle extends Phaser.Scene {
             for(let x = 0; x < choosenPuzzle.width; x++){
                 let angle = Math.floor(Math.random() * 4);
                 if(angle === 0) this.score++;
-                let increaseX = x* (this.textures.get(choosenPuzzle.piezas[(x) + ((y) * (choosenPuzzle.width))]).getSourceImage().width + betweenSpace);
-                let increaseY = y* (this.textures.get(choosenPuzzle.piezas[(x) + ((y) * (choosenPuzzle.width))]).getSourceImage().height + betweenSpace);
+                let increaseX = x* ((this.textures.get(choosenPuzzle.piezas[(x) + ((y) * (choosenPuzzle.width))]).getSourceImage().width * choosenPuzzle.scale) + betweenSpace);
+                let increaseY = y* ((this.textures.get(choosenPuzzle.piezas[(x) + ((y) * (choosenPuzzle.width))]).getSourceImage().height * choosenPuzzle.scale) + betweenSpace);
                 pieces.push({pieza: 
                     this.add.image(
                         iniPosX + increaseX,
@@ -87,6 +89,10 @@ export default class puzzle extends Phaser.Scene {
             }
             }
         }
+
+        pieces.forEach((piece) => {
+            piece.pieza.setScale(choosenPuzzle.scale);
+        });
 
         //Hacemos las piezas interactuables y suscribimos a su interacción
         this.win = false;

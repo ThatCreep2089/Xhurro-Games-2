@@ -132,19 +132,19 @@ export default class Boot extends Phaser.Scene {
 
       // == PUZZLE ==
       this.load.image('puzleEnd', './assets/imagenes/minigames/Puzzle/endImg.png');
-      this.load.image('puzzle0_0', './assets/audios/minigames/Puzzle/Puzzle0/puzzle0_0.png');
-      this.load.image('puzzle0_1', './assets/audios/minigames/Puzzle/Puzzle0/puzzle0_1.png');
-      this.load.image('puzzle0_2', './assets/audios/minigames/Puzzle/Puzzle0/puzzle0_2.png');
-      this.load.image('puzzle0_3', './assets/audios/minigames/Puzzle/Puzzle0/puzzle0_3.png');
-      this.load.image('puzzle1_0', './assets/audios/minigames/Puzzle/Puzzle1/puzzle1_0.png');
-      this.load.image('puzzle1_1', './assets/audios/minigames/Puzzle/Puzzle1/puzzle1_1.png');
-      this.load.image('puzzle1_2', './assets/audios/minigames/Puzzle/Puzzle1/puzzle1_2.png');
-      this.load.image('puzzle1_3', './assets/audios/minigames/Puzzle/Puzzle1/puzzle1_3.png');
-      this.load.image('puzzle1_4', './assets/audios/minigames/Puzzle/Puzzle1/puzzle1_4.png');
-      this.load.image('puzzle1_5', './assets/audios/minigames/Puzzle/Puzzle1/puzzle1_5.png');
-      this.load.image('puzzle1_6', './assets/audios/minigames/Puzzle/Puzzle1/puzzle1_6.png');
-      this.load.image('puzzle1_7', './assets/audios/minigames/Puzzle/Puzzle1/puzzle1_7.png');
-      this.load.image('puzzle1_8', './assets/audios/minigames/Puzzle/Puzzle1/puzzle1_8.png');
+      this.load.image('puzzle0_0', './assets/imagenes/minigames/Puzzle/Puzzle0/puzzle0_0.png');
+      this.load.image('puzzle0_1', './assets/imagenes/minigames/Puzzle/Puzzle0/puzzle0_1.png');
+      this.load.image('puzzle0_2', './assets/imagenes/minigames/Puzzle/Puzzle0/puzzle0_2.png');
+      this.load.image('puzzle0_3', './assets/imagenes/minigames/Puzzle/Puzzle0/puzzle0_3.png');
+      this.load.image('puzzle1_0', './assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_0.png');
+      this.load.image('puzzle1_1', './assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_1.png');
+      this.load.image('puzzle1_2', './assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_2.png');
+      this.load.image('puzzle1_3', './assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_3.png');
+      this.load.image('puzzle1_4', './assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_4.png');
+      this.load.image('puzzle1_5', './assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_5.png');
+      this.load.image('puzzle1_6', './assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_6.png');
+      this.load.image('puzzle1_7', './assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_7.png');
+      this.load.image('puzzle1_8', './assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_8.png');
 
     // === RECURSOS DIÁLOGOS ===
     this.load.json('prueba', './data/DialogoToniPablo.json');
