@@ -75,10 +75,13 @@ export default class Boot extends Phaser.Scene {
     // === MAPA ===
     this.load.image('map', './assets/imagenes/HUD/map.png');
 
-    // === NPC ===
+    // === PERSONAJES ===
+    this.load.image('navi', './assets/imagenes/NPC/navi.png');
+    // == NPC ==
     this.load.image('toni', './assets/imagenes/NPC/Toni.png');
     this.load.image('pablo', './assets/imagenes/NPC/Pablo.png');
     this.load.image('ismael', './assets/imagenes/NPC/Ishmael.png');
+    this.load.image('cleon&rome', './assets/imagenes/NPC/Cleon&Rome.png');
     
     // === BUILDS ===
     this.load.image('destroyedHouse', './assets/imagenes/builds/destroyedHouse.jpg');
@@ -113,20 +116,35 @@ export default class Boot extends Phaser.Scene {
     this.load.image('MGInfoBG', './assets/imagenes/HUD/popups/MGInfoBG.png');
 
       // == WHACK A MOLE ==
-       this.load.image('topo', './assets/imagenes/minigames/WhackAMole/objects/boa.jpg');
-       this.load.image('hoyo', './assets/imagenes/minigames/WhackAMole/objects/hole.png');
-       this.load.image('dinamita', './assets/imagenes/minigames/WhackAMole/objects/bomba.png');
-       this.load.video('WAMVideo', './assets/imagenes/minigames/WhackAMole/background/WAMVideo.mp4');
-       this.load.image('toposEnd', './assets/imagenes/minigames/WhackAMole/endImg.png');
-       this.load.spritesheet('explosion','./assets/imagenes/minigames/WhackAMole/objects/explosion.png', {frameWidth: 32,frameHeight:32})
+      this.load.image('topo', './assets/imagenes/minigames/WhackAMole/objects/marcus.png');
+      this.load.image('hoyo', './assets/imagenes/minigames/WhackAMole/objects/holeFront.png');
+      this.load.image('hoyoBack', './assets/imagenes/minigames/WhackAMole/objects/holeBack.png');
+      this.load.image('dinamita', './assets/imagenes/minigames/WhackAMole/objects/bomba.png');
+      this.load.video('WAMVideo', './assets/imagenes/minigames/WhackAMole/background/WAMVideo.mp4');
+      this.load.image('toposEnd', './assets/imagenes/minigames/WhackAMole/endImg.png');
+      this.load.spritesheet('explosion','./assets/imagenes/minigames/WhackAMole/objects/explosion.png', {frameWidth: 32,frameHeight:32})
        
       // == LIGHT UP GHOSTS ==
       this.load.image('fantasmasEnd', './assets/imagenes/minigames/LightUpGhosts/endImg.png');
+      this.load.image('blower', './assets/imagenes/minigames/LightUpGhosts/largeGhost.png');
+      this.load.image('hiker', './assets/imagenes/minigames/LightUpGhosts/smallGhost.png');
+      this.load.image('starer', './assets/imagenes/minigames/LightUpGhosts/bigGhost.png');
 
       // == PUZZLE ==
       this.load.image('puzleEnd', './assets/imagenes/minigames/Puzzle/endImg.png');
-    
-    //
+      this.load.image('puzzle0_0', './assets/audios/minigames/Puzzle/Puzzle0/puzzle0_0.png');
+      this.load.image('puzzle0_1', './assets/audios/minigames/Puzzle/Puzzle0/puzzle0_1.png');
+      this.load.image('puzzle0_2', './assets/audios/minigames/Puzzle/Puzzle0/puzzle0_2.png');
+      this.load.image('puzzle0_3', './assets/audios/minigames/Puzzle/Puzzle0/puzzle0_3.png');
+      this.load.image('puzzle1_0', './assets/audios/minigames/Puzzle/Puzzle1/puzzle1_0.png');
+      this.load.image('puzzle1_1', './assets/audios/minigames/Puzzle/Puzzle1/puzzle1_1.png');
+      this.load.image('puzzle1_2', './assets/audios/minigames/Puzzle/Puzzle1/puzzle1_2.png');
+      this.load.image('puzzle1_3', './assets/audios/minigames/Puzzle/Puzzle1/puzzle1_3.png');
+      this.load.image('puzzle1_4', './assets/audios/minigames/Puzzle/Puzzle1/puzzle1_4.png');
+      this.load.image('puzzle1_5', './assets/audios/minigames/Puzzle/Puzzle1/puzzle1_5.png');
+      this.load.image('puzzle1_6', './assets/audios/minigames/Puzzle/Puzzle1/puzzle1_6.png');
+      this.load.image('puzzle1_7', './assets/audios/minigames/Puzzle/Puzzle1/puzzle1_7.png');
+      this.load.image('puzzle1_8', './assets/audios/minigames/Puzzle/Puzzle1/puzzle1_8.png');
 
     // === RECURSOS DIÁLOGOS ===
     this.load.json('prueba', './data/DialogoToniPablo.json');
@@ -149,30 +167,34 @@ export default class Boot extends Phaser.Scene {
 
       // == SFX ==
        this.load.audio('walkingSFX', './assets/audios/walking.mp3');
-        // = HUD =
-         this.load.audio('appearWarningSFX', './assets/audios/HUD/appearWarning.mp3');
-         this.load.audio('disappearWarningSFX', './assets/audios/HUD/disappearWarning.mp3');
-         this.load.audio('acceptSFX', './assets/audios/HUD/accept.mp3');
-         this.load.audio('refuseSFX', './assets/audios/HUD/refuse.mp3');
-        // = MINIGAMES =
-         this.load.audio('timer', './assets/audios/minigames/timerSFX.mp3');
-         this.load.audio('rotatePieceSFX', './assets/audios/minigames/Puzzle/rotatePiece.mp3');
-         this.load.audio('appearMoleSFX', './assets/audios/minigames/WhackAMole/appearMole.mp3');
-         this.load.audio('explosionSFX', './assets/audios/minigames/WhackAMole/explosion.mp3');
-         this.load.audio('appearBlowerSFX', './assets/audios/minigames/LightUpGhosts/blower/appearBlower.mp3');
-         this.load.audio('disappearBlowerSFX', './assets/audios/minigames/LightUpGhosts/blower/disappearBlower.mp3');
-         this.load.audio('lightedUpBlowerSFX', './assets/audios/minigames/LightUpGhosts/blower/blowerBlowing.mp3');
-         this.load.audio('appearHikerSFX', './assets/audios/minigames/LightUpGhosts/hiker/appearHiker.mp3');
-         this.load.audio('disappearHikerSFX', './assets/audios/minigames/LightUpGhosts/hiker/disappearHiker.mp3');
-         this.load.audio('lightedUpHikerSFX', './assets/audios/minigames/LightUpGhosts/hiker/lightedUpHiker.mp3');
-         this.load.audio('purgedHikerSFX', './assets/audios/minigames/LightUpGhosts/hiker/purgedHiker.mp3');
-         this.load.audio('appearStarerSFX', './assets/audios/minigames/LightUpGhosts/starer/appearStarer.mp3');
-         this.load.audio('disappearStarerSFX', './assets/audios/minigames/LightUpGhosts/starer/disappearStarer.mp3');
-         this.load.audio('lightedUpStarerSFX', './assets/audios/minigames/LightUpGhosts/starer/lightedUpStarer.mp3');
-         this.load.audio('purgedStarerSFX', './assets/audios/minigames/LightUpGhosts/starer/purgedStarer.mp3');
+       // = HUD =
+        this.load.audio('appearWarningSFX', './assets/audios/HUD/appearWarning.mp3');
+        this.load.audio('disappearWarningSFX', './assets/audios/HUD/disappearWarning.mp3');
+        this.load.audio('acceptSFX', './assets/audios/HUD/accept.mp3');
+        this.load.audio('refuseSFX', './assets/audios/HUD/refuse.mp3');
+       // = MINIGAMES =
+        this.load.audio('timer', './assets/audios/minigames/timerSFX.mp3');
+        // PUZZLE
+        this.load.audio('rotatePieceSFX', './assets/audios/minigames/Puzzle/rotatePiece.mp3');
+        // WHACK A MOLE
+        this.load.audio('appearMoleSFX', './assets/audios/minigames/WhackAMole/appearMole.mp3');
+        this.load.audio('explosionSFX', './assets/audios/minigames/WhackAMole/explosion.mp3');
+        //LIGHT UP GHOSTS
+        this.load.audio('appearBlowerSFX', './assets/audios/minigames/LightUpGhosts/blower/appearBlower.mp3');
+        this.load.audio('appearBlowerSFX', './assets/audios/minigames/LightUpGhosts/blower/appearBlower.mp3');
+        this.load.audio('disappearBlowerSFX', './assets/audios/minigames/LightUpGhosts/blower/disappearBlower.mp3');
+        this.load.audio('lightedUpBlowerSFX', './assets/audios/minigames/LightUpGhosts/blower/blowerBlowing.mp3');
+        this.load.audio('appearHikerSFX', './assets/audios/minigames/LightUpGhosts/hiker/appearHiker.mp3');
+        this.load.audio('disappearHikerSFX', './assets/audios/minigames/LightUpGhosts/hiker/disappearHiker.mp3');
+        this.load.audio('lightedUpHikerSFX', './assets/audios/minigames/LightUpGhosts/hiker/lightedUpHiker.mp3');
+        this.load.audio('purgedHikerSFX', './assets/audios/minigames/LightUpGhosts/hiker/purgedHiker.mp3');
+        this.load.audio('appearStarerSFX', './assets/audios/minigames/LightUpGhosts/starer/appearStarer.mp3');
+        this.load.audio('disappearStarerSFX', './assets/audios/minigames/LightUpGhosts/starer/disappearStarer.mp3');
+        this.load.audio('lightedUpStarerSFX', './assets/audios/minigames/LightUpGhosts/starer/lightedUpStarer.mp3');
+        this.load.audio('purgedStarerSFX', './assets/audios/minigames/LightUpGhosts/starer/purgedStarer.mp3');
 
-        // = SOURCES =
-         this.load.audio('grabSFX', './assets/audios/sources/grab.mp3');
-         this.load.audio('changingDaySFX', './assets/audios/sources/changingDay.mp3');
+       // = SOURCES =
+        this.load.audio('grabSFX', './assets/audios/sources/grab.mp3');
+        this.load.audio('changingDaySFX', './assets/audios/sources/changingDay.mp3');
   }
 }
