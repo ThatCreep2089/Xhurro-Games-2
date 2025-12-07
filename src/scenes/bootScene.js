@@ -35,9 +35,9 @@ export default class Boot extends Phaser.Scene {
       fill: '#d4bf1aff'
     }).setOrigin(0.5);
 
-    const img = this.add.image(boxX + 5, boxY + boxHeight / 2, 'otter');
+    const img = this.add.image(boxX + 5, boxY + boxHeight / 2, 'navi');
     img.setOrigin(0.5);
-    img.setScale(0.3);
+    img.setScale(0.1);
 
     this.tweens.add({
       targets: img,
@@ -76,7 +76,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('map', './assets/imagenes/HUD/map.png');
 
     // === PERSONAJES ===
-    this.load.image('navi', './assets/imagenes/NPC/navi.png');
+    this.load.image('otter', './assets/imagenes/imagenesWeb/extras/smallant.png');
     // == NPC ==
     this.load.image('toni', './assets/imagenes/NPC/Toni.png');
     this.load.image('pablo', './assets/imagenes/NPC/Pablo.png');
