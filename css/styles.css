@@ -106,7 +106,7 @@ img{
     display: flex;
     justify-self: center;
     max-width: 140vmin;
-    height: 80vmin;
+    height: 370vmin;
     padding: 2vmin;
 }
 
@@ -345,6 +345,18 @@ legend{
     align-items: center;
 }
 
+.div2D
+{
+    width: 100%;
+    max-width: 170vmin;
+    display: flex;
+    flex-direction: column;
+    justify-self: left;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 25vmin;
+}
+
 .desvio{
     width: 50%;
     max-width:85vmin;
@@ -365,27 +377,41 @@ legend{
 }
 
 .description-box{
-    background: rgba(255,255,255,0.95);
+    background-image: url("../assets/imagenes/imagenesWeb/diseño/pintada.png");
+    background-size: 110%;
+    background-position: center;
+    background-repeat: no-repeat;
     border-radius: 1.5vmin;
-    padding: 2.5vmin;
-    max-width: 140vmin;
+    padding: 5vmin;
+    max-width: 150vmin;
     margin: 1vmin auto;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-    color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 #description p{
-    display: inline-flex;
-    width: fit-content;
-   margin: 3vmin auto;
-   padding: 2vmin;
-   box-sizing: border-box;
+    width: 100%;
+    text-align: center;
+    margin: 2vmin auto;
+    padding: 2vmin;
+    box-sizing: border-box;
+    line-height: 2;
 }
 
-.description-box2{
-    background-image: url("../assets/imagenes/imagenesWeb/diseño/pintada.png");
-    border-radius: 1.5vmin;
-    padding: 2.5vmin;
-    max-width: 140vmin;
-    margin: 1vmin auto;
+.description-image {
+    width: 50vmin;
+    max-width: 100%;
+    height: auto;
+    margin: 5vmin auto 18vmin auto;
+    object-fit: contain;
+}
+
+.description-image2 {
+    width: 20vmin;
+    max-width: 100%;
+    height: auto;
+    margin: 5vmin auto 10vmin auto;
+    object-fit: contain;
 }
