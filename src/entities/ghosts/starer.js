@@ -1,11 +1,11 @@
 export default class starer extends Phaser.GameObjects.Image {
     constructor(scene, x, y) {
-        super(scene, x, y, 'topo');
+        super(scene, x, y, 'starer');
         this.scene = scene;
         this.score = 10; //Premio por purificar
         this.punish = -5; //Castigo por dejar escapar
         scene.add.existing(this);
-        this.setScale(0.4);
+        this.setScale(0.2);
 
         // == Purificación  atributos ==
         this.disappearSpeed = 2;
@@ -59,7 +59,7 @@ export default class starer extends Phaser.GameObjects.Image {
                     // Detener rotación y reiniciar propiedades
                     rotationTween.stop();
                     this.setAlpha(1);
-                    this.setScale(0.4);
+                    this.setScale(0.2);
                     this.setAngle(0);
                     this.hided = false;
                     this.timeLeft = this.time;

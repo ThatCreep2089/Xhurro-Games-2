@@ -77,8 +77,8 @@ export default class puzzle extends Phaser.Scene {
             for(let x = 0; x < choosenPuzzle.width; x++){
                 let angle = Math.floor(Math.random() * 4);
                 if(angle === 0) this.score++;
-                let increaseX = x* ((this.textures.get(choosenPuzzle.piezas[(x) + ((y) * (choosenPuzzle.width))]).getSourceImage().width * choosenPuzzle.scale) + betweenSpace);
-                let increaseY = y* ((this.textures.get(choosenPuzzle.piezas[(x) + ((y) * (choosenPuzzle.width))]).getSourceImage().height * choosenPuzzle.scale) + betweenSpace);
+                let increaseX = x * ((this.textures.get(choosenPuzzle.piezas[0]).getSourceImage().width * choosenPuzzle.scale) + betweenSpace);
+                let increaseY = y * ((this.textures.get(choosenPuzzle.piezas[0]).getSourceImage().height * choosenPuzzle.scale) + betweenSpace);
                 pieces.push({pieza: 
                     this.add.image(
                         iniPosX + increaseX,

@@ -1,12 +1,12 @@
 export default class starer extends Phaser.GameObjects.Image {
     constructor(scene, x, y) {
-        super(scene, x, y, 'topo');
+        super(scene, x, y, 'blower');
         this.scene = scene;
 
         this.punish = -5; //Castigo por iluminar
 
         scene.add.existing(this);
-        this.setScale(0.4);
+        this.setScale(0.2);
         //factor de reducción de radio e intensidad
         this.factor = 0.3;
         this.effectDuration = 5; //Seg
@@ -68,7 +68,7 @@ export default class starer extends Phaser.GameObjects.Image {
                     // Detener rotación y reiniciar propiedades
                     rotationTween.stop();
                     this.setAlpha(1);
-                    this.setScale(0.4);
+                    this.setScale(0.2);
                     this.setAngle(0);
                     this.hitedBool = false;
                     this.timeLeft = this.time;

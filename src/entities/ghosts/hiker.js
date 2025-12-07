@@ -1,6 +1,6 @@
 export default class starer extends Phaser.GameObjects.Image {
     constructor(scene, x, y) {
-        super(scene, x, y, 'topo');
+        super(scene, x, y, 'hiker');
         this.scene = scene;
         //score
         this.score = 10; //Premio por purificar
@@ -10,9 +10,12 @@ export default class starer extends Phaser.GameObjects.Image {
         this.speed = 15; //cuanto se mueve
         this.onLight = false; //cuando se mueve o actualiza su dirección
 
-        scene.physics.add.existing(this);
+        
+        
+        this.setScale(0.2);
+
         scene.add.existing(this);
-        this.setScale(0.4);
+        scene.physics.add.existing(this);
 
         // == Purificación  atributos ==
         this.disappearSpeed = 2;
@@ -70,7 +73,7 @@ export default class starer extends Phaser.GameObjects.Image {
                     // Detener rotación y reiniciar propiedades
                     rotationTween.stop();
                     this.setAlpha(1);
-                    this.setScale(0.4);
+                    this.setScale(0.2);
                     this.setAngle(0);
                     this.hided = false;
                     this.timeLeft = this.time;
@@ -86,23 +89,23 @@ export default class starer extends Phaser.GameObjects.Image {
         else this.alpha -= this.disappearSpeed * (dt/1000);
 
         //Corrección para que no se salga de los bordes
-        let x = this.scene.sys.game.config.width - this.width/2;
-        let y = this.scene.sys.game.config.height - this.height/2;
+        let x = this.scene.sys.game.config.width - this.body.width/2;
+        let y = this.scene.sys.game.config.height - this.body.height/2;
 
-        if ((this.x <= this.width/2 || this.x >= x) && (this.y <= this.height/2 || this.y >= y)){
+        if ((this.x <= this.body.width/2 || this.x >= x) && (this.y <= this.body.height/2 || this.y >= y)){
             //En esquina huye en dirección contraria
             this.direction.x = -this.direction.x;
             this.direction.y = -this.direction.y;
 
-            this.x = Phaser.Math.Clamp(this.x, this.width/2 + 1, x - 1);
-            this.y = Phaser.Math.Clamp(this.y, this.height/2 + 1, y - 1);
+            this.x = Phaser.Math.Clamp(this.x, this.body.width/2 + 1, x - 1);
+            this.y = Phaser.Math.Clamp(this.y, this.body.height/2 + 1, y - 1);
             
             this.body.setVelocity(-this.direction.x * this.speed * dt, -this.direction.y * this.speed * dt);
         }
-        else if (this.x <= this.width/2 || this.x >= x)
+        else if (this.x <= this.body.width/2 || this.x >= x)
             //Choque con paredes X solo se mueve en eje Y
             this.body.setVelocity(0, (-this.direction.y/this.direction.y) * this.speed * dt);
-        else if (this.y <= this.height/2 || this.y >= y)
+        else if (this.y <= this.body.height/2 || this.y >= y)
             //Choque con paredes Y solo se mueve en eje X
             this.body.setVelocity((-this.direction.x/this.direction.x) * this.speed * dt, 0);
         else
