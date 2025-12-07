@@ -43,7 +43,7 @@ export default class WhachAMoleBall extends Phaser.Scene{
         if(this.UIManager) {
             this.UIManager.event.emit('changeTimer', this.timeLeft);
         }
-        this.timerSFX = this.sound.add('timer', {loop: true});
+        this.timerSFX = this.sound.add('timer', {loop: true, volume: 0.5});
         this.timerSFX.play();
         // Timer decrece cada segundo
         this.time.addEvent({

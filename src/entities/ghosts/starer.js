@@ -23,12 +23,20 @@ export default class starer extends Phaser.GameObjects.Image {
         this.time = 6; //tiempo inicial en segundos
         this.timeLeft = this.time;
         this.hided = false;
+
+        this.Sfx = false;
     }
 
     hide(scaped) { //desativar objeto de pool y reiniciar tiempo de vida
         this.hided = true;
         let reward = scaped? this.punish : this.score;
-        this.timeLeft = this.time;
+
+        if (scaped){
+            this.scene.sound.add('disappearStarerSFX', {volume: 20}).play();
+        }
+        else{
+            this.scene.sound.add('purgedStarerSFX', {volume: 20}).play();
+        }
 
         if (this.scene?.tweens){
             const rotationTween = this.scene.tweens.add({
@@ -54,6 +62,7 @@ export default class starer extends Phaser.GameObjects.Image {
                     this.setScale(0.4);
                     this.setAngle(0);
                     this.hided = false;
+                    this.timeLeft = this.time;
                     this.scene?.event?.emit('hideGhost', this, reward);
                 }
             });
@@ -75,6 +84,14 @@ export default class starer extends Phaser.GameObjects.Image {
         // == Purificación implementación ==
         if(this.lightDistance < this.maxDistance) {
             this.hitting(dt);
+
+            if (!this.Sfx){
+                this.Sfx = true;
+                this.scene.sound.add('lightedUpStarerSFX', {volume: 20}).play();
+            }
+        }
+        else if (this.Sfx){
+            this.Sfx = false;
         }
 
         this.timeLeft -= dt/1000;

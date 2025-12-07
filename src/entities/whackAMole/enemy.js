@@ -32,6 +32,7 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
         // Aquí puedes agregar puntuación o efectos
 
         // Crear un sprite temporal para la explosión
+        this.scene.sound.add('explosionSFX').play();
         const explosion = this.scene.add.sprite(this.x, this.y, 'explosion');
         explosion.setScale(1.5); // Ajustar tamaño como tu enemigo
         explosion.play('explote');

@@ -22,21 +22,31 @@ export default class starer extends Phaser.GameObjects.Image {
                 let lightDistance = Phaser.Math.Distance.Between(position.x, position.y, this.x, this.y);
     
                 if(!this.hitedBool && lightDistance < maxDistance && this.active) {
-                    this.hited();
+                    this.hited(true);
                 }
             }
         });
+
+        this.time = 6; //tiempo inicial en segundos
+        this.timeLeft = this.time;
     }
 
-    hited() {
+    hited(trap) {
          this.hitedBool = true;
          //Este fantasma desaparece en el primer hit y reduce el radio e intensidad de la antorcha durante unos segundos
-         if (this.light?.radius){
+         if (this.light?.radius && trap){
                 this.light.radius -= this.scene.radius * this.factor;
                 this.scene.time.delayedCall(this.effectDuration*1000, ()=>{
-                    if (this.light?.radius)this.light.radius += this.scene.radius * this.factor;
+                    if (this.light?.radius && this.scene?.radius)this.light.radius += this.scene.radius * this.factor;
                 });
             }
+        
+        if (trap){
+            this.scene.sound.add('lightedUpBlowerSFX').play();
+        }
+        else{
+            this.scene.sound.add('disappearBlowerSFX', {volume: 15}).play();
+        }
 
         if (this.scene?.tweens){
             const rotationTween = this.scene.tweens.add({
@@ -61,9 +71,17 @@ export default class starer extends Phaser.GameObjects.Image {
                     this.setScale(0.4);
                     this.setAngle(0);
                     this.hitedBool = false;
+                    this.timeLeft = this.time;
                     this.scene?.event?.emit('hideGhost', this, this.punish);
                 }
             });
+        }
+    }
+
+    preUpdate(t, dt){
+        this.timeLeft -= dt/1000;
+        if (this.timeLeft <= 0 && !this.hitedBool){
+            this.hited(false);
         }
     }
 }

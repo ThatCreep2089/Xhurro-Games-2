@@ -49,7 +49,7 @@ export default class Otter extends Phaser.GameObjects.Sprite {
         //SFX
         this.walkingSFX = this.scene.sound.add('walkingSFX', {
             loop: true,
-            volume: 30
+            volume: 10
         });
         this.isWalkingSFXPlaying = false;
     }
@@ -113,6 +113,7 @@ export default class Otter extends Phaser.GameObjects.Sprite {
             this.scene.nextDay();
             GameDataManager.saveFrom(this.scene.scene.get('mainScene') || this);
             this.canMove = false;
+            this.scene.music.stop();
             this.scene.UIManager.FadeIn();
         }
     }
@@ -123,7 +124,7 @@ export default class Otter extends Phaser.GameObjects.Sprite {
     //Reestablece la estamina
     restartStamina()
     {
-        this.stamina = 26;
+        this.stamina = 100;
         this.scene.UIManager.event.emit("updateStamina");
     }
 

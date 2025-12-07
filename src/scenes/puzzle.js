@@ -33,7 +33,7 @@ export default class puzzle extends Phaser.Scene {
         this.timeleft = 15; //tiempo inicial en seg
         this.UIManager.event.emit('changeTimer', this.timeleft);
 
-        this.timerSFX = this.sound.add('timer', {loop: true});
+        this.timerSFX = this.sound.add('timer', {loop: true, volume: 0.5});
         this.timerSFX.play();
 
         this.time.addEvent({

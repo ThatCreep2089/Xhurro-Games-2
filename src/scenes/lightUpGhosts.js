@@ -40,7 +40,7 @@ export default class lightUpGhosts extends Phaser.Scene {
         this.timeleft = 40; //tiempo inicial en seg
         this.UIManager.event.emit('changeTimer', this.timeleft);
 
-        this.timerSFX = this.sound.add('timer', {loop: true});
+        this.timerSFX = this.sound.add('timer', {loop: true, volume: 0.5});
         this.timerSFX.play();
         this.time.addEvent({
             delay: 1000,
@@ -82,7 +82,7 @@ export default class lightUpGhosts extends Phaser.Scene {
         //Habilitar fantasmas
         //No se usa timer de Phaser porque no queremos que pueda spawnear en cada x ms
         //queremos que una vez pueda spawnear, spawnee en cualquier momento y al spawnear se espere un tiempo hasta poder volver a spawnear
-        this.spawnTime = 1; //espera mínima entre la aparición de un fantasma y otro en segundos
+        this.spawnTime = 3; //espera mínima entre la aparición de un fantasma y otro en segundos
         this.spawnTimeLeft = this.spawnTime;
         this.canSpawn = true;
         this.spawnProb = 0.01 //probabilidad de aparición de fantasma por frame sobre 1
@@ -149,10 +149,20 @@ export default class lightUpGhosts extends Phaser.Scene {
                 y += ghost.height/2; // Offset para que aparezca dentro de pantalla
 
                 //Spawnea fantasma
+                if (ghost instanceof Blower){
+                    this.sound.add('appearBlowerSFX', {volume: 10}).play();
+                }
+                else if (ghost instanceof Hiker){
+                    this.sound.add('appearHikerSFX', {volume: 10}).play();
+                }
+                else if (ghost instanceof Starer){
+                    this.sound.add('appearStarerSFX', {volume: 10}).play();
+                }
+
                 ghost.setPosition(x, y).setActive(true).setVisible(true).alpha = 1;
                 ghost.setDepth(ghost.y);
                 this.antorchaLight.setColor(0xaaaaaa);
-                this.time.delayedCall(200, ()=>{
+                this.time.delayedCall(1000, ()=>{
                     this.antorchaLight.setColor(0xe25822);
                 });
 

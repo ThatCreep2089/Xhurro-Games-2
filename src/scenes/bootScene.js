@@ -158,6 +158,19 @@ export default class Boot extends Phaser.Scene {
          this.load.audio('timer', './assets/audios/minigames/timerSFX.mp3');
          this.load.audio('rotatePieceSFX', './assets/audios/minigames/Puzzle/rotatePiece.mp3');
          this.load.audio('appearMoleSFX', './assets/audios/minigames/WhackAMole/appearMole.mp3');
+         this.load.audio('explosionSFX', './assets/audios/minigames/WhackAMole/explosion.mp3');
+         this.load.audio('appearBlowerSFX', './assets/audios/minigames/LightUpGhosts/blower/appearBlower.mp3');
+         this.load.audio('disappearBlowerSFX', './assets/audios/minigames/LightUpGhosts/blower/disappearBlower.mp3');
+         this.load.audio('lightedUpBlowerSFX', './assets/audios/minigames/LightUpGhosts/blower/blowerBlowing.mp3');
+         this.load.audio('appearHikerSFX', './assets/audios/minigames/LightUpGhosts/hiker/appearHiker.mp3');
+         this.load.audio('disappearHikerSFX', './assets/audios/minigames/LightUpGhosts/hiker/disappearHiker.mp3');
+         this.load.audio('lightedUpHikerSFX', './assets/audios/minigames/LightUpGhosts/hiker/lightedUpHiker.mp3');
+         this.load.audio('purgedHikerSFX', './assets/audios/minigames/LightUpGhosts/hiker/purgedHiker.mp3');
+         this.load.audio('appearStarerSFX', './assets/audios/minigames/LightUpGhosts/starer/appearStarer.mp3');
+         this.load.audio('disappearStarerSFX', './assets/audios/minigames/LightUpGhosts/starer/disappearStarer.mp3');
+         this.load.audio('lightedUpStarerSFX', './assets/audios/minigames/LightUpGhosts/starer/lightedUpStarer.mp3');
+         this.load.audio('purgedStarerSFX', './assets/audios/minigames/LightUpGhosts/starer/purgedStarer.mp3');
+
         // = SOURCES =
          this.load.audio('grabSFX', './assets/audios/sources/grab.mp3');
          this.load.audio('changingDaySFX', './assets/audios/sources/changingDay.mp3');

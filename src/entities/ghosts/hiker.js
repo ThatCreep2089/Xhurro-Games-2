@@ -32,13 +32,22 @@ export default class starer extends Phaser.GameObjects.Image {
         this.timeLeft = this.time;
 
         this.hided = false;
+
+        this.Sfx = false;
+        this.SfxFinished = true;
     }
 
     hide(scaped) { //desativar objeto de pool y reiniciar tiempo de vida
         this.hided = true;
         let reward = scaped? this.punish : this.score;
         if (this.body) this.body.setVelocity(0,0);
-        this.timeLeft = this.time;
+        
+        if (scaped){
+            this.scene.sound.add('disappearHikerSFX', {volume: 15}).play();
+        }
+        else{
+            this.scene.sound.add('purgedHikerSFX').play();
+        }
 
         if (this.scene?.tweens){
             const rotationTween = this.scene.tweens.add({
@@ -64,6 +73,7 @@ export default class starer extends Phaser.GameObjects.Image {
                     this.setScale(0.4);
                     this.setAngle(0);
                     this.hided = false;
+                    this.timeLeft = this.time;
                     this.scene?.event?.emit('hideGhost', this, reward);
                 }
             });
@@ -117,8 +127,19 @@ export default class starer extends Phaser.GameObjects.Image {
         if(this.lightDistance < this.maxDistance) {
             this.hitting(dt);
             this.onLight = true;
+
+            if (!this.Sfx && !this.hided && this.SfxFinished){
+                this.Sfx = true;
+                this.SfxFinished = false;
+                
+                this.scene.sound.add('lightedUpHikerSFX', {volume: 20}).on('complete', () => {
+                    this.SfxFinished = true;
+                }).play();
+            }
+            
         }
         else if (this.body) {
+            if (this.Sfx) this.Sfx = false;
             this.body.setVelocity(0,0);
             this.onLight = false;
             this.timeLeft -= dt/1000 //Solo corre el tiempo de vida si no le alcanza la luz
