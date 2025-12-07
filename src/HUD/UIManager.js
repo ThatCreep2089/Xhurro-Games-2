@@ -317,7 +317,7 @@ export default class UIManager {
         this.warningT = [];
     }
 
-    warningDown(msg, amount, exitAtEnd = false, duration = 500){
+    warningDown(msg, amount, exitAtEnd = false, duration = 500, exitAtEndSFX = false){
         let t = this.scene.tweens.add({
             targets: msg,
             y: msg.y + amount,
@@ -330,7 +330,7 @@ export default class UIManager {
         let t2;
         if (exitAtEnd) {
             t2 = this.warningUp(msg, 0, duration);
-            t.once('complete', () => {t2.play()});
+            t.once('complete', () => {if(exitAtEndSFX)this.scene.sound.add('disappearWarningSFX', {volume: 2}).play(); t2.play()});
         }
 
         t.play();
@@ -378,15 +378,18 @@ export default class UIManager {
 
     //Hace aparecer el mensaje de interacción
     appearInteractMessage(){
+        this.scene.sound.add('appearWarningSFX', {volume: 5}).play();
         this.warningDown(this.interactMessage, this.scene.scale.height - this.interactMessage.y);
     }
 
     //Hace desaparecer el mensaje de interacción
     disappearInteractMessage(){
+        this.scene.sound.add('disappearWarningSFX', {volume: 2}).play();
         this.warningUp(this.interactMessage, (this.scene.scale.height + 100) - this.interactMessage.y).play();
     }
 
     appearBuildData(sources){
+        this.scene.sound.add('appearWarningSFX', {volume: 5}).play();
         //HUD recursos necesarios para construir
         let enough = this.scene.otter.backpack.paint >= sources.paint &&
         this.scene.otter.backpack.paper >= sources.paper &&
@@ -403,6 +406,7 @@ export default class UIManager {
     }
 
     disappearBuildData(){
+        this.scene.sound.add('disappearWarningSFX', {volume: 2}).play();
         this.warningUp(this.buildData, (this.scene.scale.height + 500) - this.buildData.y).play();
     }
 
@@ -536,7 +540,7 @@ export default class UIManager {
         this.minigameData.refuse.setDepth(this.HUDDepth);
 
         this.minigameData.accept.on('pointerdown', ()=>{
-
+            this.scene.sound.add('acceptSFX').play();
             const otter = this.scene.otter;
             const price = minigameInfo.price;
 
@@ -570,6 +574,7 @@ export default class UIManager {
         });
         this.pressed = false;
         this.minigameData.refuse.on('pointerdown', ()=>{
+            this.scene.sound.add('refuseSFX').play();
             if (!this.pressed){
                 this.pressed = true;
                 this.disappearMinigameInfo();
@@ -626,8 +631,9 @@ export default class UIManager {
 
     appearNotEnoughStamina()
     {
+        this.scene.sound.add('appearWarningSFX', {volume: 5}).play();
         if (this.warningT.every(e => e.finished === true)){
-            this.warningT = this.warningDown(this.warning, this.scene.scale.height - this.warning.y, true, 750);
+            this.warningT = this.warningDown(this.warning, this.scene.scale.height - this.warning.y, true, 750, true);
         }
     }
 
@@ -716,6 +722,7 @@ export default class UIManager {
         image.setDepth(this.HUDDepth);
 
         this.continu3.on('pointerdown', ()=>{
+            this.scene.sound.add('acceptSFX').play();
             this.scene.music.stop();
             scene.finishGame();
         });

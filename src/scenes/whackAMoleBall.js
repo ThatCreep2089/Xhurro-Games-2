@@ -171,6 +171,7 @@ export default class WhachAMoleBall extends Phaser.Scene{
         const enemy = Phaser.Utils.Array.GetRandom(inactiveEnemies);
         const position = Phaser.Utils.Array.GetRandom(this.enemyPositions);
 
+        this.sound.add('appearMoleSFX').play();
         enemy.appear(position.x, position.y);
 
         // Ocultar después de 1-2 segundos

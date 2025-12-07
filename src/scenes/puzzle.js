@@ -74,12 +74,12 @@ export default class puzzle extends Phaser.Scene {
                 if(angle === 0) this.score++;
                 let increaseX = x* (this.textures.get(choosenPuzzle.piezas[(x) + ((y) * (choosenPuzzle.width))]).getSourceImage().width + betweenSpace);
                 let increaseY = y* (this.textures.get(choosenPuzzle.piezas[(x) + ((y) * (choosenPuzzle.width))]).getSourceImage().height + betweenSpace);
-                pieces.push(
+                pieces.push({pieza: 
                     this.add.image(
                         iniPosX + increaseX,
                         iniPosY + increaseY,
                         choosenPuzzle.piezas[(x) + ((y) * (choosenPuzzle.width))]
-                    ).setAngle(angle*90)
+                    ).setAngle(angle*90), angulo: angle*90}
                 );
             }
             }
@@ -87,20 +87,25 @@ export default class puzzle extends Phaser.Scene {
 
         //Hacemos las piezas interactuables y suscribimos a su interacción
         this.win = false;
-        pieces.forEach(piece => {
-            piece.setInteractive();
 
-            piece.on('pointerdown', () => {
+        pieces.forEach(piece => {
+            piece.pieza.setInteractive();
+
+            piece.pieza.on('pointerdown', () => {
                 if (!this.win)
                 {
+                    this.sound.add('rotatePieceSFX').play();
+
                     //Se rota 90 grados
-                    piece.setAngle(piece.angle + 90);
+                    piece.angulo = (piece.angulo + 90)%360;
+                    piece.pieza.angle += 90;
+                    
     
                     //Comprobación de victoria
                     this.score = 0;
                     //sumamos un punto por cada pieza bien colocada
                     pieces.forEach(piece => {
-                        if (piece.angle%360 === 0 || piece.angle%360 === 360) this.score++;
+                        if (piece.angulo%360 === 0 || piece.angulo%360 === 360) this.score++;
                     })
     
                     //si todas están bien colocadas entonces ha ganado
@@ -120,6 +125,7 @@ export default class puzzle extends Phaser.Scene {
         this.UIManager.event.emit('changeTimer', this.timeleft);
     
         if (this.timeleft <= 0 && !this.end) {
+            this.win = true;
             this.end = true;
             this.UIManager.appearMinigameEndInfo(this,
                 ({

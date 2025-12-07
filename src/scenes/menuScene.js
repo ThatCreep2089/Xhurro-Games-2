@@ -72,8 +72,8 @@ export default class MenuScene extends Phaser.Scene {
         });
 
         //actions on click
-        playButton.on('pointerup', () => {music.stop(); this.scene.start('introScene');});
-        exitButton.on('pointerdown', () => alert('BYE BYE!'));
+        playButton.on('pointerup', () => {this.sound.add('acceptSFX').play(); music.stop(); this.scene.start('introScene');});
+        exitButton.on('pointerdown', () => {this.sound.add('refuseSFX').play(); alert('BYE BYE!');});
 
         this.UIManager = new UIManager(this);
 
