@@ -57,7 +57,7 @@ export default class WhachAMoleBall extends Phaser.Scene{
 
         const ballList = [];
         for (let i = 0; i < 5; i++) {
-            const ball = new Ball(this, 0, 0, 'house', 550, null);
+            const ball = new Ball(this, 0, 0, 'hammer', 550, null);
             ballList.push(ball);
         }
 
@@ -136,6 +136,11 @@ export default class WhachAMoleBall extends Phaser.Scene{
 
                 // Desactivar pelota
                 ball.pool.release(ball);
+                if (ball.rotating){
+                    ball.rotating = false;
+                    ball.rotate.pause();
+                    ball.angle = 0;
+                }
                 ball.setActive(false);
                 ball.setVisible(false);
                 ball.picked = false;

@@ -124,6 +124,7 @@ export default class Boot extends Phaser.Scene {
       this.load.image('dinamita', './assets/imagenes/minigames/WhackAMole/objects/bomba.png');
       this.load.video('WAMVideo', './assets/imagenes/minigames/WhackAMole/background/WAMVideo.mp4');
       this.load.image('toposEnd', './assets/imagenes/minigames/WhackAMole/endImg.png');
+      this.load.image('hammer', './assets/imagenes/minigames/WhackAMole/objects/hammer.png');
       this.load.spritesheet('explosion','./assets/imagenes/minigames/WhackAMole/objects/explosion.png', {frameWidth: 32,frameHeight:32})
        
       // == LIGHT UP GHOSTS ==

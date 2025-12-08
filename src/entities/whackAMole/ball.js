@@ -11,6 +11,17 @@ export default class Ball extends Phaser.GameObjects.Sprite{
         this.speed = speed;
         this.picked = false;
         this.jugador = null;
+
+        //animación rotar
+        this.rotate= this.scene.tweens.add({
+          targets: this,
+          angle: '+=360',      // rotar 360 grados respecto a su ángulo actual
+          duration: 1000,      // tiempo en ms para una vuelta completa (ajusta para hacerlo más/menos lento)
+          ease: 'Linear',      // giro constante (sin aceleración)
+          repeat: -1           // repetir indefinidamente
+        });
+        this.rotate.pause();
+        this.rotating = false;
     }
 
     preUpdate(t, dt) {
@@ -24,6 +35,11 @@ export default class Ball extends Phaser.GameObjects.Sprite{
         // Detectar si se sale de la pantalla por arriba
         if (this.active && this.y < -10) {
             // Desactivar pelota y notificar a la escena
+            if (this.rotating){
+                this.rotating = false;
+                this.rotate.pause();
+                this.angle = 0;
+            }
             this.pool.release(this);
             this.scene.events.emit("ball-removed");
         }
@@ -43,5 +59,10 @@ export default class Ball extends Phaser.GameObjects.Sprite{
         this.jugador = null;
         this.body.allowGravity = true;
         this.body.setVelocityY(-this.speed);
+
+        if (!this.rotating){
+            this.rotating = true;
+            this.rotate.play();
+        } 
     }
 }
