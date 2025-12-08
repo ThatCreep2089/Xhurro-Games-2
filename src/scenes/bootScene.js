@@ -103,6 +103,8 @@ export default class Boot extends Phaser.Scene {
     this.load.image('clayIcon', './assets/imagenes/HUD/sources/clayIcon.png');
     this.load.image('stamina', './assets/imagenes/HUD/sources/stamina.png');
     this.load.image('day', './assets/imagenes/HUD/sources/dia.png');
+    this.load.image('night', './assets/imagenes/HUD/sources/night.png');
+    this.load.image('afternoon', './assets/imagenes/HUD/sources/afternoon.png');
     this.load.image('sourceWarning', './assets/imagenes/HUD/sources/warningBG.png');
     this.load.image('notEnoughStamina', './assets/imagenes/HUD/popups/notEnoughStamina.png');
     this.load.image('TitleBanner', './assets/imagenes/imagenesWeb/diseño/banner.png');

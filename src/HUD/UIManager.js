@@ -101,6 +101,11 @@ export default class UIManager {
             color: '#000000'
         });
 
+        //Evento que cambia imagen de icono de dia
+        this.event.on('changeDayIcon', (icon) => {
+            dayImg.setTexture(icon);
+        });
+
         //HUD recursos en inventario
         cont.add([background,
             paintNumber, paintImg,
@@ -250,6 +255,10 @@ export default class UIManager {
             }
 
             staminaNumber.setText("x" + this.scene.otter.getStamina());
+
+            if (this.scene.otter.getStamina() > 75) this.event.emit('changeDayIcon', 'day');
+            else if (this.scene.otter.getStamina() > 25) this.event.emit('changeDayIcon', 'afternoon');
+            else this.event.emit('changeDayIcon', 'night')
         });
 
        this.event.on('updateDay', () => {

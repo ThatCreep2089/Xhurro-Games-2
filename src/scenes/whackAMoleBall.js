@@ -107,6 +107,12 @@ export default class WhachAMoleBall extends Phaser.Scene{
             }
         }
 
+        //Aparecer hoyos
+        this.enemyPositions.forEach((position) => {
+            this.add.image(position.x, position.y + 50, 'hoyo').setScale(0.2).setOrigin(0.5, 0.5).setDepth(2);
+            this.add.image(position.x, position.y + 50, 'hoyoBack').setScale(0.2).setOrigin(0.5, 0.5);
+        })
+
         const enemyList = [];
         for (let i = 0; i < 9; i++) {
             const enemy = new Enemy(this, 0, 0, 'topo');

@@ -98,9 +98,7 @@ export default class GameDataManager {
             scene.otter.x = this.player.position.x;
             scene.otter.y = this.player.position.y;
 
-            if (typeof scene.otter.setStamina === 'function') {
-                scene.otter.setStamina(this.player.stamina);
-            } else if (scene.otter.stamina !== undefined) {
+            if (scene.otter.stamina !== undefined) {
                 scene.otter.stamina = this.player.stamina;
             }
         }

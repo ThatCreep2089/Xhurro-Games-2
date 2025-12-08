@@ -131,7 +131,6 @@ export default class WhackAMole extends Phaser.Scene {
 
             // Aplicar la recompensa
             GameDataManager.updateReward({paint: rewardAmount.paint * times, paper: rewardAmount.paper * times, clay: rewardAmount.clay * times});
-            
             GameDataManager.saveFrom(this.scene.get('mainScene') || this);
 
             if (mainScene.fade) this.UIManager.FadeIn();
