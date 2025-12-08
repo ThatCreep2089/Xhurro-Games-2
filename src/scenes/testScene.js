@@ -16,9 +16,9 @@ export default class TestScene extends Phaser.Scene {
     create() {
        
         // === MAPA ===
-      this.createMap();
+       this.createMap();
     
-       // this.setPositionsMap();
+       this.setPositionsMap();
        
        this.physics.world.setBounds(0, 0, 4000 , 4000);
         this.cameras.main.setBounds(0, 0, 4000, 4000);
@@ -38,7 +38,7 @@ export default class TestScene extends Phaser.Scene {
            justUp: false
         });
 
-       this.spaceKey = inputStates();
+        this.spaceKey = inputStates();
         this.keyW = inputStates();
         this.keyA = inputStates();
         this.keyS = inputStates();
@@ -68,8 +68,8 @@ export default class TestScene extends Phaser.Scene {
            }
            // ...otros minijuegos
        };
-//
-       // // === JUGADOR (Nutria) ===
+
+        // === JUGADOR (Nutria) ===
         this.otter = new Otter(this, this.scale.width / 2, this.scale.height / 2, 20, 'otter', 0.2);
         this.cameras.main.startFollow(this.otter);
         this.navi = new Navi(this, this.otter, -30, 0, 'otter', 0.15, 300);
@@ -78,18 +78,18 @@ export default class TestScene extends Phaser.Scene {
     }
 
     update() {
-     //   // Si la estamina llega a 0, pasar al siguiente día
-     //   if (this.otter.getStamina() <= 0 && !this.dayChanging) {
-     //       this.dayChanging = true;
-     //       this.nextDay();
-     //   }
+      // Si la estamina llega a 0, pasar al siguiente día
+        if (this.otter.getStamina() <= 0 && !this.dayChanging) {
+            this.dayChanging = true;
+           this.nextDay();
+        }
         // Resetear justDown / justUp
         let inputs = [this.spaceKey, this.keyW, this.keyA, this.keyS, this.keyD];
         for (const key in inputs) {
            inputs[key].justDown = false;
             inputs[key].justUp = false;
         }
-    }cachechbf
+    }//cache
 
 
     createMap(){
@@ -122,7 +122,7 @@ export default class TestScene extends Phaser.Scene {
        this.obstaclesbottom.setCollision(265); 
       this.obstaclesbottom.setCollision(265); */
       //this.paintRiver.setCollisionBetween(0,149);
-        this.paintRiver.setCollisionByExclusion([-1]);
+        this.paintRiver.setCollisionByExclusion([-1]);//colision con todo menos lo nulo
         this.obstaclesbottom.setCollisionByExclusion([-1]);
         
        this.physics.add.collider(this.otter, this.paintRiver);
