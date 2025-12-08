@@ -178,7 +178,13 @@ export default class mainScene extends Phaser.Scene {
       //this.obstaclesbottom.setCollision(145); 
       //this.paintRiver.setCollisionBetween(0,149);
       //  this.paintRiver.setCollisionByExclusion([-1]);
+       //this.physics.add.collider(this.otter, this.paintRiver);
+       this.paintRiver.setCollisionByExclusion([-1]);//colision con todo menos lo nulo
+       this.obstaclesbottom.setCollisionByExclusion([-1]);
+       this.obstaclestop.setCollisionByExclusion([-1])
        this.physics.add.collider(this.otter, this.paintRiver);
+       this.physics.add.collider(this.otter, this.obstaclesbottom);
+       this.physics.add.collider(this.otter, this.obstaclestop);
     }
     createAnims() {}
 
