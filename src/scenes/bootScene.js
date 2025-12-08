@@ -66,9 +66,9 @@ export default class Boot extends Phaser.Scene {
     this.load.image('toni', './assets/imagenes/NPC/Toni.png');
     this.load.image('map', './assets/imagenes/HUD/map.png');
     this.load.image('paint', './assets/imagenes/sources/paint.jpg');
-    this.load.image('destroyedHouse', './assets/imagenes/builds/destroyedHouse.jpg');
+    this.load.image('destroyedHouse', './assets/imagenes/builds/destroyedHouse.png');
     this.load.image('house', './assets/imagenes/builds/house.png');
-    this.load.image('buildSources', './assets/imagenes/HUD/buttons/buildSources.jpg');
+    this.load.image('buildSources', './assets/imagenes/HUD/buttons/buildSources.png');
     this.load.image('spaceKey', './assets/imagenes/HUD/popups/keyboard_space.png');
     this.load.image('topo', './assets/imagenes/minigames/WhackAMole/objects/boa.jpg');
     this.load.image('hoyo', './assets/imagenes/minigames/WhackAMole/objects/hole.png');

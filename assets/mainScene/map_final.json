@@ -1021,7 +1021,7 @@
         {
          "columns":15,
          "firstgid":1,
-         "image":"./paintriver.png",
+         "image":"paintriver.png",
          "imageheight":400,
          "imagewidth":600,
          "margin":0,
@@ -1035,7 +1035,7 @@
         {
          "columns":12,
          "firstgid":151,
-         "image":"./foresttiles.png",
+         "image":"foresttiles.png",
          "imageheight":160,
          "imagewidth":480,
          "margin":0,
@@ -1049,7 +1049,7 @@
         {
          "columns":12,
          "firstgid":199,
-         "image":"./paperfloor.png",
+         "image":"paperfloor.png",
          "imageheight":160,
          "imagewidth":480,
          "margin":0,
@@ -1063,7 +1063,7 @@
         {
          "columns":6,
          "firstgid":247,
-         "image":"./paperobstacles.png",
+         "image":"paperobstacles.png",
          "imageheight":240,
          "imagewidth":240,
          "margin":0,
@@ -1077,7 +1077,7 @@
         {
          "columns":12,
          "firstgid":283,
-         "image":"./cardboard.png",
+         "image":"cardboard.png",
          "imageheight":160,
          "imagewidth":480,
          "margin":0,
@@ -1091,7 +1091,7 @@
         {
          "columns":12,
          "firstgid":331,
-         "image":"./cardboard.png",
+         "image":"cardboard.png",
          "imageheight":160,
          "imagewidth":480,
          "margin":0,
@@ -1105,7 +1105,7 @@
         {
          "columns":12,
          "firstgid":379,
-         "image":"./foresttiles.png",
+         "image":"foresttiles.png",
          "imageheight":160,
          "imagewidth":480,
          "margin":0,
@@ -1119,7 +1119,7 @@
         {
          "columns":15,
          "firstgid":427,
-         "image":"./paintriver.png",
+         "image":"paintriver.png",
          "imageheight":400,
          "imagewidth":600,
          "margin":0,

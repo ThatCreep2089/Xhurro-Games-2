@@ -93,6 +93,8 @@ export default class mainScene extends Phaser.Scene {
         this.createBuilds();
         this.createNPCs();
 
+         this.createMapCollisions()
+
         // === HUD ===
         this.createHUD();
 
@@ -122,7 +124,7 @@ export default class mainScene extends Phaser.Scene {
         }
     }
 
-     createMap(){
+    /* createMap(){
          	this.map = this.make.tilemap({ 
 			key: 'tilemap', 
 			tileWidth: 40, 
@@ -146,6 +148,37 @@ export default class mainScene extends Phaser.Scene {
       this.obstaclesbottom.setCollision(145); 
         
         //this.physics.add.collider(this.otter, this.wallLayer);
+    }*/
+   
+    createMap(){
+         	this.map = this.make.tilemap({ 
+			key: 'tilemap', 
+			tileWidth: 40, 
+			tileHeight: 40 
+		});
+      const cardboard = this.map.addTilesetImage('cardboard' ,"cardboard");
+      const foresttiles = this.map.addTilesetImage('foresttiles',"foresttiles");
+      const papertiles = this.map.addTilesetImage('paperfloor', "papertiles");
+      const paintriver = this.map.addTilesetImage('paintriver',"paintriver");
+      const paperobstacles = this.map.addTilesetImage('paperobstacles',"paperobstacles");
+    
+      this.background = this.map.createLayer ('background', cardboard);
+      this.forestFloor = this.map.createLayer ('forestFloor', foresttiles);
+      this.paperFloor = this.map.createLayer ('paperFloor', papertiles );
+      this.obstaclesbottom = this.map.createLayer ( 'obstaclesbottom' , paperobstacles);
+      this.obstaclestop = this.map.createLayer ( 'obstaclestop' , paperobstacles);
+      this.decors = this.map.createLayer ( 'decors' , papertiles);
+      this.paintRiver = this.map.createLayer ('paintRiver', paintriver);
+
+  
+    }
+
+    createMapCollisions(){
+            
+      //this.obstaclesbottom.setCollision(145); 
+      //this.paintRiver.setCollisionBetween(0,149);
+      //  this.paintRiver.setCollisionByExclusion([-1]);
+       this.physics.add.collider(this.otter, this.paintRiver);
     }
     createAnims() {}
 

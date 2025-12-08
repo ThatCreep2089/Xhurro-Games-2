@@ -20,7 +20,7 @@ export default class TestScene extends Phaser.Scene {
     
        // this.setPositionsMap();
        
-        this.physics.world.setBounds(0, 0, 4000 , 4000);
+       this.physics.world.setBounds(0, 0, 4000 , 4000);
         this.cameras.main.setBounds(0, 0, 4000, 4000);
         // === CONTROLES ===
         this.#inputs = {
@@ -73,8 +73,8 @@ export default class TestScene extends Phaser.Scene {
         this.otter = new Otter(this, this.scale.width / 2, this.scale.height / 2, 20, 'otter', 0.2);
         this.cameras.main.startFollow(this.otter);
         this.navi = new Navi(this, this.otter, -30, 0, 'otter', 0.15, 300);
-
-     this.physics.add.collider(this.otter, this.wallLayer);
+      this.navi = new Navi(this, this.otter, -30, 0, 'otter', 0.15, 300);
+        this.createMapCollisions();
     }
 
     update() {
@@ -89,12 +89,12 @@ export default class TestScene extends Phaser.Scene {
            inputs[key].justDown = false;
             inputs[key].justUp = false;
         }
-    }
+    }cachechbf
 
 
     createMap(){
          	this.map = this.make.tilemap({ 
-			key: 'tilemap', 
+			key: 'tilemap',
 			tileWidth: 40, 
 			tileHeight: 40 
 		});
@@ -112,12 +112,19 @@ export default class TestScene extends Phaser.Scene {
       this.decors = this.map.createLayer ( 'decors' , papertiles);
       this.paintRiver = this.map.createLayer ('paintRiver', paintriver);
 
-      
-      //this.obstaclesbottom.setCollision(145); 
-      // this.paintRiver.setCollisionByExclusion([0,-1]);
-       this.physics.add.collider(this.otter, this.paintRiver);
+  
     }
 
+    createMapCollisions(){
+            
+      this.obstaclesbottom.setCollision(259); 
+      this.obstaclesbottom.setCollision(260); 
+       this.obstaclesbottom.setCollision(265); 
+      this.obstaclesbottom.setCollision(265); 
+      //this.paintRiver.setCollisionBetween(0,149);
+        this.paintRiver.setCollisionByExclusion([-1]);
+       this.physics.add.collider(this.otter, this.this.obstaclesbottom);
+    }
     setPositionsMap(){
         
         
