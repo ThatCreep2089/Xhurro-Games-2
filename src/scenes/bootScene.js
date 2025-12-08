@@ -94,9 +94,9 @@ export default class Boot extends Phaser.Scene {
        this.load.image("cardboard", "./assets/mainScene/cardboard.png");
        this.load.image("foresttiles", "./assets/mainScene/foresttiles.png");
        this.load.image("grass", "./assets/mainScene/grass.png");
-       this.load.image("paintriver", "./assets/mainScene/grass.png");
-       this.load.image("paperobstacles", "./assets/mainScene/paperpbstacles.png");
-        
+       this.load.image("paintriver", "./assets/mainScene/paintriver.png");
+       this.load.image("paperobstacles", "./assets/mainScene/paperobstacles.png");
+        this.load.image("papertiles", "./assets/mainScene/paperfloor.png");
         this.load.image("tree", "./assets/mainScene/tree.png");
     this.first = false;
   }

@@ -15,11 +15,13 @@ export default class mainScene extends Phaser.Scene {
 
     create() {
         this.createAnims();
-
         // === MAPA ===
-        let map = this.add.image(0, 0, 'map').setOrigin(0, 0);
+       /* let map = this.add.image(0, 0, 'map').setOrigin(0, 0);
         this.physics.world.setBounds(0, 0, map.width, map.height);
-        this.cameras.main.setBounds(0, 0, map.width, map.height);
+        this.cameras.main.setBounds(0, 0, map.width, map.height);*/
+         this.physics.world.setBounds(0, 0, 2560, 1840);
+        this.cameras.main.setBounds(0, 0, 2560, 1840);
+        this.createMap()
 
         // === CONTROLES ===
         this.#inputs = {
@@ -120,6 +122,31 @@ export default class mainScene extends Phaser.Scene {
         }
     }
 
+     createMap(){
+         	this.map = this.make.tilemap({ 
+			key: 'tilemap', 
+			tileWidth: 40, 
+			tileHeight: 40 
+		});
+      const cardboard = this.map.addTilesetImage('cardboard' ,"cardboard");
+      const foresttiles = this.map.addTilesetImage('foresttiles',"foresttiles");
+      const papertiles = this.map.addTilesetImage('paperfloor', "papertiles");
+      const paintriver = this.map.addTilesetImage('paintriver',"paintriver");
+      const paperobstacles = this.map.addTilesetImage('paperobstacles',"paperobstacles");
+    
+      this.background = this.map.createLayer ('background', cardboard);
+      this.forestFloor = this.map.createLayer ('forestFloor', foresttiles);
+      this.paperFloor = this.map.createLayer ('paperFloor', papertiles );
+      this.obstaclesbottom = this.map.createLayer ( 'obstaclesbottom' , paperobstacles);
+      this.obstaclestop = this.map.createLayer ( 'obstaclestop' , paperobstacles);
+      this.decors = this.map.createLayer ( 'decors' , papertiles);
+      this.paintRiver = this.map.createLayer ('paintRiver', paintriver);
+
+      
+      this.obstaclesbottom.setCollision(145); 
+        
+        //this.physics.add.collider(this.otter, this.wallLayer);
+    }
     createAnims() {}
 
     createSources() {
