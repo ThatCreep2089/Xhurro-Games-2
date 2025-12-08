@@ -117,13 +117,16 @@ export default class TestScene extends Phaser.Scene {
 
     createMapCollisions(){
             
-      this.obstaclesbottom.setCollision(259); 
+      /*this.obstaclesbottom.setCollision(259); 
       this.obstaclesbottom.setCollision(260); 
        this.obstaclesbottom.setCollision(265); 
-      this.obstaclesbottom.setCollision(265); 
+      this.obstaclesbottom.setCollision(265); */
       //this.paintRiver.setCollisionBetween(0,149);
         this.paintRiver.setCollisionByExclusion([-1]);
-       this.physics.add.collider(this.otter, this.this.obstaclesbottom);
+        this.obstaclesbottom.setCollisionByExclusion([-1]);
+        
+       this.physics.add.collider(this.otter, this.paintRiver);
+       this.physics.add.collider(this.otter, this.obstaclesbottom);
     }
     setPositionsMap(){
         
