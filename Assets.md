@@ -1,7 +1,7 @@
 
 <details>
 <sumary>=== MAPA ===</sumary>
-<br> ./assets/imagenes/HUD/map.png
+<br> > ./assets/imagenes/HUD/map.png
 </details>
 <br> === PERSONAJES === 
 <br> ./assets/imagenes/imagenesWeb/extras/smallant.png
