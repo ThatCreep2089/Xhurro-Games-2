@@ -667,27 +667,86 @@
 </table>
 </details>
 
-<br> === AUDIO ===
-<br> 
-<br>     == MÚSICA ==
-<br>     ./assets/audios/Title.mp3
-<br>         LICENCIA: Pixabay license
-<br>     ./assets/audios/mainScene.mp3
-<br>         LICENCIA: Pixabay license
-<br>     ./assets/audios/minigames/MinigameInfo.mp3
-<br>         LICENCIA: Pixabay license
-<br> 
-<br>         = MINIGAMES =
-<br>         ./assets/audios/minigames/LightUpGhosts/LightUpGhosts.mp3
-<br>             AUTOR: Free Music (Youtube)
+<details>
+<summary> === AUDIO === </summary>
+<table>
+<td>
+ 
+<details>
+<summary> == MÚSICA == </summary>
+<table>
+<td>
+
+<details>
+<summary>     ./assets/audios/Title.mp3 </summary>
+<table>
+<td>
+             LICENCIA: Pixabay license
+</td>
+</table>
+</details>
+
+<details>
+<summary>     ./assets/audios/mainScene.mp3 </summary>
+<table>
+<td>
+            LICENCIA: Pixabay license
+</td>
+</table>
+</details>
+
+<details>
+<summary>     ./assets/audios/minigames/MinigameInfo.mp3 </summary>
+<table>
+<td>
+            LICENCIA: Pixabay license
+</td>
+</table>
+</details>
+
+<details>
+<summary>         = MINIGAMES = </summary>
+<table>
+<td>
+
+<details>
+<summary>         ./assets/audios/minigames/LightUpGhosts/LightUpGhosts.mp3 </summary>
+<table>
+<td>
+                 AUTOR: Free Music (Youtube)
 <br>             LICENCIA: CC (BY-SA)
-<br>         ./assets/audios/minigames/Puzzle/Puzzle.mp3
-<br>             AUTOR: Pix (Youtube)
+</td>
+</table>
+</details>
+
+<details>
+<summary>         ./assets/audios/minigames/Puzzle/Puzzle.mp3 </summary>
+<table>
+<td>
+                 AUTOR: Pix (Youtube)
 <br>             LICENCIA: CC (BY-SA)
-<br>         ./assets/audios/minigames/WhackAMole/Topos.mp3
-<br>             AUTOR: Pix (Youtube)
+</td>
+</table>
+</details>
+
+<details>
+<summary>         ./assets/audios/minigames/WhackAMole/Topos.mp3 </summary>
+<table>
+<td>
+                 AUTOR: Pix (Youtube)
 <br>             LICENCIA: CC (BY-SA)
-<br> 
+</td>
+</table>
+</details>
+
+</td>
+</table>
+</details>
+
+</td>
+</table>
+</details>
+
 <br>     == SFX ==
 <br>     ./assets/audios/walking.mp3
 <br>         AUTOR: Víctor Martínez Moreno
@@ -773,3 +832,7 @@
 <br>         ./assets/audios/sources/changingDay.mp3
 <br>             AUTOR: Víctor Martínez Moreno
 <br>             LICENCIA: CC (BY-NC-SA-ND)
+
+</td>
+</table>
+</details>
