@@ -118,7 +118,7 @@ export default class GameDataManager {
         if (scene.builds && this.buildsConstructed.length) {
             scene.builds.forEach(b => {
                 if (this.buildsConstructed.includes(b.id) && !b.built) {
-                    b.finishConstruction();
+                    b.finishConstruction(true);
                 }
             });
         }
