@@ -361,95 +361,312 @@
 </table>
 </details>
 
-<br> === MINIGAMES ===
-<br> ./assets/imagenes/HUD/popups/MGInfoBG.png
-<br>     AUTOR: Víctor Martínez Moreno
+<details>
+<summary> === MINIGAMES === </summary>
+<table>
+<td>
+
+<details>
+<summary> ./assets/imagenes/HUD/popups/MGInfoBG.png </summary>
+<table>
+<td>
+         AUTOR: Víctor Martínez Moreno
 <br>     LICENCIA: CC (BY-NC-SA-ND)
-<br> 
-<br>     == WHACK A MOLE ==
-<br>     ./assets/imagenes/minigames/WhackAMole/objects/marcus.png
-<br>         AUTOR: Claudia Pérez Campoo
+</td>
+</table>
+</details>
+
+<details>
+<summary> == WHACK A MOLE == </summary>
+<table>
+<td>
+
+<details>
+<summary>./assets/imagenes/minigames/WhackAMole/objects/marcus.png</summary>
+<table>
+<td>
+             AUTOR: Claudia Pérez Campoo
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br>     ./assets/imagenes/minigames/WhackAMole/objects/holeFront.png
-<br>         AUTOR: Claudia Pérez Campoo
+</td>
+</table>
+</details>
+
+<details>
+<summary>./assets/imagenes/minigames/WhackAMole/objects/holeFront.png</summary>
+<table>
+<td>
+             AUTOR: Claudia Pérez Campoo
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br>     ./assets/imagenes/minigames/WhackAMole/objects/holeBack.png
-<br>         AUTOR: Claudia Pérez Campoo
+</td>
+</table>
+</details>
+
+<details>
+<summary>./assets/imagenes/minigames/WhackAMole/objects/holeBack.png</summary>
+<table>
+<td>
+             AUTOR: Claudia Pérez Campoo
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br>     ./assets/imagenes/minigames/WhackAMole/objects/bomba.png
-<br>         AUTOR: Claudia Pérez Campoo
+</td>
+</table>
+</details>
+
+<details>
+<summary>./assets/imagenes/minigames/WhackAMole/objects/bomba.png</summary>
+<table>
+<td>
+             AUTOR: Claudia Pérez Campoo
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br>     ./assets/imagenes/minigames/WhackAMole/background/WAMVideo.mp4
-<br>         AUTOR: Claudia Pérez Campoo
+</td>
+</table>
+</details>
+
+<details>
+<summary>./assets/imagenes/minigames/WhackAMole/background/WAMVideo.mp4</summary>
+<table>
+<td>
+             AUTOR: Claudia Pérez Campoo
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br>     ./assets/imagenes/minigames/WhackAMole/endImg.
-<br>         AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary>./assets/imagenes/minigames/WhackAMole/endImg.</summary>
+<table>
+<td>
+             AUTOR: Víctor Martínez Moreno
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br>     ./assets/imagenes/minigames/WhackAMole/objects/hammer.png
-<br>         AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary>./assets/imagenes/minigames/WhackAMole/objects/hammer.png</summary>
+<table>
+<td>
+             AUTOR: Víctor Martínez Moreno
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br>     ./assets/imagenes/minigames/WhackAMole/objects/explosion.png
-<br>         AUTOR: Ansimuz (itch.io)
+</td>
+</table>
+</details>
+
+<details>
+<summary>./assets/imagenes/minigames/WhackAMole/objects/explosion.png</summary>
+<table>
+<td>
+             AUTOR: Ansimuz (itch.io)
 <br>         LICENCIA: Creative Commons Zero
-<br>        
-<br>     == LIGHT UP GHOSTS ==
-<br>     ./assets/imagenes/minigames/LightUpGhosts/endImg.png
-<br>         AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+</td>
+</table>
+</details>
+
+<details>
+<summary>     == LIGHT UP GHOSTS ==</summary>
+<table>
+<td>
+
+<details>
+<summary>     ./assets/imagenes/minigames/LightUpGhosts/endImg.png </summary>
+<table>
+<td>
+             AUTOR: Víctor Martínez Moreno
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br>     ./assets/imagenes/minigames/LightUpGhosts/largeGhost.png
-<br>         AUTOR: Claudia Pérez Campoo
+</td>
+</table>
+</details>
+
+<details>
+<summary>     ./assets/imagenes/minigames/LightUpGhosts/largeGhost.png </summary>
+<table>
+<td>
+             AUTOR: Claudia Pérez Campoo
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br>     ./assets/imagenes/minigames/LightUpGhosts/smallGhost.png
-<br>         AUTOR: Claudia Pérez Campoo
+</td>
+</table>
+</details>
+
+<details>
+<summary>     ./assets/imagenes/minigames/LightUpGhosts/smallGhost.png </summary>
+<table>
+<td>
+             AUTOR: Claudia Pérez Campoo
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br>     ./assets/imagenes/minigames/LightUpGhosts/bigGhost.png
-<br>         AUTOR: Claudia Pérez Campoo
+</td>
+</table>
+</details>
+
+<details>
+<summary>     ./assets/imagenes/minigames/LightUpGhosts/bigGhost.png </summary>
+<table>
+<td>
+             AUTOR: Claudia Pérez Campoo
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br> 
-<br>     == PUZZLE ==
-<br>     ./assets/imagenes/minigames/Puzzle/endImg.png
-<br>         AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+</td>
+</table>
+</details> 
+
+<details>
+<summary>     == PUZZLE == </summary>
+<table>
+<td>
+
+<details>
+<summary>     ./assets/imagenes/minigames/Puzzle/endImg.png </summary>
+<table>
+<td>
+             AUTOR: Víctor Martínez Moreno
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br>     ./assets/imagenes/minigames/Puzzle/Puzzle0/puzzle0_0.png
-<br>         AUTOR: Claudia Pérez Campoo
+</td>
+</table>
+</details>
+
+<details>
+<summary>     ./assets/imagenes/minigames/Puzzle/Puzzle0/puzzle0_0.png </summary>
+<table>
+<td>
+             AUTOR: Claudia Pérez Campoo
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br>     ./assets/imagenes/minigames/Puzzle/Puzzle0/puzzle0_1.png
-<br>         AUTOR: Claudia Pérez Campoo
+</td>
+</table>
+</details>
+
+<details>
+<summary>     ./assets/imagenes/minigames/Puzzle/Puzzle0/puzzle0_1.png </summary>
+<table>
+<td>
+             AUTOR: Claudia Pérez Campoo
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br>     ./assets/imagenes/minigames/Puzzle/Puzzle0/puzzle0_2.png
-<br>         AUTOR: Claudia Pérez Campoo
+</td>
+</table>
+</details>
+
+<details>
+<summary>     ./assets/imagenes/minigames/Puzzle/Puzzle0/puzzle0_2.png </summary>
+<table>
+<td>
+             AUTOR: Claudia Pérez Campoo
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br>     ./assets/imagenes/minigames/Puzzle/Puzzle0/puzzle0_3.png
-<br>         AUTOR: Claudia Pérez Campoo
+</td>
+</table>
+</details>
+
+<details>
+<summary>     ./assets/imagenes/minigames/Puzzle/Puzzle0/puzzle0_3.png </summary>
+<table>
+<td>
+             AUTOR: Claudia Pérez Campoo
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br>     ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_0.png
-<br>         AUTOR: Claudia Pérez Campoo
+</td>
+</table>
+</details>
+
+<details>
+<summary>     ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_0.png</summary>
+<table>
+<td>
+             AUTOR: Claudia Pérez Campoo
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br>     ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_1.png
-<br>         AUTOR: Claudia Pérez Campoo
+</td>
+</table>
+</details>
+
+<details>
+<summary>     ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_1.png </summary>
+<table>
+<td>
+             AUTOR: Claudia Pérez Campoo
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br>     ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_2.png
-<br>         AUTOR: Claudia Pérez Campoo
+</td>
+</table>
+</details>
+
+<details>
+<summary>     ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_2.png </summary>
+<table>
+<td>
+             AUTOR: Claudia Pérez Campoo
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br>     ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_3.png
-<br>         AUTOR: Claudia Pérez Campoo
+</td>
+</table>
+</details>
+
+<details>
+<summary>     ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_3.png </summary>
+<table>
+<td>
+             AUTOR: Claudia Pérez Campoo
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br>     ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_4.png
-<br>         AUTOR: Claudia Pérez Campoo
+</td>
+</table>
+</details>
+
+<details>
+<summary>     ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_4.png </summary>
+<table>
+<td>
+             AUTOR: Claudia Pérez Campoo
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br>     ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_5.png
-<br>         AUTOR: Claudia Pérez Campoo
+</td>
+</table>
+</details>
+
+<details>
+<summary>     ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_5.png </summary>
+<table>
+<td>
+             AUTOR: Claudia Pérez Campoo
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br>     ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_6.png
-<br>         AUTOR: Claudia Pérez Campoo
+</td>
+</table>
+</details>
+
+<details>
+<summary>     ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_6.png </summary>
+<table>
+<td>
+             AUTOR: Claudia Pérez Campoo
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br>     ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_7.png
-<br>         AUTOR: Claudia Pérez Campoo
+</td>
+</table>
+</details>
+
+<details>
+<summary>     ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_7.png </summary>
+<table>
+<td>
+             AUTOR: Claudia Pérez Campoo
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br>     ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_8.png
-<br>         AUTOR: Claudia Pérez Campoo
+</td>
+</table>
+</details>
+
+<details>
+<summary>     ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_8.png </summary>
+<table>
+<td>
+             AUTOR: Claudia Pérez Campoo
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br> 
+</td>
+</table>
+</details>
+
+</td>
+</table>
+</details>
+
+</td>
+</table>
+</details>
+
 <br> === AUDIO ===
 <br> 
 <br>     == MÚSICA ==
