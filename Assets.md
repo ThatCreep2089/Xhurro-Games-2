@@ -84,87 +84,283 @@
 </table>
 </details>
 
-<br> === BUILDS ===
-<br> ./assets/imagenes/builds/destroyedHouse.jpg
-<br>     AUTOR: Alicia Pérez Bumanlag
+<details>
+<summary> === BUILDS === </summary>
+<table>
+<td>
+
+<details>
+<summary> ./assets/imagenes/builds/destroyedHouse.jpg </summary>
+<table>
+<td>
+         AUTOR: Alicia Pérez Bumanlag
 <br>     LICENCIA: CC (BY-NC-SA-ND)
-<br> ./assets/imagenes/builds/house.png
-<br>     AUTOR: Alicia Pérez Bumanlag
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/builds/house.png </summary>
+<table>
+<td>
+         AUTOR: Alicia Pérez Bumanlag
 <br>     LICENCIA: CC (BY-NC-SA-ND)
-<br> 
-<br> === SOURCES ===
-<br> ./assets/imagenes/sources/paint.jpg
-<br>     AUTOR: Alicia Pérez Bumanlag
+</td>
+</table>
+</details>
+
+</td>
+</table>
+</detail>
+
+<details>
+<summary> === SOURCES === </summary>
+<table>
+<td>
+
+<details>
+<summary> ./assets/imagenes/sources/paint.jpg </summary>
+<table>
+<td>
+         AUTOR: Alicia Pérez Bumanlag
 <br>     LICENCIA: CC (BY-NC-SA-ND)
-<br>     
-<br> === HUD ===
-<br> ./assets/imagenes/HUD/buttons/buildSources.png
-<br>     AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+</td>
+</table>
+</details>
+
+<details>
+<summary> === HUD === </summary>
+<table>
+<td>
+
+<details>
+<summary> ./assets/imagenes/HUD/buttons/buildSources.png </summary>
+<table>
+<td>
+         AUTOR: Víctor Martínez Moreno
 <br>     LICENCIA: CC (BY-NC-SA-ND)
-<br> ./assets/imagenes/HUD/popups/keyboard_space.png
-<br>     AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/HUD/popups/keyboard_space.png </summary>
+<table>
+<td>
+         AUTOR: Víctor Martínez Moreno
 <br>     LICENCIA: CC (BY-NC-SA-ND)
-<br> ./assets/imagenes/HUD/buttons/acceptButtonHover.png
-<br>     AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/HUD/buttons/acceptButtonHover.png </summary>
+<table>
+<td>
+         AUTOR: Víctor Martínez Moreno
 <br>     LICENCIA: CC (BY-NC-SA-ND)
-<br> ./assets/imagenes/HUD/buttons/acceptButton.png
-<br>     AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/HUD/buttons/acceptButton.png </summary>
+<table>
+<td>
+         AUTOR: Víctor Martínez Moreno
 <br>     LICENCIA: CC (BY-NC-SA-ND)
-<br> ./assets/imagenes/HUD/buttons/refuseButtonHover.png
-<br>     AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/HUD/buttons/refuseButtonHover.png </summary>
+<table>
+<td>
+         AUTOR: Víctor Martínez Moreno
 <br>     LICENCIA: CC (BY-NC-SA-ND)
-<br> ./assets/imagenes/HUD/buttons/refuseButton.png
-<br>     AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/HUD/buttons/refuseButton.png </summary>
+<table>
+<td>
+         AUTOR: Víctor Martínez Moreno
 <br>     LICENCIA: CC (BY-NC-SA-ND)
-<br> ./assets/imagenes/HUD/sources/backpack.png
-<br>     AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/HUD/sources/backpack.png </summary>
+<table>
+<td>
+         AUTOR: Víctor Martínez Moreno
 <br>     LICENCIA: CC (BY-NC-SA-ND)
-<br> ./assets/imagenes/HUD/sources/paintIcon.png
-<br>     AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/HUD/sources/paintIcon.png </summary>
+<table>
+<td>
+         AUTOR: Víctor Martínez Moreno
 <br>     LICENCIA: CC (BY-NC-SA-ND)
-<br> ./assets/imagenes/HUD/sources/paperIcon.png
-<br>     AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/HUD/sources/paperIcon.png </summary>
+<table>
+<td>
+         AUTOR: Víctor Martínez Moreno
 <br>     LICENCIA: CC (BY-NC-SA-ND)
-<br> ./assets/imagenes/HUD/sources/clayIcon.png
-<br>     AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/HUD/sources/clayIcon.png </summary>
+<table>
+<td>
+         AUTOR: Víctor Martínez Moreno
 <br>     LICENCIA: CC (BY-NC-SA-ND)
-<br> ./assets/imagenes/HUD/sources/stamina.png
-<br>     AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/HUD/sources/stamina.png </summary>
+<table>
+<td>
+         AUTOR: Víctor Martínez Moreno
 <br>     LICENCIA: CC (BY-NC-SA-ND)
-<br> ./assets/imagenes/HUD/sources/dia.png
-<br>     AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/HUD/sources/dia.png </summary>
+<table>
+<td>
+         AUTOR: Víctor Martínez Moreno
 <br>     LICENCIA: CC (BY-NC-SA-ND)
-<br> ./assets/imagenes/HUD/sources/night.png
-<br>     AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/HUD/sources/night.png </summary>
+<table>
+<td>
+         AUTOR: Víctor Martínez Moreno
 <br>     LICENCIA: CC (BY-NC-SA-ND)
-<br> ./assets/imagenes/HUD/sources/afternoon.png
-<br>     AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/HUD/sources/afternoon.png </summary>
+<table>
+<td>
+         AUTOR: Víctor Martínez Moreno
 <br>     LICENCIA: CC (BY-NC-SA-ND)
-<br> ./assets/imagenes/HUD/sources/warningBG.png
-<br>     AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/HUD/sources/warningBG.png </summary>
+<table>
+<td>
+         AUTOR: Víctor Martínez Moreno
 <br>     LICENCIA: CC (BY-NC-SA-ND)
-<br> ./assets/imagenes/HUD/popups/notEnoughStamina.png
-<br>     AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/HUD/popups/notEnoughStamina.png </summary>
+<table>
+<td>
+         AUTOR: Víctor Martínez Moreno
 <br>     LICENCIA: CC (BY-NC-SA-ND)
-<br> ./assets/imagenes/imagenesWeb/diseño/banner.png
-<br>     AUTOR: Alicia Pérez Bumanlag
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/imagenesWeb/diseño/banner.png </summary>
+<table>
+<td>
+         AUTOR: Alicia Pérez Bumanlag
 <br>     LICENCIA: CC (BY-NC-SA-ND)
-<br> ./assets/imagenes/HUD/buttons/exitGame.png
-<br>     AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/HUD/buttons/exitGame.png </summary>
+<table>
+<td>
+         AUTOR: Víctor Martínez Moreno
 <br>     LICENCIA: CC (BY-NC-SA-ND)
-<br> ./assets/imagenes/HUD/buttons/exitGameHover.png
-<br>     AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/HUD/buttons/exitGameHover.png </summary>
+<table>
+<td>
+         AUTOR: Víctor Martínez Moreno
 <br>     LICENCIA: CC (BY-NC-SA-ND)
-<br> ./assets/imagenes/HUD/buttons/playGame.png
-<br>     AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/HUD/buttons/playGame.png </summary>
+<table>
+<td>
+         AUTOR: Víctor Martínez Moreno
 <br>     LICENCIA: CC (BY-NC-SA-ND)
-<br> ./assets/imagenes/HUD/buttons/playGameHover.png
-<br>     AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/HUD/buttons/playGameHover.png </summary>
+<table>
+<td>
+         AUTOR: Víctor Martínez Moreno
 <br>     LICENCIA: CC (BY-NC-SA-ND)
-<br> ./assets/imagenes/HUD/titleBg.png
-<br>     AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/HUD/titleBg.png </summary>
+<table>
+<td>
+         AUTOR: Víctor Martínez Moreno
 <br>     LICENCIA: CC (BY-NC-SA-ND)
-<br> 
+</td>
+</table>
+</details>
+
+</td>
+</table>
+</details>
+
 <br> === MINIGAMES ===
 <br> ./assets/imagenes/HUD/popups/MGInfoBG.png
 <br>     AUTOR: Víctor Martínez Moreno
