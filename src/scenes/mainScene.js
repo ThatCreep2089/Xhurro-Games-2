@@ -162,11 +162,12 @@ export default class mainScene extends Phaser.Scene {
       const paintriver = this.map.addTilesetImage('paintriver',"paintriver");
       const paperobstacles = this.map.addTilesetImage('paperobstacles',"paperobstacles");
     
-      this.background = this.map.createLayer ('background', cardboard);
+      this.background = this.map.createLayer ('mapbackground', cardboard);
       this.forestFloor = this.map.createLayer ('forestFloor', foresttiles);
       this.paperFloor = this.map.createLayer ('paperFloor', papertiles );
       this.obstaclesbottom = this.map.createLayer ( 'obstaclesbottom' , paperobstacles);
       this.obstaclestop = this.map.createLayer ( 'obstaclestop' , paperobstacles);
+      this.obstaclestop.setDepth(5000);
       this.decors = this.map.createLayer ( 'decors' , papertiles);
       this.paintRiver = this.map.createLayer ('paintRiver', paintriver);
 
@@ -181,7 +182,7 @@ export default class mainScene extends Phaser.Scene {
        //this.physics.add.collider(this.otter, this.paintRiver);
        this.paintRiver.setCollisionByExclusion([-1]);//colision con todo menos lo nulo
        this.obstaclesbottom.setCollisionByExclusion([-1]);
-       this.obstaclestop.setCollisionByExclusion([-1])
+      // this.obstaclestop.setCollisionByExclusion([-1])
        this.physics.add.collider(this.otter, this.paintRiver);
        this.physics.add.collider(this.otter, this.obstaclesbottom);
        this.physics.add.collider(this.otter, this.obstaclestop);
