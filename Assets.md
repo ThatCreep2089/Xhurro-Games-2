@@ -45,7 +45,6 @@
 </td>
 </table>
 </details>
-<br>
 
 <details>
 <summary>./assets/imagenes/NPC/Pablo.png</summary>
@@ -56,7 +55,6 @@
 </td>
 </table>
 </details>
-<br>
 
 <details>
 <summary>./assets/imagenes/NPC/Ishmael.png</summary>
@@ -67,7 +65,6 @@
 </td>
 </table>
 </details>
-<br>
 
 <details>
 <summary>./assets/imagenes/NPC/Cleon&Rome.png</summary>
