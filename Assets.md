@@ -11,23 +11,24 @@
          AUTOR: Alicia Pérez Bumanlag
 <br>     LICENCIA: CC (BY-NC-SA-ND)
 </td></table></details>
-<br> ./assets/imagenes/NPC/navi.png
-<br>     AUTOR: Claudia Pérez Campoo
+<details> <summary> ./assets/imagenes/NPC/navi.png </summary> <table> <td>
+         AUTOR: Claudia Pérez Campoo
 <br>     LICENCIA: CC (BY-NC-SA-ND)
-<br> 
-<br>     == NPC ==
-<br>     ./assets/imagenes/NPC/Toni.png
-<br>         AUTOR: Claudia Pérez Campoo
+</td></table></details>
+<details> <summary>     == NPC == </summary> <table> <td>
+    <details><summary>     ./assets/imagenes/NPC/Toni.png </summary> <table> <td>
+             AUTOR: Claudia Pérez Campoo
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br>     ./assets/imagenes/NPC/Pablo.png
-<br>         AUTOR: Claudia Pérez Campoo
+<br><details><summary>     ./assets/imagenes/NPC/Pablo.png</summary> <table> <td>
+             AUTOR: Claudia Pérez Campoo
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br>     ./assets/imagenes/NPC/Ishmael.png
-<br>         AUTOR: Claudia Pérez Campoo
+<br><details><summary>     ./assets/imagenes/NPC/Ishmael.png</summary> <table> <td>
+             AUTOR: Claudia Pérez Campoo
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br>     ./assets/imagenes/NPC/Cleon&Rome.png
-<br>         AUTOR: Claudia Pérez Campoo
+<br><details><summary>     ./assets/imagenes/NPC/Cleon&Rome.png</summary> <table> <td>
+             AUTOR: Claudia Pérez Campoo
 <br>         LICENCIA: CC (BY-NC-SA-ND)
+</td></table></details>
 </td></table></details>
 
 <br> === BUILDS ===
