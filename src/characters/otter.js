@@ -57,11 +57,12 @@ export default class Otter extends Phaser.GameObjects.Sprite {
     // === GESTIÓN DE INVENTARIO ===
 
     //Disminuye los recursos de la mochila
-    buy(bag)
-    {
+    buy(bag){
         this.backpack.paint -= bag.paint;
         this.backpack.paper -= bag.paper;
         this.backpack.clay -= bag.clay
+
+        this.scene.sound.add('cashSFX', {volume: 10}).play();
     }
 
     //Auenta los recursos de la mochila
@@ -94,6 +95,7 @@ export default class Otter extends Phaser.GameObjects.Sprite {
     decreaseStaminaAmount(amount){
         this.stamina -= amount;
         this.scene.UIManager.event.emit("updateStamina", -amount);
+        this.scene.sound.add('cashSFX', {volume: 10}).play();
 
         // Si la estamina llega a 0, pasar al siguiente día
         if (this.stamina <= 0) {
@@ -104,6 +106,7 @@ export default class Otter extends Phaser.GameObjects.Sprite {
     decreaseStamina(staminaPrice){
         if (this.howToDecrease <= 0){
             this.stamina -= staminaPrice;
+            this.scene.sound.add('cashSFX', {volume: 10}).play();
             this.scene.UIManager.event.emit("updateStamina", -staminaPrice);
             this.howToDecrease = 4;
         } else this.howToDecrease--;

@@ -198,6 +198,7 @@ export default class Boot extends Phaser.Scene {
 
        // = SOURCES =
         this.load.audio('grabSFX', './assets/audios/sources/grab.mp3');
+        this.load.audio('cashSFX', './assets/audios/sources/cash.mp3');
         this.load.audio('changingDaySFX', './assets/audios/sources/changingDay.mp3');
   }
 }
