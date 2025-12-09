@@ -6,30 +6,86 @@
 </table>
 </details>
 
-<details> <summary>=== PERSONAJES ===</summary> <table> <td>
-<details> <summary>./assets/imagenes/imagenesWeb/extras/smallant.png</summary> <table> <td>
+<details>
+<summary>=== PERSONAJES ===</summary>
+<table>
+<td>
+
+<details>
+<summary>./assets/imagenes/imagenesWeb/extras/smallant.png</summary>
+<table>
+<td>
          AUTOR: Alicia Pérez Bumanlag
 <br>     LICENCIA: CC (BY-NC-SA-ND)
-</td></table></details>
-<details> <summary> ./assets/imagenes/NPC/navi.png </summary> <table> <td>
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/NPC/navi.png </summary>
+<table>
+<td>
          AUTOR: Claudia Pérez Campoo
 <br>     LICENCIA: CC (BY-NC-SA-ND)
-</td></table></details>
-<details> <summary>     == NPC == </summary> <table> <td>
-    <details><summary>     ./assets/imagenes/NPC/Toni.png </summary> <table> <td>
+</td>
+</table>
+</details>
+
+<details>
+<summary>== NPC ==</summary>
+<table>
+<td>
+
+<details>
+<summary>./assets/imagenes/NPC/Toni.png </summary>
+<table>
+<td>
              AUTOR: Claudia Pérez Campoo
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br><details><summary>     ./assets/imagenes/NPC/Pablo.png</summary> <table> <td>
+</td>
+</table>
+</details>
+<br>
+
+<details>
+<summary>./assets/imagenes/NPC/Pablo.png</summary>
+<table>
+<td>
              AUTOR: Claudia Pérez Campoo
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br><details><summary>     ./assets/imagenes/NPC/Ishmael.png</summary> <table> <td>
+</td>
+</table>
+</details>
+<br>
+
+<details>
+<summary>./assets/imagenes/NPC/Ishmael.png</summary>
+<table>
+<td>
              AUTOR: Claudia Pérez Campoo
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br><details><summary>     ./assets/imagenes/NPC/Cleon&Rome.png</summary> <table> <td>
+</td>
+</table>
+</details>
+<br>
+
+<details>
+<summary>./assets/imagenes/NPC/Cleon&Rome.png</summary>
+<table>
+<td>
              AUTOR: Claudia Pérez Campoo
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-</td></table></details>
-</td></table></details>
+</td>
+</table>
+</details>
+
+</td>
+</table>
+</details>
+
+</td>
+</table>
+</details>
 
 <br> === BUILDS ===
 <br> ./assets/imagenes/builds/destroyedHouse.jpg
