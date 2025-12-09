@@ -214,6 +214,7 @@ export default class WhachAMoleBall extends Phaser.Scene{
             this.input.setDefaultCursor('default');
             this.input.keyboard.enabled = false;
             this.gameEnded = true;
+            this.player.body.setVelocityX(0)
 
             this.UIManager.appearMinigameEndInfo(this,
             ({

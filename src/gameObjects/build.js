@@ -116,7 +116,7 @@ export default class Build extends Phaser.GameObjects.Sprite {
         this.touching = false;
     }
 
-    finishConstruction() {
+    finishConstruction(fromLoad = false) {
         this.built = true;
 
         if (this.builtTexture) this.setTexture(this.builtTexture);
@@ -136,6 +136,8 @@ export default class Build extends Phaser.GameObjects.Sprite {
             repeat: -1,                  // repetir infinitamente
             ease: 'Sine.easeInOut'       // suaviza el movimiento
         });
+
+        if (fromLoad) return;
 
         const dialogData = this.scene.cache.json.get('buildDialogs');
 
