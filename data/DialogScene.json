@@ -1,19 +1,84 @@
 {
   "escena_inicial": [
     {   "tipo": "personaje",
-        "fondo": "house", 
-        "nombre": "Otter",
-        "texto": "Porque todo se me hace borroso y extraño" 
+        "fondo": "navi", 
+        "nombre": "Navi",
+        "texto": "Wake the fuck up Samurai!" 
     },
     {   "tipo": "personaje",
-        "fondo": "topo", 
-        "nombre": "Otter",
-        "texto": "¿Quien,soy?,¿Que es este sitio?" 
+        "fondo": "navi", 
+        "nombre": "Navi",
+        "texto": "We have a city to burn!" 
     },
     {   "tipo": "personaje",
-        "fondo": "dinamita", 
+        "fondo": "navi", 
         "nombre": "Otter",
-        "texto": "Tengo que salir de aquí" 
+        "texto": "¡¿Pero que narices?!" 
+    },
+    {   "tipo": "personaje",
+        "fondo": "navi", 
+        "nombre": "Navi",
+        "texto": "Que despiertes chavolete" 
+    },
+    {   "tipo": "personaje",
+        "fondo": "navi", 
+        "nombre": "Navi",
+        "texto": "Llevas K.O un rato largo" 
+    },
+    {   "tipo": "personaje",
+        "fondo": "navi", 
+        "nombre": "Otter",
+        "texto": "Pero..." 
+    },
+    {   "tipo": "personaje",
+        "fondo": "navi", 
+        "nombre": "Otter",
+        "texto": "¿Dónde estamos?" 
+    },
+    {   "tipo": "personaje",
+        "fondo": "navi", 
+        "nombre": "Navi",
+        "texto": "Pues tiene pinta que en tu cabeza" 
+    },
+    {   "tipo": "personaje",
+        "fondo": "navi", 
+        "nombre": "Navi",
+        "texto": "Joe si que la tienes hecha un cacao" 
+    },
+    {   "tipo": "personaje",
+        "fondo": "navi", 
+        "nombre": "Otter",
+        "texto": "Lógico no recuerdo nada" 
+    },
+    {   "tipo": "personaje",
+        "fondo": "navi", 
+        "nombre": "Navi",
+        "texto": "Pos na' tendremos que hacer algo, ¿no?" 
+    },
+    {   "tipo": "personaje",
+        "fondo": "navi", 
+        "nombre": "Otter",
+        "texto": "Supongo, ¿pero el qué?" 
+    },
+    {   "tipo": "personaje",
+        "fondo": "navi", 
+        "nombre": "Navi",
+        "texto": "Reconstuir tu meollo de cabeza, claro está" 
+    },
+    {   "tipo": "personaje",
+        "fondo": "navi", 
+        "nombre": "Otter",
+        "texto": "¿Mi cabeza?" 
+    },
+    {   "tipo": "personaje",
+        "fondo": "navi", 
+        "nombre": "Navi",
+        "texto": "Ah,¿que no te lo habia dicho?" 
+    },
+    {   "tipo": "personaje",
+        "fondo": "navi", 
+        "nombre": "Navi",
+        "texto": "Empecemos ya, que esto se hace eterno" 
     }
   ]
 }
