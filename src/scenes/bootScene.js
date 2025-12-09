@@ -8,13 +8,15 @@ export default class Boot extends Phaser.Scene {
   }
 
   preload() {
-    this.cameras.main.setBackgroundColor('#1a1a1a');
+
+    //Fondo
+    this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'cargaBg').setOrigin(0.5,0.5).setScale(0.37);
 
     // Texto "Cargando..."
     const loadingText = this.add.text(this.cameras.main.centerX, 100, 'Cargando...', {
       fontFamily: 'bobFont',
       fontSize: '32px',
-      fill: '#4bc711ff'
+      fill: '#e3c28b'
     }).setOrigin(0.5);
 
     const boxX = 150;
@@ -25,14 +27,14 @@ export default class Boot extends Phaser.Scene {
     const progressBox = this.add.graphics();
     progressBox.fillStyle(0x000000, 0.8);
     progressBox.fillRect(boxX, boxY, boxWidth, boxHeight);
-    progressBox.lineStyle(4, 0x459617);
+    progressBox.lineStyle(4, 0x2127d8);
     progressBox.strokeRect(boxX, boxY, boxWidth, boxHeight);
 
     const progressBar = this.add.graphics();
     const percentText = this.add.text(this.cameras.main.centerX, boxY + 60, '0%', {
       fontFamily: 'bobFont',
       fontSize: '24px',
-      fill: '#d4bf1aff'
+      fill: '#e3c28b'
     }).setOrigin(0.5);
 
     const img = this.add.image(boxX + 5, boxY + boxHeight / 2, 'navi');
@@ -51,7 +53,7 @@ export default class Boot extends Phaser.Scene {
     // Vincular progreso real del cargador
     this.load.on('progress', (value) => {
       progressBar.clear();
-      progressBar.fillStyle(0xBD1A3E, 1);
+      progressBar.fillStyle(0xe3c28b, 1);
       progressBar.fillRect(boxX + 5, boxY + 5, (boxWidth - 10) * value, boxHeight - 10);
 
       percentText.setText(Math.floor(value * 100) + '%');
@@ -113,6 +115,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('playGame', './assets/imagenes/HUD/buttons/playGame.png');
     this.load.image('playGameHover', './assets/imagenes/HUD/buttons/playGameHover.png');
     this.load.image('titleBg', './assets/imagenes/HUD/titleBg.png');
+    this.load.image('creditsBg', './assets/imagenes/HUD/cargaBg.png');
 
     // === MINIGAMES ===
     this.load.image('MGInfoBG', './assets/imagenes/HUD/popups/MGInfoBG.png');
