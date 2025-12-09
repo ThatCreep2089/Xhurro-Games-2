@@ -747,91 +747,308 @@
 </table>
 </details>
 
-<br>     == SFX ==
-<br>     ./assets/audios/walking.mp3
-<br>         AUTOR: Víctor Martínez Moreno
+<details>
+<summary>     == SFX == </summary>
+<table>
+<td>
+
+<details>
+<summary>     ./assets/audios/walking.mp3 </summary>
+<table>
+<td>
+             AUTOR: Víctor Martínez Moreno
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br> 
-<br>         = HUD =
-<br>         ./assets/audios/HUD/appearWarning.mp3
-<br>             AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary>         = HUD = </summary>
+<table>
+<td>
+
+<details>
+<summary>         ./assets/audios/HUD/appearWarning.mp3 </summary>
+<table>
+<td>
+                 AUTOR: Víctor Martínez Moreno
 <br>             LICENCIA: CC (BY-NC-SA-ND)
-<br>         ./assets/audios/HUD/disappearWarning.mp3
-<br>             AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary>         ./assets/audios/HUD/disappearWarning.mp3 </summary>
+<table>
+<td>
+                 AUTOR: Víctor Martínez Moreno 
 <br>             LICENCIA: CC (BY-NC-SA-ND)
-<br>         ./assets/audios/HUD/accept.mp3
-<br>             AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary>         ./assets/audios/HUD/accept.mp3 </summary>
+<table>
+<td>
+                 AUTOR: Víctor Martínez Moreno
 <br>             LICENCIA: CC (BY-NC-SA-ND)
-<br>         ./assets/audios/HUD/refuse.mp3
-<br>             AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary>         ./assets/audios/HUD/refuse.mp3 </summary>
+<table>
+<td>
+                 AUTOR: Víctor Martínez Moreno
 <br>             LICENCIA: CC (BY-NC-SA-ND)
-<br> 
-<br>         = MINIGAMES =
-<br>         ./assets/audios/minigames/timerSFX.mp3
-<br>             AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+</td>
+</table>
+</details>
+
+<details>
+<summary>         = MINIGAMES = </summary>
+<table>
+<td>
+
+<details>
+<summary>         ./assets/audios/minigames/timerSFX.mp3 </summary>
+<table>
+<td>
+                 AUTOR: Víctor Martínez Moreno
 <br>             LICENCIA: CC (BY-NC-SA-ND)
-<br> 
-<br>             PUZZLE
-<br>             ./assets/audios/minigames/Puzzle/rotatePiece.mp3
-<br>                 AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary>             PUZZLE </summary>
+<table>
+<td>
+
+<details>
+<summary>             ./assets/audios/minigames/Puzzle/rotatePiece.mp3 </summary>
+<table>
+<td>
+                     AUTOR: Víctor Martínez Moreno
 <br>                 LICENCIA: CC (BY-NC-SA-ND)
-<br> 
-<br>             WHACK A MOLE
-<br>             ./assets/audios/minigames/WhackAMole/appearMole.mp3
-<br>                 AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+</td>
+</table>
+</details>
+
+<details>
+<summary>             WHACK A MOLE </summary>
+<table>
+<td>
+
+<details>
+<summary>             ./assets/audios/minigames/WhackAMole/appearMole.mp3 </summary>
+<table>
+<td>
+                     AUTOR: Víctor Martínez Moreno
 <br>                 LICENCIA: CC (BY-NC-SA-ND)
-<br>             ./assets/audios/minigames/WhackAMole/explosion.mp3
-<br>                 AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary>             ./assets/audios/minigames/WhackAMole/explosion.mp3 </summary>
+<table>
+<td>
+                     AUTOR: Víctor Martínez Moreno
 <br>                 LICENCIA: CC (BY-NC-SA-ND)
-<br> 
-<br>             LIGHT UP GHOSTS
-<br>             ./assets/audios/minigames/LightUpGhosts/blower/appearBlower.mp3
-<br>                 AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+</td>
+</table>
+</details>
+
+<details>
+<summary>             LIGHT UP GHOSTS </summary>
+<table>
+<td>
+
+<details>
+<summary>             ./assets/audios/minigames/LightUpGhosts/blower/appearBlower.mp3 </summary>
+<table>
+<td>
+                     AUTOR: Víctor Martínez Moreno
 <br>                 LICENCIA: CC (BY-NC-SA-ND)
-<br>             ./assets/audios/minigames/LightUpGhosts/blower/appearBlower.mp3
-<br>                 AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary>             ./assets/audios/minigames/LightUpGhosts/blower/appearBlower.mp3 </summary>
+<table>
+<td>
+                     AUTOR: Víctor Martínez Moreno
 <br>                 LICENCIA: CC (BY-NC-SA-ND)
-<br>             ./assets/audios/minigames/LightUpGhosts/blower/disappearBlower.mp3
-<br>                 AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary>             ./assets/audios/minigames/LightUpGhosts/blower/disappearBlower.mp3 </summary>
+<table>
+<td>
+                     AUTOR: Víctor Martínez Moreno
 <br>                 LICENCIA: CC (BY-NC-SA-ND)
-<br>             ./assets/audios/minigames/LightUpGhosts/blower/blowerBlowing.mp3
-<br>                 AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary>             ./assets/audios/minigames/LightUpGhosts/blower/blowerBlowing.mp3 </summary>
+<table>
+<td>
+                     AUTOR: Víctor Martínez Moreno
 <br>                 LICENCIA: CC (BY-NC-SA-ND)
-<br>             ./assets/audios/minigames/LightUpGhosts/hiker/appearHiker.mp3
-<br>                 AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary>             ./assets/audios/minigames/LightUpGhosts/hiker/appearHiker.mp3 </summary>
+<table>
+<td>
+                     AUTOR: Víctor Martínez Moreno
 <br>                 LICENCIA: CC (BY-NC-SA-ND)
-<br>             ./assets/audios/minigames/LightUpGhosts/hiker/disappearHiker.mp3
-<br>                 AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary>             ./assets/audios/minigames/LightUpGhosts/hiker/disappearHiker.mp3 </summary>
+<table>
+<td>
+                     AUTOR: Víctor Martínez Moreno
 <br>                 LICENCIA: CC (BY-NC-SA-ND)
-<br>             ./assets/audios/minigames/LightUpGhosts/hiker/lightedUpHiker.mp3
-<br>                 AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary>             ./assets/audios/minigames/LightUpGhosts/hiker/lightedUpHiker.mp3 </summary>
+<table>
+<td>
+                     AUTOR: Víctor Martínez Moreno
 <br>                 LICENCIA: CC (BY-NC-SA-ND)
-<br>             ./assets/audios/minigames/LightUpGhosts/hiker/purgedHiker.mp3
-<br>                 AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary>             ./assets/audios/minigames/LightUpGhosts/hiker/purgedHiker.mp3 </summary>
+<table>
+<td>
+                     AUTOR: Víctor Martínez Moreno
 <br>                 LICENCIA: CC (BY-NC-SA-ND)
-<br>             ./assets/audios/minigames/LightUpGhosts/starer/appearStarer.mp3
-<br>                 AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary>             ./assets/audios/minigames/LightUpGhosts/starer/appearStarer.mp3 </summary>
+<table>
+<td>
+                     AUTOR: Víctor Martínez Moreno
 <br>                 LICENCIA: CC (BY-NC-SA-ND)
-<br>             ./assets/audios/minigames/LightUpGhosts/starer/disappearStarer.mp3
-<br>                 AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary>             ./assets/audios/minigames/LightUpGhosts/starer/disappearStarer.mp3 </summary>
+<table>
+<td>
+                     AUTOR: Víctor Martínez Moreno
 <br>                 LICENCIA: CC (BY-NC-SA-ND)
-<br>             ./assets/audios/minigames/LightUpGhosts/starer/lightedUpStarer.mp3
-<br>                 AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary>             ./assets/audios/minigames/LightUpGhosts/starer/lightedUpStarer.mp3 </summary>
+<table>
+<td>
+                     AUTOR: Víctor Martínez Moreno
 <br>                 LICENCIA: CC (BY-NC-SA-ND)
-<br>             ./assets/audios/minigames/LightUpGhosts/starer/purgedStarer.mp3
-<br>                 AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary>             ./assets/audios/minigames/LightUpGhosts/starer/purgedStarer.mp3 </summary>
+<table>
+<td>
+                     AUTOR: Víctor Martínez Moreno
 <br>                 LICENCIA: CC (BY-NC-SA-ND)
-<br> 
-<br>         = SOURCES =
-<br>         ./assets/audios/sources/grab.mp3
-<br>             AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+</td>
+</table>
+</details>
+
+</td>
+</table>
+</details>
+
+<details>
+<summary>         = SOURCES = </summary>
+<table>
+<td>
+
+<details>
+<summary>         ./assets/audios/sources/grab.mp3 </summary>
+<table>
+<td>
+                 AUTOR: Víctor Martínez Moreno
 <br>             LICENCIA: CC (BY-NC-SA-ND)
-<br>         ./assets/audios/sources/cash.mp3
-<br>             AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary>         ./assets/audios/sources/cash.mp3 </summary>
+<table>
+<td>
+                 AUTOR: Víctor Martínez Moreno
 <br>             LICENCIA: CC (BY-NC-SA-ND)
-<br>         ./assets/audios/sources/changingDay.mp3
-<br>             AUTOR: Víctor Martínez Moreno
+</td>
+</table>
+</details>
+
+<details>
+<summary>         ./assets/audios/sources/changingDay.mp3 </summary>
+<table>
+<td>
+                 AUTOR: Víctor Martínez Moreno
 <br>             LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+</td>
+</table>
+</details>
+
+</td>
+</table>
+</details>
 
 </td>
 </table>
