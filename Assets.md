@@ -111,7 +111,7 @@
 
 </td>
 </table>
-</detail>
+</details>
 
 <details>
 <summary> === SOURCES === </summary>
