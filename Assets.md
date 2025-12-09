@@ -1,12 +1,16 @@
 
 <details>
-<sumary>=== MAPA ===</sumary>
+<summary>=== MAPA ===</summary>
 <br> > ./assets/imagenes/HUD/map.png
 </details>
-<br> === PERSONAJES === 
-<br> ./assets/imagenes/imagenesWeb/extras/smallant.png
-<br>     AUTOR: Alicia Pérez Bumanlag
-<br>     LICENCIA: CC (BY-NC-SA-ND)
+
+<details>
+<br> <summary>=== PERSONAJES ===</summary>
+<details>
+<br> <summary>./assets/imagenes/imagenesWeb/extras/smallant.png</summary>
+<br>     *AUTOR*: Alicia Pérez Bumanlag
+<br>     *LICENCIA*: CC (BY-NC-SA-ND)
+</details>
 <br> ./assets/imagenes/NPC/navi.png
 <br>     AUTOR: Claudia Pérez Campoo
 <br>     LICENCIA: CC (BY-NC-SA-ND)
@@ -24,7 +28,8 @@
 <br>     ./assets/imagenes/NPC/Cleon&Rome.png
 <br>         AUTOR: Claudia Pérez Campoo
 <br>         LICENCIA: CC (BY-NC-SA-ND)
-<br>     
+<br></details>
+
 <br> === BUILDS ===
 <br> ./assets/imagenes/builds/destroyedHouse.jpg
 <br>     AUTOR: Alicia Pérez Bumanlag
