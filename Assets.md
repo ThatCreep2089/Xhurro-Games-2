@@ -1,303 +1,303 @@
 
 <details>
 <sumary>=== MAPA ===</sumary>
- ./assets/imagenes/HUD/map.png
+<br> ./assets/imagenes/HUD/map.png
 </details>
-=== PERSONAJES ===
-./assets/imagenes/imagenesWeb/extras/smallant.png
-    AUTOR: Alicia Pérez Bumanlag
-    LICENCIA: CC (BY-NC-SA-ND)
-./assets/imagenes/NPC/navi.png
-    AUTOR: Claudia Pérez Campoo
-    LICENCIA: CC (BY-NC-SA-ND)
-
-    == NPC ==
-    ./assets/imagenes/NPC/Toni.png
-        AUTOR: Claudia Pérez Campoo
-        LICENCIA: CC (BY-NC-SA-ND)
-    ./assets/imagenes/NPC/Pablo.png
-        AUTOR: Claudia Pérez Campoo
-        LICENCIA: CC (BY-NC-SA-ND)
-    ./assets/imagenes/NPC/Ishmael.png
-        AUTOR: Claudia Pérez Campoo
-        LICENCIA: CC (BY-NC-SA-ND)
-    ./assets/imagenes/NPC/Cleon&Rome.png
-        AUTOR: Claudia Pérez Campoo
-        LICENCIA: CC (BY-NC-SA-ND)
-    
-=== BUILDS ===
-./assets/imagenes/builds/destroyedHouse.jpg
-    AUTOR: Alicia Pérez Bumanlag
-    LICENCIA: CC (BY-NC-SA-ND)
-./assets/imagenes/builds/house.png
-    AUTOR: Alicia Pérez Bumanlag
-    LICENCIA: CC (BY-NC-SA-ND)
-
-=== SOURCES ===
-./assets/imagenes/sources/paint.jpg
-    AUTOR: Alicia Pérez Bumanlag
-    LICENCIA: CC (BY-NC-SA-ND)
-    
-=== HUD ===
-./assets/imagenes/HUD/buttons/buildSources.png
-    AUTOR: Víctor Martínez Moreno
-    LICENCIA: CC (BY-NC-SA-ND)
-./assets/imagenes/HUD/popups/keyboard_space.png
-    AUTOR: Víctor Martínez Moreno
-    LICENCIA: CC (BY-NC-SA-ND)
-./assets/imagenes/HUD/buttons/acceptButtonHover.png
-    AUTOR: Víctor Martínez Moreno
-    LICENCIA: CC (BY-NC-SA-ND)
-./assets/imagenes/HUD/buttons/acceptButton.png
-    AUTOR: Víctor Martínez Moreno
-    LICENCIA: CC (BY-NC-SA-ND)
-./assets/imagenes/HUD/buttons/refuseButtonHover.png
-    AUTOR: Víctor Martínez Moreno
-    LICENCIA: CC (BY-NC-SA-ND)
-./assets/imagenes/HUD/buttons/refuseButton.png
-    AUTOR: Víctor Martínez Moreno
-    LICENCIA: CC (BY-NC-SA-ND)
-./assets/imagenes/HUD/sources/backpack.png
-    AUTOR: Víctor Martínez Moreno
-    LICENCIA: CC (BY-NC-SA-ND)
-./assets/imagenes/HUD/sources/paintIcon.png
-    AUTOR: Víctor Martínez Moreno
-    LICENCIA: CC (BY-NC-SA-ND)
-./assets/imagenes/HUD/sources/paperIcon.png
-    AUTOR: Víctor Martínez Moreno
-    LICENCIA: CC (BY-NC-SA-ND)
-./assets/imagenes/HUD/sources/clayIcon.png
-    AUTOR: Víctor Martínez Moreno
-    LICENCIA: CC (BY-NC-SA-ND)
-./assets/imagenes/HUD/sources/stamina.png
-    AUTOR: Víctor Martínez Moreno
-    LICENCIA: CC (BY-NC-SA-ND)
-./assets/imagenes/HUD/sources/dia.png
-    AUTOR: Víctor Martínez Moreno
-    LICENCIA: CC (BY-NC-SA-ND)
-./assets/imagenes/HUD/sources/night.png
-    AUTOR: Víctor Martínez Moreno
-    LICENCIA: CC (BY-NC-SA-ND)
-./assets/imagenes/HUD/sources/afternoon.png
-    AUTOR: Víctor Martínez Moreno
-    LICENCIA: CC (BY-NC-SA-ND)
-./assets/imagenes/HUD/sources/warningBG.png
-    AUTOR: Víctor Martínez Moreno
-    LICENCIA: CC (BY-NC-SA-ND)
-./assets/imagenes/HUD/popups/notEnoughStamina.png
-    AUTOR: Víctor Martínez Moreno
-    LICENCIA: CC (BY-NC-SA-ND)
-./assets/imagenes/imagenesWeb/diseño/banner.png
-    AUTOR: Alicia Pérez Bumanlag
-    LICENCIA: CC (BY-NC-SA-ND)
-./assets/imagenes/HUD/buttons/exitGame.png
-    AUTOR: Víctor Martínez Moreno
-    LICENCIA: CC (BY-NC-SA-ND)
-./assets/imagenes/HUD/buttons/exitGameHover.png
-    AUTOR: Víctor Martínez Moreno
-    LICENCIA: CC (BY-NC-SA-ND)
-./assets/imagenes/HUD/buttons/playGame.png
-    AUTOR: Víctor Martínez Moreno
-    LICENCIA: CC (BY-NC-SA-ND)
-./assets/imagenes/HUD/buttons/playGameHover.png
-    AUTOR: Víctor Martínez Moreno
-    LICENCIA: CC (BY-NC-SA-ND)
-./assets/imagenes/HUD/titleBg.png
-    AUTOR: Víctor Martínez Moreno
-    LICENCIA: CC (BY-NC-SA-ND)
-
-=== MINIGAMES ===
-./assets/imagenes/HUD/popups/MGInfoBG.png
-    AUTOR: Víctor Martínez Moreno
-    LICENCIA: CC (BY-NC-SA-ND)
-
-    == WHACK A MOLE ==
-    ./assets/imagenes/minigames/WhackAMole/objects/marcus.png
-        AUTOR: Claudia Pérez Campoo
-        LICENCIA: CC (BY-NC-SA-ND)
-    ./assets/imagenes/minigames/WhackAMole/objects/holeFront.png
-        AUTOR: Claudia Pérez Campoo
-        LICENCIA: CC (BY-NC-SA-ND)
-    ./assets/imagenes/minigames/WhackAMole/objects/holeBack.png
-        AUTOR: Claudia Pérez Campoo
-        LICENCIA: CC (BY-NC-SA-ND)
-    ./assets/imagenes/minigames/WhackAMole/objects/bomba.png
-        AUTOR: Claudia Pérez Campoo
-        LICENCIA: CC (BY-NC-SA-ND)
-    ./assets/imagenes/minigames/WhackAMole/background/WAMVideo.mp4
-        AUTOR: Claudia Pérez Campoo
-        LICENCIA: CC (BY-NC-SA-ND)
-    ./assets/imagenes/minigames/WhackAMole/endImg.
-        AUTOR: Víctor Martínez Moreno
-        LICENCIA: CC (BY-NC-SA-ND)
-    ./assets/imagenes/minigames/WhackAMole/objects/hammer.png
-        AUTOR: Víctor Martínez Moreno
-        LICENCIA: CC (BY-NC-SA-ND)
-    ./assets/imagenes/minigames/WhackAMole/objects/explosion.png
-        AUTOR: Ansimuz (itch.io)
-        LICENCIA: Creative Commons Zero
-       
-    == LIGHT UP GHOSTS ==
-    ./assets/imagenes/minigames/LightUpGhosts/endImg.png
-        AUTOR: Víctor Martínez Moreno
-        LICENCIA: CC (BY-NC-SA-ND)
-    ./assets/imagenes/minigames/LightUpGhosts/largeGhost.png
-        AUTOR: Claudia Pérez Campoo
-        LICENCIA: CC (BY-NC-SA-ND)
-    ./assets/imagenes/minigames/LightUpGhosts/smallGhost.png
-        AUTOR: Claudia Pérez Campoo
-        LICENCIA: CC (BY-NC-SA-ND)
-    ./assets/imagenes/minigames/LightUpGhosts/bigGhost.png
-        AUTOR: Claudia Pérez Campoo
-        LICENCIA: CC (BY-NC-SA-ND)
-
-    == PUZZLE ==
-    ./assets/imagenes/minigames/Puzzle/endImg.png
-        AUTOR: Víctor Martínez Moreno
-        LICENCIA: CC (BY-NC-SA-ND)
-    ./assets/imagenes/minigames/Puzzle/Puzzle0/puzzle0_0.png
-        AUTOR: Claudia Pérez Campoo
-        LICENCIA: CC (BY-NC-SA-ND)
-    ./assets/imagenes/minigames/Puzzle/Puzzle0/puzzle0_1.png
-        AUTOR: Claudia Pérez Campoo
-        LICENCIA: CC (BY-NC-SA-ND)
-    ./assets/imagenes/minigames/Puzzle/Puzzle0/puzzle0_2.png
-        AUTOR: Claudia Pérez Campoo
-        LICENCIA: CC (BY-NC-SA-ND)
-    ./assets/imagenes/minigames/Puzzle/Puzzle0/puzzle0_3.png
-        AUTOR: Claudia Pérez Campoo
-        LICENCIA: CC (BY-NC-SA-ND)
-    ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_0.png
-        AUTOR: Claudia Pérez Campoo
-        LICENCIA: CC (BY-NC-SA-ND)
-    ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_1.png
-        AUTOR: Claudia Pérez Campoo
-        LICENCIA: CC (BY-NC-SA-ND)
-    ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_2.png
-        AUTOR: Claudia Pérez Campoo
-        LICENCIA: CC (BY-NC-SA-ND)
-    ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_3.png
-        AUTOR: Claudia Pérez Campoo
-        LICENCIA: CC (BY-NC-SA-ND)
-    ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_4.png
-        AUTOR: Claudia Pérez Campoo
-        LICENCIA: CC (BY-NC-SA-ND)
-    ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_5.png
-        AUTOR: Claudia Pérez Campoo
-        LICENCIA: CC (BY-NC-SA-ND)
-    ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_6.png
-        AUTOR: Claudia Pérez Campoo
-        LICENCIA: CC (BY-NC-SA-ND)
-    ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_7.png
-        AUTOR: Claudia Pérez Campoo
-        LICENCIA: CC (BY-NC-SA-ND)
-    ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_8.png
-        AUTOR: Claudia Pérez Campoo
-        LICENCIA: CC (BY-NC-SA-ND)
-
-=== AUDIO ===
-
-    == MÚSICA ==
-    ./assets/audios/Title.mp3
-        LICENCIA: Pixabay license
-    ./assets/audios/mainScene.mp3
-        LICENCIA: Pixabay license
-    ./assets/audios/minigames/MinigameInfo.mp3
-        LICENCIA: Pixabay license
-
-        = MINIGAMES =
-        ./assets/audios/minigames/LightUpGhosts/LightUpGhosts.mp3
-            AUTOR: Free Music (Youtube)
-            LICENCIA: CC (BY-SA)
-        ./assets/audios/minigames/Puzzle/Puzzle.mp3
-            AUTOR: Pix (Youtube)
-            LICENCIA: CC (BY-SA)
-        ./assets/audios/minigames/WhackAMole/Topos.mp3
-            AUTOR: Pix (Youtube)
-            LICENCIA: CC (BY-SA)
-
-    == SFX ==
-    ./assets/audios/walking.mp3
-        AUTOR: Víctor Martínez Moreno
-        LICENCIA: CC (BY-NC-SA-ND)
-
-        = HUD =
-        ./assets/audios/HUD/appearWarning.mp3
-            AUTOR: Víctor Martínez Moreno
-            LICENCIA: CC (BY-NC-SA-ND)
-        ./assets/audios/HUD/disappearWarning.mp3
-            AUTOR: Víctor Martínez Moreno
-            LICENCIA: CC (BY-NC-SA-ND)
-        ./assets/audios/HUD/accept.mp3
-            AUTOR: Víctor Martínez Moreno
-            LICENCIA: CC (BY-NC-SA-ND)
-        ./assets/audios/HUD/refuse.mp3
-            AUTOR: Víctor Martínez Moreno
-            LICENCIA: CC (BY-NC-SA-ND)
-
-        = MINIGAMES =
-        ./assets/audios/minigames/timerSFX.mp3
-            AUTOR: Víctor Martínez Moreno
-            LICENCIA: CC (BY-NC-SA-ND)
-
-            PUZZLE
-            ./assets/audios/minigames/Puzzle/rotatePiece.mp3
-                AUTOR: Víctor Martínez Moreno
-                LICENCIA: CC (BY-NC-SA-ND)
-
-            WHACK A MOLE
-            ./assets/audios/minigames/WhackAMole/appearMole.mp3
-                AUTOR: Víctor Martínez Moreno
-                LICENCIA: CC (BY-NC-SA-ND)
-            ./assets/audios/minigames/WhackAMole/explosion.mp3
-                AUTOR: Víctor Martínez Moreno
-                LICENCIA: CC (BY-NC-SA-ND)
-
-            LIGHT UP GHOSTS
-            ./assets/audios/minigames/LightUpGhosts/blower/appearBlower.mp3
-                AUTOR: Víctor Martínez Moreno
-                LICENCIA: CC (BY-NC-SA-ND)
-            ./assets/audios/minigames/LightUpGhosts/blower/appearBlower.mp3
-                AUTOR: Víctor Martínez Moreno
-                LICENCIA: CC (BY-NC-SA-ND)
-            ./assets/audios/minigames/LightUpGhosts/blower/disappearBlower.mp3
-                AUTOR: Víctor Martínez Moreno
-                LICENCIA: CC (BY-NC-SA-ND)
-            ./assets/audios/minigames/LightUpGhosts/blower/blowerBlowing.mp3
-                AUTOR: Víctor Martínez Moreno
-                LICENCIA: CC (BY-NC-SA-ND)
-            ./assets/audios/minigames/LightUpGhosts/hiker/appearHiker.mp3
-                AUTOR: Víctor Martínez Moreno
-                LICENCIA: CC (BY-NC-SA-ND)
-            ./assets/audios/minigames/LightUpGhosts/hiker/disappearHiker.mp3
-                AUTOR: Víctor Martínez Moreno
-                LICENCIA: CC (BY-NC-SA-ND)
-            ./assets/audios/minigames/LightUpGhosts/hiker/lightedUpHiker.mp3
-                AUTOR: Víctor Martínez Moreno
-                LICENCIA: CC (BY-NC-SA-ND)
-            ./assets/audios/minigames/LightUpGhosts/hiker/purgedHiker.mp3
-                AUTOR: Víctor Martínez Moreno
-                LICENCIA: CC (BY-NC-SA-ND)
-            ./assets/audios/minigames/LightUpGhosts/starer/appearStarer.mp3
-                AUTOR: Víctor Martínez Moreno
-                LICENCIA: CC (BY-NC-SA-ND)
-            ./assets/audios/minigames/LightUpGhosts/starer/disappearStarer.mp3
-                AUTOR: Víctor Martínez Moreno
-                LICENCIA: CC (BY-NC-SA-ND)
-            ./assets/audios/minigames/LightUpGhosts/starer/lightedUpStarer.mp3
-                AUTOR: Víctor Martínez Moreno
-                LICENCIA: CC (BY-NC-SA-ND)
-            ./assets/audios/minigames/LightUpGhosts/starer/purgedStarer.mp3
-                AUTOR: Víctor Martínez Moreno
-                LICENCIA: CC (BY-NC-SA-ND)
-
-        = SOURCES =
-        ./assets/audios/sources/grab.mp3
-            AUTOR: Víctor Martínez Moreno
-            LICENCIA: CC (BY-NC-SA-ND)
-        ./assets/audios/sources/cash.mp3
-            AUTOR: Víctor Martínez Moreno
-            LICENCIA: CC (BY-NC-SA-ND)
-        ./assets/audios/sources/changingDay.mp3
-            AUTOR: Víctor Martínez Moreno
-            LICENCIA: CC (BY-NC-SA-ND)
+<br> === PERSONAJES === 
+<br> ./assets/imagenes/imagenesWeb/extras/smallant.png
+<br>     AUTOR: Alicia Pérez Bumanlag
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+<br> ./assets/imagenes/NPC/navi.png
+<br>     AUTOR: Claudia Pérez Campoo
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+<br> 
+<br>     == NPC ==
+<br>     ./assets/imagenes/NPC/Toni.png
+<br>         AUTOR: Claudia Pérez Campoo
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+<br>     ./assets/imagenes/NPC/Pablo.png
+<br>         AUTOR: Claudia Pérez Campoo
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+<br>     ./assets/imagenes/NPC/Ishmael.png
+<br>         AUTOR: Claudia Pérez Campoo
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+<br>     ./assets/imagenes/NPC/Cleon&Rome.png
+<br>         AUTOR: Claudia Pérez Campoo
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+<br>     
+<br> === BUILDS ===
+<br> ./assets/imagenes/builds/destroyedHouse.jpg
+<br>     AUTOR: Alicia Pérez Bumanlag
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+<br> ./assets/imagenes/builds/house.png
+<br>     AUTOR: Alicia Pérez Bumanlag
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+<br> 
+<br> === SOURCES ===
+<br> ./assets/imagenes/sources/paint.jpg
+<br>     AUTOR: Alicia Pérez Bumanlag
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+<br>     
+<br> === HUD ===
+<br> ./assets/imagenes/HUD/buttons/buildSources.png
+<br>     AUTOR: Víctor Martínez Moreno
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+<br> ./assets/imagenes/HUD/popups/keyboard_space.png
+<br>     AUTOR: Víctor Martínez Moreno
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+<br> ./assets/imagenes/HUD/buttons/acceptButtonHover.png
+<br>     AUTOR: Víctor Martínez Moreno
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+<br> ./assets/imagenes/HUD/buttons/acceptButton.png
+<br>     AUTOR: Víctor Martínez Moreno
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+<br> ./assets/imagenes/HUD/buttons/refuseButtonHover.png
+<br>     AUTOR: Víctor Martínez Moreno
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+<br> ./assets/imagenes/HUD/buttons/refuseButton.png
+<br>     AUTOR: Víctor Martínez Moreno
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+<br> ./assets/imagenes/HUD/sources/backpack.png
+<br>     AUTOR: Víctor Martínez Moreno
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+<br> ./assets/imagenes/HUD/sources/paintIcon.png
+<br>     AUTOR: Víctor Martínez Moreno
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+<br> ./assets/imagenes/HUD/sources/paperIcon.png
+<br>     AUTOR: Víctor Martínez Moreno
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+<br> ./assets/imagenes/HUD/sources/clayIcon.png
+<br>     AUTOR: Víctor Martínez Moreno
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+<br> ./assets/imagenes/HUD/sources/stamina.png
+<br>     AUTOR: Víctor Martínez Moreno
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+<br> ./assets/imagenes/HUD/sources/dia.png
+<br>     AUTOR: Víctor Martínez Moreno
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+<br> ./assets/imagenes/HUD/sources/night.png
+<br>     AUTOR: Víctor Martínez Moreno
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+<br> ./assets/imagenes/HUD/sources/afternoon.png
+<br>     AUTOR: Víctor Martínez Moreno
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+<br> ./assets/imagenes/HUD/sources/warningBG.png
+<br>     AUTOR: Víctor Martínez Moreno
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+<br> ./assets/imagenes/HUD/popups/notEnoughStamina.png
+<br>     AUTOR: Víctor Martínez Moreno
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+<br> ./assets/imagenes/imagenesWeb/diseño/banner.png
+<br>     AUTOR: Alicia Pérez Bumanlag
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+<br> ./assets/imagenes/HUD/buttons/exitGame.png
+<br>     AUTOR: Víctor Martínez Moreno
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+<br> ./assets/imagenes/HUD/buttons/exitGameHover.png
+<br>     AUTOR: Víctor Martínez Moreno
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+<br> ./assets/imagenes/HUD/buttons/playGame.png
+<br>     AUTOR: Víctor Martínez Moreno
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+<br> ./assets/imagenes/HUD/buttons/playGameHover.png
+<br>     AUTOR: Víctor Martínez Moreno
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+<br> ./assets/imagenes/HUD/titleBg.png
+<br>     AUTOR: Víctor Martínez Moreno
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+<br> 
+<br> === MINIGAMES ===
+<br> ./assets/imagenes/HUD/popups/MGInfoBG.png
+<br>     AUTOR: Víctor Martínez Moreno
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+<br> 
+<br>     == WHACK A MOLE ==
+<br>     ./assets/imagenes/minigames/WhackAMole/objects/marcus.png
+<br>         AUTOR: Claudia Pérez Campoo
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+<br>     ./assets/imagenes/minigames/WhackAMole/objects/holeFront.png
+<br>         AUTOR: Claudia Pérez Campoo
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+<br>     ./assets/imagenes/minigames/WhackAMole/objects/holeBack.png
+<br>         AUTOR: Claudia Pérez Campoo
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+<br>     ./assets/imagenes/minigames/WhackAMole/objects/bomba.png
+<br>         AUTOR: Claudia Pérez Campoo
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+<br>     ./assets/imagenes/minigames/WhackAMole/background/WAMVideo.mp4
+<br>         AUTOR: Claudia Pérez Campoo
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+<br>     ./assets/imagenes/minigames/WhackAMole/endImg.
+<br>         AUTOR: Víctor Martínez Moreno
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+<br>     ./assets/imagenes/minigames/WhackAMole/objects/hammer.png
+<br>         AUTOR: Víctor Martínez Moreno
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+<br>     ./assets/imagenes/minigames/WhackAMole/objects/explosion.png
+<br>         AUTOR: Ansimuz (itch.io)
+<br>         LICENCIA: Creative Commons Zero
+<br>        
+<br>     == LIGHT UP GHOSTS ==
+<br>     ./assets/imagenes/minigames/LightUpGhosts/endImg.png
+<br>         AUTOR: Víctor Martínez Moreno
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+<br>     ./assets/imagenes/minigames/LightUpGhosts/largeGhost.png
+<br>         AUTOR: Claudia Pérez Campoo
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+<br>     ./assets/imagenes/minigames/LightUpGhosts/smallGhost.png
+<br>         AUTOR: Claudia Pérez Campoo
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+<br>     ./assets/imagenes/minigames/LightUpGhosts/bigGhost.png
+<br>         AUTOR: Claudia Pérez Campoo
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+<br> 
+<br>     == PUZZLE ==
+<br>     ./assets/imagenes/minigames/Puzzle/endImg.png
+<br>         AUTOR: Víctor Martínez Moreno
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+<br>     ./assets/imagenes/minigames/Puzzle/Puzzle0/puzzle0_0.png
+<br>         AUTOR: Claudia Pérez Campoo
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+<br>     ./assets/imagenes/minigames/Puzzle/Puzzle0/puzzle0_1.png
+<br>         AUTOR: Claudia Pérez Campoo
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+<br>     ./assets/imagenes/minigames/Puzzle/Puzzle0/puzzle0_2.png
+<br>         AUTOR: Claudia Pérez Campoo
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+<br>     ./assets/imagenes/minigames/Puzzle/Puzzle0/puzzle0_3.png
+<br>         AUTOR: Claudia Pérez Campoo
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+<br>     ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_0.png
+<br>         AUTOR: Claudia Pérez Campoo
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+<br>     ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_1.png
+<br>         AUTOR: Claudia Pérez Campoo
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+<br>     ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_2.png
+<br>         AUTOR: Claudia Pérez Campoo
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+<br>     ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_3.png
+<br>         AUTOR: Claudia Pérez Campoo
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+<br>     ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_4.png
+<br>         AUTOR: Claudia Pérez Campoo
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+<br>     ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_5.png
+<br>         AUTOR: Claudia Pérez Campoo
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+<br>     ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_6.png
+<br>         AUTOR: Claudia Pérez Campoo
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+<br>     ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_7.png
+<br>         AUTOR: Claudia Pérez Campoo
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+<br>     ./assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_8.png
+<br>         AUTOR: Claudia Pérez Campoo
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+<br> 
+<br> === AUDIO ===
+<br> 
+<br>     == MÚSICA ==
+<br>     ./assets/audios/Title.mp3
+<br>         LICENCIA: Pixabay license
+<br>     ./assets/audios/mainScene.mp3
+<br>         LICENCIA: Pixabay license
+<br>     ./assets/audios/minigames/MinigameInfo.mp3
+<br>         LICENCIA: Pixabay license
+<br> 
+<br>         = MINIGAMES =
+<br>         ./assets/audios/minigames/LightUpGhosts/LightUpGhosts.mp3
+<br>             AUTOR: Free Music (Youtube)
+<br>             LICENCIA: CC (BY-SA)
+<br>         ./assets/audios/minigames/Puzzle/Puzzle.mp3
+<br>             AUTOR: Pix (Youtube)
+<br>             LICENCIA: CC (BY-SA)
+<br>         ./assets/audios/minigames/WhackAMole/Topos.mp3
+<br>             AUTOR: Pix (Youtube)
+<br>             LICENCIA: CC (BY-SA)
+<br> 
+<br>     == SFX ==
+<br>     ./assets/audios/walking.mp3
+<br>         AUTOR: Víctor Martínez Moreno
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+<br> 
+<br>         = HUD =
+<br>         ./assets/audios/HUD/appearWarning.mp3
+<br>             AUTOR: Víctor Martínez Moreno
+<br>             LICENCIA: CC (BY-NC-SA-ND)
+<br>         ./assets/audios/HUD/disappearWarning.mp3
+<br>             AUTOR: Víctor Martínez Moreno
+<br>             LICENCIA: CC (BY-NC-SA-ND)
+<br>         ./assets/audios/HUD/accept.mp3
+<br>             AUTOR: Víctor Martínez Moreno
+<br>             LICENCIA: CC (BY-NC-SA-ND)
+<br>         ./assets/audios/HUD/refuse.mp3
+<br>             AUTOR: Víctor Martínez Moreno
+<br>             LICENCIA: CC (BY-NC-SA-ND)
+<br> 
+<br>         = MINIGAMES =
+<br>         ./assets/audios/minigames/timerSFX.mp3
+<br>             AUTOR: Víctor Martínez Moreno
+<br>             LICENCIA: CC (BY-NC-SA-ND)
+<br> 
+<br>             PUZZLE
+<br>             ./assets/audios/minigames/Puzzle/rotatePiece.mp3
+<br>                 AUTOR: Víctor Martínez Moreno
+<br>                 LICENCIA: CC (BY-NC-SA-ND)
+<br> 
+<br>             WHACK A MOLE
+<br>             ./assets/audios/minigames/WhackAMole/appearMole.mp3
+<br>                 AUTOR: Víctor Martínez Moreno
+<br>                 LICENCIA: CC (BY-NC-SA-ND)
+<br>             ./assets/audios/minigames/WhackAMole/explosion.mp3
+<br>                 AUTOR: Víctor Martínez Moreno
+<br>                 LICENCIA: CC (BY-NC-SA-ND)
+<br> 
+<br>             LIGHT UP GHOSTS
+<br>             ./assets/audios/minigames/LightUpGhosts/blower/appearBlower.mp3
+<br>                 AUTOR: Víctor Martínez Moreno
+<br>                 LICENCIA: CC (BY-NC-SA-ND)
+<br>             ./assets/audios/minigames/LightUpGhosts/blower/appearBlower.mp3
+<br>                 AUTOR: Víctor Martínez Moreno
+<br>                 LICENCIA: CC (BY-NC-SA-ND)
+<br>             ./assets/audios/minigames/LightUpGhosts/blower/disappearBlower.mp3
+<br>                 AUTOR: Víctor Martínez Moreno
+<br>                 LICENCIA: CC (BY-NC-SA-ND)
+<br>             ./assets/audios/minigames/LightUpGhosts/blower/blowerBlowing.mp3
+<br>                 AUTOR: Víctor Martínez Moreno
+<br>                 LICENCIA: CC (BY-NC-SA-ND)
+<br>             ./assets/audios/minigames/LightUpGhosts/hiker/appearHiker.mp3
+<br>                 AUTOR: Víctor Martínez Moreno
+<br>                 LICENCIA: CC (BY-NC-SA-ND)
+<br>             ./assets/audios/minigames/LightUpGhosts/hiker/disappearHiker.mp3
+<br>                 AUTOR: Víctor Martínez Moreno
+<br>                 LICENCIA: CC (BY-NC-SA-ND)
+<br>             ./assets/audios/minigames/LightUpGhosts/hiker/lightedUpHiker.mp3
+<br>                 AUTOR: Víctor Martínez Moreno
+<br>                 LICENCIA: CC (BY-NC-SA-ND)
+<br>             ./assets/audios/minigames/LightUpGhosts/hiker/purgedHiker.mp3
+<br>                 AUTOR: Víctor Martínez Moreno
+<br>                 LICENCIA: CC (BY-NC-SA-ND)
+<br>             ./assets/audios/minigames/LightUpGhosts/starer/appearStarer.mp3
+<br>                 AUTOR: Víctor Martínez Moreno
+<br>                 LICENCIA: CC (BY-NC-SA-ND)
+<br>             ./assets/audios/minigames/LightUpGhosts/starer/disappearStarer.mp3
+<br>                 AUTOR: Víctor Martínez Moreno
+<br>                 LICENCIA: CC (BY-NC-SA-ND)
+<br>             ./assets/audios/minigames/LightUpGhosts/starer/lightedUpStarer.mp3
+<br>                 AUTOR: Víctor Martínez Moreno
+<br>                 LICENCIA: CC (BY-NC-SA-ND)
+<br>             ./assets/audios/minigames/LightUpGhosts/starer/purgedStarer.mp3
+<br>                 AUTOR: Víctor Martínez Moreno
+<br>                 LICENCIA: CC (BY-NC-SA-ND)
+<br> 
+<br>         = SOURCES =
+<br>         ./assets/audios/sources/grab.mp3
+<br>             AUTOR: Víctor Martínez Moreno
+<br>             LICENCIA: CC (BY-NC-SA-ND)
+<br>         ./assets/audios/sources/cash.mp3
+<br>             AUTOR: Víctor Martínez Moreno
+<br>             LICENCIA: CC (BY-NC-SA-ND)
+<br>         ./assets/audios/sources/changingDay.mp3
+<br>             AUTOR: Víctor Martínez Moreno
+<br>             LICENCIA: CC (BY-NC-SA-ND)
