@@ -99,7 +99,11 @@ export default class Boot extends Phaser.Scene {
     this.load.image('swing', './assets/imagenes/builds/swing.png');
 
     // === SOURCES ===
-    this.load.image('paint', './assets/imagenes/sources/paint.jpg');
+    this.load.image('paper0', './assets/imagenes/sources/paper0.png');
+    this.load.image('paper1', './assets/imagenes/sources/paper1.png');
+    this.load.image('clay0', './assets/imagenes/sources/clay0.png');
+    this.load.image('clay1', './assets/imagenes/sources/clay1.png');
+    this.load.image('clay2', './assets/imagenes/sources/clay2.png');
     
     // === HUD ===
     this.load.image('buildSources', './assets/imagenes/HUD/buttons/buildSources.png');

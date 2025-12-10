@@ -7,8 +7,7 @@ export default class CreditsScene extends Phaser.Scene {
 
         //FONDO
         this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'creditsBg').setOrigin(0.5,0.5).setScale(0.37);
-        this.music = this.sound.add('titleMusic', {loop: true});
-        this.music.play();
+
          // --- LOGO ---
         this.logo = this.add.image(
             this.game.config.width / 2,
@@ -355,7 +354,7 @@ export default class CreditsScene extends Phaser.Scene {
         // Si el texto ha salido completamente de la pantalla, volver a menuScene
         if (this.text.y < -this.text.height) {
             GameDataManager.resetGame();
-            this.music.stop();
+            this.sound.stopAll();
             this.scene.start('menuScene');
         }
     }

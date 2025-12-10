@@ -1,3 +1,4 @@
+import GameDataManager from '../GameDataManager.js'
 export default class UIManager {
 
     constructor(scene, size = 1, color = '#FFFFFF'){
@@ -176,67 +177,70 @@ export default class UIManager {
         const cAppearWarning = appearWarning;
 
         setTimeout(() => {
-            paintNumber.setText("x" + backpack.paint);
-            paperNumber.setText("x" + backpack.paper);
-            clayNumber.setText("x" + backpack.clay);
+            if (paintNumber?.setText && paperNumber?.setText && clayNumber?.setText){
 
-            if (cAppearWarning){
-                //Activamos mensaje de recompensa por unos segundos
-                if (cSources.paint && cSources.paint != 0){
+                paintNumber.setText("x" + backpack.paint);
+                paperNumber.setText("x" + backpack.paper);
+                clayNumber.setText("x" + backpack.clay);
+    
+                if (cAppearWarning){
+                    //Activamos mensaje de recompensa por unos segundos
+                    if (cSources.paint && cSources.paint != 0){
+    
+                        if (warningPaint.every(e => e.finished === true)){
+                            accumulatedPaint = 0;
+                            warningPaint = this.warningDown(bgPaint, 45, true);
+                            this.warningDown(paintReward, 45, true);
+                        }
+                        else accumulatedPaint += cSources.paint;
 
-                     if (warningPaint.every(e => e.finished === true)){
-                         accumulatedPaint = 0;
-                         warningPaint = this.warningDown(bgPaint, 45, true);
-                         this.warningDown(paintReward, 45, true);
-                     }
-                     else accumulatedPaint += cSources.paint;
+                        let number = cSources.paint + accumulatedPaint;
+                        if(number > 0){
+                            paintReward.setColor('#008000');
+                            paintReward.setText("+" + number);
+                        }
+                        else{
+                            paintReward.setColor('#ff0000');
+                            paintReward.setText(number);
+                        }
+                    }
+    
+                    if (cSources.paper && cSources.paper != 0){
+                        if (warningPaper.every(e => e.finished === true)){
+                            accumulatedPaper = 0;
+                            warningPaper = this.warningDown(bgPaper, 45, true);
+                            this.warningDown(paperReward, 45, true);
+                        } else accumulatedPaper += cSources.paper;
 
-                     let number = cSources.paint + accumulatedPaint;
-                     if(number > 0){
-                         paintReward.setColor('#008000');
-                         paintReward.setText("+" + number);
-                     }
-                     else{
-                         paintReward.setColor('#ff0000');
-                         paintReward.setText(number);
-                     }
+                        let number = cSources.paper + accumulatedPaper;
+                        if(number > 0){
+                            paperReward.setColor("#008000");
+                            paperReward.setText("+" + number);
+                        }
+                        else{
+                            paperReward.setColor("#ff0000");
+                            paperReward.setText(number);
+                        }
+                    }
+    
+                    if (cSources.clay && cSources.clay != 0){
+                        if (warningClay.every(e => e.finished === true)){
+                            accumulatedClay = 0;
+                            warningClay = this.warningDown(bgClay, 45, true);
+                            this.warningDown(clayReward, 45, true);
+                        } else accumulatedClay += cSources.clay;
+
+                        let number = cSources.clay + accumulatedClay;
+                        if (number > 0){
+                            clayReward.setColor('#008000');
+                            clayReward.setText("+" + number);
+                        }
+                        else{
+                            clayReward.setColor('#ff0000');
+                            clayReward.setText(number);
+                        }
+                    }
                 }
-
-                if (cSources.paper && cSources.paper != 0){
-                     if (warningPaper.every(e => e.finished === true)){
-                         accumulatedPaper = 0;
-                         warningPaper = this.warningDown(bgPaper, 45, true);
-                         this.warningDown(paperReward, 45, true);
-                     } else accumulatedPaper += cSources.paper;
-
-                     let number = cSources.paper + accumulatedPaper;
-                     if(number > 0){
-                         paperReward.setColor("#008000");
-                         paperReward.setText("+" + number);
-                     }
-                     else{
-                         paperReward.setColor("#ff0000");
-                         paperReward.setText(number);
-                     }
-                }
-
-                if (cSources.clay && cSources.clay != 0){
-                     if (warningClay.every(e => e.finished === true)){
-                         accumulatedClay = 0;
-                         warningClay = this.warningDown(bgClay, 45, true);
-                         this.warningDown(clayReward, 45, true);
-                     } else accumulatedClay += cSources.clay;
-
-                     let number = cSources.clay + accumulatedClay;
-                     if (number > 0){
-                         clayReward.setColor('#008000');
-                         clayReward.setText("+" + number);
-                     }
-                     else{
-                         clayReward.setColor('#ff0000');
-                         clayReward.setText(number);
-                     }
-                 }
             }
         }, duration);
        });
@@ -765,7 +769,12 @@ export default class UIManager {
             duration: 4000,
         });
         
-        t.once('complete', () => {this.scene.scene.start('mainScene')});
+        t.once('complete', () => {
+            const ending = GameDataManager.getEnding(6, 2); //6 dias y 2 construcciones
+            if (ending === "good") this.scene.scene.start('ending', { good: true });
+            else if (ending === "bad") this.scene.scene.start('ending', { good: false });
+            else this.scene.scene.start('mainScene');
+        });
         t.play();
     }
 

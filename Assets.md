@@ -179,7 +179,47 @@
 <td>
 
 <details>
-<summary> ./assets/imagenes/sources/paint.jpg </summary>
+<summary> ./assets/imagenes/sources/paper0.jpg </summary>
+<table>
+<td>
+         AUTOR: Alicia Pérez Bumanlag
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/sources/paper1.jpg </summary>
+<table>
+<td>
+         AUTOR: Alicia Pérez Bumanlag
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/sources/clay0.jpg </summary>
+<table>
+<td>
+         AUTOR: Alicia Pérez Bumanlag
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/sources/clay1.jpg </summary>
+<table>
+<td>
+         AUTOR: Alicia Pérez Bumanlag
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/sources/clay2.jpg </summary>
 <table>
 <td>
          AUTOR: Alicia Pérez Bumanlag

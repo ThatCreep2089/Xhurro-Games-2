@@ -103,13 +103,6 @@ export default class mainScene extends Phaser.Scene {
         this.fade = false;
         GameDataManager.applyTo(this);
 
-        // === FINAL ===
-        const ending = GameDataManager.getEnding(6, 2); //6 dias y 2 construcciones
-            if (ending === "good") {
-                this.scene.start('ending', { good: true });}
-            else if (ending === "bad") {
-                this.scene.start('ending', { good: false });}
-
         //Una vez se ha preparado toda la escena, si tiene que hacer Fade, lo hace
         if(this.fade){ this.fade = false; this.UIManager.FadeOut();}
     }
@@ -131,12 +124,12 @@ export default class mainScene extends Phaser.Scene {
 
     createSources() {
         this.sources = [];
-        this.sources.push(new Source(this, 1200, 1200, 'paint', 0, 0, 1, 5));
+        this.sources.push(new Source(this, 1200, 1200, 'clay1', 0, 0, 1, 5));
     }
 
     createBuilds() {
         this.builds = [];
-        const house = new Build(this, 400, 1000, 'destroyedHouse', 'house', 0, 0, 3, 1, 0, 'house_400_1000');
+        const house = new Build(this, 400, 1000, 'destroyedWatermill', 'watermill', 0, 0, 3, 1, 0, 'house_400_1000');
         this.builds.push(house);
     }
 

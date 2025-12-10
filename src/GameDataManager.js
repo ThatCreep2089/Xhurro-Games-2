@@ -79,7 +79,7 @@ export default class GameDataManager {
 
     static applyTo(scene) {
         if (!scene) return;
-
+        
         if (scene.otter) {
 
             if (scene.otter.backpack){
@@ -136,14 +136,14 @@ export default class GameDataManager {
         
         if (scene.UIManager && scene.UIManager.event) {
             scene.UIManager.event.emit('updateInventory', scene.otter.backpack, false, false);
-            scene.UIManager.event.emit('updateInventory', this.reward, this.fade);
+            scene.UIManager.event.emit('updateInventory', this.reward, this.fade && this.day < 7);
             scene.UIManager.event.emit('updateStamina');
             scene.UIManager.event.emit('updateDay'); // 🔹 nuevo evento
         } else {
             scene.time.delayedCall(200, () => {
                 if (scene.UIManager && scene.UIManager.event) {
                     scene.UIManager.event.emit('updateInventory', scene.otter.backpack, false, false);
-                    scene.UIManager.event.emit('updateInventory', this.reward, this.fade);
+                    scene.UIManager.event.emit('updateInventory', this.reward, this.fade && this.day < 7);
                     scene.UIManager.event.emit('updateStamina');
                     scene.UIManager.event.emit('updateDay');
                 }
