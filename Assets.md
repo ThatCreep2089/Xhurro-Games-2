@@ -357,6 +357,26 @@
 </table>
 </details>
 
+<details>
+<summary> ./assets/imagenes/HUD/cargaBg.png </summary>
+<table>
+<td>
+         AUTOR: Claudia Pérez Campoo
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/HUD/creditsBg.png </summary>
+<table>
+<td>
+         AUTOR: Claudia Pérez Campoo
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
 </td>
 </table>
 </details>
