@@ -23,7 +23,7 @@ export default class TestScene extends Phaser.Scene {
            this.physics.world.setBounds(0, 0, 2560, 1840);
           this.cameras.main.setBounds(0, 0, 2560, 1840);
           this.createMap();
-          this.setPositionsMap();
+        //  this.setPositionsMap();
   
           // === CONTROLES ===
           this.#inputs = {
@@ -146,11 +146,31 @@ export default class TestScene extends Phaser.Scene {
         this.paintRiver = this.map.createLayer ('paintRiver', paintriver);
         this.obstaclesbottom = this.map.createLayer ( 'obstaclesbottom' , paperobstacles);
         this.obstaclestop = this.map.createLayer ( 'obstaclestop' , paperobstacles);
-        this.obstaclestop.setDepth(5000);
-  
+        this.obstaclestop.setDepth(100);
+        
+      this.setPositionsMap();
     
       }
   
+      setPositionsMap(){
+          
+          
+         const otherObjLayer = this.map.getObjectLayer("others");
+         
+        // this.otherObjLayer.set
+      
+          //const tree = this.map.createFromObjects("others", { gid: 26, key: 'tree' });
+          //  tree.setDepth(tree.y);
+         //otherObjLayer.tree.forEach(tree => { setDepth(tree.y); });
+  
+         // otherObjLayer.objects.forEach(obj => { setDepth(obj.y); });
+  
+         // this.map.createFromObjects("others", {key:'tree'} );
+         // this.map.createFromObjects()
+         // const tree = this.map.createFromObjects("others", { gid: 26, key: 'tree' });
+
+  
+      }
       createMapCollisions(){
               
         //this.obstaclesbottom.setCollision(145); 
@@ -210,18 +230,6 @@ export default class TestScene extends Phaser.Scene {
       }
   
   
-    setPositionsMap(){
-        
-        
-        const otherObjLayer = this.map.getObjectLayer("others");
-
-        otherObjLayer.objects.forEach(obj => {
-        });
-
-        this.map.createFromObjects("others", 'tree' );
-
-
-    }
 
     /*      if (obj.type === "npc") {
            const npcData = this.cache.json.get('prueba');
