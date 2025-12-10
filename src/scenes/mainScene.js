@@ -68,14 +68,14 @@ export default class mainScene extends Phaser.Scene {
             LightUpGhosts: {
                 name: "Ilumina a \n los fantasmas",
                 description: "Arrastra la antorcha hacia los fantasmas hasta destruirlos antes de que se escapen.",
-                src: 'WAMVideo',
+                src: 'LUGVideo',
                 price: 24,
                 reward:{ amountPerX:{paint: 0, paper: 2, clay: 0}, X: 10 }
             },
             Puzzle: {
                 name: "Puzle",
                 description: "Haz clic sobre las piezas para rotarlas y consigue que el puzzle encaje",
-                src: 'WAMVideo',
+                src: 'PVideo',
                 price: 24,
                 reward:{ amountPerX:{paint: 0, paper: 0, clay: 10}, X: 1 }
             }

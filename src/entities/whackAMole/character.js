@@ -12,6 +12,7 @@ export default class Character extends Phaser.GameObjects.Sprite{
         this.Dkey = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
 
         this.setScale(0.5);
+        this.setDepth(6);
 
         const bodyWidth = this.width * 0.5;;
         const bodyHeight = 20; // altura del collider en la parte inferior

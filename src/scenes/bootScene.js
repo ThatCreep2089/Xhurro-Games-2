@@ -137,22 +137,24 @@ export default class Boot extends Phaser.Scene {
     this.load.image('MGInfoBG', './assets/imagenes/HUD/popups/MGInfoBG.png');
 
       // == WHACK A MOLE ==
+      this.load.video('WAMVideo', './assets/imagenes/minigames/WhackAMole/WAMVideo.mp4');
       this.load.image('topo', './assets/imagenes/minigames/WhackAMole/objects/marcus.png');
       this.load.image('hoyo', './assets/imagenes/minigames/WhackAMole/objects/holeFront.png');
       this.load.image('hoyoBack', './assets/imagenes/minigames/WhackAMole/objects/holeBack.png');
       this.load.image('dinamita', './assets/imagenes/minigames/WhackAMole/objects/bomba.png');
-      this.load.video('WAMVideo', './assets/imagenes/minigames/WhackAMole/background/WAMVideo.mp4');
       this.load.image('toposEnd', './assets/imagenes/minigames/WhackAMole/endImg.png');
       this.load.image('hammer', './assets/imagenes/minigames/WhackAMole/objects/hammer.png');
       this.load.spritesheet('explosion','./assets/imagenes/minigames/WhackAMole/objects/explosion.png', {frameWidth: 32,frameHeight:32})
        
       // == LIGHT UP GHOSTS ==
+      this.load.video('LUGVideo', './assets/imagenes/minigames/LightUpGhosts/infoVideo.mp4');
       this.load.image('fantasmasEnd', './assets/imagenes/minigames/LightUpGhosts/endImg.png');
       this.load.image('blower', './assets/imagenes/minigames/LightUpGhosts/largeGhost.png');
       this.load.image('hiker', './assets/imagenes/minigames/LightUpGhosts/smallGhost.png');
       this.load.image('starer', './assets/imagenes/minigames/LightUpGhosts/bigGhost.png');
 
       // == PUZZLE ==
+      this.load.video('PVideo', './assets/imagenes/minigames/Puzzle/infoVideo.mp4');
       this.load.image('puzleEnd', './assets/imagenes/minigames/Puzzle/endImg.png');
       this.load.image('puzzle0_0', './assets/imagenes/minigames/Puzzle/Puzzle0/puzzle0_0.png');
       this.load.image('puzzle0_1', './assets/imagenes/minigames/Puzzle/Puzzle0/puzzle0_1.png');

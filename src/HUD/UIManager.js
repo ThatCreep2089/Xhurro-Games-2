@@ -446,7 +446,7 @@ export default class UIManager {
         //Video
         let source = this.scene.add.video(200, -145, minigameInfo.src).play(true);
         source.setOrigin(0.5, 0.5);
-        source.setScale(this.size * 0.8);
+        source.setScale(this.size * 0.4);
 
         //Descripción de minijuego
         let description = this.scene.add.text(-395, -200, minigameInfo.description, {

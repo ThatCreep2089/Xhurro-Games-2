@@ -572,10 +572,10 @@
 </details>
 
 <details>
-<summary>./assets/imagenes/minigames/WhackAMole/background/WAMVideo.mp4</summary>
+<summary>./assets/imagenes/minigames/WhackAMole/WAMVideo.mp4</summary>
 <table>
 <td>
-             AUTOR: Claudia Pérez Campoo
+             AUTOR: Víctor Martínez Moreno
 <br>         LICENCIA: CC (BY-NC-SA-ND)
 </td>
 </table>
@@ -619,6 +619,16 @@
 <summary>     == LIGHT UP GHOSTS ==</summary>
 <table>
 <td>
+
+<details>
+<summary>./assets/imagenes/minigames/LightUpGhosts/infoVideo.mp4</summary>
+<table>
+<td>
+             AUTOR: Víctor Martínez Moreno
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
 
 <details>
 <summary>     ./assets/imagenes/minigames/LightUpGhosts/endImg.png </summary>
@@ -668,6 +678,16 @@
 <summary>     == PUZZLE == </summary>
 <table>
 <td>
+
+<details>
+<summary>./assets/imagenes/minigames/Puzzle/infoVideo.mp4</summary>
+<table>
+<td>
+             AUTOR: Víctor Martínez Moreno
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
 
 <details>
 <summary>     ./assets/imagenes/minigames/Puzzle/endImg.png </summary>
