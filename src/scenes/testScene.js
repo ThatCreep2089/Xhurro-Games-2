@@ -22,6 +22,7 @@ export default class TestScene extends Phaser.Scene {
           this.cameras.main.setBounds(0, 0, map.width, map.height);*/
            this.physics.world.setBounds(0, 0, 2560, 1840);
           this.cameras.main.setBounds(0, 0, 2560, 1840);
+          //const depthOffset = 100;
           this.createMap();
         //  this.setPositionsMap();
   
@@ -146,7 +147,7 @@ export default class TestScene extends Phaser.Scene {
         this.paintRiver = this.map.createLayer ('paintRiver', paintriver);
         this.obstaclesbottom = this.map.createLayer ( 'obstaclesbottom' , paperobstacles);
         this.obstaclestop = this.map.createLayer ( 'obstaclestop' , paperobstacles);
-        this.obstaclestop.setDepth(100);
+       // this.obstaclestop.setDepth(100);
         
       this.setPositionsMap();
     
@@ -154,22 +155,40 @@ export default class TestScene extends Phaser.Scene {
   
       setPositionsMap(){
           
-          
+         /*  
          const otherObjLayer = this.map.getObjectLayer("others");
-         
-        // this.otherObjLayer.set
-      
-          //const tree = this.map.createFromObjects("others", { gid: 26, key: 'tree' });
-          //  tree.setDepth(tree.y);
-         //otherObjLayer.tree.forEach(tree => { setDepth(tree.y); });
-  
-         // otherObjLayer.objects.forEach(obj => { setDepth(obj.y); });
-  
-         // this.map.createFromObjects("others", {key:'tree'} );
-         // this.map.createFromObjects()
-         // const tree = this.map.createFromObjects("others", { gid: 26, key: 'tree' });
+            const obstaclestop = map.createFromTiles([1,2,3], -1, { key: 'tileset' }, layer);
 
+         obstaclestop.forEach(tile => { tile.setDepth(tile.y);});
+        this.otherObjLayer.set
+      
+          const tree = this.map.createFromObjects("others", { gid: 26, key: 'tree' });
+           tree.setDepth(tree.y);
+         otherObjLayer.tree.forEach(tree => { setDepth(tree.y); });
   
+          otherObjLayer.objects.forEach(obj => { setDepth(obj.y); });
+  
+          this.map.createFromObjects("others", {key:'tree'} );
+         this.map.createFromObjects()
+          const tree = this.map.createFromObjects("others", { gid: 26, key: 'tree' });
+
+        if (obj.type === "npc") {
+           const npcData = this.cache.json.get('prueba');
+                   this.Toni = new NPC(this, 900, 700, 'toni', npcData, this.otter, this.minigamesInfo.WackAMole);
+           
+        }
+
+        if (obj.type === "source") {
+             new Source(this, 1200, 1200, 'paint', 0, 0, 1, 5);
+        }
+
+        if (obj.type === "build") {
+                    this.builds = [];
+                   const house = new Build(this, 400, 1000, 'destroyedHouse', 'house', 0, 0, 3, 1, 0, 'house_400_1000');
+                   this.builds.push(house);
+        }*/
+  
+                   
       }
       createMapCollisions(){
               
@@ -179,7 +198,7 @@ export default class TestScene extends Phaser.Scene {
          //this.physics.add.collider(this.otter, this.paintRiver);
          this.paintRiver.setCollisionByExclusion([-1]);//colision con todo menos lo nulo
          this.obstaclesbottom.setCollisionByExclusion([-1]);
-        // this.obstaclestop.setCollisionByExclusion([-1])
+         this.obstaclestop.setCollisionByExclusion([-1])
          this.physics.add.collider(this.otter, this.paintRiver);
          this.physics.add.collider(this.otter, this.obstaclesbottom);
          this.physics.add.collider(this.otter, this.obstaclestop);
@@ -231,20 +250,5 @@ export default class TestScene extends Phaser.Scene {
   
   
 
-    /*      if (obj.type === "npc") {
-           const npcData = this.cache.json.get('prueba');
-                   this.Toni = new NPC(this, 900, 700, 'toni', npcData, this.otter, this.minigamesInfo.WackAMole);
-           
-        }
-
-        if (obj.type === "source") {
-             new Source(this, 1200, 1200, 'paint', 0, 0, 1, 5);
-        }
-
-        if (obj.type === "build") {
-                    this.builds = [];
-                   const house = new Build(this, 400, 1000, 'destroyedHouse', 'house', 0, 0, 3, 1, 0, 'house_400_1000');
-                   this.builds.push(house);
-        }*/
 
 }
