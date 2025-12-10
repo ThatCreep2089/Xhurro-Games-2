@@ -19,7 +19,7 @@ export default class GameDataManager {
     static buildsConstructed = [];
     static collectedSources = [];
 
-    static day = 6; //Nuevo contador de días
+    static day = 1; //Nuevo contador de días
 
     static reward = {
         paint: 0,

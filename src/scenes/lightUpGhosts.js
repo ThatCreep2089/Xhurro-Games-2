@@ -22,13 +22,14 @@ export default class lightUpGhosts extends Phaser.Scene {
         });
         this.music.play();
 
-        let background = this.add.image(0, 0, 'MGInfoBG').setOrigin(0.5, 0.5);
+        
+
         this.input.setDefaultCursor('none');
         
         // === PINTADO INICIAL DE ESCENA ===
         this.lights.enable().setAmbientColor(0x000000);
         
-        background.setScale(4);
+        let background = this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'lightUpGhostsBg').setOrigin(0.5, 0.5).setScale(0.37);
         background.setPipeline('Light2D');
         this.UIManager = new UIManager (this, 1, '#A52019');
         

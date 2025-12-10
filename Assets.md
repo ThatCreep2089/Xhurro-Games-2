@@ -477,6 +477,36 @@
 </table>
 </details>
 
+<details>
+<summary> ./assets/imagenes/HUD/ghostsBg.png </summary>
+<table>
+<td>
+         AUTOR: Claudia Pérez Campoo
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/HUD/minigamesBg1.png </summary>
+<table>
+<td>
+         AUTOR: Claudia Pérez Campoo
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/HUD/minigamesBg2.png </summary>
+<table>
+<td>
+         AUTOR: Claudia Pérez Campoo
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
 </td>
 </table>
 </details>
