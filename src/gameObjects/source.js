@@ -48,7 +48,7 @@ export default class Source extends Phaser.GameObjects.Sprite {
          this.scene.physics.world.on('worldstep', ()=>{this.physicsUpdate()});
         
         //Estamina a reducir
-        this.staminaPrice = 2;
+        this.staminaPrice = 10;
 
         this.scene.tweens.add({
             targets: this,

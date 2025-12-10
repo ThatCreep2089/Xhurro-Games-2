@@ -62,22 +62,22 @@ export default class mainScene extends Phaser.Scene {
                 name: "Whack A Mole",
                 description: "Aplasta a los topos haciendo clic sobre ellos...",
                 src: 'WAMVideo',
-                price: 24,
-                reward:{ amountPerX: {paint: 2, paper: 0, clay: 0}, X: 10 }
+                price: 20,
+                reward:{ amountPerX: {paint: 3, paper: 0, clay: 0}, X: 10 }
             },
             LightUpGhosts: {
                 name: "Ilumina a \n los fantasmas",
                 description: "Arrastra la antorcha hacia los fantasmas hasta destruirlos antes de que se escapen.",
                 src: 'WAMVideo',
-                price: 24,
-                reward:{ amountPerX:{paint: 0, paper: 2, clay: 0}, X: 10 }
+                price: 50,
+                reward:{ amountPerX:{paint: 0, paper: 0, clay: 2}, X: 10 }
             },
             Puzzle: {
                 name: "Puzle",
                 description: "Haz clic sobre las piezas para rotarlas y consigue que el puzzle encaje",
                 src: 'WAMVideo',
-                price: 24,
-                reward:{ amountPerX:{paint: 0, paper: 0, clay: 10}, X: 1 }
+                price: 20,
+                reward:{ amountPerX:{paint: 0, paper: 10, clay: 0}, X: 1 }
             }
         };
 
@@ -104,7 +104,7 @@ export default class mainScene extends Phaser.Scene {
         GameDataManager.applyTo(this);
 
         // === FINAL ===
-        const ending = GameDataManager.getEnding(6, 2); //6 dias y 2 construcciones
+        const ending = GameDataManager.getEnding(6, 4); //6 dias y 4 construcciones
             if (ending === "good") {
                 this.scene.start('ending', { good: true });}
             else if (ending === "bad") {
@@ -131,7 +131,9 @@ export default class mainScene extends Phaser.Scene {
 
     createSources() {
         this.sources = [];
-        this.sources.push(new Source(this, 1200, 1200, 'paint', 0, 0, 1, 5));
+        this.sources.push(new Source(this, 1200, 1200, 'paint', 1, 0, 0, 1)); //Fuente de pintura
+        //this.sources.push(new Source(this, 1400, 800, 'paper', 0, 2, 0, 1)); //Fuente de papel
+        //this.sources.push(new Source(this, 800, 1400, 'clay', 0, 0, 1, 1)); //Fuente de arcilla
     }
 
     createBuilds() {
