@@ -147,8 +147,13 @@ export default class TestScene extends Phaser.Scene {
         this.paintRiver = this.map.createLayer('paintRiver', paintriver);
         this.obstaclesbottom = this.map.createLayer('obstaclesbottom', paperobstacles);
         this.obstaclestop = this.map.createLayer('obstaclestop', paperobstacles);
-
         // this.obstaclestop.setDepth(100);
+        
+        this.ObjLayer = this.map.getObjectLayer("objectLayer");
+        if (!this.ObjLayer) {
+            console.error("No se encontró la capa de objetos");
+            return;
+        }
 
         this.setPositionsMap();
 
@@ -173,11 +178,6 @@ export default class TestScene extends Phaser.Scene {
         this.map.createFromObjects()
          const tree = this.map.createFromObjects("others", { gid: 26, key: 'tree' });
 */
-        this.ObjLayer = this.map.getObjectLayer("objectLayer");
-        if (!this.ObjLayer) {
-            console.error("No se encontró la capa de objetos");
-            return;
-        }
         this.npcsG = this.add.group();
         this.ObjLayer.objects.forEach(obj => {
             if (obj.type === "npc") {
