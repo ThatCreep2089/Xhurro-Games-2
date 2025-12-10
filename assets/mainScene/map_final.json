@@ -405,7 +405,7 @@
          "draworder":"topdown",
          "id":32,
          "locked":true,
-         "name":"builds",
+         "name":"objectLayer",
          "objects":[
                 {
                  "height":0,
@@ -454,19 +454,7 @@
                  "width":0,
                  "x":1021.30526315789,
                  "y":738.357894736842
-                }],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "class":"tree",
-         "draworder":"topdown",
-         "id":38,
-         "name":"others",
-         "objects":[
+                }, 
                 {
                  "height":0,
                  "id":152,
@@ -514,20 +502,7 @@
                  "width":0,
                  "x":2520,
                  "y":1840
-                }],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "class":"npc",
-         "draworder":"topdown",
-         "id":36,
-         "locked":true,
-         "name":"npcs",
-         "objects":[
+                }, 
                 {
                  "height":0,
                  "id":13,
@@ -575,19 +550,7 @@
                  "width":0,
                  "x":1280,
                  "y":560
-                }],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "class":"source",
-         "draworder":"topdown",
-         "id":37,
-         "name":"clay",
-         "objects":[
+                }, 
                 {
                  "height":0,
                  "id":137,
@@ -659,20 +622,7 @@
                  "width":0,
                  "x":640,
                  "y":1800
-                }],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "class":"source",
-         "draworder":"topdown",
-         "id":39,
-         "locked":true,
-         "name":"paint",
-         "objects":[
+                }, 
                 {
                  "height":0,
                  "id":127,
@@ -744,20 +694,7 @@
                  "width":0,
                  "x":120,
                  "y":240
-                }],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "class":"source",
-         "draworder":"topdown",
-         "id":40,
-         "locked":true,
-         "name":"paper",
-         "objects":[
+                }, 
                 {
                  "height":0,
                  "id":113,
@@ -848,8 +785,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":41,
- "nextobjectid":162,
+ "nextlayerid":50,
+ "nextobjectid":193,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.11.2",
