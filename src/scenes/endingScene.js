@@ -1,3 +1,4 @@
+import UIManager from '../HUD/UIManager.js'
 export default class EndingScene extends Phaser.Scene {
     constructor() {
         super({ key: 'ending' });
@@ -8,6 +9,13 @@ export default class EndingScene extends Phaser.Scene {
     }
 
     create() {
+
+        this.music = this.sound.add('titleMusic', {loop: true});
+        this.music.play();
+
+        this.UIManager = new UIManager(this);
+        this.UIManager.FadeOut();
+
         //this.add.image(0, 0, 'ending').setOrigin(0, 0);
         this.add.text(400, 300, this.goodEnding ? 'Good Ending' : 'Bad Ending', {
             fontFamily: 'bobFont',
@@ -26,7 +34,6 @@ export default class EndingScene extends Phaser.Scene {
         continueButton.on('pointerover', () => continueButton.setStyle({ color: '#ffffff' }));
         continueButton.on('pointerout', () => continueButton.setStyle({ color: '#00ffcc' }));
         continueButton.on('pointerdown', () => {
-            this.sound.stopAll();
             //this.scene.audio.play('titleMusic');
             this.scene.start('credits');
         });

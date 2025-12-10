@@ -19,11 +19,9 @@ export default class puzzle extends Phaser.Scene {
                 loop: true,
         });
         this.music.play();
-
-        let background = this.add.image(0, 0, 'MGInfoBG').setOrigin(0.5, 0.5);
         
         // === PINTADO INICIAL DE ESCENA ===
-        background.setScale(4);
+        this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'puzzleBg').setOrigin(0.5, 0.5).setScale(0.37);
         this.UIManager = new UIManager (this, 1, '#000000');
         
         // === PUNTUACIÓN ===

@@ -68,14 +68,14 @@ export default class mainScene extends Phaser.Scene {
             LightUpGhosts: {
                 name: "Ilumina a \n los fantasmas",
                 description: "Arrastra la antorcha hacia los fantasmas hasta destruirlos antes de que se escapen.",
-                src: 'WAMVideo',
+                src: 'LUGVideo',
                 price: 50,
                 reward:{ amountPerX:{paint: 0, paper: 0, clay: 2}, X: 10 }
             },
             Puzzle: {
                 name: "Puzle",
                 description: "Haz clic sobre las piezas para rotarlas y consigue que el puzzle encaje",
-                src: 'WAMVideo',
+                src: 'PVideo',
                 price: 20,
                 reward:{ amountPerX:{paint: 0, paper: 10, clay: 0}, X: 1 }
             }
@@ -103,13 +103,6 @@ export default class mainScene extends Phaser.Scene {
         this.fade = false;
         GameDataManager.applyTo(this);
 
-        // === FINAL ===
-        const ending = GameDataManager.getEnding(6, 4); //6 dias y 4 construcciones
-            if (ending === "good") {
-                this.scene.start('ending', { good: true });}
-            else if (ending === "bad") {
-                this.scene.start('ending', { good: false });}
-
         //Una vez se ha preparado toda la escena, si tiene que hacer Fade, lo hace
         if(this.fade){ this.fade = false; this.UIManager.FadeOut();}
     }
@@ -131,14 +124,14 @@ export default class mainScene extends Phaser.Scene {
 
     createSources() {
         this.sources = [];
-        this.sources.push(new Source(this, 1200, 1200, 'paint', 1, 0, 0, 1)); //Fuente de pintura
+        this.sources.push(new Source(this, 1200, 1200, 'clay1', 1, 0, 0, 1)); //Fuente de pintura
         //this.sources.push(new Source(this, 1400, 800, 'paper', 0, 2, 0, 1)); //Fuente de papel
         //this.sources.push(new Source(this, 800, 1400, 'clay', 0, 0, 1, 1)); //Fuente de arcilla
     }
 
     createBuilds() {
         this.builds = [];
-        const house = new Build(this, 400, 1000, 'destroyedHouse', 'house', 0, 0, 3, 1, 0, 'house_400_1000');
+        const house = new Build(this, 400, 1000, 'destroyedWatermill', 'watermill', 0, 0, 3, 1, 0, 'house_400_1000');
         this.builds.push(house);
     }
 

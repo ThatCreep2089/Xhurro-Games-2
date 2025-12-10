@@ -86,11 +86,24 @@ export default class Boot extends Phaser.Scene {
     this.load.image('cleon&rome', './assets/imagenes/NPC/Cleon&Rome.png');
     
     // === BUILDS ===
-    this.load.image('destroyedHouse', './assets/imagenes/builds/destroyedHouse.jpg');
-    this.load.image('house', './assets/imagenes/builds/house.png');
+    this.load.image('destroyedFountain', './assets/imagenes/builds/brokenfountain.png');
+    this.load.image('fountain', './assets/imagenes/builds/fountain.png');
+    
+    this.load.image('destroyedWatermill', './assets/imagenes/builds/brokenwatermill.png');
+    this.load.image('watermill', './assets/imagenes/builds/watermill.png');
+
+    this.load.image('destroyedTreehouse', './assets/imagenes/builds/brokentreehouse.png');
+    this.load.image('treehouse', './assets/imagenes/builds/treehouse.png');
+
+    this.load.image('destroyedSwing', './assets/imagenes/builds/brokenswing.png');
+    this.load.image('swing', './assets/imagenes/builds/swing.png');
 
     // === SOURCES ===
-    this.load.image('paint', './assets/imagenes/sources/paint.jpg');
+    this.load.image('paper0', './assets/imagenes/sources/paper0.png');
+    this.load.image('paper1', './assets/imagenes/sources/paper1.png');
+    this.load.image('clay0', './assets/imagenes/sources/clay0.png');
+    this.load.image('clay1', './assets/imagenes/sources/clay1.png');
+    this.load.image('clay2', './assets/imagenes/sources/clay2.png');
     
     // === HUD ===
     this.load.image('buildSources', './assets/imagenes/HUD/buttons/buildSources.png');
@@ -116,27 +129,32 @@ export default class Boot extends Phaser.Scene {
     this.load.image('playGameHover', './assets/imagenes/HUD/buttons/playGameHover.png');
     this.load.image('titleBg', './assets/imagenes/HUD/titleBg.png');
     this.load.image('creditsBg', './assets/imagenes/HUD/cargaBg.png');
+    this.load.image('whackAMoleBg', './assets/imagenes/HUD/minigamesBg2.png');
+    this.load.image('lightUpGhostsBg', './assets/imagenes/HUD/ghostsBg.png');
+    this.load.image('puzzleBg', './assets/imagenes/HUD/minigamesBg1.png');
 
     // === MINIGAMES ===
     this.load.image('MGInfoBG', './assets/imagenes/HUD/popups/MGInfoBG.png');
 
       // == WHACK A MOLE ==
+      this.load.video('WAMVideo', './assets/imagenes/minigames/WhackAMole/WAMVideo.mp4');
       this.load.image('topo', './assets/imagenes/minigames/WhackAMole/objects/marcus.png');
       this.load.image('hoyo', './assets/imagenes/minigames/WhackAMole/objects/holeFront.png');
       this.load.image('hoyoBack', './assets/imagenes/minigames/WhackAMole/objects/holeBack.png');
       this.load.image('dinamita', './assets/imagenes/minigames/WhackAMole/objects/bomba.png');
-      this.load.video('WAMVideo', './assets/imagenes/minigames/WhackAMole/background/WAMVideo.mp4');
       this.load.image('toposEnd', './assets/imagenes/minigames/WhackAMole/endImg.png');
       this.load.image('hammer', './assets/imagenes/minigames/WhackAMole/objects/hammer.png');
       this.load.spritesheet('explosion','./assets/imagenes/minigames/WhackAMole/objects/explosion.png', {frameWidth: 32,frameHeight:32})
        
       // == LIGHT UP GHOSTS ==
+      this.load.video('LUGVideo', './assets/imagenes/minigames/LightUpGhosts/infoVideo.mp4');
       this.load.image('fantasmasEnd', './assets/imagenes/minigames/LightUpGhosts/endImg.png');
       this.load.image('blower', './assets/imagenes/minigames/LightUpGhosts/largeGhost.png');
       this.load.image('hiker', './assets/imagenes/minigames/LightUpGhosts/smallGhost.png');
       this.load.image('starer', './assets/imagenes/minigames/LightUpGhosts/bigGhost.png');
 
       // == PUZZLE ==
+      this.load.video('PVideo', './assets/imagenes/minigames/Puzzle/infoVideo.mp4');
       this.load.image('puzleEnd', './assets/imagenes/minigames/Puzzle/endImg.png');
       this.load.image('puzzle0_0', './assets/imagenes/minigames/Puzzle/Puzzle0/puzzle0_0.png');
       this.load.image('puzzle0_1', './assets/imagenes/minigames/Puzzle/Puzzle0/puzzle0_1.png');

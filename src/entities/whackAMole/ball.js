@@ -8,6 +8,7 @@ export default class Ball extends Phaser.GameObjects.Sprite{
         scene.physics.add.existing(this);
         this.body.setAllowGravity(false);
         this.setScale(0.5);
+        this.setDepth(5);
         this.speed = speed;
         this.picked = false;
         this.jugador = null;

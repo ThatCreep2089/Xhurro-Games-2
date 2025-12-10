@@ -10,6 +10,8 @@ export default class WhachAMoleBall extends Phaser.Scene{
     }
     create(){
 
+        this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'whackAMoleBg').setOrigin(0.5, 0.5).setScale(0.37);
+
         if (!this.anims.exists('explote')){
             this.anims.create({
                 key: 'explote',

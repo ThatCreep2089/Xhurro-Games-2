@@ -90,7 +90,7 @@
 <td>
 
 <details>
-<summary> ./assets/imagenes/builds/destroyedHouse.jpg </summary>
+<summary> ./assets/imagenes/builds/brokenfountain.png </summary>
 <table>
 <td>
          AUTOR: Alicia Pérez Bumanlag
@@ -100,7 +100,67 @@
 </details>
 
 <details>
-<summary> ./assets/imagenes/builds/house.png </summary>
+<summary> ./assets/imagenes/builds/fountain.png </summary>
+<table>
+<td>
+         AUTOR: Alicia Pérez Bumanlag
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/builds/brokenwatermill.png </summary>
+<table>
+<td>
+         AUTOR: Alicia Pérez Bumanlag
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/builds/watermill.png </summary>
+<table>
+<td>
+         AUTOR: Alicia Pérez Bumanlag
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/builds/brokentreehouse.png </summary>
+<table>
+<td>
+         AUTOR: Alicia Pérez Bumanlag
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/builds/treehouse.png </summary>
+<table>
+<td>
+         AUTOR: Alicia Pérez Bumanlag
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/builds/brokenswing.png </summary>
+<table>
+<td>
+         AUTOR: Alicia Pérez Bumanlag
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/builds/swing.png </summary>
 <table>
 <td>
          AUTOR: Alicia Pérez Bumanlag
@@ -119,7 +179,47 @@
 <td>
 
 <details>
-<summary> ./assets/imagenes/sources/paint.jpg </summary>
+<summary> ./assets/imagenes/sources/paper0.jpg </summary>
+<table>
+<td>
+         AUTOR: Alicia Pérez Bumanlag
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/sources/paper1.jpg </summary>
+<table>
+<td>
+         AUTOR: Alicia Pérez Bumanlag
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/sources/clay0.jpg </summary>
+<table>
+<td>
+         AUTOR: Alicia Pérez Bumanlag
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/sources/clay1.jpg </summary>
+<table>
+<td>
+         AUTOR: Alicia Pérez Bumanlag
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/sources/clay2.jpg </summary>
 <table>
 <td>
          AUTOR: Alicia Pérez Bumanlag
@@ -357,6 +457,56 @@
 </table>
 </details>
 
+<details>
+<summary> ./assets/imagenes/HUD/cargaBg.png </summary>
+<table>
+<td>
+         AUTOR: Claudia Pérez Campoo
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/HUD/creditsBg.png </summary>
+<table>
+<td>
+         AUTOR: Claudia Pérez Campoo
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/HUD/ghostsBg.png </summary>
+<table>
+<td>
+         AUTOR: Claudia Pérez Campoo
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/HUD/minigamesBg1.png </summary>
+<table>
+<td>
+         AUTOR: Claudia Pérez Campoo
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/HUD/minigamesBg2.png </summary>
+<table>
+<td>
+         AUTOR: Claudia Pérez Campoo
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
 </td>
 </table>
 </details>
@@ -422,10 +572,10 @@
 </details>
 
 <details>
-<summary>./assets/imagenes/minigames/WhackAMole/background/WAMVideo.mp4</summary>
+<summary>./assets/imagenes/minigames/WhackAMole/WAMVideo.mp4</summary>
 <table>
 <td>
-             AUTOR: Claudia Pérez Campoo
+             AUTOR: Víctor Martínez Moreno
 <br>         LICENCIA: CC (BY-NC-SA-ND)
 </td>
 </table>
@@ -469,6 +619,16 @@
 <summary>     == LIGHT UP GHOSTS ==</summary>
 <table>
 <td>
+
+<details>
+<summary>./assets/imagenes/minigames/LightUpGhosts/infoVideo.mp4</summary>
+<table>
+<td>
+             AUTOR: Víctor Martínez Moreno
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
 
 <details>
 <summary>     ./assets/imagenes/minigames/LightUpGhosts/endImg.png </summary>
@@ -518,6 +678,16 @@
 <summary>     == PUZZLE == </summary>
 <table>
 <td>
+
+<details>
+<summary>./assets/imagenes/minigames/Puzzle/infoVideo.mp4</summary>
+<table>
+<td>
+             AUTOR: Víctor Martínez Moreno
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
 
 <details>
 <summary>     ./assets/imagenes/minigames/Puzzle/endImg.png </summary>
