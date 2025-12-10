@@ -86,8 +86,17 @@ export default class Boot extends Phaser.Scene {
     this.load.image('cleon&rome', './assets/imagenes/NPC/Cleon&Rome.png');
     
     // === BUILDS ===
-    this.load.image('destroyedHouse', './assets/imagenes/builds/destroyedHouse.jpg');
-    this.load.image('house', './assets/imagenes/builds/house.png');
+    this.load.image('destroyedFountain', './assets/imagenes/builds/brokenfountain.png');
+    this.load.image('fountain', './assets/imagenes/builds/fountain.png');
+    
+    this.load.image('destroyedWatermill', './assets/imagenes/builds/brokenwatermill.png');
+    this.load.image('watermill', './assets/imagenes/builds/watermill.png');
+
+    this.load.image('destroyedTreehouse', './assets/imagenes/builds/brokentreehouse.png');
+    this.load.image('treehouse', './assets/imagenes/builds/treehouse.png');
+
+    this.load.image('destroyedSwing', './assets/imagenes/builds/brokenswing.png');
+    this.load.image('swing', './assets/imagenes/builds/swing.png');
 
     // === SOURCES ===
     this.load.image('paint', './assets/imagenes/sources/paint.jpg');

@@ -90,7 +90,7 @@
 <td>
 
 <details>
-<summary> ./assets/imagenes/builds/destroyedHouse.jpg </summary>
+<summary> ./assets/imagenes/builds/brokenfountain.png </summary>
 <table>
 <td>
          AUTOR: Alicia Pérez Bumanlag
@@ -100,7 +100,67 @@
 </details>
 
 <details>
-<summary> ./assets/imagenes/builds/house.png </summary>
+<summary> ./assets/imagenes/builds/fountain.png </summary>
+<table>
+<td>
+         AUTOR: Alicia Pérez Bumanlag
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/builds/brokenwatermill.png </summary>
+<table>
+<td>
+         AUTOR: Alicia Pérez Bumanlag
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/builds/watermill.png </summary>
+<table>
+<td>
+         AUTOR: Alicia Pérez Bumanlag
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/builds/brokentreehouse.png </summary>
+<table>
+<td>
+         AUTOR: Alicia Pérez Bumanlag
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/builds/treehouse.png </summary>
+<table>
+<td>
+         AUTOR: Alicia Pérez Bumanlag
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/builds/brokenswing.png </summary>
+<table>
+<td>
+         AUTOR: Alicia Pérez Bumanlag
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/builds/swing.png </summary>
 <table>
 <td>
          AUTOR: Alicia Pérez Bumanlag
