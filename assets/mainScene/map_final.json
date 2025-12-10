@@ -404,7 +404,6 @@
         {
          "draworder":"topdown",
          "id":32,
-         "locked":true,
          "name":"objectLayer",
          "objects":[
                 {
@@ -512,8 +511,8 @@
                  "type":"npc",
                  "visible":true,
                  "width":0,
-                 "x":2080,
-                 "y":560
+                 "x":484,
+                 "y":200
                 }, 
                 {
                  "height":0,

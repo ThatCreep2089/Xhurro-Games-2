@@ -24,8 +24,7 @@ export default class TestScene extends Phaser.Scene {
         this.cameras.main.setBounds(0, 0, 2560, 1840);
         //const depthOffset = 100;
         this.createMap();
-        //  this.setPositionsMap();
-
+        
         // === CONTROLES ===
         this.#inputs = {
             spaceKey: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE),
@@ -34,20 +33,20 @@ export default class TestScene extends Phaser.Scene {
             keyS: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S),
             keyD: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D),
         };
-
+        
         const inputStates = () => ({
             isDown: false,
             isUp: true,
             justDown: false,
             justUp: false
         });
-
+        
         this.spaceKey = inputStates();
         this.keyW = inputStates();
         this.keyA = inputStates();
         this.keyS = inputStates();
         this.keyD = inputStates();
-
+        
         for (const key in this.#inputs) {
             this.#inputs[key].on('down', () => {
                 this[key].isDown = true;
@@ -60,7 +59,7 @@ export default class TestScene extends Phaser.Scene {
                 this[key].justUp = true;
             });
         }
-
+        
         // === MINIJUEGOS_INFO ===
         this.minigamesInfo = {
             WackAMole: {
@@ -85,17 +84,18 @@ export default class TestScene extends Phaser.Scene {
                 reward: { amountPerX: 10, X: 1 }
             }
         };
-
+        
         // === JUGADOR (Nutria) ===
         this.otter = new Otter(this, this.scale.width / 2, this.scale.height / 2, 20, 'otter', 0.2);
         this.cameras.main.startFollow(this.otter);
         this.navi = new Navi(this, this.otter, 80, 'otter', 0.15, 17);
-
+        
         // === FUENTES, CONSTRUCCIONES Y NPCs ===
+        this.setPositionsMap();
         this.createSources();
         this.createBuilds();
         this.createNPCs();
-
+        // this.setPositionsMap();
         this.createMapCollisions();
 
         // === HUD ===
@@ -143,62 +143,50 @@ export default class TestScene extends Phaser.Scene {
         this.background = this.map.createLayer('mapbackground', cardboard);
         this.forestFloor = this.map.createLayer('forestFloor', foresttiles);
         this.paperFloor = this.map.createLayer('paperFloor', papertiles);
-        this.decors = this.map.createLayer('decors', paperobstacles);
+        this.decors = this.map.createLayer('decors', [paperobstacles,foresttiles]);
         this.paintRiver = this.map.createLayer('paintRiver', paintriver);
-        this.obstaclesbottom = this.map.createLayer('obstaclesbottom', paperobstacles);
+        this.obstaclesbottom = this.map.createLayer('obstaclesbottom', [paperobstacles,foresttiles]);
+        //this.obstaclesbottom.setDepth(50);
         this.obstaclestop = this.map.createLayer('obstaclestop', paperobstacles);
-        // this.obstaclestop.setDepth(100);
-        
-        this.ObjLayer = this.map.getObjectLayer("objectLayer");
-        if (!this.ObjLayer) {
-            console.error("No se encontró la capa de objetos");
-            return;
-        }
-
-        this.setPositionsMap();
+        //this.obstaclestop.setDepth(1000);
 
     }
 
     setPositionsMap() {
 
-        /*  
-        const otherObjLayer = this.map.getObjectLayer("others");
-           const obstaclestop = map.createFromTiles([1,2,3], -1, { key: 'tileset' }, layer);
 
-        obstaclestop.forEach(tile => { tile.setDepth(tile.y);});
-       this.otherObjLayer.set
-     
-         const tree = this.map.createFromObjects("others", { gid: 26, key: 'tree' });
-          tree.setDepth(tree.y);
-        otherObjLayer.tree.forEach(tree => { setDepth(tree.y); });
- 
-         otherObjLayer.objects.forEach(obj => { setDepth(obj.y); });
- 
-         this.map.createFromObjects("others", {key:'tree'} );
-        this.map.createFromObjects()
-         const tree = this.map.createFromObjects("others", { gid: 26, key: 'tree' });
-*/
+        this.ObjLayer = this.map.getObjectLayer("objectLayer");
+        if (!this.ObjLayer) {
+            console.error("No se encontró la capa de objetos");
+            return;
+        }
         this.npcsG = this.add.group();
-        this.ObjLayer.objects.forEach(obj => {
-            if (obj.type === "npc") {
-                let npcData = this.cache.json.get(obj.name);
-                this.npc = new NPC(this, 900, 700, 'toni', npcData, this.otter, this.minigamesInfo.WackAMole);
-                this.npcs.add(npc);
+        this.resources = this.add.group();
+        this.builds = this.add.group();
+
+        this.toni = this.map.createFromObjects('objectLayer', { name: 'toni', classType: NPC, key: "npc" });//create from objects siempre devuelve array
+        console.log(this.toni + "miau");
+        this.toni[0].innit( 'toni', 'prueba', this.otter, this.minigamesInfo.LightUpGhosts, 0.5);
+       
+        /*
+            if (this.objLayer.objects[i] === "npc") {
+                let npcData = this.cache.json.get("prueba")//(obj.name);
+                this.npcs = new NPC(this,this.objLayer.objects[i].x , this.objLayer.objects[i].y, 'toni', npcData, this.otter, this.minigamesInfo.WackAMole);
+                this.npcsG.add(npc);
                 npc.setDepth(npc.y);
             }
-            /*
-                    if (obj.type === "source") {
-                         let sourceData = this.cache.json.get(obj.name);
-                         let 
-                         new Source(this, 1200, 1200, sourceData, 0, 0, 1, 5);
-                    }
             
-                    if (obj.type === "build") {
-                                this.builds = [];
-                               const house = new Build(this, 400, 1000, 'destroyedHouse', 'house', 0, 0, 3, 1, 0, 'house_400_1000');
-                               this.builds.push(house);
-                    }*/
-        });
+                if (obj.type === "source") {
+                     let sourceData = this.cache.json.get(obj.name);
+                     
+                     new Source(this, 1200, 1200, sourceData, 0, 0, 1, 5);
+                }
+        
+                if (obj.type === "build") {
+                            this.builds = [];
+                           const house = new Build(this, 400, 1000, 'destroyedHouse', 'house', 0, 0, 3, 1, 0, 'house_400_1000');
+                           this.builds.push(house);
+                }*/
 
 
     }

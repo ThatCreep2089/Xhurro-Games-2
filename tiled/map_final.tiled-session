@@ -50,13 +50,13 @@
         "map_final.tiled-project.tmj": {
             "expandedObjectLayers": [
                 37,
-                32,
-                36
+                36,
+                32
             ],
             "scale": 0.125,
             "selectedLayer": 9,
             "viewCenter": {
-                "x": 7104,
+                "x": 6192,
                 "y": 5604
             }
         },

@@ -2,16 +2,22 @@ import DialogText from "../dialog_plugin.js";
 
 export default class NPC extends Phaser.GameObjects.Sprite {
 
-    constructor(scene, x, y) {
-        super(scene, x, y, undefined);//de momento sin sprite
+    constructor(scene, x, y, texture, data, player, minigameInfo, scale = 0.1) {
+        super(scene, x, y, texture);
         this.scene.add.existing(this);
-        this.scene.physics.add.existing(this, true);
-        this.iniciado = false;
-    }
+        scene.physics.add.existing(this, true);
 
-    innit(texture, data, player, minigameInfo, scale) {
-        this.otter=player
-        this.texture= texture
+        this.datos = data;
+        this.otter = player;
+        this.minigameInfo = minigameInfo;
+
+        this.isDialogOpen = false;   // Cualquier diálogo activo
+        this.isRejection = false;    // Si el diálogo actual es de rechazo
+        this.canInteract = true;     // Si el NPC puede iniciar diálogo
+        this.waitSpaceRelease = false;
+        this.dialogList = [];
+        this.dialogIndex = 0;
+
         // ============================
         // FÍSICAS Y ÁREA DE INTERACCIÓN
         // ============================
@@ -24,18 +30,18 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         this.body.x = this.x - (dw / 2);
         this.body.y = this.y - dh;
 
-        this.zone = this.scene.add.zone(this.x, this.y).setSize(dw + 10, dh + 10);
-        this.scene.physics.add.existing(this.zone, true);
+        this.zone = scene.add.zone(x, y).setSize(dw + 10, dh + 10);
+        scene.physics.add.existing(this.zone, true);
         this.zone.body.x = this.x - (this.zone.body.width / 2);
         this.zone.body.y = this.y - (dh / 2) - (this.zone.body.height / 2);
 
         this.touching = false;
         this.wasTouching = false;
 
-        this.scene.physics.add.collider(this.otter, this);
-        this.scene.physics.add.overlap(this.otter, this.zone, () => { this.touching = true; });
+        scene.physics.add.collider(this.otter, this);
+        scene.physics.add.overlap(this.otter, this.zone, () => { this.touching = true; });
 
-        this.scene.physics.world.on("worldstep", () => this.physicsUpdate());
+        scene.physics.world.on("worldstep", () => this.physicsUpdate());
 
         // Avanzar diálogo con espacio
         this.scene.input.keyboard.on("keydown-SPACE", () => {
@@ -49,43 +55,42 @@ export default class NPC extends Phaser.GameObjects.Sprite {
 
             this.nextDialog();
         });
-        this.iniciado = true;
     }
+
     // ==============================
     // DETECCIÓN DE INTERACCIÓN
     // ==============================
-    physicsUpdate() {
-        if (this.iniciado==true){
-            if (this.touching && !this.wasTouching)
-                this.scene.UIManager.appearInteractMessage();
-    
-            if (!this.touching && this.wasTouching)
-                this.scene.UIManager.disappearInteractMessage();
-    
-    
-            // Si hay diálogo abierto, no permitir interacción
-            if (this.isDialogOpen) {
-                this.wasTouching = this.touching;
-                this.touching = false;
-                return;
-            }
-    
-            // Esperar a que el jugador suelte SPACE antes de permitir volver a hablar
-            if (this.waitSpaceRelease) {
-                this.wasTouching = this.touching;
-                this.touching = false;
-                return;
-            }
-    
-            // Intento de iniciar diálogo
-            if (this.scene.spaceKey.justDown && this.touching && this.canInteract && !this.isDialogOpen) {
-                this.startDialog();
-            }
-    
+   physicsUpdate() {
+
+        if (this.touching && !this.wasTouching)
+            this.scene.UIManager.appearInteractMessage();
+
+        if (!this.touching && this.wasTouching)
+            this.scene.UIManager.disappearInteractMessage();
+
+
+        // Si hay diálogo abierto, no permitir interacción
+        if (this.isDialogOpen) {
             this.wasTouching = this.touching;
             this.touching = false;
-
+            return;
         }
+
+        // Esperar a que el jugador suelte SPACE antes de permitir volver a hablar
+        if (this.waitSpaceRelease) {
+            this.wasTouching = this.touching;
+            this.touching = false;
+            return;
+        }
+
+        // Intento de iniciar diálogo
+        if (this.scene.spaceKey.justDown && this.touching && this.canInteract && !this.isDialogOpen)
+        {
+            this.startDialog();
+        }
+
+        this.wasTouching = this.touching;
+        this.touching = false;
     }
     // ==============================
     // DIÁLOGO NORMAL
@@ -208,17 +213,17 @@ export default class NPC extends Phaser.GameObjects.Sprite {
                 if (this.text.text) this.text.text.destroy();
                 if (this.text.graphics) this.text.graphics.destroy();
                 if (this.text.closeBtn) this.text.closeBtn.destroy();
-            } catch { }
+            } catch {}
             this.text = null;
         }
 
         if (this.speakerImage) {
-            try { this.speakerImage.destroy(); } catch { }
+            try { this.speakerImage.destroy(); } catch {}
             this.speakerImage = null;
         }
 
         if (this.rejectionPortrait) {
-            try { this.rejectionPortrait.destroy(); } catch { }
+            try { this.rejectionPortrait.destroy(); } catch {}
             this.rejectionPortrait = null;
         }
     }
@@ -227,7 +232,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     // DIÁLOGO DE RECHAZO
     // ===============================================
     showRejectionDialog() {
-
+    
         const locator = this.findDay(this.scene.currentDay);
         const r = locator.Rechazo;
         this.openDialog({
@@ -247,7 +252,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         this.destroyDialogVisuals();
 
         if (this.rejectionPortrait) {
-            try { this.rejectionPortrait.destroy(); } catch { }
+            try { this.rejectionPortrait.destroy(); } catch {}
             this.rejectionPortrait = null;
         }
 
@@ -342,7 +347,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         const x = isOtter ? cam.scrollX + 32 : cam.scrollX + cam.width - 32;
 
         if (this.rejectionPortrait) {
-            try { this.rejectionPortrait.destroy(); } catch { }
+            try { this.rejectionPortrait.destroy(); } catch {}
         }
 
         this.rejectionPortrait = this.scene.add.image(x, y, config.portrait)
