@@ -115,7 +115,6 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     // DIÁLOGO NORMAL
     // ==============================
     findDay(day) {
-        console.log(this.datos)
         return this.datos.Dias.find(d => d.val === day);
         
     }

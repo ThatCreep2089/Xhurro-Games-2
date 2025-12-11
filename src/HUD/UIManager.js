@@ -663,11 +663,11 @@ export default class UIManager {
             reward_ = reward.paint;
             icon = 'paintIcon';
         } else if (mgName === "Ilumina a \n los fantasmas") {
-            reward_ = reward.paper;
-            icon = 'paperIcon';
-        } else {
             reward_ = reward.clay;
             icon = 'clayIcon';
+        } else {
+            reward_ = reward.paper;
+            icon = 'paperIcon';
         }
 
         //Creamos toda la información de la pantalla

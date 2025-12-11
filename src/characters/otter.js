@@ -146,26 +146,26 @@ export default class Otter extends Phaser.GameObjects.Sprite {
         if (this.scene.keyW.isDown && (this.lastKey == 'W' || this.lastKey == null) && this.canMove)
         {
             if (!this.isWalkingSFXPlaying) {this.walkingSFX.play(); this.isWalkingSFXPlaying = true;}
-            this.body.setVelocity(0, -this.speed * dt);
+            this.body.setVelocity(0, -this.speed);
             this.play("otterWalkingBack", true);
         }
         else if (this.scene.keyS.isDown && (this.lastKey == 'S' || this.lastKey == null) && this.canMove)
         {
             if (!this.isWalkingSFXPlaying) {this.walkingSFX.play(); this.isWalkingSFXPlaying = true;}
-            this.body.setVelocity(0, this.speed * dt);
+            this.body.setVelocity(0, this.speed);
             this.play("otterWalkingFront", true);
         }
         else if (this.scene.keyA.isDown && (this.lastKey == 'A' || this.lastKey == null) && this.canMove)
         {
             if (!this.isWalkingSFXPlaying) {this.walkingSFX.play(); this.isWalkingSFXPlaying = true;}
-            this.body.setVelocity(-this.speed * dt, 0);
+            this.body.setVelocity(-this.speed, 0);
             if (this.flipX) this.setFlipX(false);
             this.play("otterWalkingSide", true);
         }
         else if (this.scene.keyD.isDown && (this.lastKey == 'D' || this.lastKey == null) && this.canMove)
         {
             if (!this.isWalkingSFXPlaying) {this.walkingSFX.play(); this.isWalkingSFXPlaying = true;}
-            this.body.setVelocity(this.speed * dt, 0);
+            this.body.setVelocity(this.speed, 0);
             if (!this.flipX) this.setFlipX(true);
             this.play("otterWalkingSide", true);
         }
