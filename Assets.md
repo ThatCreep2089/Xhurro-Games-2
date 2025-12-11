@@ -12,7 +12,37 @@
 <td>
 
 <details>
-<summary>./assets/imagenes/imagenesWeb/extras/smallant.png</summary>
+<summary>./assets/imagenes/Otter/OtterPortrait.png</summary>
+<table>
+<td>
+         AUTOR: Alicia Pérez Bumanlag
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary>./assets/imagenes/Otter/OtterFront.png</summary>
+<table>
+<td>
+         AUTOR: Alicia Pérez Bumanlag
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary>./assets/imagenes/Otter/OtterSide.png</summary>
+<table>
+<td>
+         AUTOR: Alicia Pérez Bumanlag
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary>./assets/imagenes/Otter/OtterBack.png</summary>
 <table>
 <td>
          AUTOR: Alicia Pérez Bumanlag
@@ -68,6 +98,56 @@
 
 <details>
 <summary>./assets/imagenes/NPC/Cleon&Rome.png</summary>
+<table>
+<td>
+             AUTOR: Claudia Pérez Campoo
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary>./assets/imagenes/NPC/ToniPortrait.png </summary>
+<table>
+<td>
+             AUTOR: Claudia Pérez Campoo
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary>./assets/imagenes/NPC/PabloPortrait.png</summary>
+<table>
+<td>
+             AUTOR: Claudia Pérez Campoo
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary>./assets/imagenes/NPC/IshmaelPortrait.png</summary>
+<table>
+<td>
+             AUTOR: Claudia Pérez Campoo
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary>./assets/imagenes/NPC/CleonPortrait.png</summary>
+<table>
+<td>
+             AUTOR: Claudia Pérez Campoo
+<br>         LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary>./assets/imagenes/NPC/RomePortrait.png</summary>
 <table>
 <td>
              AUTOR: Claudia Pérez Campoo
@@ -179,7 +259,7 @@
 <td>
 
 <details>
-<summary> ./assets/imagenes/sources/paper0.jpg </summary>
+<summary> ./assets/imagenes/sources/paper0.png </summary>
 <table>
 <td>
          AUTOR: Alicia Pérez Bumanlag
@@ -189,7 +269,7 @@
 </details>
 
 <details>
-<summary> ./assets/imagenes/sources/paper1.jpg </summary>
+<summary> ./assets/imagenes/sources/paper1.png </summary>
 <table>
 <td>
          AUTOR: Alicia Pérez Bumanlag
@@ -199,7 +279,7 @@
 </details>
 
 <details>
-<summary> ./assets/imagenes/sources/clay0.jpg </summary>
+<summary> ./assets/imagenes/sources/clay0.png </summary>
 <table>
 <td>
          AUTOR: Alicia Pérez Bumanlag
@@ -209,7 +289,7 @@
 </details>
 
 <details>
-<summary> ./assets/imagenes/sources/clay1.jpg </summary>
+<summary> ./assets/imagenes/sources/clay1.png </summary>
 <table>
 <td>
          AUTOR: Alicia Pérez Bumanlag
@@ -219,7 +299,17 @@
 </details>
 
 <details>
-<summary> ./assets/imagenes/sources/clay2.jpg </summary>
+<summary> ./assets/imagenes/sources/clay2.png </summary>
+<table>
+<td>
+         AUTOR: Alicia Pérez Bumanlag
+<br>     LICENCIA: CC (BY-NC-SA-ND)
+</td>
+</table>
+</details>
+
+<details>
+<summary> ./assets/imagenes/sources/paint.png </summary>
 <table>
 <td>
          AUTOR: Alicia Pérez Bumanlag

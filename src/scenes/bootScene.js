@@ -78,12 +78,23 @@ export default class Boot extends Phaser.Scene {
     this.load.image('map', './assets/imagenes/HUD/map.png');
 
     // === PERSONAJES ===
-    this.load.image('otter', './assets/imagenes/imagenesWeb/extras/smallant.png');
+    this.load.image('otter', './assets/imagenes/Otter/OtterPortrait.png');
+    this.load.spritesheet('otterFront', './assets/imagenes/Otter/OtterFront.png', {frameWidth: 800, frameHeight: 800});
+    this.load.spritesheet('otterBack', './assets/imagenes/Otter/OtterBack.png', {frameWidth: 800, frameHeight: 800});
+    this.load.spritesheet('otterSide', './assets/imagenes/Otter/OtterSide.png', {frameWidth: 800, frameHeight: 800});
+
     // == NPC ==
+
     this.load.image('toni', './assets/imagenes/NPC/Toni.png');
     this.load.image('pablo', './assets/imagenes/NPC/Pablo.png');
     this.load.image('ismael', './assets/imagenes/NPC/Ishmael.png');
     this.load.image('cleon&rome', './assets/imagenes/NPC/Cleon&Rome.png');
+
+    this.load.image('toniPortrait', './assets/imagenes/NPC/ToniPortrait.png');
+    this.load.image('pabloPortrait', './assets/imagenes/NPC/PabloPortrait.png');
+    this.load.image('ismaelPortrait', './assets/imagenes/NPC/IshmaelPortrait.png');
+    this.load.image('cleonPortrait', './assets/imagenes/NPC/CleonPortrait.png');
+    this.load.image('romePortrait', './assets/imagenes/NPC/RomePortrait.png');
     
     // === BUILDS ===
     this.load.image('destroyedFountain', './assets/imagenes/builds/brokenfountain.png');
@@ -104,6 +115,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('clay0', './assets/imagenes/sources/clay0.png');
     this.load.image('clay1', './assets/imagenes/sources/clay1.png');
     this.load.image('clay2', './assets/imagenes/sources/clay2.png');
+    this.load.image('paint0', './assets/imagenes/sources/paint.png');
     
     // === HUD ===
     this.load.image('buildSources', './assets/imagenes/HUD/buttons/buildSources.png');
