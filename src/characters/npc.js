@@ -5,8 +5,6 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y) {
         super(scene, x, y, undefined);//de momento sin sprite
         this.scene.add.existing(this);
-        scene.physics.add.existing(this, true);
-        this.iniciado = false;
         this.setDepth(this.y);
     }
     innit(texture, data, player, minigameInfo, scale = 0.1, colliderWidthFactor=1) {
@@ -27,6 +25,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         // ============================
 
         this.setScale(scale);
+        this.scene.physics.add.existing(this, true);
        
         this.zone = this.scene.add.zone(this.x, this.y).setSize(this.width*scale*colliderWidthFactor + 10, (this.height*scale * 0.2) + 10);
         this.scene.physics.add.existing(this.zone, true);
@@ -75,57 +74,39 @@ export default class NPC extends Phaser.GameObjects.Sprite {
             repeat: -1,                // repetir infinitamente
             ease: 'Sine.easeInOut'     // movimiento suave
         });
-        this.iniciado = true;
     }
 
     // ==============================
     // DETECCIÓN DE INTERACCIÓN
     // ==============================
     physicsUpdate() {
-        if (this.iniciado == true) {
-            if (this.touching && !this.wasTouching)
-                this.scene.UIManager.appearInteractMessage();
 
-            if (!this.touching && this.wasTouching)
-                this.scene.UIManager.disappearInteractMessage();
+       if (this.touching && !this.wasTouching){
+           this.scene.UIManager.appearInteractMessage();
+       }
 
+       if (!this.touching && this.wasTouching){
+           this.scene.UIManager.disappearInteractMessage();
+       }
 
-            // Si hay diálogo abierto, no permitir interacción
-            if (this.isDialogOpen) {
-                this.wasTouching = this.touching;
-                this.touching = false;
-                return;
-            }
+       // Si hay diálogo abierto, no permitir interacción
+       if (this.isDialogOpen) {
+           this.wasTouching = this.touching;
+           this.touching = false;
+           return;
+       }
 
-            // Esperar a que el jugador suelte SPACE antes de permitir volver a hablar
-            if (this.waitSpaceRelease) {
-                this.wasTouching = this.touching;
-                this.touching = false;
-                return;
-            }
+       // Esperar a que el jugador suelte SPACE antes de permitir volver a hablar
+       if (this.waitSpaceRelease) {
+           this.wasTouching = this.touching;
+           this.touching = false;
+           return;
+       }
 
-            // Intento de iniciar diálogo
-            if (this.scene.spaceKey.justDown && this.touching && this.canInteract && !this.isDialogOpen) {
-                this.startDialog();
-            }
-
-            this.wasTouching = this.touching;
-            this.touching = false;
-            
-            // Esperar a que el jugador suelte SPACE antes de permitir volver a hablar
-            if (this.waitSpaceRelease) {
-                this.wasTouching = this.touching;
-                this.touching = false;
-                return;
-            }
-            
-            // Intento de iniciar diálogo
-            if (this.scene.spaceKey.justDown && this.touching && this.canInteract && !this.isDialogOpen)
-                {
-                    this.scene.UIManager.disappearInteractMessage();
-                    this.startDialog();
-                }
-        }
+       // Intento de iniciar diálogo
+       if (this.scene.spaceKey.justDown && this.touching && this.canInteract && !this.isDialogOpen) {
+           this.startDialog();
+       }
 
         this.wasTouching = this.touching;
         this.touching = false;

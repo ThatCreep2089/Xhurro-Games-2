@@ -16,9 +16,6 @@ export default class mainScene extends Phaser.Scene {
     create() {
         this.createAnims();
         // === MAPA ===
-        /* let map = this.add.image(0, 0, 'map').setOrigin(0, 0);
-         this.physics.world.setBounds(0, 0, map.width, map.height);
-         this.cameras.main.setBounds(0, 0, map.width, map.height);*/
         this.physics.world.setBounds(0, 0, 2560, 1840);
         this.cameras.main.setBounds(0, 0, 2560, 1840);
         this.createMap()
@@ -140,10 +137,6 @@ export default class mainScene extends Phaser.Scene {
         this.paintRiver = this.map.createLayer('paintRiver', tilesetGroup);
         this.obstaclesbottom = this.map.createLayer('obstaclesbottom', tilesetGroup);
         this.obstaclestop = this.map.createLayer('obstaclestop', tilesetGroup);
-        console.log(this.obstaclestop);
-
-
-
     }
 
 
@@ -180,16 +173,15 @@ export default class mainScene extends Phaser.Scene {
         for (let i = 0; i < this.resources.length; i++) {
             let rnd = Phaser.Math.Between(1, 3)
             if (rnd === 1) {
-                this.resources[i].innit('paint', 1, 0, 0, 1);
-                console.log('+paint')
+                this.resources[i].innit('paint0', 1, 0, 0, 1);
             }
             else if (rnd === 2) {
-                this.resources[i].innit('paper', 0, 1, 0, 1);
-                console.log('+paper')
+                let rndTex = Phaser.Math.Between(0, 1);
+                this.resources[i].innit('paper' + rndTex, 0, 1, 0, 1, 0.5);
             }
             else if (rnd === 3) {
-                this.resources[i].innit('clay', 0, 0, 1, 1);
-                console.log('+clay')
+                let rndTex = Phaser.Math.Between(0, 2);
+                this.resources[i].innit('clay' + rndTex, 0, 0, 1, 1, 0.5);
             }
 
         }

@@ -444,7 +444,9 @@ export default class UIManager {
         }).setOrigin(0.5,0.5);
 
         //Video
-        let source = this.scene.add.video(200, -145, minigameInfo.src).play(true);
+        let source = this.scene.add.video(200, -145, minigameInfo.src);
+        source.setMute(true);
+        source.play(true);
         source.setOrigin(0.5, 0.5);
         source.setScale(this.size * 0.4);
 

@@ -9,12 +9,12 @@ export default class Source extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, ) {
         super(scene, x, y, undefined);
         this.scene.add.existing(this); //Nos añadimos a la escena para ser mostrados.
-        this.setDepth(this.y);
     }
     innit( texture, paint, paper, clay, uses, size = 1, frame = 0){
         this.setTexture(texture);
         this.setFrame(frame);
         this.setScale(size);
+        this.setDepth(this.y);
         //Variables únicas
         this.uses = uses; //Número de usos antes de desaparecer, si es 0 el recurso será ilimitado
         this.id = this.x * this.y;
@@ -27,14 +27,14 @@ export default class Source extends Phaser.GameObjects.Sprite {
 
         //Físicas
            //Creamos zona de contacto con jugador
-         this.zone = this.scene.add.zone(this.x, this.y).setSize((this.width) + 10, (this.height * 0.2) + 10);
+         this.zone = this.scene.add.zone(this.x, this.y).setSize((this.displayWidth) + 10, (this.displayHeight * 0.2) + 10);
            //Añadimos cuerpos a la escena
          this.scene.physics.add.existing(this.zone, true);
          this.scene.physics.add.existing(this, true);
           //Reescalamos y reposicionamos
-         this.body.setSize(this.width, (this.height) * 0.2);
-         this.body.y = this.body.y + ((this.height / 2) - (this.body.height/2));
-         this.zone.body.y = this.zone.body.y + ((this.height / 2) - (this.body.height/2));
+         this.body.setSize(this.displayWidth, (this.displayHeight) * 0.2);
+         this.body.y = this.body.y + ((this.displayHeight / 2) - (this.body.height/2));
+         this.zone.body.y = this.zone.body.y + ((this.displayHeight / 2) - (this.body.height/2));
          this.setDepth(this.body.y);
           //Añadimos colisiones y overlaps
          this.scene.physics.add.collider(this.otter, this); //Contacto con recurso
