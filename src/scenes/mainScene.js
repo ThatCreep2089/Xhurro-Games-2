@@ -76,7 +76,7 @@ export default class mainScene extends Phaser.Scene {
                 description: "Haz clic sobre las piezas para rotarlas y consigue que el puzzle encaje",
                 src: 'PVideo',
                 price: 20,
-                reward:{ amountPerX:{paint: 0, paper: 10, clay: 0}, X: 1 }
+                reward:{ amountPerX:{paint: 0, paper: 5, clay: 0}, X: 4 }
             }
         };
 
@@ -177,11 +177,11 @@ export default class mainScene extends Phaser.Scene {
             }
             else if (rnd === 2) {
                 let rndTex = Phaser.Math.Between(0, 1);
-                this.resources[i].innit('paper' + rndTex, 0, 1, 0, 1, 0.5);
+                this.resources[i].innit('paper' + rndTex, 0, 2, 0, 1, 1);
             }
             else if (rnd === 3) {
                 let rndTex = Phaser.Math.Between(0, 2);
-                this.resources[i].innit('clay' + rndTex, 0, 0, 1, 1, 0.5);
+                this.resources[i].innit('clay' + rndTex, 0, 0, 1, 1, 1);
             }
 
         }

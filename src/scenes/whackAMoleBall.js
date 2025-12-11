@@ -151,7 +151,7 @@ export default class WhachAMoleBall extends Phaser.Scene{
                 this.events.emit("ball-removed");
 
                 // Sumar puntuación correctamente
-                this.addScore(2);
+                this.addScore(5);
             }
         });
     }
