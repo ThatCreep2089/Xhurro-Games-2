@@ -4,99 +4,99 @@
 			"val": 1,
 			"Dialog": [
 				{
-				"speaker": "NPC",
+				"speaker": "Cleon",
 				"portrait": "cleonPortrait",
 				"msgn": "Hace frío aquí dentro, ¿verdad? Este rincón de tu mente quedó oscuro hace mucho tiempo."
                 },
                 {
-                    "speaker": "Otter",
-                    "portrait": "otter",
+                    "speaker": "Navi",
+                    "portrait": "naviPortrait",
                     "msgn": "Hay sombras por todas partes."
 				},
                 {
-                "speaker": "NPC",
+                "speaker": "Cleon",
                 "portrait": "cleonPortrait",
                 "msgn": "Un poco descortés llamarlos 'sombras', ¿no crees?"
                 },
                 {
-                "speaker": "NPC",
+                "speaker": "Cleon",
                 "portrait": "cleonPortrait",
                 "msgn": "Son fantasmas y son los invitados de nuestra boda. Todos vienen de cosas reales que te dolieron."
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "¿Vuestra boda?"
                 },
                 {
-                "speaker": "NPC",
+                "speaker": "Cleon",
                 "portrait": "cleonPortrait",
                 "msgn": "Sí, Rome y yo. Nos casamos aquí, en tu mente."
                 },
                 {
-                "speaker": "NPC",
+                "speaker": "Cleon",
                 "portrait": "cleonPortrait",
                 "msgn": "Un poco turbio viniendo de ti, ¿no?"
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "EH, ehhh..."
                 },
                 {
-                "speaker": "NPC",
+                "speaker": "Rome",
                 "portrait": "romePortrait",
                 "msgn": "No te preocupes, no es tu culpa. Tú solo eres el anfitrión."
                 },
                 {
-                "speaker": "NPC",
+                "speaker": "Rome",
                 "portrait": "romePortrait",
                 "msgn": "Y como buen anfitrión, tienes que aprender a lidiar con tus invitados más desagradables, ¿no?"
                 },
                 {
-                "speaker": "NPC",
+                "speaker": "Rome",
                 "portrait": "romePortrait",
                 "msgn": "Si quieres reconstruirte, tendrás que mirarlos de frente. La luz no los destruye… solo les recuerda que ya no mandan sobre ti."
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "No se si podré..."
                 },
                 {
-                "speaker": "NPC",
+                "speaker": "Cleon",
                 "portrait": "cleonPortrait",
                 "msgn": "Me da igual que no puedas con todos, pero... ¿con Pedro Pablo? ¡Por favor! Nadie le ha invitado."
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "Vale pero necesitaré una lin-"
                 },
                 {
-                "speaker": "NPC",
+                "speaker": "Cleon",
                 "portrait": "cleonPortrait",
                 "msgn": "*Se besan intensamente*"
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "-terna..."
                 },
                 {
-                "speaker": "NPC",
+                "speaker": "Cleon",
                 "portrait": "cleonPortrait",
                 "msgn": "Ah, sisi toma, anda vete un rato."
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "..."
                 }
 
 			],
 			"Rechazo": {
-			    "speaker": "NPC",
+			    "speaker": "Cleon",
 			    "portrait": "cleonPortrait",
 			    "msgn": "*Siguen besandose intensamente*"
 		    }
@@ -105,38 +105,38 @@
 			"val": 2,
 			"Dialog":[
 				{
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "Holaaa... Vengo a por más recursos."
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "¿Hola?"
                 },
                 {
-                "speaker": "NPC",
+                "speaker": "Cleon",
                 "portrait": "cleonPortrait",
                 "msgn": "¡Eh! ¡A este paso no quedarán invitados!"
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "Pero necesito reconstruirme..."
                 },
                 {
-                "speaker": "NPC",
+                "speaker": "Cleon",
                 "portrait": "cleonPortrait",
                 "msgn": "No intentes arreglarlo."
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": ":("
                 }
 			],
 		    "Rechazo": {
-			    "speaker": "NPC",
+			    "speaker": "Cleon",
 			    "portrait": "cleonPortrait",
 			    "msgn": "Ni para esto sirves."
 		    }
@@ -145,48 +145,48 @@
         "val": 3,
 			"Dialog":[
 				{
-				"speaker": "NPC",
+				"speaker": "Rome",
 				"portrait": "romePortrait",
 				"msgn": "¡Eh! ¡Ya estás aquí de nuevo!"
 				},
 				{
-				"speaker": "Otter",
-				"portrait": "otter",
+				"speaker": "Navi",
+				"portrait": "naviPortrait",
 				"msgn": "Sí, necesito más recursos."
 				},
 				{
-				"speaker": "NPC",
+				"speaker": "Rome",
 				"portrait": "romePortrait",
 				"msgn": "Claro, claro. Pero antes... ¿Has pensado en lo que hablamos la otra vez?"
 				},
 				{
-				"speaker": "Otter",
-				"portrait": "otter",
+				"speaker": "Navi",
+				"portrait": "naviPortrait",
 				"msgn": "¿Lo de los invitados?"
 				},
 				{
-				"speaker": "NPC",
+				"speaker": "Rome",
 				"portrait": "romePortrait",
 				"msgn": "No, lo de Pedro Pablo."
 				},
 				{
-				"speaker": "Otter",
-				"portrait": "otter",
+				"speaker": "Navi",
+				"portrait": "naviPortrait",
 				"msgn": "¿Pedro Pablo?"
 				},
 				{
-				"speaker": "NPC",
+				"speaker": "Rome",
 				"portrait": "romePortrait",
 				"msgn": "Sí, esa persona que te genera miedo."
 				},
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "No quiero hablar del tema."
                 }
             ],
 			"Rechazo": {
-			    "speaker": "NPC",
+			    "speaker": "Rome",
 			    "portrait": "romePortrait",
 			    "msgn": "No huyas, afronta tus miedos."
 		    }
@@ -195,28 +195,28 @@
         "val": 4,
             "Dialog":[
                 {
-                "speaker": "NPC",
+                "speaker": "Rome",
                 "portrait": "romePortrait",
                 "msgn": "¿Ya has recapacitado?"
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "..."
                 },
                 {
-                "speaker": "NPC",
+                "speaker": "Cleon",
                 "portrait": "cleonPortrait",
                 "msgn": "Pedro Pablo merece una oportunidad."
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "¡¡¡NOOOOOOO!!!"
                 }
             ],
 			"Rechazo": {
-			    "speaker": "NPC",
+			    "speaker": "Cleon",
 			    "portrait": "cleonPortrait",
 			    "msgn": "¡Dale una oportunidad!"
 		    }
@@ -225,28 +225,28 @@
         "val": 5,
             "Dialog":[
                 {
-                "speaker": "NPC",
+                "speaker": "Cleon",
                 "portrait": "cleonPortrait",
                 "msgn": "..."
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "..."
                 },
                 {
-                "speaker": "NPC",
+                "speaker": "Cleon",
                 "portrait": "cleonPortrait",
                 "msgn": "Estas interrumpiendo nuestra luna de miel."
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "._."
                 }
             ],
 			"Rechazo": {
-			    "speaker": "NPC",
+			    "speaker": "Rome",
 			    "portrait": "romePortrait",
 			    "msgn": "... ¿Sigues ahí?"
 		    }
@@ -255,58 +255,58 @@
         "val": 6,
             "Dialog":[
                 {
-                "speaker": "NPC",
+                "speaker": "Rome",
                 "portrait": "romePortrait",
                 "msgn": "Si va todo bien este será nuestro último encuentro."
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "Creo que puedo lograrlo."
                 },
                 {
-                "speaker": "NPC",
+                "speaker": "Rome",
                 "portrait": "romePortrait",
                 "msgn": "¿Hablarás con Pedro Pablo?"
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "Supongo que ya va tocando."
                 },
                 {
-                "speaker": "NPC",
+                "speaker": "Cleon",
                 "portrait": "cleonPortrait",
                 "msgn": "Mucha suerte."
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "Gracias."
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "¿Sabes?, sois los únicos normales que quedan en mi mente."
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "De verdad, gracias por-"
                 },
                 {
-                "speaker": "NPC",
+                "speaker": "Cleon",
                 "portrait": "cleonPortrait",
                 "msgn": "Rome, ¿te parecen bien 47 centímetros?"
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": ":O" 
                 }
             ],
 			"Rechazo": {
-			    "speaker": "NPC",
+			    "speaker": "Cleon",
 			    "portrait": "cleonPortrait",
 			    "msgn": "¿Pero te parecen bien?"
 		    }
