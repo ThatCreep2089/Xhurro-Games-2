@@ -1,0 +1,153 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "paperfloor.tsx",
+    "expandedProjectPaths": [
+    ],
+    "file.lastUsedOpenFilter": "Todos los archivos (*)",
+    "fileStates": {
+        "": {
+            "scaleInDock": 1
+        },
+        "C:/Users/alici/Desktop/usagimodoki/universidad/motores/Xhurro-Games-2/assets/mainScene/afshtsj-export.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 4
+        },
+        "C:/Users/alici/Desktop/usagimodoki/universidad/motores/Xhurro-Games-2/assets/mainScene/map_final.json": {
+            "expandedObjectLayers": [
+                32
+            ],
+            "scale": 0.75,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": 1028,
+                "y": 656.6666666666667
+            }
+        },
+        "C:/Users/alici/Desktop/usagimodoki/universidad/motores/Xhurro-Games-2/assets/mainScene/map_final.json#cardboard": {
+            "scaleInDock": 1
+        },
+        "C:/Users/alici/Desktop/usagimodoki/universidad/motores/Xhurro-Games-2/assets/mainScene/map_final.json#foresttiles": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/alici/Desktop/usagimodoki/universidad/motores/Xhurro-Games-2/assets/mainScene/map_final.json#paintriver": {
+            "scaleInDock": 1
+        },
+        "C:/Users/alici/Desktop/usagimodoki/universidad/motores/Xhurro-Games-2/assets/mainScene/map_final.json#paperfloor": {
+            "scaleInDock": 1
+        },
+        "C:/Users/alici/Desktop/usagimodoki/universidad/motores/Xhurro-Games-2/assets/mainScene/map_final.json#paperobstacles": {
+            "scaleInDock": 1
+        },
+        "C:/Users/alici/Desktop/usagimodoki/universidad/motores/Xhurro-Games-2/assets/mainScene/mapa.json": {
+            "expandedObjectLayers": [
+                10
+            ],
+            "scale": 1.5,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 268.6666666666667,
+                "y": 266.99999999999994
+            }
+        },
+        "C:/Users/alici/Desktop/usagimodoki/universidad/motores/Xhurro-Games-2/assets/mainScene/mapa.json#afshtsj": {
+            "scaleInDock": 1
+        },
+        "C:/Users/alici/Desktop/usagimodoki/universidad/motores/Xhurro-Games-2/assets/mainScene/mapa.json#afshtsj-export": {
+            "scaleInDock": 1
+        },
+        "C:/Users/alici/Desktop/usagimodoki/universidad/motores/Xhurro-Games-2/assets/mainScene/mapa.json#grass": {
+            "scaleInDock": 0.12
+        },
+        "cardbord.tsx": {
+            "scaleInDock": 0.12,
+            "scaleInEditor": 1
+        },
+        "foresttiles.tsx": {
+            "scaleInDock": 0.12,
+            "scaleInEditor": 0.5
+        },
+        "grass.tsx": {
+            "scaleInDock": 0.12,
+            "scaleInEditor": 0.25
+        },
+        "map_final.json": {
+            "scale": 0.3138958333333333,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1201.035375323555,
+                "y": 858.565075993894
+            }
+        },
+        "map_final.tiled-project.tmj": {
+            "expandedObjectLayers": [
+                37,
+                36,
+                32
+            ],
+            "scale": 0.125,
+            "selectedLayer": 9,
+            "viewCenter": {
+                "x": 6192,
+                "y": 6476
+            }
+        },
+        "paintriver.tsx": {
+            "scaleInDock": 0.12,
+            "scaleInEditor": 0.25
+        },
+        "papeobstacles.tsx": {
+            "scaleInDock": 0.12,
+            "scaleInEditor": 0.75
+        },
+        "paperfloor.tsx": {
+            "scaleInDock": 0.12,
+            "scaleInEditor": 0.33
+        },
+        "tree.tsx": {
+            "scaleInDock": 0.12,
+            "scaleInEditor": 1
+        }
+    },
+    "last.exportedFilePath": "C:/Users/alici/Desktop/usagimodoki/universidad/motores/Xhurro-Games-2/assets/mainScene",
+    "last.externalTilesetPath": "C:/Users/alici/Desktop/usagimodoki/universidad/motores/Xhurro-Games-2/tiled",
+    "last.imagePath": "C:/Users/alici/Desktop/usagimodoki/universidad/motores/Xhurro-Games-2/assets/mainScene",
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
+    "map.lastUsedFormat": "json",
+    "map.tileHeight": 200,
+    "map.tileWidth": 200,
+    "map.width": 20,
+    "openFiles": [
+        "map_final.tiled-project.tmj",
+        "paintriver.tsx",
+        "grass.tsx",
+        "foresttiles.tsx",
+        "paperfloor.tsx",
+        "papeobstacles.tsx",
+        "cardbord.tsx"
+    ],
+    "project": "map_final.tiled-project",
+    "property.type": "object",
+    "recentFiles": [
+        "map_final.json",
+        "cardbord.tsx",
+        "papeobstacles.tsx",
+        "paperfloor.tsx",
+        "foresttiles.tsx",
+        "grass.tsx",
+        "map_final.tiled-project.tmj",
+        "paintriver.tsx",
+        "C:/Users/alici/Desktop/usagimodoki/universidad/motores/Xhurro-Games-2/assets/mainScene/afshtsj-export.tsx",
+        "C:/Users/alici/Desktop/usagimodoki/universidad/motores/Xhurro-Games-2/assets/mainScene/mapa.json",
+        "tree.tsx"
+    ],
+    "tileset.lastUsedFilter": "Archivos de conjuntos de patrones Tiled (*.tsx *.xml)",
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 10,
+        "width": 10
+    }
+}

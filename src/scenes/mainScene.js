@@ -15,11 +15,13 @@ export default class mainScene extends Phaser.Scene {
 
     create() {
         this.createAnims();
-
         // === MAPA ===
-        let map = this.add.image(0, 0, 'map').setOrigin(0, 0);
-        this.physics.world.setBounds(0, 0, map.width, map.height);
-        this.cameras.main.setBounds(0, 0, map.width, map.height);
+        /* let map = this.add.image(0, 0, 'map').setOrigin(0, 0);
+         this.physics.world.setBounds(0, 0, map.width, map.height);
+         this.cameras.main.setBounds(0, 0, map.width, map.height);*/
+        this.physics.world.setBounds(0, 0, 2560, 1840);
+        this.cameras.main.setBounds(0, 0, 2560, 1840);
+        this.createMap()
 
         // === CONTROLES ===
         this.#inputs = {
@@ -58,38 +60,40 @@ export default class mainScene extends Phaser.Scene {
 
         // === MINIJUEGOS_INFO ===
         this.minigamesInfo = {
-            WackAMole:{
+            WackAMole: {
                 name: "Whack A Mole",
                 description: "Aplasta a los topos haciendo clic sobre ellos...",
                 src: 'WAMVideo',
                 price: 24,
-                reward:{ amountPerX: {paint: 2, paper: 0, clay: 0}, X: 10 }
+                reward: { amountPerX: { paint: 2, paper: 0, clay: 0 }, X: 10 }
             },
             LightUpGhosts: {
                 name: "Ilumina a \n los fantasmas",
                 description: "Arrastra la antorcha hacia los fantasmas hasta destruirlos antes de que se escapen.",
                 src: 'LUGVideo',
                 price: 24,
-                reward:{ amountPerX:{paint: 0, paper: 2, clay: 0}, X: 10 }
+                reward: { amountPerX: { paint: 0, paper: 2, clay: 0 }, X: 10 }
             },
             Puzzle: {
                 name: "Puzle",
                 description: "Haz clic sobre las piezas para rotarlas y consigue que el puzzle encaje",
                 src: 'PVideo',
                 price: 24,
-                reward:{ amountPerX:{paint: 0, paper: 0, clay: 10}, X: 1 }
+                reward: { amountPerX: { paint: 0, paper: 0, clay: 10 }, X: 1 }
             }
         };
 
         // === JUGADOR (Nutria) ===
         this.otter = new Otter(this, this.scale.width / 2, this.scale.height / 2, 20, 'otterFront', 0.15, 0.25, 0);
         this.cameras.main.startFollow(this.otter);
-        this.navi = new Navi(this, this.otter, 40, 'navi',0.1, 17);
+        this.navi = new Navi(this, this.otter, 40, 'navi', 0.1, 17);
 
         // === FUENTES, CONSTRUCCIONES Y NPCs ===
-        this.createSources();
+        this.setPositionsMap();
+        /*this.createSources();
+        this.createNPCs();*/
         this.createBuilds();
-        this.createNPCs();
+        this.createMapCollisions()
 
         // === HUD ===
         this.createHUD();
@@ -104,7 +108,7 @@ export default class mainScene extends Phaser.Scene {
         GameDataManager.applyTo(this);
 
         //Una vez se ha preparado toda la escena, si tiene que hacer Fade, lo hace
-        if(this.fade){ this.fade = false; this.UIManager.FadeOut();}
+        if (this.fade) { this.fade = false; this.UIManager.FadeOut(); }
     }
 
     update() {
@@ -115,6 +119,92 @@ export default class mainScene extends Phaser.Scene {
             inputs[key].justUp = false;
         }
         this.builds.forEach(build => build.update && build.update());
+    }
+
+    createMap() {
+        this.map = this.make.tilemap({
+            key: 'tilemap',
+            tileWidth: 40,
+            tileHeight: 40
+        });
+        const cardboard = this.map.addTilesetImage('cardboard', "cardboard");
+        const foresttiles = this.map.addTilesetImage('foresttiles', "foresttiles");
+        const papertiles = this.map.addTilesetImage('paperfloor', "papertiles");
+        const paintriver = this.map.addTilesetImage('paintriver', "paintriver");
+        const paperobstacles = this.map.addTilesetImage('paperobstacles', "paperobstacles");
+        const tilesetGroup = [ cardboard, foresttiles,  papertiles, paintriver, paintriver, paperobstacles]
+        this.background = this.map.createLayer('mapbackground', tilesetGroup);
+        this.forestFloor = this.map.createLayer('forestFloor', tilesetGroup);
+        this.paperFloor = this.map.createLayer('paperFloor', tilesetGroup);
+        this.decors = this.map.createLayer('decors', tilesetGroup);
+        this.paintRiver = this.map.createLayer('paintRiver', tilesetGroup);
+        this.obstaclesbottom = this.map.createLayer('obstaclesbottom', tilesetGroup);
+        this.obstaclestop = this.map.createLayer('obstaclestop', tilesetGroup);
+        console.log(this.obstaclestop);
+
+
+
+    }
+
+
+    setPositionsMap() {
+
+
+        this.ObjLayer = this.map.getObjectLayer("objectLayer");
+        if (!this.ObjLayer) {
+            console.error("No se encontró la capa de objetos");
+            return;
+        }
+        /*  this.npcsG = this.add.group();
+          this.resources = this.add.group();
+           this.builds = this.add.group();*/
+
+            //NPCS//
+        //TONI-PRUEBA
+        const npcData = this.cache.json.get('prueba');
+        this.toni = this.map.createFromObjects('objectLayer', { name: 'toni', classType: NPC, key: "npc1" });//create from objects siempre devuelve array
+        this.toni[0].innit('toni', npcData, this.otter, this.minigamesInfo.WackAMole, 0.15, 0.25);
+        //CLEON Y ROME
+        const cleonRomeData = this.cache.json.get('cleonRome');
+        this.Cleon = this.map.createFromObjects('objectLayer', { name: 'cleon', classType: NPC, key: "npc2" });//create from objects siempre devuelve array
+        this.Cleon[0].innit( 'cleon&rome', cleonRomeData, this.otter, this.minigamesInfo.LightUpGhosts, 0.25, 0.25);
+        //ISHMAEL
+        const ishmaelData = this.cache.json.get('ishmael');
+        this.Ishmael = this.map.createFromObjects('objectLayer', { name: 'ishmael', classType: NPC, key: "npc3" });
+        this.Ishmael[0].innit('ismael', ishmaelData, this.otter, this.minigamesInfo.Puzzle, 0.15, 1);
+
+            //RESOURCES//
+
+        this.resources = this.map.createFromObjects('objectLayer', { name: 'resources', classType: Source, key: "paperSource" })
+
+        for (let i = 0; i < this.resources.length; i++) {
+            let rnd = Phaser.Math.Between(1, 3)
+            if (rnd === 1) {
+                this.resources[i].innit('paint', 1, 0, 0, 1);
+                console.log('+paint')
+            }
+            else if (rnd === 2) {
+                this.resources[i].innit('paper', 0, 1, 0, 1);
+                console.log('+paper')
+            }
+            else if (rnd === 3) {
+                this.resources[i].innit('clay', 0, 0, 1, 1);
+                console.log('+clay')
+            }
+
+        }
+
+    }
+
+    createMapCollisions() {
+
+
+        this.paintRiver.setCollisionByExclusion([-1]);//colision con todo menos lo nulo
+        this.obstaclesbottom.setCollisionByExclusion([-1]);
+        this.obstaclestop.setCollisionByExclusion([-1])
+        this.physics.add.collider(this.otter, this.paintRiver);
+        this.physics.add.collider(this.otter, this.obstaclesbottom);
+        this.physics.add.collider(this.otter, this.obstaclestop);
     }
 
     createAnims() {
@@ -176,10 +266,10 @@ export default class mainScene extends Phaser.Scene {
         }
     }
 
-    createSources() {
-        this.sources = [];
-        this.sources.push(new Source(this, 1200, 1200, 'clay1', 0, 0, 1, 5));
-    }
+    /* createSources() {
+         this.sources = [];
+         this.sources.push(new Source(this, 1200, 1200, 'paint', 0, 0, 1, 5));
+     }*/
 
     createBuilds() {
         this.builds = [];
@@ -205,10 +295,10 @@ export default class mainScene extends Phaser.Scene {
     nextDay() {
         this.currentDay = (this.currentDay || 1) + 1;
         this.fade = true;
-        if(this.currentDay > 6){
+        if (this.currentDay > 6) {
             console.log("final")
             GameDataManager.saveFrom(this);
         }
     }
-    
+
 }
