@@ -729,12 +729,14 @@ Los assests usados para los NPC son los profesores de la UCM pero represetnados 
 No obstante la mayor parte de assets son placehoders o imagenes usadas para la web o placeHolder.
 
 Los assets creados por los encargados de arte durante el desarrollo del proyecto se adhieren a una licencia de copyright en la que se reservan todos los derechos de autor.
+
 </details>
+	
+<details>
+	<summary> Gráfico de escena </summary>
+
 ##Gráfico de architectura
 
 
 <img width="2657" height="3184" alt="New_Diagram" src="https://github.com/user-attachments/assets/bb5109da-9ca7-44b8-8eb3-117fda34674d" />
-
-<details>
-	
 </details>
