@@ -109,7 +109,7 @@ export default class Otter extends Phaser.GameObjects.Sprite {
             this.stamina -= staminaPrice;
             this.scene.sound.add('cashSFX', {volume: 10}).play();
             this.scene.UIManager.event.emit("updateStamina", -staminaPrice);
-            this.howToDecrease = 4;
+            this.howToDecrease = 1;
         } else this.howToDecrease--;
 
         // Si la estamina llega a 0, pasar al siguiente día
