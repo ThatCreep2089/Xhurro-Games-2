@@ -553,7 +553,7 @@
                 {
                  "height":0,
                  "id":137,
-                 "name":"clay",
+                 "name":"resources",
                  "point":true,
                  "rotation":0,
                  "type":"source",
@@ -565,7 +565,7 @@
                 {
                  "height":0,
                  "id":138,
-                 "name":"clay",
+                 "name":"resources",
                  "point":true,
                  "rotation":0,
                  "type":"source",
@@ -577,7 +577,7 @@
                 {
                  "height":0,
                  "id":139,
-                 "name":"clay",
+                 "name":"resources",
                  "point":true,
                  "rotation":0,
                  "type":"source",
@@ -589,7 +589,7 @@
                 {
                  "height":0,
                  "id":140,
-                 "name":"clay",
+                 "name":"resources",
                  "point":true,
                  "rotation":0,
                  "type":"source",
@@ -601,7 +601,7 @@
                 {
                  "height":0,
                  "id":141,
-                 "name":"clay",
+                 "name":"resources",
                  "point":true,
                  "rotation":0,
                  "type":"source",
@@ -613,7 +613,7 @@
                 {
                  "height":0,
                  "id":147,
-                 "name":"clay",
+                 "name":"resources",
                  "point":true,
                  "rotation":0,
                  "type":"source",
@@ -625,7 +625,7 @@
                 {
                  "height":0,
                  "id":127,
-                 "name":"paint",
+                 "name":"resources",
                  "point":true,
                  "rotation":0,
                  "type":"source",
@@ -637,7 +637,7 @@
                 {
                  "height":0,
                  "id":128,
-                 "name":"paint",
+                 "name":"resources",
                  "point":true,
                  "rotation":0,
                  "type":"source",
@@ -649,7 +649,7 @@
                 {
                  "height":0,
                  "id":129,
-                 "name":"paint",
+                 "name":"resources",
                  "point":true,
                  "rotation":0,
                  "type":"source",
@@ -661,7 +661,7 @@
                 {
                  "height":0,
                  "id":132,
-                 "name":"paint",
+                 "name":"resources",
                  "point":true,
                  "rotation":0,
                  "type":"source",
@@ -673,7 +673,7 @@
                 {
                  "height":0,
                  "id":134,
-                 "name":"paint",
+                 "name":"resources",
                  "point":true,
                  "rotation":0,
                  "type":"source",
@@ -685,7 +685,7 @@
                 {
                  "height":0,
                  "id":135,
-                 "name":"paint",
+                 "name":"resources",
                  "point":true,
                  "rotation":0,
                  "type":"source",
@@ -697,7 +697,7 @@
                 {
                  "height":0,
                  "id":113,
-                 "name":"paper",
+                 "name":"resources",
                  "point":true,
                  "rotation":0,
                  "type":"source",
@@ -709,7 +709,7 @@
                 {
                  "height":0,
                  "id":114,
-                 "name":"paper",
+                 "name":"resources",
                  "point":true,
                  "rotation":0,
                  "type":"source",
@@ -721,7 +721,7 @@
                 {
                  "height":0,
                  "id":116,
-                 "name":"paper",
+                 "name":"resources",
                  "point":true,
                  "rotation":0,
                  "type":"source",
@@ -733,7 +733,7 @@
                 {
                  "height":0,
                  "id":122,
-                 "name":"paper",
+                 "name":"resources",
                  "point":true,
                  "rotation":0,
                  "type":"source",
@@ -745,7 +745,7 @@
                 {
                  "height":0,
                  "id":123,
-                 "name":"paper",
+                 "name":"resources",
                  "point":true,
                  "rotation":0,
                  "type":"source",
@@ -757,7 +757,7 @@
                 {
                  "height":0,
                  "id":124,
-                 "name":"paper",
+                 "name":"resources",
                  "point":true,
                  "rotation":0,
                  "type":"source",
@@ -769,7 +769,7 @@
                 {
                  "height":0,
                  "id":126,
-                 "name":"paper",
+                 "name":"resources",
                  "point":true,
                  "rotation":0,
                  "type":"source",
@@ -785,7 +785,7 @@
          "y":0
         }],
  "nextlayerid":50,
- "nextobjectid":193,
+ "nextobjectid":195,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.11.2",

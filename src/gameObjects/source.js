@@ -7,8 +7,8 @@ export default class Source extends Phaser.GameObjects.Sprite {
      * @param {number} uses - número de usos antes de desaparecer, si es 0 entonces será ilimitado
      */
     constructor(scene, x, y,  texture, paint, paper, clay, uses, size = 1, frame = 0) {
-        super(scene, x, y, texture, frame);
-
+        super(scene, x, y, texture, frame);}
+    innit(){
         this.setScale(size);
         this.scene.add.existing(this); //Nos añadimos a la escena para ser mostrados.
         this.setDepth(this.y);
