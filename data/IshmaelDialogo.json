@@ -10,17 +10,17 @@
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "ishmaelPortrait",
                 "msgn": "De hecho me lo tomaré como un cumplido."
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "ishmaelPortrait",
                 "msgn": "Pero bueno, todo está un poco desordenado aquí. Qué digo “un poco”… ¡es un caos de piezas de puzzle!"
 				},
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "ishmaelPortrait",
                 "msgn": "Son un reflejo de ti."
                 },
                 {
@@ -30,7 +30,7 @@
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "ishmaelPortrait",
                 "msgn": "Cuando te perdiste a ti mismo, muchos fragmentos de quién eras se… dispersaron. Tu curiosidad está por allí, tus recuerdos felices por allá, tus logros… umm… creo que se cayeron debajo de la mesa."
                 },
                 {
@@ -40,12 +40,12 @@
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "ishmaelPortrait",
                 "msgn": "Reuniendo las piezas, literalmente. Este puzzle te ayudará a recordar que tu identidad no está rota, solo desordenada."
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "ishmaelPortrait",
                 "msgn": "Te ayudaría, pero estos brazos solo sirven para partir troncos de arboles y tal."
                 },
                 {
@@ -55,7 +55,7 @@
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "ishmaelPortrait",
                 "msgn": "Entristece mucho a Ish y El."
                 },
                 {
@@ -65,17 +65,17 @@
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "ishmaelPortrait",
                 "msgn": "El de la izquierda es Ish y el de la derecha es El."
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "ishmaelPortrait",
                 "msgn": "Me gasté la friolera de cinco mil euros por cada uno de estos pequeñines."
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "ishmaelPortrait",
                 "msgn": "*Flexea brazos*"
                 },
                 {
@@ -85,7 +85,7 @@
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "ishmaelPortrait",
                 "msgn": "Estoy divagando, ¿no?"
                 },
                 {
@@ -95,7 +95,7 @@
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "ishmaelPortrait",
                 "msgn": "Madre mía, recuerdo cuando me los puse, yo ya era fuerte entonces, pe-"
                 },
                 {
@@ -105,7 +105,7 @@
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "ishmaelPortrait",
                 "msgn": "Con estos brazos me siento imparable. Y sabes qué-"
                 },
                 {
@@ -115,7 +115,7 @@
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "ishmaelPortrait",
                 "msgn": "Cogí a mi abuela y le arreglé la cadera con estos brazos."
                 },
                 {
@@ -125,7 +125,7 @@
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "ishmaelPortrait",
                 "msgn": "¿Sabes? Creo que voy a ir a por el máster de Crossfit."
                 },
                 {
@@ -135,7 +135,7 @@
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "ishmaelPortrait",
                 "msgn": "¡Imparable!"
                 },
                 {
@@ -145,7 +145,7 @@
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "ishmaelPortrait",
                 "msgn": "A, sisi, claro, vale, adiós."
                 },
                 {
@@ -155,7 +155,7 @@
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "ishmaelPortrait",
                 "msgn": "¿Sabes?, en realidad no me voy a ir a por el máster de Crossfit. Creo que me haré monje sha-"
                 },
                 {
@@ -166,8 +166,8 @@
 			],
             "Rechazo": {
 			    "speaker": "NPC",
-			    "portrait": "house",
-			    "msgn": "No mejor a por el máster de culturismo"
+			    "portrait": "ishmaelPortrait",
+			    "msgn": "No mejor a por el máster de culturismo."
 		    }
     	},	
 		{
@@ -180,7 +180,7 @@
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "ishmaelPortrait",
                 "msgn": "No, compro otro igual."
                 },
                 {
@@ -190,7 +190,7 @@
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "ishmaelPortrait",
                 "msgn": "Lo destruiría si lo intento desmontar."
                 },
                 {
@@ -202,8 +202,8 @@
 			],
 			"Rechazo": {
 			    "speaker": "NPC",
-			    "portrait": "house",
-			    "msgn": "Es que has visto estos brazo, lo toco y lo destruyo"
+			    "portrait": "ishmaelPortrait",
+			    "msgn": "Es que, ¿has visto estos brazos?, lo toco y lo destruyo."
 		    }
 		},
         {
@@ -211,7 +211,7 @@
             "Dialog": [
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "ishmaelPortrait",
                 "msgn": "¿Puzle?"
                 },
                 {
@@ -222,7 +222,7 @@
             ],
 			"Rechazo": {
 			    "speaker": "NPC",
-			    "portrait": "house",
+			    "portrait": "ishmaelPortrait",
 			    "msgn": "¿No puzle?"
 		    }
         },
@@ -236,8 +236,8 @@
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
-                "msgn": "*Besa su puzle*"
+                "portrait": "ishmaelPortrait",
+                "msgn": "*Besa el puzle*"
                 },
                 {
                 "speaker": "Otter",
@@ -257,7 +257,7 @@
             ],
 			"Rechazo": {
 			    "speaker": "NPC",
-			    "portrait": "house",
+			    "portrait": "ishmaelPortrait",
 			    "msgn": "*Besa el puzle de nuevo*"
 		    }
         },
@@ -271,7 +271,7 @@
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "ishmaelPortrait",
                 "msgn": "¿No sabes hacer ni si quiera el puzle más sencillo del mundo?"
                 },
                 {
@@ -281,15 +281,15 @@
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "ishmaelPortrait",
                 "msgn": "Que pasa, ¿qué en tu tribu no hay puzles?"
                 }
 
             ],
 			"Rechazo": {
 			    "speaker": "NPC",
-			    "portrait": "house",
-			    "msgn": "Si, eso pensaba yo"
+			    "portrait": "ishmaelPortrait",
+			    "msgn": "Si, eso pensaba yo."
 		    }
         },
         {
@@ -302,7 +302,7 @@
 				},
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "ishmaelPortrait",
 				"msgn": "¡Eh, hola! Justo a tiempo, estaba entrenando."
 				},
 				{
@@ -312,7 +312,7 @@
 				},
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "ishmaelPortrait",
 				"msgn": "Sí, mira estos brazos."
 				},
 				{
@@ -322,7 +322,7 @@
 				},
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "ishmaelPortrait",
 				"msgn": "¡Y fuertes! ¿Quieres ver?"
 				},
 				{
@@ -332,7 +332,7 @@
 				},
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "ishmaelPortrait",
 				"msgn": "¡TOMA!"
 				},
 				{
@@ -342,7 +342,7 @@
 				},
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "ishmaelPortrait",
 				"msgn": "¿Te ha gustado?"
 				},
 				{
@@ -352,7 +352,7 @@
 				},
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "ishmaelPortrait",
 				"msgn": "JEJEJEJEJEJE. Tranquilo, es solo práctica."
 				},
 				{
@@ -362,7 +362,7 @@
 				},
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "ishmaelPortrait",
                 "msgn": "..."
                 },
                 {
@@ -373,7 +373,7 @@
             ],
 			"Rechazo": {
 			    "speaker": "NPC",
-			    "portrait": "house",
+			    "portrait": "ishmaelPortrait",
 			    "msgn": "*Flexea a Ish y a EL*"
 		    }
         }

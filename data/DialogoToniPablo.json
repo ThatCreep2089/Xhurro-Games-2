@@ -10,7 +10,7 @@
 				},
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "toniPortrait",
 				"msgn": "¡Ey, ey, ey! ¡Has venido justo a tiempo! Tu cabeza ahora mismo es como Twitter: tuitea tuitea tuitea."
 				},
 				{
@@ -20,17 +20,17 @@
 				},
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "toniPortrait",
 				"msgn": "Pensamientos que no quieres, recuerdos que saltan sin permiso como aquel tuit de hace 6 años donde decías que la madre de alguien se parecía a un caballo."
 				},
 				{
 					"speaker":"NPC",
-					"portrait":"house",
+					"portrait":"toniPortrait",
 					"msgn":" Estás disociando y BOOOOOOOOOOOOOM, ahí aparecen."
 				},
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "toniPortrait",
 				"msgn": "JEJEJEJE a mi sí me pasaba todo el tiempo hasta que encontré este lugar."
 				},
 				{
@@ -40,7 +40,7 @@
 				},
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "toniPortrait",
 				"msgn": "Este campo de topos. Aquí aprenderás a controlarlos."
 				},
 				{
@@ -50,29 +50,39 @@
 				},
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "toniPortrait",
 				"msgn": "Coño, no.    A tus pensamientos intrusivos."
 				},
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "toniPortrait",
 				"msgn": "Solo aprende qué ignorar y qué afrontar. Vamos a practicar. Cada topo que golpeas es un pensamiento que decides no dejar dominarte."
 				},
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "toniPortrait",
 				"msgn": "Venga, estás reconstruyendo tu subconsciente, ¿recuerdas? Además tengo que seguir tuiteando."
 				},
 				{
 				"speaker": "Otter",
 				"portrait": "otter",
 				"msgn": "Otro loco más... eramos pocos y parió la abuela."
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "pabloPortrait",
+				"msgn": "A mi no me incluyas."
+				},
+				{
+				"speaker": "Otter",
+				"portrait": "otter",
+				"msgn": "¿Y tú de donde sales?"
 				}
 
 			],
 			"Rechazo": {
 			    "speaker": "NPC",
-			    "portrait": "house",
+			    "portrait": "toniPortrait",
 			    "msgn": "Bueno... será otro día entonces."
 		    }
     	},	
@@ -81,7 +91,7 @@
 			"Dialog":[
 				{
 					"speaker": "NPC",
-					"portrait": "house",
+					"portrait": "toniPortrait",
 					"msgn": "Ya vuelves, ¿Otra vez con los topos?"
 				},
 				{
@@ -91,7 +101,7 @@
 				},
 				{
 					"speaker": "NPC",
-					"portrait": "house",
+					"portrait": "pabloPortrait",
 					"msgn": "Por suerte no estan muy aplastados (todavía)."
 				},
 				{
@@ -103,8 +113,8 @@
 			],
 			"Rechazo": {
 			    "speaker": "NPC",
-			    "portrait": "house",
-			    "msgn": "Ayudame, otro dia con los topos anda"
+			    "portrait": "pabloPortrait",
+			    "msgn": "Ayudame otro dia con los topos anda."
 		    }
 		},
 		{
@@ -117,7 +127,7 @@
 				},
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "toniPortrait",
 				"msgn": "¿Quién, yo? No, para nada."
 				},
 				{
@@ -127,19 +137,24 @@
 				},
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "toniPortrait",
 				"msgn": "¿A ver, vienes a por más topos o solo querías hablar de Twitter?"
 				},
 				{
 				"speaker": "Otter",
 				"portrait": "otter",
 				"msgn": "... A por más topos."
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "pabloPortrait",
+				"msgn": "Pobre chaval."
 				}
 			],
 			"Rechazo": {
 			    "speaker": "NPC",
-			    "portrait": "house",
-			    "msgn": "Vuelve otro dia, pero nada de Twitter"
+			    "portrait": "toniPortrait",
+			    "msgn": "Vuelve otro dia, pero nada de Twitter."
 		    }
 		},
 		{
@@ -152,7 +167,7 @@
 				},
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "toniPortrait",
 				"msgn": "¿Para qué?"
 				},
 				{
@@ -162,7 +177,7 @@
 				},
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "toniPortrait",
 				"msgn": "¡Claro que no! Toma."
 				},
 				{
@@ -172,7 +187,12 @@
 				},
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "pabloPortrait",
+				"msgn": "Ouuuu..."
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "toniPortrait",
 				"msgn": "¿Ah, sí? ¿Y por qué iba a hacer eso?"
 				},
 				{
@@ -182,14 +202,19 @@
 				},
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "toniPortrait",
 				"msgn": "¡Bah! Eso fue hace años, no me acuerdo ni de ese tuit."
+				},
+				{
+				"speaker": "NPC",
+				"portrait": "pabloPortrait",
+				"msgn": "Te ha pillado creo yo eh."
 				}
 			],
 			"Rechazo": {
 			    "speaker": "NPC",
-			    "portrait": "house",
-			    "msgn": "Nada de caballos, solo topos"
+			    "portrait": "toniPortrait",
+			    "msgn": "Nada de caballos, solo topos."
 		    }
 		},
 		{
@@ -202,7 +227,7 @@
 				},
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "toniPortrait",
 				"msgn": "Me están arrestando."
 				},
 				{
@@ -217,18 +242,18 @@
 				},
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "toniPortrait",
 				"msgn": "..."
 				},
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "pabloPortrait",
 				"msgn": "..."
 				}
 			],
 			"Rechazo": {
 			    "speaker": "NPC",
-			    "portrait": "house",
+			    "portrait": "pabloPortrait",
 			    "msgn": "..."
 		    }
 		},
@@ -242,7 +267,7 @@
 				},
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "toniPortrait",
 				"msgn": "Ya ves, un día y te vuelves loco. He estado pensando y creo que voy a dejarlo."
 				},
 				{
@@ -252,7 +277,7 @@
 				},
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "toniPortrait",
 				"msgn": "..."
 				},
 				{
@@ -262,7 +287,7 @@
 				},
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "toniPortrait",
 				"msgn": "Twitter."
 				},
 				{
@@ -272,12 +297,17 @@
 				},
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "toniPortrait",
 				"msgn": "Me he dado cuenta de que el problema siempre fue Twitter."
+				},
+				{
+					"speaker":"NPC",
+					"portrait":"pabloPortrait",
+					"msgn": "Eso es verdad."
 				},
 			    {
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "toniPortrait",
 				"msgn": " Siempre que entro me lleno de pensamientos intrusivos y recuerdos incómodos. Es un no parar."
 				},
 				{
@@ -287,7 +317,7 @@
 				},
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "toniPortrait",
 				"msgn": "Dar clase."
 				},
 				{
@@ -297,15 +327,15 @@
 				},
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "toniPortrait",
 				"msgn": "Bueno, hasta la próxima."
 				}
 	
 			],
 			"Rechazo": {
 			    "speaker": "NPC",
-			    "portrait": "house",
-			    "msgn": "Una ultima vez, si no no te volveré a ver"
+			    "portrait": "toniPortrait",
+			    "msgn": "Una ultima vez, si no no te volveré a ver."
 		    }
 		}
 	]

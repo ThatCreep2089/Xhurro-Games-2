@@ -5,7 +5,7 @@
 			"Dialog": [
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "cleonPortrait",
 				"msgn": "Hace frío aquí dentro, ¿verdad? Este rincón de tu mente quedó oscuro hace mucho tiempo."
                 },
                 {
@@ -15,12 +15,12 @@
 				},
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "cleonPortrait",
                 "msgn": "Un poco descortés llamarlos 'sombras', ¿no crees?"
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "cleonPortrait",
                 "msgn": "Son fantasmas y son los invitados de nuestra boda. Todos vienen de cosas reales que te dolieron."
                 },
                 {
@@ -30,12 +30,12 @@
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "cleonPortrait",
                 "msgn": "Sí, Rome y yo. Nos casamos aquí, en tu mente."
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "cleonPortrait",
                 "msgn": "Un poco turbio viniendo de ti, ¿no?"
                 },
                 {
@@ -45,17 +45,17 @@
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "romePortrait",
                 "msgn": "No te preocupes, no es tu culpa. Tú solo eres el anfitrión."
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "romePortrait",
                 "msgn": "Y como buen anfitrión, tienes que aprender a lidiar con tus invitados más desagradables, ¿no?"
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "romePortrait",
                 "msgn": "Si quieres reconstruirte, tendrás que mirarlos de frente. La luz no los destruye… solo les recuerda que ya no mandan sobre ti."
                 },
                 {
@@ -65,7 +65,7 @@
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "cleonPortrait",
                 "msgn": "Me da igual que no puedas con todos, pero... ¿con Pedro Pablo? ¡Por favor! Nadie le ha invitado."
                 },
                 {
@@ -75,7 +75,7 @@
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "cleonPortrait",
                 "msgn": "*Se besan intensamente*"
                 },
                 {
@@ -85,7 +85,7 @@
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "cleonPortrait",
                 "msgn": "Ah, sisi toma, anda vete un rato."
                 },
                 {
@@ -97,7 +97,7 @@
 			],
 			"Rechazo": {
 			    "speaker": "NPC",
-			    "portrait": "house",
+			    "portrait": "cleonPortrait",
 			    "msgn": "*Siguen besandose intensamente*"
 		    }
     	},	
@@ -116,8 +116,8 @@
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
-                "msgn": "¡Eh, a este paso no quedarán invitados!"
+                "portrait": "cleonPortrait",
+                "msgn": "¡Eh! ¡A este paso no quedarán invitados!"
                 },
                 {
                 "speaker": "Otter",
@@ -126,7 +126,7 @@
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "cleonPortrait",
                 "msgn": "No intentes arreglarlo."
                 },
                 {
@@ -137,8 +137,8 @@
 			],
 		    "Rechazo": {
 			    "speaker": "NPC",
-			    "portrait": "house",
-			    "msgn": "Ni para esto sirves"
+			    "portrait": "cleonPortrait",
+			    "msgn": "Ni para esto sirves."
 		    }
 		},
         {
@@ -146,7 +146,7 @@
 			"Dialog":[
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "romePortrait",
 				"msgn": "¡Eh! ¡Ya estás aquí de nuevo!"
 				},
 				{
@@ -156,7 +156,7 @@
 				},
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "romePortrait",
 				"msgn": "Claro, claro. Pero antes... ¿Has pensado en lo que hablamos la otra vez?"
 				},
 				{
@@ -166,7 +166,7 @@
 				},
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "romePortrait",
 				"msgn": "No, lo de Pedro Pablo."
 				},
 				{
@@ -176,7 +176,7 @@
 				},
 				{
 				"speaker": "NPC",
-				"portrait": "house",
+				"portrait": "romePortrait",
 				"msgn": "Sí, esa persona que te genera miedo."
 				},
                 {
@@ -187,8 +187,8 @@
             ],
 			"Rechazo": {
 			    "speaker": "NPC",
-			    "portrait": "house",
-			    "msgn": "No huyas, afrotna tus miedos"
+			    "portrait": "romePortrait",
+			    "msgn": "No huyas, afronta tus miedos."
 		    }
         },
         {
@@ -196,7 +196,7 @@
             "Dialog":[
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "romePortrait",
                 "msgn": "¿Ya has recapacitado?"
                 },
                 {
@@ -206,7 +206,7 @@
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "cleonPortrait",
                 "msgn": "Pedro Pablo merece una oportunidad."
                 },
                 {
@@ -217,7 +217,7 @@
             ],
 			"Rechazo": {
 			    "speaker": "NPC",
-			    "portrait": "house",
+			    "portrait": "cleonPortrait",
 			    "msgn": "¡Dale una oportunidad!"
 		    }
         },
@@ -226,7 +226,7 @@
             "Dialog":[
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "cleonPortrait",
                 "msgn": "..."
                 },
                 {
@@ -236,7 +236,7 @@
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "cleonPortrait",
                 "msgn": "Estas interrumpiendo nuestra luna de miel."
                 },
                 {
@@ -247,7 +247,7 @@
             ],
 			"Rechazo": {
 			    "speaker": "NPC",
-			    "portrait": "house",
+			    "portrait": "romePortrait",
 			    "msgn": "... ¿Sigues ahí?"
 		    }
         },
@@ -256,7 +256,7 @@
             "Dialog":[
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "romePortrait",
                 "msgn": "Si va todo bien este será nuestro último encuentro."
                 },
                 {
@@ -266,7 +266,7 @@
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "romePortrait",
                 "msgn": "¿Hablarás con Pedro Pablo?"
                 },
                 {
@@ -276,7 +276,7 @@
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "cleonPortrait",
                 "msgn": "Mucha suerte."
                 },
                 {
@@ -296,7 +296,7 @@
                 },
                 {
                 "speaker": "NPC",
-                "portrait": "house",
+                "portrait": "cleonPortrait",
                 "msgn": "Rome, ¿te parecen bien 47 centímetros?"
                 },
                 {
@@ -307,8 +307,8 @@
             ],
 			"Rechazo": {
 			    "speaker": "NPC",
-			    "portrait": "house",
-			    "msgn": "¿Pero te parece bien?"
+			    "portrait": "cleonPortrait",
+			    "msgn": "¿Pero te parecen bien?"
 		    }
         }
         
