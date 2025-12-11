@@ -7,7 +7,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         this.scene.add.existing(this);
         scene.physics.add.existing(this, true);
         this.iniciado = false;
-        //this.setDepth(this.y);
+        this.setDepth(this.y);
     }
     innit(texture, data, player, minigameInfo, scale = 0.1, colliderWidthFactor=1) {
         this.setTexture(texture);
@@ -111,20 +111,20 @@ export default class NPC extends Phaser.GameObjects.Sprite {
 
             this.wasTouching = this.touching;
             this.touching = false;
-        }
-
-        // Esperar a que el jugador suelte SPACE antes de permitir volver a hablar
-        if (this.waitSpaceRelease) {
-            this.wasTouching = this.touching;
-            this.touching = false;
-            return;
-        }
-
-        // Intento de iniciar diálogo
-        if (this.scene.spaceKey.justDown && this.touching && this.canInteract && !this.isDialogOpen)
-        {
-            this.scene.UIManager.disappearInteractMessage();
-            this.startDialog();
+            
+            // Esperar a que el jugador suelte SPACE antes de permitir volver a hablar
+            if (this.waitSpaceRelease) {
+                this.wasTouching = this.touching;
+                this.touching = false;
+                return;
+            }
+            
+            // Intento de iniciar diálogo
+            if (this.scene.spaceKey.justDown && this.touching && this.canInteract && !this.isDialogOpen)
+                {
+                    this.scene.UIManager.disappearInteractMessage();
+                    this.startDialog();
+                }
         }
 
         this.wasTouching = this.touching;
