@@ -82,7 +82,7 @@ export default class mainScene extends Phaser.Scene {
         };
 
         // === JUGADOR (Nutria) ===
-        this.otter = new Otter(this, this.scale.width / 2, this.scale.height / 2, 20, 'toni', 0.15, 0.25);
+        this.otter = new Otter(this, this.scale.width / 2, this.scale.height / 2, 20, 'otterFront', 0.15, 0.25, 0);
         this.cameras.main.startFollow(this.otter);
         this.navi = new Navi(this, this.otter, 40, 'navi',0.1, 17);
 
@@ -120,6 +120,60 @@ export default class mainScene extends Phaser.Scene {
     createAnims() {
         // === HUD ===
         // THE GAME 😃
+
+        if (!this.anims.exists("otterIdleBack")){
+            this.anims.create({
+                key: "otterIdleBack",
+                frames: this.anims.generateFrameNumbers("otterBack", {start:1, end: 1}),
+                frameRate: 5,
+                repeat: -1
+            });
+        }
+
+        if (!this.anims.exists("otterIdleFront")){
+            this.anims.create({
+                key: "otterIdleFront",
+                frames: this.anims.generateFrameNumbers("otterFront", {start:0, end: 0}),
+                frameRate: 5,
+                repeat: -1
+            });
+        }
+
+        if (!this.anims.exists("otterIdleSide")){
+            this.anims.create({
+                key: "otterIdleSide",
+                frames: this.anims.generateFrameNumbers("otterSide", {start:1, end: 1}),
+                frameRate: 5,
+                repeat: -1
+            });
+        }
+
+        if (!this.anims.exists("otterWalkingBack")){
+            this.anims.create({
+                key: "otterWalkingBack",
+                frames: this.anims.generateFrameNumbers("otterBack", {start:0, end: 3}),
+                frameRate: 10,
+                repeat: -1
+            });
+        }
+
+        if (!this.anims.exists("otterWalkingFront")){
+            this.anims.create({
+                key: "otterWalkingFront",
+                frames: this.anims.generateFrameNumbers("otterFront", {start:0, end: 3}),
+                frameRate: 10,
+                repeat: -1
+            });
+        }
+
+        if (!this.anims.exists("otterWalkingSide")){
+            this.anims.create({
+                key: "otterWalkingSide",
+                frames: this.anims.generateFrameNumbers("otterSide", {start:0, end: 3}),
+                frameRate: 20,
+                repeat: -1
+            });
+        }
     }
 
     createSources() {
