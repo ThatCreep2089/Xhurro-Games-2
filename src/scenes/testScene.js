@@ -169,8 +169,25 @@ export default class TestScene extends Phaser.Scene {
         console.log(this.toni + "miau");
         this.toni[0].innit( 'toni', this.cache.json.get('prueba') , this.otter, this.minigamesInfo.LightUpGhosts, 0.1);
        
-        this.paperSource = this.map.createFromObjects('objectLayer', {name:'resources' , classType: Source, key: "paperSource"})
+        this.resources = this.map.createFromObjects('objectLayer', {name:'resources' , classType: Source, key: "paperSource"})
+       
+        for(let i = 0 ; i<this.resources.length;i++){
+            let rnd= Phaser.Math.Between(1, 3)
+        if (rnd === 1){
+        this.resources[i].innit('paint',1,0,0,1);
+        console.log('+paint')
+        }
+        else if (rnd === 2){
+         this.resources[i].innit('paper',0,1,0,1);
+         console.log('+paper')
+        }
+        else if(rnd === 3){
+        this.resources[i].innit('clay',0,0,1,1);
+        console.log('+clay')
+        }
+       
         
+       }
         /*
             if (this.objLayer.objects[i] === "npc") {
                 let npcData = this.cache.json.get("prueba")//(obj.name);

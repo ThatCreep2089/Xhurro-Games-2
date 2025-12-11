@@ -7,6 +7,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         this.scene.add.existing(this);
         scene.physics.add.existing(this, true);
         this.iniciado = false;
+        this.setDepth(this.y);
     }
     innit(texture, data, player, minigameInfo, scale = 0.1) {
         this.setTexture(texture);

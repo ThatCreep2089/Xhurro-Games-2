@@ -6,12 +6,15 @@ export default class Source extends Phaser.GameObjects.Sprite {
      * @param {Otter} otter - jugador en escena
      * @param {number} uses - número de usos antes de desaparecer, si es 0 entonces será ilimitado
      */
-    constructor(scene, x, y,  texture, paint, paper, clay, uses, size = 1, frame = 0) {
-        super(scene, x, y, texture, frame);}
-    innit(){
-        this.setScale(size);
+    constructor(scene, x, y, ) {
+        super(scene, x, y, undefined);
         this.scene.add.existing(this); //Nos añadimos a la escena para ser mostrados.
         this.setDepth(this.y);
+    }
+    innit( texture, paint, paper, clay, uses, size = 1, frame = 0){
+        this.setTexture(texture);
+        this.setFrame(frame);
+        this.setScale(size);
         //Variables únicas
         this.uses = uses; //Número de usos antes de desaparecer, si es 0 el recurso será ilimitado
         this.otter = this.scene.otter; //personaje controlado por usuario (tiene el inventario y se usa para calcular distancias con el objeto)
@@ -23,17 +26,17 @@ export default class Source extends Phaser.GameObjects.Sprite {
 
         //Físicas
            //Creamos zona de contacto con jugador
-         this.zone = scene.add.zone(x, y).setSize((this.width) + 10, (this.height * 0.2) + 10);
+         this.zone = this.scene.add.zone(this.x, this.y).setSize((this.width) + 10, (this.height * 0.2) + 10);
            //Añadimos cuerpos a la escena
-         scene.physics.add.existing(this.zone, true);
-         scene.physics.add.existing(this, true);
+         this.scene.physics.add.existing(this.zone, true);
+         this.scene.physics.add.existing(this, true);
           //Reescalamos y reposicionamos
          this.body.setSize(this.width, (this.height) * 0.2);
          this.body.y = this.body.y + ((this.height / 2) - (this.body.height/2));
          this.zone.body.y = this.zone.body.y + ((this.height / 2) - (this.body.height/2));
           //Añadimos colisiones y overlaps
-         scene.physics.add.collider(this.otter, this); //Contacto con recurso
-         scene.physics.add.overlap(this.otter, this.zone, ()=>{this.touching = true;}); //Contacto con zona
+         this.scene.physics.add.collider(this.otter, this); //Contacto con recurso
+         this.scene.physics.add.overlap(this.otter, this.zone, ()=>{this.touching = true;}); //Contacto con zona
           //Variables para controlar si la nutria está o no en contacto con la zona
          this.touching = false;
          this.wasTouching = false;
