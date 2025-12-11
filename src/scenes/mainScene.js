@@ -61,22 +61,22 @@ export default class mainScene extends Phaser.Scene {
                 name: "Whack A Mole",
                 description: "Aplasta a los topos haciendo clic sobre ellos...",
                 src: 'WAMVideo',
-                price: 24,
-                reward: { amountPerX: { paint: 2, paper: 0, clay: 0 }, X: 10 }
+                price: 20,
+                reward:{ amountPerX: {paint: 3, paper: 0, clay: 0}, X: 10 }
             },
             LightUpGhosts: {
                 name: "Ilumina a \n los fantasmas",
                 description: "Arrastra la antorcha hacia los fantasmas hasta destruirlos antes de que se escapen.",
                 src: 'LUGVideo',
-                price: 24,
-                reward: { amountPerX: { paint: 0, paper: 2, clay: 0 }, X: 10 }
+                price: 50,
+                reward:{ amountPerX:{paint: 0, paper: 0, clay: 2}, X: 10 }
             },
             Puzzle: {
                 name: "Puzle",
                 description: "Haz clic sobre las piezas para rotarlas y consigue que el puzzle encaje",
                 src: 'PVideo',
-                price: 24,
-                reward: { amountPerX: { paint: 0, paper: 0, clay: 10 }, X: 1 }
+                price: 20,
+                reward:{ amountPerX:{paint: 0, paper: 10, clay: 0}, X: 1 }
             }
         };
 

@@ -44,7 +44,7 @@ export default class Otter extends Phaser.GameObjects.Sprite {
 
         //Energía del jugador
         this.stamina = 100;
-        this.howToDecrease = 4;
+        this.howToDecrease = 1; //Controla cada cuántos movimientos se disminuye la estamina
 
         //SFX
         this.walkingSFX = this.scene.sound.add('walkingSFX', {

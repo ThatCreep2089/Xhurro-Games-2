@@ -18,12 +18,12 @@
     {   "tipo": "personaje",
         "fondo": "navi", 
         "nombre": "Navi",
-        "texto": "Que despiertes chavolete" 
+        "texto": "Que despiertes chavolete." 
     },
     {   "tipo": "personaje",
         "fondo": "navi", 
         "nombre": "Navi",
-        "texto": "Llevas K.O un rato largo" 
+        "texto": "Llevas K.O un rato largo." 
     },
     {   "tipo": "personaje",
         "fondo": "navi", 
@@ -38,17 +38,17 @@
     {   "tipo": "personaje",
         "fondo": "navi", 
         "nombre": "Navi",
-        "texto": "Pues tiene pinta que en tu cabeza" 
+        "texto": "Pues tiene pinta que en tu cabeza." 
     },
     {   "tipo": "personaje",
         "fondo": "navi", 
         "nombre": "Navi",
-        "texto": "Joe si que la tienes hecha un cacao" 
+        "texto": "Joe si que la tienes hecha un cacao." 
     },
     {   "tipo": "personaje",
         "fondo": "navi", 
         "nombre": "Otter",
-        "texto": "Lógico no recuerdo nada" 
+        "texto": "Lógico no recuerdo nada." 
     },
     {   "tipo": "personaje",
         "fondo": "navi", 
@@ -63,7 +63,7 @@
     {   "tipo": "personaje",
         "fondo": "navi", 
         "nombre": "Navi",
-        "texto": "Reconstuir tu meollo de cabeza, claro está" 
+        "texto": "Reconstuir tu meollo de cabeza, claro está." 
     },
     {   "tipo": "personaje",
         "fondo": "navi", 
@@ -73,12 +73,12 @@
     {   "tipo": "personaje",
         "fondo": "navi", 
         "nombre": "Navi",
-        "texto": "Ah,¿que no te lo habia dicho?" 
+        "texto": "Ah, ¿que no te lo había dicho?" 
     },
     {   "tipo": "personaje",
         "fondo": "navi", 
         "nombre": "Navi",
-        "texto": "Empecemos ya, que esto se hace eterno" 
+        "texto": "Empecemos ya, que esto se hace eterno." 
     }
   ]
 }

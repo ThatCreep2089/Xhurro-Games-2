@@ -4,225 +4,225 @@
 			"val": 1,
 			"Dialog": [
 				{
-				"speaker": "Otter",
-				"portrait": "otter",
-				"msgn": "¿Por qué llevas esos brazos tan grandes?"
+				"speaker": "Navi",
+				"portrait": "naviPortrait",
+				"msgn": "¿Y esos brazos tan grandes? Ah que es una persona..."
                 },
                 {
-                "speaker": "NPC",
-                "portrait": "house",
+                "speaker": "Ishmael",
+                "portrait": "ishmaelPortrait",
                 "msgn": "De hecho me lo tomaré como un cumplido."
                 },
                 {
-                "speaker": "NPC",
-                "portrait": "house",
+                "speaker": "Ishmael",
+                "portrait": "ishmaelPortrait",
                 "msgn": "Pero bueno, todo está un poco desordenado aquí. Qué digo “un poco”… ¡es un caos de piezas de puzzle!"
 				},
                 {
-                "speaker": "NPC",
-                "portrait": "house",
+                "speaker": "Ishmael",
+                "portrait": "ishmaelPortrait",
                 "msgn": "Son un reflejo de ti."
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "¿En qué sentido?"
                 },
                 {
-                "speaker": "NPC",
-                "portrait": "house",
+                "speaker": "Ishmael",
+                "portrait": "ishmaelPortrait",
                 "msgn": "Cuando te perdiste a ti mismo, muchos fragmentos de quién eras se… dispersaron. Tu curiosidad está por allí, tus recuerdos felices por allá, tus logros… umm… creo que se cayeron debajo de la mesa."
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "Ya, y ¿cómo lo arreglo?"
                 },
                 {
-                "speaker": "NPC",
-                "portrait": "house",
+                "speaker": "Ishmael",
+                "portrait": "ishmaelPortrait",
                 "msgn": "Reuniendo las piezas, literalmente. Este puzzle te ayudará a recordar que tu identidad no está rota, solo desordenada."
                 },
                 {
-                "speaker": "NPC",
-                "portrait": "house",
+                "speaker": "Ishmael",
+                "portrait": "ishmaelPortrait",
                 "msgn": "Te ayudaría, pero estos brazos solo sirven para partir troncos de arboles y tal."
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "Ya..."
                 },
                 {
-                "speaker": "NPC",
-                "portrait": "house",
+                "speaker": "Ishmael",
+                "portrait": "ishmaelPortrait",
                 "msgn": "Entristece mucho a Ish y El."
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "¿Ish y El?"
                 },
                 {
-                "speaker": "NPC",
-                "portrait": "house",
+                "speaker": "Ishmael",
+                "portrait": "ishmaelPortrait",
                 "msgn": "El de la izquierda es Ish y el de la derecha es El."
                 },
                 {
-                "speaker": "NPC",
-                "portrait": "house",
+                "speaker": "Ishmael",
+                "portrait": "ishmaelPortrait",
                 "msgn": "Me gasté la friolera de cinco mil euros por cada uno de estos pequeñines."
                 },
                 {
-                "speaker": "NPC",
-                "portrait": "house",
+                "speaker": "Ishmael",
+                "portrait": "ishmaelPortrait",
                 "msgn": "*Flexea brazos*"
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "Emm..."
                 },
                 {
-                "speaker": "NPC",
-                "portrait": "house",
+                "speaker": "Ishmael",
+                "portrait": "ishmaelPortrait",
                 "msgn": "Estoy divagando, ¿no?"
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "Yo ya me tenía que-"
                 },
                 {
-                "speaker": "NPC",
-                "portrait": "house",
+                "speaker": "Ishmael",
+                "portrait": "ishmaelPortrait",
                 "msgn": "Madre mía, recuerdo cuando me los puse, yo ya era fuerte entonces, pe-"
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "Bueno ehm... hasta luego."
                 },
                 {
-                "speaker": "NPC",
-                "portrait": "house",
+                "speaker": "Ishmael",
+                "portrait": "ishmaelPortrait",
                 "msgn": "Con estos brazos me siento imparable. Y sabes qué-"
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "Ey, que me tengo que ir."
                 },
                 {
-                "speaker": "NPC",
-                "portrait": "house",
+                "speaker": "Ishmael",
+                "portrait": "ishmaelPortrait",
                 "msgn": "Cogí a mi abuela y le arreglé la cadera con estos brazos."
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "Pero-"
                 },
                 {
-                "speaker": "NPC",
-                "portrait": "house",
+                "speaker": "Ishmael",
+                "portrait": "ishmaelPortrait",
                 "msgn": "¿Sabes? Creo que voy a ir a por el máster de Crossfit."
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "Es-"
                 },
                 {
-                "speaker": "NPC",
-                "portrait": "house",
+                "speaker": "Ishmael",
+                "portrait": "ishmaelPortrait",
                 "msgn": "¡Imparable!"
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "¡POR FAVOR!"
                 },
                 {
-                "speaker": "NPC",
-                "portrait": "house",
+                "speaker": "Ishmael",
+                "portrait": "ishmaelPortrait",
                 "msgn": "A, sisi, claro, vale, adiós."
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "... Vale adi-"
                 },
                 {
-                "speaker": "NPC",
-                "portrait": "house",
+                "speaker": "Ishmael",
+                "portrait": "ishmaelPortrait",
                 "msgn": "¿Sabes?, en realidad no me voy a ir a por el máster de Crossfit. Creo que me haré monje sha-"
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "¡¡¡AAAAAAAAAAAAHHHHHH!!!"
                 }
 			],
             "Rechazo": {
-			    "speaker": "NPC",
-			    "portrait": "house",
-			    "msgn": "No mejor a por el máster de culturismo"
+			    "speaker": "Ishmael",
+			    "portrait": "ishmaelPortrait",
+			    "msgn": "No mejor a por el máster de culturismo."
 		    }
     	},	
 		{
 			"val": 2,
 			"Dialog":[
 				{
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "¿Cada vez que vuelvo desmontas el puzle?"
                 },
                 {
-                "speaker": "NPC",
-                "portrait": "house",
+                "speaker": "Ishmael",
+                "portrait": "ishmaelPortrait",
                 "msgn": "No, compro otro igual."
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "¿Por qué?"
                 },
                 {
-                "speaker": "NPC",
-                "portrait": "house",
+                "speaker": "Ishmael",
+                "portrait": "ishmaelPortrait",
                 "msgn": "Lo destruiría si lo intento desmontar."
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "..."
                 }
 
 			],
 			"Rechazo": {
-			    "speaker": "NPC",
-			    "portrait": "house",
-			    "msgn": "Es que has visto estos brazo, lo toco y lo destruyo"
+			    "speaker": "Ishmael",
+			    "portrait": "ishmaelPortrait",
+			    "msgn": "Es que, ¿has visto estos brazos?, lo toco y lo destruyo."
 		    }
 		},
         {
             "val": 3,
             "Dialog": [
                 {
-                "speaker": "NPC",
-                "portrait": "house",
+                "speaker": "Ishmael",
+                "portrait": "ishmaelPortrait",
                 "msgn": "¿Puzle?"
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "Puzle."
                 }
             ],
 			"Rechazo": {
-			    "speaker": "NPC",
-			    "portrait": "house",
+			    "speaker": "Ishmael",
+			    "portrait": "ishmaelPortrait",
 			    "msgn": "¿No puzle?"
 		    }
         },
@@ -230,34 +230,34 @@
             "val": 4,
             "Dialog": [
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "Qué haces con-?"
                 },
                 {
-                "speaker": "NPC",
-                "portrait": "house",
-                "msgn": "*Besa su puzle*"
+                "speaker": "Ishmael",
+                "portrait": "ishmaelPortrait",
+                "msgn": "*Besa el puzle*"
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "Uhg-"
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "¿En serio?"
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "Lo iba a usar, ¿sabes?"
                 }
             ],
 			"Rechazo": {
-			    "speaker": "NPC",
-			    "portrait": "house",
+			    "speaker": "Ishmael",
+			    "portrait": "ishmaelPortrait",
 			    "msgn": "*Besa el puzle de nuevo*"
 		    }
         },
@@ -265,115 +265,115 @@
             "val": 5,
             "Dialog": [
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "¿Me ayudas con el puzle?"
                 },
                 {
-                "speaker": "NPC",
-                "portrait": "house",
+                "speaker": "Ishmael",
+                "portrait": "ishmaelPortrait",
                 "msgn": "¿No sabes hacer ni si quiera el puzle más sencillo del mundo?"
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "..."
                 },
                 {
-                "speaker": "NPC",
-                "portrait": "house",
+                "speaker": "Ishmael",
+                "portrait": "ishmaelPortrait",
                 "msgn": "Que pasa, ¿qué en tu tribu no hay puzles?"
                 }
 
             ],
 			"Rechazo": {
-			    "speaker": "NPC",
-			    "portrait": "house",
-			    "msgn": "Si, eso pensaba yo"
+			    "speaker": "Ishmael",
+			    "portrait": "ishmaelPortrait",
+			    "msgn": "Si, eso pensaba yo."
 		    }
         },
         {
 			"val": 6,
 			"Dialog": [
 				{
-				"speaker": "Otter",
-				"portrait": "otter",
+				"speaker": "Navi",
+				"portrait": "naviPortrait",
 				"msgn": "Hola, ¿estás ahí?"
 				},
 				{
-				"speaker": "NPC",
-				"portrait": "house",
+				"speaker": "Ishmael",
+				"portrait": "ishmaelPortrait",
 				"msgn": "¡Eh, hola! Justo a tiempo, estaba entrenando."
 				},
 				{
-				"speaker": "Otter",
-				"portrait": "otter",
+				"speaker": "Navi",
+				"portrait": "naviPortrait",
 				"msgn": "¿Entrenando?"
 				},
 				{
-				"speaker": "NPC",
-				"portrait": "house",
+				"speaker": "Ishmael",
+				"portrait": "ishmaelPortrait",
 				"msgn": "Sí, mira estos brazos."
 				},
 				{
-				"speaker": "Otter",
-				"portrait": "otter",
+				"speaker": "Navi",
+				"portrait": "naviPortrait",
 				"msgn": "Vaya, sí que son grandes."
 				},
 				{
-				"speaker": "NPC",
-				"portrait": "house",
+				"speaker": "Ishmael",
+				"portrait": "ishmaelPortrait",
 				"msgn": "¡Y fuertes! ¿Quieres ver?"
 				},
 				{
-				"speaker": "Otter",
-				"portrait": "otter",
+				"speaker": "Navi",
+				"portrait": "naviPortrait",
 				"msgn": "Bueno, vale..."
 				},
 				{
-				"speaker": "NPC",
-				"portrait": "house",
+				"speaker": "Ishmael",
+				"portrait": "ishmaelPortrait",
 				"msgn": "¡TOMA!"
 				},
 				{
-				"speaker": "Otter",
-				"portrait": "otter",
+				"speaker": "Navi",
+				"portrait": "naviPortrait",
 				"msgn": "¡AHHHHHHHH!"
 				},
 				{
-				"speaker": "NPC",
-				"portrait": "house",
+				"speaker": "Ishmael",
+				"portrait": "ishmaelPortrait",
 				"msgn": "¿Te ha gustado?"
 				},
 				{
-				"speaker": "Otter",
-				"portrait": "otter",
+				"speaker": "Navi",
+				"portrait": "naviPortrait",
 				"msgn": "¡Me has aplastado!"
 				},
 				{
-				"speaker": "NPC",
-				"portrait": "house",
+				"speaker": "Ishmael",
+				"portrait": "ishmaelPortrait",
 				"msgn": "JEJEJEJEJEJE. Tranquilo, es solo práctica."
 				},
 				{
-				"speaker": "Otter",
-				"portrait": "otter",
+				"speaker": "Navi",
+				"portrait": "naviPortrait",
 				"msgn": "¿Práctica de qué?"
 				},
                 {
-                "speaker": "NPC",
-                "portrait": "house",
+                "speaker": "Ishmael",
+                "portrait": "ishmaelPortrait",
                 "msgn": "..."
                 },
                 {
-                "speaker": "Otter",
-                "portrait": "otter",
+                "speaker": "Navi",
+                "portrait": "naviPortrait",
                 "msgn": "¿PRÁCTICA DE QUÉ?"
                 }
             ],
 			"Rechazo": {
-			    "speaker": "NPC",
-			    "portrait": "house",
+			    "speaker": "Ishmael",
+			    "portrait": "ishmaelPortrait",
 			    "msgn": "*Flexea a Ish y a EL*"
 		    }
         }

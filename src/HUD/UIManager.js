@@ -772,7 +772,7 @@ export default class UIManager {
         });
         
         t.once('complete', () => {
-            const ending = GameDataManager.getEnding(6, 2); //6 dias y 2 construcciones
+            const ending = GameDataManager.getEnding(6, 4); //6 dias y 4 construcciones
             if (ending === "good") this.scene.scene.start('ending', { good: true });
             else if (ending === "bad") this.scene.scene.start('ending', { good: false });
             else this.scene.scene.start('mainScene');
