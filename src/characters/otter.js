@@ -44,7 +44,7 @@ export default class Otter extends Phaser.GameObjects.Sprite {
 
         //Energía del jugador
         this.stamina = 100;
-        this.howToDecrease = 1; //Controla cada cuántos movimientos se disminuye la estamina
+        this.howToDecrease = 0; //Controla cada cuántos movimientos se disminuye la estamina
 
         //SFX
         this.walkingSFX = this.scene.sound.add('walkingSFX', {
@@ -109,7 +109,7 @@ export default class Otter extends Phaser.GameObjects.Sprite {
             this.stamina -= staminaPrice;
             this.scene.sound.add('cashSFX', {volume: 10}).play();
             this.scene.UIManager.event.emit("updateStamina", -staminaPrice);
-            this.howToDecrease = 1;
+            this.howToDecrease = 0;
         } else this.howToDecrease--;
 
         // Si la estamina llega a 0, pasar al siguiente día

@@ -181,7 +181,7 @@ export default class mainScene extends Phaser.Scene {
             }
             else if (rnd === 3) {
                 let rndTex = Phaser.Math.Between(0, 2);
-                this.resources[i].innit('clay' + rndTex, 0, 0, 1, 1, 1);
+                this.resources[i].innit('clay' + rndTex, 0, 0, 3, 1, 1);
             }
 
         }
@@ -265,7 +265,7 @@ export default class mainScene extends Phaser.Scene {
 
     createBuilds() {
         this.builds = [];
-        const house = new Build(this, 400, 1000, 'destroyedWatermill', 'watermill', 0, 0, 3, 1, 0, 'house_400_1000');
+        const house = new Build(this, 400, 1000, 'destroyedWatermill', 'watermill', 15, 20, 10, 1, 0, 'house_400_1000');
         this.builds.push(house);
     }
 
