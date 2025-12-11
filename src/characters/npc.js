@@ -141,8 +141,9 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     showDialog() {
         const current = this.dialogList[this.dialogIndex];
         const isOtter = current.speaker?.toLowerCase().includes("otter");
-
-        const opts = isOtter
+        const isNavi = current.speaker?.includes("Navi");
+        
+        const opts = (isOtter ||isNavi)
             ? { windowColor: 0x1a3ca8, borderColor: 0x3a6ff7, fontFamily: "bobFont", fontSize: 24, windowAlpha: 0.85 }
             : { windowColor: 0x4d2a0c, borderColor: 0x8b4513, fontFamily: "bobFont", fontSize: 24, windowAlpha: 0.85 };
 
@@ -161,16 +162,16 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         const cam = this.scene.cameras.main;
         const marginX = 32, marginY = 200;
         const y = cam.scrollY + cam.height - marginY;
-        const x = speaker.toLowerCase().includes("otter")
+        const x = speaker.includes("Navi") || speaker.toLowerCase().includes("otter")
             ? cam.scrollX + marginX
             : cam.scrollX + cam.width - marginX;
 
         if (this.speakerImage) this.speakerImage.destroy();
 
         this.speakerImage = this.scene.add.image(x, y, portraitKey)
-            .setOrigin(speaker.toLowerCase().includes("otter") ? 0 : 1, 1)
+            .setOrigin(speaker.includes("Navi") || speaker.toLowerCase().includes("otter") ? 0 : 1, 1)
             .setScale(0.9)
-            .setFlipX(!speaker.toLowerCase().includes("otter"))
+            .setFlipX(!speaker.includes("Navi") || speaker.toLowerCase().includes("otter"))
             .setDepth(2000);
         this.scene.tweens.add({
             targets: this.speakerImage,
@@ -364,9 +365,10 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         // ==========================
         // Opciones estéticas
         // ==========================
-        const isOtter = config.speaker?.toLowerCase().includes("otter");
+        const isOtter = config.speaker.toLowerCase().includes("otter");
+        const isNavi = config.speaker.includes("Navi")
 
-        const opts = isOtter
+        const opts = (isOtter || isNavi)
         ? { windowColor: 0x1a3ca8, borderColor: 0x3a6ff7, fontFamily: "bobFont", fontSize: 24, windowAlpha: 0.85, windowHeight: 150, padding: 32 }
         : { windowColor: 0x4d2a0c, borderColor: 0x8b4513, fontFamily: "bobFont", fontSize: 24, windowAlpha: 0.85, windowHeight: 150, padding: 32 };
 
@@ -401,16 +403,16 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         // Crear retrato del personaje
         const cam = this.scene.cameras.main;
         const y = cam.scrollY + cam.height - 200;
-        const x = isOtter ? cam.scrollX + 32 : cam.scrollX + cam.width - 32;
+        const x = (isOtter || isNavi) ? cam.scrollX + 32 : cam.scrollX + cam.width - 32;
 
         if (this.rejectionPortrait) {
             try { this.rejectionPortrait.destroy(); } catch {}
         }
 
         this.rejectionPortrait = this.scene.add.image(x, y, config.portrait)
-            .setOrigin(isOtter ? 0 : 1, 1)
+            .setOrigin((isOtter || isNavi) ? 0 : 1, 1)
             .setScale(0.9)
-            .setFlipX(!isOtter)
+            .setFlipX(!(isOtter || isNavi))
             .setDepth(2000);
 
         this.scene.tweens.add({
@@ -439,7 +441,8 @@ export default class NPC extends Phaser.GameObjects.Sprite {
             this.dialogNameText = null;
         }
 
-        const isOtter = data.speaker.toLowerCase().includes("otter");
+        const isOtter = data.speaker.includes("Navi");
+        const isNavi = data.speaker.toLowerCase().includes("otter")
 
         this.dialogNameText = this.scene.add.text(0, 0, data.speaker, {
             fontFamily: 'bobFont',
@@ -456,12 +459,12 @@ export default class NPC extends Phaser.GameObjects.Sprite {
             if (!this.text) return;
 
             const padding = 10;
-            const x = isOtter 
+            const x = (isOtter || isNavi) 
                 ? this.text.windowX + padding
                 : this.text.windowX + this.text.windowWidth - padding;
             const y = this.text.windowY - 5;
 
-            this.dialogNameText.setOrigin(isOtter ? 0 : 1, 1);
+            this.dialogNameText.setOrigin((isOtter || isNavi )? 0 : 1, 1);
             this.dialogNameText.setPosition(x, y);
         };
 

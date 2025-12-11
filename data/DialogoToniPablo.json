@@ -9,7 +9,7 @@
 				"msgn": "Hola, ¿quién eres?"
 				},
 				{
-				"speaker": "NPC",
+				"speaker": "Toni",
 				"portrait": "toniPortrait",
 				"msgn": "¡Ey, ey, ey! ¡Has venido justo a tiempo! Tu cabeza ahora mismo es como Twitter: tuitea tuitea tuitea."
 				},
@@ -69,7 +69,7 @@
 				"msgn": "Otro loco más... eramos pocos y parió la abuela."
 				},
 				{
-				"speaker": "NPC",
+				"speaker": "Pablo",
 				"portrait": "pabloPortrait",
 				"msgn": "A mi no me incluyas."
 				},
