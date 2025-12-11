@@ -735,7 +735,7 @@ Los assets creados por los encargados de arte durante el desarrollo del proyecto
 <details>
 	<summary> Gráfico de escena </summary>
 
-##Gráfico de architectura
+## Gráfico de architectura
 
 
 <img width="2657" height="3184" alt="New_Diagram" src="https://github.com/user-attachments/assets/bb5109da-9ca7-44b8-8eb3-117fda34674d" />
