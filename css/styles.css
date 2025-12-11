@@ -3,7 +3,7 @@
 	src: url('../assets/CrayonLibre.ttf') format('truetype');
 }
 
-body{
+ body{
     background-image: url("../assets/imagenes/imagenesWeb/diseño/webBackground.jpg");
     background-repeat: none;
     background-size:400vmin;
@@ -95,9 +95,21 @@ img{
     background-size: 50vmin;
     display: flex;
     justify-self: center;
-    max-width: 165vmin;
+    max-width: 140vmin;
     padding: 2vmin;
 }
+
+.contentBackground2{
+    background-image: url("../assets/imagenes/imagenesWeb/diseño/contentBackground.jpg");
+    background-repeat:repeat;
+    background-size: 50vmin;
+    display: flex;
+    justify-self: center;
+    max-width: 140vmin;
+    height: 370vmin;
+    padding: 2vmin;
+}
+
 .nonInitialContent{
     display: none;
 }
@@ -252,12 +264,8 @@ img{
 
 .XhurrogamesContent {
     margin-top: 1vmin;
-    width: 50%;
-    height: 75vh;
-    
-    display: flex;
-    justify-self: flex-start;
-    flex-direction: column;
+    width: 100%;
+    height: 30vmin;
 
     margin-right:1vmin;
 }
@@ -337,6 +345,17 @@ legend{
     align-items: center;
 }
 
+.div2D
+{
+    width: 100%;
+    max-width: 170vmin;
+    display: flex;
+    flex-direction: column;
+    justify-self: left;
+    justify-content: flex-start;
+    align-items: center;
+}
+
 .desvio{
     width: 50%;
     max-width:85vmin;
@@ -354,4 +373,44 @@ legend{
     transform: rotateZ(25deg);
     
     z-index:2;
+}
+
+.description-box{
+    background-image: url("../assets/imagenes/imagenesWeb/diseño/pintada.png");
+    background-size: 110%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 1.5vmin;
+    padding: 5vmin;
+    max-width: 150vmin;
+    margin: 1vmin auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#description p{
+    width: 100%;
+    text-align: center;
+    margin: 2vmin auto;
+    padding: 2vmin;
+    box-sizing: border-box;
+    line-height: 2;
+}
+
+.description-image {
+    width: 50vmin;
+    max-width: 100%;
+    height: auto;
+    margin: 5vmin auto 18vmin auto;
+    object-fit: contain;
+}
+
+.description-image2 {
+    width: 20vmin;
+    max-width: 100%;
+    height: auto;
+    margin: 5vmin auto 10vmin auto;
+    object-fit: contain;
 }

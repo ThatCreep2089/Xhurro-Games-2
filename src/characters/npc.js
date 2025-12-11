@@ -7,9 +7,9 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         this.scene.add.existing(this);
         scene.physics.add.existing(this, true);
         this.iniciado = false;
-        this.setDepth(this.y);
+        //this.setDepth(this.y);
     }
-    innit(texture, data, player, minigameInfo, scale = 0.1) {
+    innit(texture, data, player, minigameInfo, scale = 0.1, colliderWidthFactor=1) {
         this.setTexture(texture);
         this.datos = data;
         this.otter = player;
@@ -25,19 +25,20 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         // ============================
         // FÍSICAS Y ÁREA DE INTERACCIÓN
         // ============================
+
         this.setScale(scale);
-        this.setOrigin(0.5, 1);
-        const dw = this.displayWidth;
-        const dh = this.displayHeight;
-
-        this.body.setSize(dw, dh);
-        this.body.x = this.x - (dw / 2);
-        this.body.y = this.y - dh;
-
-        this.zone = this.scene.add.zone(this.x, this.y).setSize(dw + 10, dh + 10);
+       
+        this.zone = this.scene.add.zone(this.x, this.y).setSize(this.width*scale*colliderWidthFactor + 10, (this.height*scale * 0.2) + 10);
         this.scene.physics.add.existing(this.zone, true);
-        this.zone.body.x = this.x - (this.zone.body.width / 2);
-        this.zone.body.y = this.y - (dh / 2) - (this.zone.body.height / 2);
+        
+
+        this.body.setSize(this.width*scale*colliderWidthFactor, (this.height*scale) * 0.2);
+        //this.body.x = this.x - (dw / 2);
+        this.body.y = this.body.y + ((this.height*scale / 2) - (this.body.height / 2));
+        // this.zone.body.x = this.x - (this.zone.body.width / 2);
+        this.zone.body.y = this.zone.body.y + ((this.height*scale / 2) - (this.body.height / 2));
+
+        this.setDepth(this.body.y);
 
         this.touching = false;
         this.wasTouching = false;
@@ -58,6 +59,21 @@ export default class NPC extends Phaser.GameObjects.Sprite {
             }
 
             this.nextDialog();
+        });
+        
+        if (this.breathTween) this.breathTween.stop();
+        
+        const baseScaleX = this.scaleX;
+        const baseScaleY = this.scaleY;
+        
+        this.breathTween = this.scene.tweens.add({
+            targets: this,
+            scaleX: baseScaleX * 1.05, // expansión horizontal ligera
+            scaleY: baseScaleY * 1.05, // expansión vertical ligera
+            duration: 700,            // tiempo de expansión
+            yoyo: true,                // vuelve al tamaño original
+            repeat: -1,                // repetir infinitamente
+            ease: 'Sine.easeInOut'     // movimiento suave
         });
         this.iniciado = true;
     }
@@ -96,6 +112,23 @@ export default class NPC extends Phaser.GameObjects.Sprite {
             this.wasTouching = this.touching;
             this.touching = false;
         }
+
+        // Esperar a que el jugador suelte SPACE antes de permitir volver a hablar
+        if (this.waitSpaceRelease) {
+            this.wasTouching = this.touching;
+            this.touching = false;
+            return;
+        }
+
+        // Intento de iniciar diálogo
+        if (this.scene.spaceKey.justDown && this.touching && this.canInteract && !this.isDialogOpen)
+        {
+            this.scene.UIManager.disappearInteractMessage();
+            this.startDialog();
+        }
+
+        this.wasTouching = this.touching;
+        this.touching = false;
     }
     // ==============================
     // DIÁLOGO NORMAL
@@ -116,13 +149,14 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         this.dialogIndex = 0;
 
         const first = this.dialogList[0];
-
-        this.openDialog({
-            text: first.msgn,
-            portrait: first.portrait,
-            speaker: first.speaker,
-            type: "normal"
-        });
+        if(first != undefined){
+                this.openDialog({
+                text: first.msgn,
+                portrait: first.portrait,
+                speaker: first.speaker,
+                type: "normal"
+            });
+        }
 
         this.scene.currentNPC = this;
     }
@@ -143,6 +177,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         this.text.setText(current.msgn, true);
 
         this.showSpeakerImage(current.portrait, current.speaker);
+        this.showDialogName(current);
     }
     // ===============================================
     // ENSEÑAR IMAGEN DEL HABALNTE
@@ -162,6 +197,14 @@ export default class NPC extends Phaser.GameObjects.Sprite {
             .setScale(0.9)
             .setFlipX(!speaker.toLowerCase().includes("otter"))
             .setDepth(2000);
+        this.scene.tweens.add({
+            targets: this.speakerImage,
+            scaleX: 1.0,
+            scaleY: 1.0,
+            duration: 180,
+            ease: "Back.Out", // Da el efecto de rebote suave
+            from: { scaleX: 0.75, scaleY: 0.75 }
+        });
     }
     // ===============================================
     // PASAR DE DIALOGO
@@ -198,6 +241,8 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         ui.event.removeAllListeners("minigame:rejected");
 
         ui.event.once("minigame:accepted", () => {
+            this.scene.music.stop();
+
             ui.event.once("minigame:closed", () => {
                 this.otter.canMove = true;
                 this.canInteract = true;
@@ -205,8 +250,18 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         });
 
         ui.event.once("minigame:rejected", () => {
+            this.scene.music.stop();
+            this.scene.music = this.scene.sound.add('mainSceneMusic', {
+                loop: true,
+            }); this.scene.music.play();
+
             this.showRejectionDialog();
         });
+
+        this.scene.music.stop();
+        this.scene.music = this.scene.sound.add('minigameInfoMusic', {
+            loop: true,
+        }); this.scene.music.play();
 
         ui.appearMinigameInfo(this.minigameInfo);
     }
@@ -224,6 +279,11 @@ export default class NPC extends Phaser.GameObjects.Sprite {
             this.text = null;
         }
 
+        if (this.dialogNameText) {
+            try { this.dialogNameText.destroy(); } catch {}
+            this.dialogNameText = null;
+        }
+
         if (this.speakerImage) {
             try { this.speakerImage.destroy(); } catch { }
             this.speakerImage = null;
@@ -233,21 +293,29 @@ export default class NPC extends Phaser.GameObjects.Sprite {
             try { this.rejectionPortrait.destroy(); } catch { }
             this.rejectionPortrait = null;
         }
+
+        if (this._updateNamePosition) {
+            this.scene.events.off('postupdate', this._updateNamePosition);
+            this._updateNamePosition = null;
+        }
     }
 
     // ===============================================
     // DIÁLOGO DE RECHAZO
     // ===============================================
     showRejectionDialog() {
-
         const locator = this.findDay(this.scene.currentDay);
+        if (!locator || !locator.Rechazo) return;
+
         const r = locator.Rechazo;
-        this.openDialog({
-            text: r.msgn,
-            portrait: r.portrait,
-            speaker: r.speaker,
-            type: "rejection"
-        });
+        if(r != undefined){
+            this.openDialog({
+                text: r.msgn,
+                portrait: r.portrait,
+                speaker: r.speaker,
+                type: "rejection"
+            });
+        }
     }
 
 
@@ -255,7 +323,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     // CIERRE GLOBAL DE CUALQUIER DIÁLOGO
     // ===============================================
     forceCloseDialog() {
-
+        this.scene.UIManager.appearInteractMessage();
         this.destroyDialogVisuals();
 
         if (this.rejectionPortrait) {
@@ -299,7 +367,10 @@ export default class NPC extends Phaser.GameObjects.Sprite {
 
     }
     openDialog(config) {
-
+        if (!config || !config.text) {
+            console.warn("Dialog text is null or undefined!", config);
+            config.text = ""; // default
+        }
         // ==========================
         // Destrucción previa
         // ==========================
@@ -321,8 +392,8 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         const isOtter = config.speaker?.toLowerCase().includes("otter");
 
         const opts = isOtter
-            ? { windowColor: 0x1a3ca8, borderColor: 0x3a6ff7, fontFamily: "bobFont", fontSize: 24, windowAlpha: 0.85 }
-            : { windowColor: 0x4d2a0c, borderColor: 0x8b4513, fontFamily: "bobFont", fontSize: 24, windowAlpha: 0.85 };
+        ? { windowColor: 0x1a3ca8, borderColor: 0x3a6ff7, fontFamily: "bobFont", fontSize: 24, windowAlpha: 0.85, windowHeight: 150, padding: 32 }
+        : { windowColor: 0x4d2a0c, borderColor: 0x8b4513, fontFamily: "bobFont", fontSize: 24, windowAlpha: 0.85, windowHeight: 150, padding: 32 };
 
 
         // ==========================
@@ -330,7 +401,10 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         // ==========================
         this.text = new DialogText(this.scene, opts);
         this.text.setText(config.text, true);
-
+        this.text.graphics.setDepth(this.scene.UIManager.HUDDepth);
+        this.text.text.setDepth(this.scene.UIManager.HUDDepth);
+        this.text.closeBtn.setDepth(this.scene.UIManager.HUDDepth);
+                
         // Cerrar por X
         if (this.text.closeBtn) {
             this.text.closeBtn.on("pointerdown", () => {
@@ -349,6 +423,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         // ==========================
         // Retrato del personaje
         // ==========================
+        // Crear retrato del personaje
         const cam = this.scene.cameras.main;
         const y = cam.scrollY + cam.height - 200;
         const x = isOtter ? cam.scrollX + 32 : cam.scrollX + cam.width - 32;
@@ -363,10 +438,72 @@ export default class NPC extends Phaser.GameObjects.Sprite {
             .setFlipX(!isOtter)
             .setDepth(2000);
 
-
+        this.scene.tweens.add({
+            targets: this.rejectionPortrait,
+            scaleX: 1.0,
+            scaleY: 1.0,
+            duration: 180,
+            ease: "Back.Out", // Da el efecto de rebote suave
+            from: { scaleX: 0.75, scaleY: 0.75 }
+        });
+        this.speakerImage = !this.isRejection ? this.rejectionPortrait : null;
+        
+        // **Después de crear la imagen, llamar a showDialogName**
+        this.showDialogName(config);
         // ==========================
         // Guardar datos del cuadro
         // ==========================
         this.currentDialogConfig = config;
     }
+    showDialogName(data) {
+        if (!data || !data.speaker || !this.text) return;
+
+        // Destruir nombre previo
+        if (this.dialogNameText) {
+            this.dialogNameText.destroy();
+            this.dialogNameText = null;
+        }
+
+        const isOtter = data.speaker.toLowerCase().includes("otter");
+
+        this.dialogNameText = this.scene.add.text(0, 0, data.speaker, {
+            fontFamily: 'bobFont',
+            fontSize: 24,
+            fontStyle: 'bold',
+            color: '#ffd700',
+            stroke: '#000000',
+            strokeThickness: 3
+        })
+        .setDepth(2001)
+        .setScrollFactor(0);
+
+        const updatePosition = () => {
+            if (!this.text) return;
+
+            const padding = 10;
+            const x = isOtter 
+                ? this.text.windowX + padding
+                : this.text.windowX + this.text.windowWidth - padding;
+            const y = this.text.windowY - 5;
+
+            this.dialogNameText.setOrigin(isOtter ? 0 : 1, 1);
+            this.dialogNameText.setPosition(x, y);
+        };
+
+        // Esperar un tick para asegurarnos de que this.text esté listo
+        this.scene.time.addEvent({
+            delay: 10,
+            callback: () => {
+                updatePosition();
+
+                // Actualizar cada frame
+                if (this._updateNamePosition) this.scene.events.off('postupdate', this._updateNamePosition);
+                this._updateNamePosition = updatePosition;
+                this.scene.events.on('postupdate', this._updateNamePosition);
+            }
+        });
+    }
+
+
+
 }

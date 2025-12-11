@@ -3,7 +3,7 @@ export default class Aux extends Phaser.Scene{
         super({key: 'aux'})
     }
     preload(){
-        this.load.image('otter', './assets/imagenes/imagenesWeb/extras/smallant.png');
+        this.load.image('navi', './assets/imagenes/NPC/navi.png');
         this.load.once('complete', () => {
             this.scene.start('boot');
         });

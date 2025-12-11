@@ -16,6 +16,12 @@ export default class lightUpGhosts extends Phaser.Scene {
     create() {
         this.event = new Phaser.Events.EventEmitter();
 
+        // = MÚSICA =
+        this.music = this.sound.add('lightUpGhostsMusic', {
+                loop: true,
+        });
+        this.music.play();
+
         let background = this.add.image(0, 0, 'MGInfoBG').setOrigin(0.5, 0.5);
         this.input.setDefaultCursor('none');
         
@@ -34,6 +40,8 @@ export default class lightUpGhosts extends Phaser.Scene {
         this.timeleft = 40; //tiempo inicial en seg
         this.UIManager.event.emit('changeTimer', this.timeleft);
 
+        this.timerSFX = this.sound.add('timer', {loop: true, volume: 0.5});
+        this.timerSFX.play();
         this.time.addEvent({
             delay: 1000,
             callback: this.updateTimer,
@@ -45,11 +53,35 @@ export default class lightUpGhosts extends Phaser.Scene {
         this.radius = 80;
         this.intensity = 0.7;
         this.antorchaLight = this.lights.addLight(10, 10, this.radius).setColor(0xe25822).setIntensity(this.intensity);
+        this.antorchaLight.x = this.input.activePointer.x;
+        this.antorchaLight.y = this.input.activePointer.y;
 
+        this.input.mouse.requestPointerLock();
         this.input.on('pointermove', (pointer) => {
-            const worldPoint = this.cameras.main.getWorldPoint(pointer.x, pointer.y);
-            this.antorchaLight.x = worldPoint.x;
-            this.antorchaLight.y = worldPoint.y;
+            if (this.input.mouse.locked){
+                this.antorchaLight.x += pointer.movementX;
+                this.antorchaLight.y += pointer.movementY;
+
+                //Luz no sale de CANVAS
+                this.antorchaLight.x = Phaser.Math.Clamp(
+                    this.antorchaLight.x, 
+                    this.cameras.main.worldView.x, 
+                    this.cameras.main.worldView.x + this.cameras.main.worldView.width
+                );
+
+                this.antorchaLight.y = Phaser.Math.Clamp(
+                    this.antorchaLight.y, 
+                    this.cameras.main.worldView.y, 
+                    this.cameras.main.worldView.y + this.cameras.main.worldView.height
+                );
+            }
+            else{
+                const worldPoint = this.cameras.main.getWorldPoint(pointer.x, pointer.y);
+                if (this.antorchaLight.x){
+                    this.antorchaLight.x = worldPoint.x;
+                    this.antorchaLight.y = worldPoint.y;
+                }
+            }
 
             this.event.emit('movingLight', this.antorchaLight);
         });
@@ -71,37 +103,57 @@ export default class lightUpGhosts extends Phaser.Scene {
         //Habilitar fantasmas
         //No se usa timer de Phaser porque no queremos que pueda spawnear en cada x ms
         //queremos que una vez pueda spawnear, spawnee en cualquier momento y al spawnear se espere un tiempo hasta poder volver a spawnear
-        this.spawnTime = 1; //espera mínima entre la aparición de un fantasma y otro en segundos
+        this.spawnTime = 3; //espera mínima entre la aparición de un fantasma y otro en segundos
         this.spawnTimeLeft = this.spawnTime;
         this.canSpawn = true;
         this.spawnProb = 0.01 //probabilidad de aparición de fantasma por frame sobre 1
+
+        this.end = false;
     }
 
     updateTimer() {
         this.timeleft--;
         this.UIManager.event.emit('changeTimer', this.timeleft);
     
-        if (this.timeleft <= 0) {
-    
-            // Recuperar los datos de recompensa desde mainScene
+        if (this.timeleft <= 0 && !this.end) {
+            this.end = true;
+            this.timerSFX.stop();
+             this.fantasmas.clear(true, true);
+             if (this.input.mouse.locked) {
+                this.input.mouse.releasePointerLock();
+             }
+             this.input.setDefaultCursor('default');
+             this.lights.removeLight(this.antorchaLight);
+             
+             this.UIManager.appearMinigameEndInfo(this,
+                ({
+                    paint: (Math.floor(this.score / this.scene.get('mainScene').minigamesInfo.LightUpGhosts.reward.X) * this.scene.get('mainScene').minigamesInfo.LightUpGhosts.reward.amountPerX.paint),
+                    paper: (Math.floor(this.score / this.scene.get('mainScene').minigamesInfo.LightUpGhosts.reward.X) * this.scene.get('mainScene').minigamesInfo.LightUpGhosts.reward.amountPerX.paper),
+                    clay: (Math.floor(this.score / this.scene.get('mainScene').minigamesInfo.LightUpGhosts.reward.X) * this.scene.get('mainScene').minigamesInfo.LightUpGhosts.reward.amountPerX.clay)
+                }), this.scene.get('mainScene').minigamesInfo.LightUpGhosts.name, 'fantasmasEnd');
+        }
+    }
+
+    finishGame(){
+        // Recuperar los datos de recompensa desde mainScene
             const mainScene = this.scene.get('mainScene');
+            
             const rewardInfo = mainScene.minigamesInfo.LightUpGhosts.reward;
-            const staminaDecrease = mainScene.minigamesInfo.LightUpGhosts.price;
     
             // Calcular la recompensa según la puntuación
             const times = Math.floor(this.score / rewardInfo.X);
-            const rewardAmount = times * rewardInfo.amountPerX;
-    
+            const rewardAmount = rewardInfo.amountPerX;
+            
             // Aplicar la recompensa
-            if (mainScene.otter && mainScene.otter.backpack) {
-                mainScene.otter.backpack.paper += rewardAmount; // o el recurso que prefieras
-            }
-    
-            GameDataManager.player.stamina = GameDataManager.player.stamina - staminaDecrease;
+            GameDataManager.updateReward({paint: rewardAmount.paint * times, paper: rewardAmount.paper * times, clay: rewardAmount.clay * times});
+
             GameDataManager.saveFrom(this.scene.get('mainScene') || this);
-            this.input.setDefaultCursor('auto');
-            this.scene.start('mainScene');
-        }
+
+            if (mainScene.fade) this.UIManager.FadeIn();
+            else{
+                this.scene.start('mainScene');
+            }
+            
     }
 
     spawnGhost(){
@@ -119,10 +171,20 @@ export default class lightUpGhosts extends Phaser.Scene {
                 y += ghost.height/2; // Offset para que aparezca dentro de pantalla
 
                 //Spawnea fantasma
+                if (ghost instanceof Blower){
+                    this.sound.add('appearBlowerSFX', {volume: 10}).play();
+                }
+                else if (ghost instanceof Hiker){
+                    this.sound.add('appearHikerSFX', {volume: 10}).play();
+                }
+                else if (ghost instanceof Starer){
+                    this.sound.add('appearStarerSFX', {volume: 10}).play();
+                }
+
                 ghost.setPosition(x, y).setActive(true).setVisible(true).alpha = 1;
                 ghost.setDepth(ghost.y);
                 this.antorchaLight.setColor(0xaaaaaa);
-                this.time.delayedCall(200, ()=>{
+                this.time.delayedCall(1000, ()=>{
                     this.antorchaLight.setColor(0xe25822);
                 });
 

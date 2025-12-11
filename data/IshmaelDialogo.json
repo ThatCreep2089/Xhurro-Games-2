@@ -163,7 +163,12 @@
                 "portrait": "otter",
                 "msgn": "¡¡¡AAAAAAAAAAAAHHHHHH!!!"
                 }
-			]
+			],
+            "Rechazo": {
+			    "speaker": "NPC",
+			    "portrait": "house",
+			    "msgn": "No mejor a por el máster de culturismo"
+		    }
     	},	
 		{
 			"val": 2,
@@ -194,7 +199,12 @@
                 "msgn": "..."
                 }
 
-			]
+			],
+			"Rechazo": {
+			    "speaker": "NPC",
+			    "portrait": "house",
+			    "msgn": "Es que has visto estos brazo, lo toco y lo destruyo"
+		    }
 		},
         {
             "val": 3,
@@ -209,7 +219,12 @@
                 "portrait": "otter",
                 "msgn": "Puzle."
                 }
-            ]
+            ],
+			"Rechazo": {
+			    "speaker": "NPC",
+			    "portrait": "house",
+			    "msgn": "¿No puzle?"
+		    }
         },
         {
             "val": 4,
@@ -239,7 +254,12 @@
                 "portrait": "otter",
                 "msgn": "Lo iba a usar, ¿sabes?"
                 }
-            ]
+            ],
+			"Rechazo": {
+			    "speaker": "NPC",
+			    "portrait": "house",
+			    "msgn": "*Besa el puzle de nuevo*"
+		    }
         },
         {
             "val": 5,
@@ -265,7 +285,12 @@
                 "msgn": "Que pasa, ¿qué en tu tribu no hay puzles?"
                 }
 
-            ]
+            ],
+			"Rechazo": {
+			    "speaker": "NPC",
+			    "portrait": "house",
+			    "msgn": "Si, eso pensaba yo"
+		    }
         },
         {
 			"val": 6,
@@ -345,7 +370,12 @@
                 "portrait": "otter",
                 "msgn": "¿PRÁCTICA DE QUÉ?"
                 }
-            ]
+            ],
+			"Rechazo": {
+			    "speaker": "NPC",
+			    "portrait": "house",
+			    "msgn": "*Flexea a Ish y a EL*"
+		    }
         }
 	]
 	

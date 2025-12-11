@@ -67,7 +67,10 @@ Una nutria tenía una vida normal como la de cualquier otra nutria, pero todas l
 La nutria entra en un proceso de desarrollo personal debido a un trastorno disociativo donde su mente cambia y su subconsciente está en un proceso de reconstrucción. 
 
 
-Para poder pasar ese proceso con éxito tendrá que reconstruir su subconsciente en menos de seis días.
+Para poder pasar ese proceso con éxito tendrá que reconstruir su subconsciente en menos de seis días. Si no lo conssigue en ese periodo de tiempo, no habrá 
+
+
+manera de revertir el proceso y la nutria ya no será la misma de antes.
 </details>
 </td>
 </tr>
@@ -152,6 +155,7 @@ todos los edificios/estructuras ganará en caso, contrario perderá.
 ## Movimiento
 El jugador podrá moverse en 4 direcciones, siendo los vectores de movimiento sobre el eje x (0,1), (1,0), (0,-1), (-1,0) 
 
+
 y mirará hacia donde se mueve en todo momento. También estará normalizado, de forma que no se mueva más rápido en diagonal que en los ejes.
 
 
@@ -163,6 +167,8 @@ El personaje frenará completamente con la colisión con estructuras y objetos s
 
 Si se encuentra dentro de un dialogo se bloqueará el movimiento del juegadro hasat que salga de él.
 
+
+Al pasar de día habrá un aanimación y cuando acab e el jugadro podrá volver a moverse.
 
 <img width="361" height="162" alt="image" src="https://github.com/user-attachments/assets/ebe38496-31a2-4f32-9103-eb32a81e2946" />
 
@@ -235,7 +241,10 @@ Si se interactúa cuando el texto ha terminado de escribirse, aparecerá el sigu
 que habla y su nombre (todo esto sin que desaparezca la burbuja). En caso de no haber siguiente texto, la burbuja desaparecerá junto con el texto, la imagen y el nombre del personaje.
 
 
-Cada vuadro de texto tendrá un colar para diferenciar quien habla, además de que todos los cuadros de texto tienen la misma fuente.
+Cada cuadro de texto tendrá un colar para diferenciar quien habla, además de que todos los cuadros de texto tienen la misma fuente.
+
+
+Cada vez que hablen los personajes habrá un sonido,estilo Banjo-Kazooie
 
 
 <div><img width="898" height="422" alt="image" src="https://github.com/user-attachments/assets/15a3fe0e-a00c-4e6a-9efd-19586ff9d856" /></div>
@@ -291,16 +300,16 @@ Las misiones serán minijuegos que darán NPCs los cuales son:
 
 **Whack-A-Mole:** 
 
-Aparecerán topos cada cierto tiempo en un hoyo aleatorio y se tendrá que aplastarlos con el click del ratón. 
+Aparecerán topos cada cierto tiempo en un hoyo aleatorio y se tendrá que eliminarlos lanzandoles mazos que irán apareciendo en la parte inferior de la pantalla. 
 
 
-Los topos darán cierta cantidad de puntuación al golpearlos. Obstáculos surgirán aleatoriamente en lugar de topos, estos serán dinamitas que, al ser golpeadas, restarán una cantidad fija de puntos.  
+Los contorles son la "A" para la izquierda y "D" para derecha, y el espacio para lanzar los mazos.
 
 
-El objetivo será llegar a una puntuación en el tiempo límite. El jugador verá 9 agujeros en pantalla (3x3) de los cuales saldrán los topos o las dinamitas 
+Los topos darán cierta cantidad de puntuación al golpearlos. 
 
 
-(pueden aparecer topos y dinamitas simultáneamente en distintos agujeros o solo un topo/dinamita).
+El objetivo será llegar a una puntuación en el tiempo límite. El jugador verá 9 agujeros en pantalla (3x3) de los cuales saldrán los topos.
 
 
 <div><img width="900" height="672" alt="image" src="https://github.com/user-attachments/assets/1920e37e-a0da-4234-a6c0-07ad8d59f288" /></div>
@@ -327,6 +336,18 @@ El jugador verá un escenario/paisaje oscuro y empezarán a aparecer fantasmas p
 Estos se encontrarán en una posición fija o moviéndose por la pantalla.
 
 
+Hay tres tipos de fantasmas:
+
+
+**Blower:** está estático en la pantalla y si eljugador lo ilumina hace qu eel radio de la luz disminuya.
+
+
+**Hiker:** fantasma que escapa del jugadro cuando se le ilumina.
+
+
+**Starer:** fantasma que está estático en la pantalla.
+
+
 <div><img width="902" height="678" alt="image" src="https://github.com/user-attachments/assets/8c80ca9a-3988-4999-a2d7-488a2411492b" /></div>
 
 
@@ -346,6 +367,8 @@ La perspectiva del jugador será una cuadrícula en la que tendremos que las pie
 
 
 Si no se completa la imagen en el tiempo establecido, no se darán puntos, por el contrario si se consigue se entregará una cantidad fija de estos.
+
+
 
 
 La puntuación de los minijuegos dará una cantidad de recursos en función de los puntos, de forma que existe la posibilidad de que el gasto de estamina 
@@ -386,6 +409,9 @@ El jugador cuenta con una barra de estamina, cuando esta llegue a 0 el día pasa
 
 
 La nutria aparece todos los días en el mismo sitio (su caseta).
+
+
+Cuando va pasando el tiempo el icono del tiempo se va actualizando
 </details>
 </td>
 </tr>
@@ -408,10 +434,10 @@ Cuando la barra se vacía por completo el día pasa para recargarse de nuevo en 
 Las formas de disminuir la estamina son las siguientes:
 
 
-Recoger 4 de cualquier recurso independientemente del que sea y el orden gastará 10 de estamina (cantidad humilde).
+Recoger 4 de cualquier recurso independientemente del que sea y el orden gastará 2 de estamina (cantidad humilde).
 
 
-Terminar una misión consumirá 30 de estamina (cantidad elevada).
+Terminar una misión consumirá 25 de estamina (cantidad elevada).
 
 
 <img width="177" height="72" alt="image" src="https://github.com/user-attachments/assets/fac7e01d-56ba-4ccb-9f52-147a3fd073eb" />
@@ -436,6 +462,10 @@ Al acercarse al objeto/estructura aparecerá un pequeño texto con el nombre del
 
 
 Si se interactúa y se tiene los recursos necesarios la estructura/objeto se construirá/dejará de estar distorsionada.
+
+
+Cuando se construye una estructura drá una pieza de historia acerca d elo que ocurre y como la nutira ha llegado allí.
+
 
 <div><img width="707" height="581" alt="image" src="https://github.com/user-attachments/assets/459e831e-8941-44b8-a688-098967c7a289" /></div>
 
@@ -510,7 +540,6 @@ En la zona superior derecha se podrá obtener la estamina que se tiene en cada m
 
 
 <img width="895" height="102" alt="image" src="https://github.com/user-attachments/assets/80fbf7e4-f348-4841-987c-f0dfb34b9558" />
-
 
 
 En cuanto a los diálogos aparecerá en la zona inferior un recuadro con una imagen del personaje que está hablando, su nombre y el texto.
@@ -662,9 +691,16 @@ En general, el juego busca constantemente una experiencia relajada para el jugad
 <summary> Estética y contenido </summary>
 
 ## Estética y contenido
-La estética del juego está enfocada a manualidades y arte, de esta forma el contenido visual del juego tiene un acabado pastel que hace que parezca que los personajes, objetos de la escena y fondos y escenarios están pintados con cera en un lienzo, haciendo referencia también a que el subconsciente como un lienzo que cada uno dibuja y colorea a su manera.
+La estética del juego está enfocada a manualidades y arte, de esta forma el contenido visual del juego tiene un acabado pastel que hace que parezca que los personajes, objetos de la escena y fondos y escenarios
 
-En cuanto a la música se encontrarán temas tranquilos y que transmitan relajación y los efectos de sonido serán grabaciones de audio creadas por los desarrolladores con sus voces y sonidos encontrados en la vida cotidiana como puede ser el sonido de dejar un tenedor en un plato, de abrir una lata de refresco, entre otras cosas.
+
+están pintados con cera en un lienzo, haciendo referencia también a que el subconsciente como un lienzo que cada uno dibuja y colorea a su manera.
+
+
+En cuanto a la música se encontrarán temas tranquilos y que transmitan relajación y los efectos de sonido serán grabaciones de audio creadas por los desarrolladores con sus voces y sonidos encontrados en la vida 
+
+
+cotidiana como puede ser el sonido de dejar un tenedor en un plato, de abrir una lata de refresco, entre otras cosas.
 </details>
 </td>
 </tr>
@@ -729,5 +765,14 @@ Los assests usados para los NPC son los profesores de la UCM pero represetnados 
 No obstante la mayor parte de assets son placehoders o imagenes usadas para la web o placeHolder.
 
 Los assets creados por los encargados de arte durante el desarrollo del proyecto se adhieren a una licencia de copyright en la que se reservan todos los derechos de autor.
-</details>
 
+</details>
+	
+<details>
+	<summary> Gráfico de arquitectura </summary>
+
+## Gráfico de architectura
+
+
+<img width="2657" height="3184" alt="New_Diagram" src="https://github.com/user-attachments/assets/bb5109da-9ca7-44b8-8eb3-117fda34674d" />
+</details>

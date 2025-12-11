@@ -1,19 +1,19 @@
 export default class starer extends Phaser.GameObjects.Image {
     constructor(scene, x, y) {
-        super(scene, x, y, 'topo');
+        super(scene, x, y, 'starer');
         this.scene = scene;
         this.score = 10; //Premio por purificar
         this.punish = -5; //Castigo por dejar escapar
         scene.add.existing(this);
-        this.setScale(0.4);
+        this.setScale(0.2);
 
         // == Purificación  atributos ==
         this.disappearSpeed = 2;
 
         //Cada vez que se mueve el cursor se actualiza la info sobre su radio y distancia de él
         this.scene.event.on('movingLight', (position) => {
-            this.maxDistance = position.radius/2;
-            this.lightDistance = Phaser.Math.Distance.Between(position.x, position.y, this.x, this.y);
+            this.maxDistance = position.radius/2 || 0;
+            this.lightDistance = Phaser.Math.Distance.Between(position.x, position.y, this.x, this.y) || 0;
         });
 
         // == Timer ==
@@ -22,12 +22,51 @@ export default class starer extends Phaser.GameObjects.Image {
 
         this.time = 6; //tiempo inicial en segundos
         this.timeLeft = this.time;
+        this.hided = false;
+
+        this.Sfx = false;
     }
 
     hide(scaped) { //desativar objeto de pool y reiniciar tiempo de vida
+        this.hided = true;
         let reward = scaped? this.punish : this.score;
-        this.scene.event.emit('hideGhost', this, reward);
-        this.timeLeft = this.time;
+
+        if (scaped){
+            this.scene.sound.add('disappearStarerSFX', {volume: 20}).play();
+        }
+        else{
+            this.scene.sound.add('purgedStarerSFX', {volume: 20}).play();
+        }
+
+        if (this.scene?.tweens){
+            const rotationTween = this.scene.tweens.add({
+                targets: this,
+                angle: 15,       // gira 15° a un lado
+                duration: 200,   // velocidad de giro
+                yoyo: true,      // regresa al ángulo original
+                repeat: -1,      // repite indefinidamente hasta terminar la escala
+                ease: 'Sine.easeInOut'
+            });
+
+            // Tween de desaparición (escala y alpha)
+            this.scene.tweens.add({
+                targets: this,
+                alpha: 0,
+                scale: 0,
+                duration: 600,  // duración total del "desvanecimiento"
+                ease: 'Cubic.easeIn',
+                onComplete: () => {
+                    // Detener rotación y reiniciar propiedades
+                    rotationTween.stop();
+                    this.setAlpha(1);
+                    this.setScale(0.2);
+                    this.setAngle(0);
+                    this.hided = false;
+                    this.timeLeft = this.time;
+                    this.scene?.event?.emit('hideGhost', this, reward);
+                }
+            });
+        }
     }
 
     hitting(dt) {
@@ -36,7 +75,7 @@ export default class starer extends Phaser.GameObjects.Image {
         else this.alpha -= this.disappearSpeed * (dt/1000);
 
         //Desactivar el objeto de la pool y reiniciamos tiempo de vida
-        if (this.alpha <= 0.25){
+        if (this.alpha <= 0.25 && !this.hided){
             this.hide(false);
         }
     }
@@ -45,11 +84,19 @@ export default class starer extends Phaser.GameObjects.Image {
         // == Purificación implementación ==
         if(this.lightDistance < this.maxDistance) {
             this.hitting(dt);
+
+            if (!this.Sfx){
+                this.Sfx = true;
+                this.scene.sound.add('lightedUpStarerSFX', {volume: 20}).play();
+            }
+        }
+        else if (this.Sfx){
+            this.Sfx = false;
         }
 
         this.timeLeft -= dt/1000;
 
-        if (this.timeLeft <= 0) {
+        if (this.timeLeft <= 0 && !this.hided) {
             this.hide(true)
         }
     }

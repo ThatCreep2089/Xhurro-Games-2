@@ -9,68 +9,71 @@ export default class MenuScene extends Phaser.Scene {
     }
 
     create() {
-        this.add.image(0, 0, 'map').setOrigin(0, 0);
+        this.add.image(0, 0, 'titleBg').setOrigin(0, 0).setScale(0.5);
+
+        let music = this.sound.add('titleMusic', {
+            loop: true,
+        });
+        
+        if (this.sound.context.state != 'suspended') music.play();
+        else{
+            this.input.once('pointerdown', () => {
+              if (this.sound.context.state === 'suspended') this.sound.context.resume();
+              music.play();
+            });
+        }
+        
 
         //title text
-        this.add.text(400, 180, 'The Otter Side', 
-            { 
-                fontFamily:'bobFont', 
-                fontSize: '60px', 
-                color: 'white',
-            }).setOrigin(0.5);
+        this.add.image(400, 150, 'TitleBanner').setScale(0.45);
 
-            //start button
-            let playButton = this.add.text(400, 300, 'PLAY', {
-                fontFamily: 'bobFont',
-                fontSize: '40px',
-                color: '#00ffcc'
-            }).setOrigin(0.5).setInteractive();
-            
-            //exit button
-            let exitButton = this.add.text(400, 400, 'EXIT', {
-                fontFamily: 'bobFont',
-                fontSize: '40px',
-                color: '#ff4444'
-            }).setOrigin(0.5).setInteractive();
-            
-            //button interactivity
-            playButton.on('pointerover', () => playButton.setStyle({ color: '#ffffff' }));
-            playButton.on('pointerout', () => playButton.setStyle({ color: '#00ffcc' }));
-            
-            exitButton.on('pointerover', () => exitButton.setStyle({ color: '#ffffff' }));
-            exitButton.on('pointerout', () => exitButton.setStyle({ color: '#ff4444' }));
-            
-            //actions on click
-            playButton.on('pointerdown', () => this.scene.start('introScene'));
-            exitButton.on('pointerdown', () => alert('BYE BYE!'));
-           
-            //test scene button
-            let testButton = this.add.text(400, 500, 'test', {
-            fontFamily: 'bobFont',
-            fontSize: '40px',
-            color: '#00ffcc'
-            }).setOrigin(0.5).setInteractive();
-             testButton.on('pointerdown', () => this.scene.start('testScene'));
-           
+        //start button
+        let playButton = this.add.image(400, 300, 'playGame').setOrigin(0.5).setInteractive().setScale(0.3);
 
-
-       // //exit button
-       // let exitButton = this.add.text(400, 400, 'EXIT', {
-       // fontFamily: 'bobFont',
-        //fontSize: '40px',
-       // color: '#ff4444'
-       // }).setOrigin(0.5).setInteractive();
-
+        //exit button
+        let exitButton = this.add.image(400, 450, 'exitGame').setOrigin(0.5).setInteractive().setScale(0.5);
+        
         //button interactivity
-        playButton.on('pointerover', () => playButton.setStyle({ color: '#ffffff' }));
-        playButton.on('pointerout', () => playButton.setStyle({ color: '#00ffcc' }));
+        playButton.on('pointerover', () => {            
+            playButton.setTexture('playGameHover')
 
-        exitButton.on('pointerover', () => exitButton.setStyle({ color: '#ffffff' }));
-        exitButton.on('pointerout', () => exitButton.setStyle({ color: '#ff4444' }));
+            this.playTween = this.tweens.add({
+                targets: playButton,
+                angle: { from: -15, to: 15 },
+                duration: 200,
+                yoyo: true,
+                repeat: -1,
+                ease: 'Sine.easeInOut'
+            });
+        });
+        playButton.on('pointerout', () => {
+            playButton.setTexture('playGame')
+
+            if (this.playTween) this.playTween.stop();
+            playButton.setAngle(0)
+        });
+
+        exitButton.on('pointerover', () => {
+            
+            exitButton.setTexture('exitGameHover')
+            this.exitTween= this.tweens.add({
+                targets: exitButton,
+                angle: { from: -15, to: 15 },
+                duration: 200,
+                yoyo: true,
+                repeat: -1,
+                ease: 'Sine.easeInOut'
+            });
+        });
+        exitButton.on('pointerout', () => {
+            exitButton.setTexture('exitGame')
+            if (this.exitTween) this.exitTween.stop();
+            exitButton.setAngle(0)
+        });
 
         //actions on click
-        playButton.on('pointerdown', () => this.scene.start('introScene'));
-        exitButton.on('pointerdown', () => alert('BYE BYE!'));
+        playButton.on('pointerup', () => {this.sound.add('acceptSFX').play(); music.stop(); this.scene.start('introScene');});
+        exitButton.on('pointerdown', () => {this.sound.add('refuseSFX').play(); alert('BYE BYE!');});
 
         this.UIManager = new UIManager(this);
 

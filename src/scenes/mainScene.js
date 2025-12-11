@@ -19,7 +19,7 @@ export default class mainScene extends Phaser.Scene {
        /* let map = this.add.image(0, 0, 'map').setOrigin(0, 0);
         this.physics.world.setBounds(0, 0, map.width, map.height);
         this.cameras.main.setBounds(0, 0, map.width, map.height);*/
-         this.physics.world.setBounds(0, 0, 2560, 1840);
+        this.physics.world.setBounds(0, 0, 2560, 1840);
         this.cameras.main.setBounds(0, 0, 2560, 1840);
         this.createMap()
 
@@ -61,32 +61,32 @@ export default class mainScene extends Phaser.Scene {
         // === MINIJUEGOS_INFO ===
         this.minigamesInfo = {
             WackAMole:{
-                name: "Wack A Mole",
+                name: "Whack A Mole",
                 description: "Aplasta a los topos haciendo clic sobre ellos...",
                 src: 'WAMVideo',
-                price: 25,
-                reward:{ amountPerX:2, X: 10 }
+                price: 24,
+                reward:{ amountPerX: {paint: 2, paper: 0, clay: 0}, X: 10 }
             },
             LightUpGhosts: {
-                name: "Ilumina a los fantasmas",
+                name: "Ilumina a \n los fantasmas",
                 description: "Arrastra la antorcha hacia los fantasmas hasta destruirlos antes de que se escapen.",
                 src: 'WAMVideo',
-                price: 25,
-                reward:{ amountPerX:2, X: 10 }
+                price: 24,
+                reward:{ amountPerX:{paint: 0, paper: 2, clay: 0}, X: 10 }
             },
             Puzzle: {
                 name: "Puzle",
                 description: "Haz clic sobre las piezas para rotarlas y consigue que el puzzle encaje",
                 src: 'WAMVideo',
-                price: 25,
-                reward:{ amountPerX:10, X: 1 }
+                price: 24,
+                reward:{ amountPerX:{paint: 0, paper: 0, clay: 10}, X: 1 }
             }
         };
 
         // === JUGADOR (Nutria) ===
-        this.otter = new Otter(this, this.scale.width / 2, this.scale.height / 2, 20, 'otter', 0.2);
+        this.otter = new Otter(this, this.scale.width / 2, this.scale.height / 2, 20, 'toni', 0.15, 0.25);
         this.cameras.main.startFollow(this.otter);
-        this.navi = new Navi(this, this.otter, 80, 'otter', 0.15, 17);
+        this.navi = new Navi(this, this.otter, 40, 'navi',0.1, 17);
 
         // === FUENTES, CONSTRUCCIONES Y NPCs ===
         this.createSources();
@@ -98,57 +98,35 @@ export default class mainScene extends Phaser.Scene {
         // === HUD ===
         this.createHUD();
 
-        // === CARGAR DATOS ===
-        import("../GameDataManager.js").then(module => {
-            const GameDataManager = module.default;
-            GameDataManager.applyTo(this);
-            this.UIManager.event.emit('updateDay');
-            this.UIManager.event.emit('updateInventory');
-            this.UIManager.event.emit('updateStamina');
-        });
+        // === MUSICA ===
+        this.music = this.sound.add('mainSceneMusic', {
+            loop: true,
+        }); this.music.play();
 
+        // === CARGAR DATOS ===
+        this.fade = false;
+        GameDataManager.applyTo(this);
+
+        // === FINAL ===
+        const ending = GameDataManager.getEnding(6, 2); //6 dias y 2 construcciones
+            if (ending === "good") {
+                this.scene.start('ending', { good: true });}
+            else if (ending === "bad") {
+                this.scene.start('ending', { good: false });}
+
+        //Una vez se ha preparado toda la escena, si tiene que hacer Fade, lo hace
+        if(this.fade){ this.fade = false; this.UIManager.FadeOut();}
     }
 
     update() {
-        // Si la estamina llega a 0, pasar al siguiente día
-        if (this.otter.getStamina() <= 0 && !this.dayChanging) {
-            this.dayChanging = true;
-            this.nextDay();
-        }
-
         // Resetear justDown / justUp
         let inputs = [this.spaceKey, this.keyW, this.keyA, this.keyS, this.keyD];
         for (const key in inputs) {
             inputs[key].justDown = false;
             inputs[key].justUp = false;
         }
+        this.builds.forEach(build => build.update && build.update());
     }
-
-    /* createMap(){
-         	this.map = this.make.tilemap({ 
-			key: 'tilemap', 
-			tileWidth: 40, 
-			tileHeight: 40 
-		});
-      const cardboard = this.map.addTilesetImage('cardboard' ,"cardboard");
-      const foresttiles = this.map.addTilesetImage('foresttiles',"foresttiles");
-      const papertiles = this.map.addTilesetImage('paperfloor', "papertiles");
-      const paintriver = this.map.addTilesetImage('paintriver',"paintriver");
-      const paperobstacles = this.map.addTilesetImage('paperobstacles',"paperobstacles");
-    
-      this.background = this.map.createLayer ('background', cardboard);
-      this.forestFloor = this.map.createLayer ('forestFloor', foresttiles);
-      this.paperFloor = this.map.createLayer ('paperFloor', papertiles );
-      this.obstaclesbottom = this.map.createLayer ( 'obstaclesbottom' , paperobstacles);
-      this.obstaclestop = this.map.createLayer ( 'obstaclestop' , paperobstacles);
-      this.decors = this.map.createLayer ( 'decors' , papertiles);
-      this.paintRiver = this.map.createLayer ('paintRiver', paintriver);
-
-      
-      this.obstaclesbottom.setCollision(145); 
-        
-        //this.physics.add.collider(this.otter, this.wallLayer);
-    }*/
    
     createMap(){
          	this.map = this.make.tilemap({ 
@@ -176,21 +154,23 @@ export default class mainScene extends Phaser.Scene {
 
     createMapCollisions(){
             
-      //this.obstaclesbottom.setCollision(145); 
-      //this.paintRiver.setCollisionBetween(0,149);
-      //  this.paintRiver.setCollisionByExclusion([-1]);
-       //this.physics.add.collider(this.otter, this.paintRiver);
+     
        this.paintRiver.setCollisionByExclusion([-1]);//colision con todo menos lo nulo
        this.obstaclesbottom.setCollisionByExclusion([-1]);
-      // this.obstaclestop.setCollisionByExclusion([-1])
+       this.obstaclestop.setCollisionByExclusion([-1])
        this.physics.add.collider(this.otter, this.paintRiver);
        this.physics.add.collider(this.otter, this.obstaclesbottom);
        this.physics.add.collider(this.otter, this.obstaclestop);
     }
-    createAnims() {}
+    
+    createAnims() {
+        // === HUD ===
+        // THE GAME 😃
+    }
 
     createSources() {
-        new Source(this, 1200, 1200, 'paint', 0, 0, 1, 5);
+        this.sources = [];
+        this.sources.push(new Source(this, 1200, 1200, 'paint', 0, 0, 1, 5));
     }
 
     createBuilds() {
@@ -205,30 +185,22 @@ export default class mainScene extends Phaser.Scene {
 
     createNPCs() {
         const npcData = this.cache.json.get('prueba');
-        this.Toni = new NPC(this, 900, 700, 'toni', npcData, this.otter, this.minigamesInfo.WackAMole);
+        this.Toni = new NPC(this, 900, 700, 'toni', npcData, this.otter, this.minigamesInfo.WackAMole, 0.15, 0.25);
 
         const cleonRomeData = this.cache.json.get('cleonRome');
-        this.Cleon = new NPC(this, 1000, 700, 'toni', cleonRomeData, this.otter, this.minigamesInfo.LightUpGhosts);
+        this.Cleon = new NPC(this, 1050, 700, 'cleon&rome', cleonRomeData, this.otter, this.minigamesInfo.LightUpGhosts, 0.25, 0.25);
 
         const ishmaelData = this.cache.json.get('ishmael');
-        this.Ishmael = new NPC(this, 1100, 700, 'toni', ishmaelData, this.otter, this.minigamesInfo.Puzzle);
+        this.Ishmael = new NPC(this, 1250, 700, 'ismael', ishmaelData, this.otter, this.minigamesInfo.Puzzle, 0.15, 1);
     }
 
     nextDay() {
         this.currentDay = (this.currentDay || 1) + 1;
-        this.otter.setStamina(100);
-        this.UIManager.event.emit('updateStamina');
-        this.UIManager.event.emit('updateDay');
-
-        import("../GameDataManager.js").then(module => {
-            const GameDataManager = module.default;
+        this.fade = true;
+        if(this.currentDay > 6){
+            console.log("final")
             GameDataManager.saveFrom(this);
-
-            const ending = GameDataManager.getEnding(6, 2);
-            if (ending === "good") console.log("Good ending");
-            else if (ending === "bad") console.log("Bad ending");
-        });
-
-        this.time.delayedCall(500, () => this.dayChanging = false);
+        }
     }
+    
 }

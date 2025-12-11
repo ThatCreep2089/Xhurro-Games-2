@@ -1,6 +1,6 @@
 export default class starer extends Phaser.GameObjects.Image {
     constructor(scene, x, y) {
-        super(scene, x, y, 'topo');
+        super(scene, x, y, 'hiker');
         this.scene = scene;
         //score
         this.score = 10; //Premio por purificar
@@ -10,9 +10,12 @@ export default class starer extends Phaser.GameObjects.Image {
         this.speed = 15; //cuanto se mueve
         this.onLight = false; //cuando se mueve o actualiza su dirección
 
-        scene.physics.add.existing(this);
+        
+        
+        this.setScale(0.2);
+
         scene.add.existing(this);
-        this.setScale(0.4);
+        scene.physics.add.existing(this);
 
         // == Purificación  atributos ==
         this.disappearSpeed = 2;
@@ -20,7 +23,8 @@ export default class starer extends Phaser.GameObjects.Image {
         //Cada vez que se mueve el cursor se actualiza la info sobre su radio y distancia de él
         this.scene.event.on('movingLight', (position) => {
             this.light = position;
-            this.maxDistance = position.radius/2;
+
+            this.maxDistance = position.radius/2 || 0;
         });
 
         // == Timer ==
@@ -29,13 +33,54 @@ export default class starer extends Phaser.GameObjects.Image {
 
         this.time = 6; //tiempo inicial en segundos
         this.timeLeft = this.time;
+
+        this.hided = false;
+
+        this.Sfx = false;
+        this.SfxFinished = true;
     }
 
     hide(scaped) { //desativar objeto de pool y reiniciar tiempo de vida
+        this.hided = true;
         let reward = scaped? this.punish : this.score;
-        this.scene.event.emit('hideGhost', this, reward);
         if (this.body) this.body.setVelocity(0,0);
-        this.timeLeft = this.time;
+        
+        if (scaped){
+            this.scene.sound.add('disappearHikerSFX', {volume: 15}).play();
+        }
+        else{
+            this.scene.sound.add('purgedHikerSFX').play();
+        }
+
+        if (this.scene?.tweens){
+            const rotationTween = this.scene.tweens.add({
+                targets: this,
+                angle: 15,       // gira 15° a un lado
+                duration: 200,   // velocidad de giro
+                yoyo: true,      // regresa al ángulo original
+                repeat: -1,      // repite indefinidamente hasta terminar la escala
+                ease: 'Sine.easeInOut'
+            });
+
+            // Tween de desaparición (escala y alpha)
+            let t = this.scene.tweens.add({
+                targets: this,
+                alpha: 0,
+                scale: 0,
+                duration: 600,  // duración total del "desvanecimiento"
+                ease: 'Cubic.easeIn',
+                onComplete: () => {
+                    // Detener rotación y reiniciar propiedades
+                    rotationTween.stop();
+                    this.setAlpha(1);
+                    this.setScale(0.2);
+                    this.setAngle(0);
+                    this.hided = false;
+                    this.timeLeft = this.time;
+                    this.scene?.event?.emit('hideGhost', this, reward);
+                }
+            });
+        }
     }
 
     hitting(dt) {
@@ -44,23 +89,23 @@ export default class starer extends Phaser.GameObjects.Image {
         else this.alpha -= this.disappearSpeed * (dt/1000);
 
         //Corrección para que no se salga de los bordes
-        let x = this.scene.sys.game.config.width - this.width/2;
-        let y = this.scene.sys.game.config.height - this.height/2;
+        let x = this.scene.sys.game.config.width - this.body.width/2;
+        let y = this.scene.sys.game.config.height - this.body.height/2;
 
-        if ((this.x <= this.width/2 || this.x >= x) && (this.y <= this.height/2 || this.y >= y)){
+        if ((this.x <= this.body.width/2 || this.x >= x) && (this.y <= this.body.height/2 || this.y >= y)){
             //En esquina huye en dirección contraria
             this.direction.x = -this.direction.x;
             this.direction.y = -this.direction.y;
 
-            this.x = Phaser.Math.Clamp(this.x, this.width/2 + 1, x - 1);
-            this.y = Phaser.Math.Clamp(this.y, this.height/2 + 1, y - 1);
+            this.x = Phaser.Math.Clamp(this.x, this.body.width/2 + 1, x - 1);
+            this.y = Phaser.Math.Clamp(this.y, this.body.height/2 + 1, y - 1);
             
             this.body.setVelocity(-this.direction.x * this.speed * dt, -this.direction.y * this.speed * dt);
         }
-        else if (this.x <= this.width/2 || this.x >= x)
+        else if (this.x <= this.body.width/2 || this.x >= x)
             //Choque con paredes X solo se mueve en eje Y
             this.body.setVelocity(0, (-this.direction.y/this.direction.y) * this.speed * dt);
-        else if (this.y <= this.height/2 || this.y >= y)
+        else if (this.y <= this.body.height/2 || this.y >= y)
             //Choque con paredes Y solo se mueve en eje X
             this.body.setVelocity((-this.direction.x/this.direction.x) * this.speed * dt, 0);
         else
@@ -68,7 +113,7 @@ export default class starer extends Phaser.GameObjects.Image {
             this.body.setVelocity(-this.direction.x * this.speed * dt, -this.direction.y * this.speed * dt);
 
         //Desactivar el objeto de la pool y reiniciamos tiempo de vida
-        if (this.alpha <= 0.25){
+        if (this.alpha <= 0.25 && !this.hided){
             this.hide(false);
         }
     }
@@ -78,21 +123,32 @@ export default class starer extends Phaser.GameObjects.Image {
         if (this.light)
         this.lightDistance = Phaser.Math.Distance.Between(this.light.x, this.light.y, this.x, this.y);
 
-        if (!this.onLight){ //Queremos que se mueva con la última dirección registrada al entrar en el circulo de luz
+        if (this.light && !this.onLight){ //Queremos que se mueva con la última dirección registrada al entrar en el circulo de luz
             this.direction = new Phaser.Math.Vector2(this.light.x - this.x, this.light.y - this.y).normalize();
         }
 
         if(this.lightDistance < this.maxDistance) {
             this.hitting(dt);
             this.onLight = true;
+
+            if (!this.Sfx && !this.hided && this.SfxFinished){
+                this.Sfx = true;
+                this.SfxFinished = false;
+                
+                this.scene.sound.add('lightedUpHikerSFX', {volume: 20}).on('complete', () => {
+                    this.SfxFinished = true;
+                }).play();
+            }
+            
         }
         else if (this.body) {
+            if (this.Sfx) this.Sfx = false;
             this.body.setVelocity(0,0);
             this.onLight = false;
             this.timeLeft -= dt/1000 //Solo corre el tiempo de vida si no le alcanza la luz
         }
 
-        if (this.timeLeft <= 0) {
+        if (this.timeLeft <= 0 && !this.hided) {
             this.hide(true)
         }
     }
