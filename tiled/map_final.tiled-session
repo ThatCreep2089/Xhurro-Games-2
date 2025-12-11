@@ -95,6 +95,7 @@
         "cardbord.tsx"
     ],
     "project": "map_final.tiled-project",
+    "property.type": "object",
     "recentFiles": [
         "map_final.tiled-project.tmj",
         "paintriver.tsx",

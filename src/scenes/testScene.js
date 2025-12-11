@@ -92,9 +92,9 @@ export default class TestScene extends Phaser.Scene {
         
         // === FUENTES, CONSTRUCCIONES Y NPCs ===
         this.setPositionsMap();
-        this.createSources();
+       /* this.createSources();
         this.createBuilds();
-        this.createNPCs();
+        this.createNPCs();*/
         // this.setPositionsMap();
         this.createMapCollisions();
 
@@ -148,6 +148,7 @@ export default class TestScene extends Phaser.Scene {
         this.obstaclesbottom = this.map.createLayer('obstaclesbottom', [paperobstacles,foresttiles]);
         //this.obstaclesbottom.setDepth(50);
         this.obstaclestop = this.map.createLayer('obstaclestop', paperobstacles);
+        console.log(this.obstaclestop);
         //this.obstaclestop.setDepth(1000);
 
     }
@@ -166,9 +167,9 @@ export default class TestScene extends Phaser.Scene {
 
         this.toni = this.map.createFromObjects('objectLayer', { name: 'toni', classType: NPC, key: "npc1" });//create from objects siempre devuelve array
         console.log(this.toni + "miau");
-        this.toni[0].innit( 'toni', 'prueba', this.otter, this.minigamesInfo.LightUpGhosts, 0.1);
+        this.toni[0].innit( 'toni', this.cache.json.get('prueba') , this.otter, this.minigamesInfo.LightUpGhosts, 0.1);
        
-        this.paperSource = this.map.createFromObjects('objectLayer', {name:'paper' , classType: Source(this, 1200, 1200, 'paint', 0, 0, 1, 5), key: "paperSource"})
+        this.paperSource = this.map.createFromObjects('objectLayer', {name:'paper' , classType: Source, key: "paperSource"})
         /*
             if (this.objLayer.objects[i] === "npc") {
                 let npcData = this.cache.json.get("prueba")//(obj.name);
@@ -205,7 +206,7 @@ export default class TestScene extends Phaser.Scene {
         this.physics.add.collider(this.otter, this.obstaclestop);
     }
     createAnims() { }
-
+/*
     createSources() {
         new Source(this, 1200, 1200, 'paint', 0, 0, 1, 5);
     }
@@ -215,13 +216,13 @@ export default class TestScene extends Phaser.Scene {
         const house = new Build(this, 400, 1000, 'destroyedHouse', 'house', 0, 0, 3, 1, 0, 'house_400_1000');
         this.builds.push(house);
     }
-
+*/
     createHUD() {
         this.UIManager = new UIManager(this);
     }
-
+/*
     createNPCs() {
-        const npcData = this.cache.json.get('prueba');
+        const npcData = this.cache.json.get('prueba');//da los datos del archivo asociado a la key 
         this.Toni = new NPC(this, 900, 700, 'toni', npcData, this.otter, this.minigamesInfo.WackAMole);
 
         const cleonRomeData = this.cache.json.get('cleonRome');
@@ -230,7 +231,7 @@ export default class TestScene extends Phaser.Scene {
         const ishmaelData = this.cache.json.get('ishmael');
         this.Ishmael = new NPC(this, 1100, 700, 'toni', ishmaelData, this.otter, this.minigamesInfo.Puzzle);
     }
-
+*/
     nextDay() {
         this.currentDay = (this.currentDay || 1) + 1;
         this.otter.setStamina(100);

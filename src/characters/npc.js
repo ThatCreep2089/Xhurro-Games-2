@@ -8,7 +8,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         scene.physics.add.existing(this, true);
         this.iniciado = false;
     }
-innit( texture, data, player, minigameInfo, scale = 0.1){
+    innit(texture, data, player, minigameInfo, scale = 0.1) {
         this.setTexture(texture);
         this.datos = data;
         this.otter = player;
@@ -64,58 +64,59 @@ innit( texture, data, player, minigameInfo, scale = 0.1){
     // ==============================
     // DETECCIÓN DE INTERACCIÓN
     // ==============================
-   physicsUpdate() {
-    if (this.iniciado==true){
-        if (this.touching && !this.wasTouching)
-            this.scene.UIManager.appearInteractMessage();
-        
-        if (!this.touching && this.wasTouching)
-            this.scene.UIManager.disappearInteractMessage();
-        
-        
-        // Si hay diálogo abierto, no permitir interacción
-        if (this.isDialogOpen) {
-            this.wasTouching = this.touching;
-            this.touching = false;
-            return;
-        }
-        
-        // Esperar a que el jugador suelte SPACE antes de permitir volver a hablar
-        if (this.waitSpaceRelease) {
-            this.wasTouching = this.touching;
-            this.touching = false;
-            return;
-        }
-        
-        // Intento de iniciar diálogo
-        if (this.scene.spaceKey.justDown && this.touching && this.canInteract && !this.isDialogOpen)
-            {
+    physicsUpdate() {
+        if (this.iniciado == true) {
+            if (this.touching && !this.wasTouching)
+                this.scene.UIManager.appearInteractMessage();
+
+            if (!this.touching && this.wasTouching)
+                this.scene.UIManager.disappearInteractMessage();
+
+
+            // Si hay diálogo abierto, no permitir interacción
+            if (this.isDialogOpen) {
+                this.wasTouching = this.touching;
+                this.touching = false;
+                return;
+            }
+
+            // Esperar a que el jugador suelte SPACE antes de permitir volver a hablar
+            if (this.waitSpaceRelease) {
+                this.wasTouching = this.touching;
+                this.touching = false;
+                return;
+            }
+
+            // Intento de iniciar diálogo
+            if (this.scene.spaceKey.justDown && this.touching && this.canInteract && !this.isDialogOpen) {
                 this.startDialog();
             }
-            
+
             this.wasTouching = this.touching;
             this.touching = false;
         }
     }
-        // ==============================
-        // DIÁLOGO NORMAL
-        // ==============================
-        findDay(day) {
-            return this.datos.Dias.find(d => d.val === day);
-        }
-        // ===============================================
-        // LOCALIZADOR DEL JSON Y DE INFO DEL JSON
-        // ===============================================
-        startDialog() {
-            const locator = this.findDay(this.scene.currentDay);
-            if (!locator) return;
+    // ==============================
+    // DIÁLOGO NORMAL
+    // ==============================
+    findDay(day) {
+        console.log(this.datos)
+        return this.datos.Dias.find(d => d.val === day);
+        
+    }
+    // ===============================================
+    // LOCALIZADOR DEL JSON Y DE INFO DEL JSON
+    // ===============================================
+    startDialog() {
+        const locator = this.findDay(this.scene.currentDay);
+        if (!locator) return;
 
-            this.dialogList = [...locator.Dialog];
-            this.dialogIndex = 0;
-            
-            const first = this.dialogList[0];
-            
-            this.openDialog({
+        this.dialogList = [...locator.Dialog];
+        this.dialogIndex = 0;
+
+        const first = this.dialogList[0];
+
+        this.openDialog({
             text: first.msgn,
             portrait: first.portrait,
             speaker: first.speaker,
@@ -218,17 +219,17 @@ innit( texture, data, player, minigameInfo, scale = 0.1){
                 if (this.text.text) this.text.text.destroy();
                 if (this.text.graphics) this.text.graphics.destroy();
                 if (this.text.closeBtn) this.text.closeBtn.destroy();
-            } catch {}
+            } catch { }
             this.text = null;
         }
 
         if (this.speakerImage) {
-            try { this.speakerImage.destroy(); } catch {}
+            try { this.speakerImage.destroy(); } catch { }
             this.speakerImage = null;
         }
 
         if (this.rejectionPortrait) {
-            try { this.rejectionPortrait.destroy(); } catch {}
+            try { this.rejectionPortrait.destroy(); } catch { }
             this.rejectionPortrait = null;
         }
     }
@@ -237,7 +238,7 @@ innit( texture, data, player, minigameInfo, scale = 0.1){
     // DIÁLOGO DE RECHAZO
     // ===============================================
     showRejectionDialog() {
-    
+
         const locator = this.findDay(this.scene.currentDay);
         const r = locator.Rechazo;
         this.openDialog({
@@ -257,7 +258,7 @@ innit( texture, data, player, minigameInfo, scale = 0.1){
         this.destroyDialogVisuals();
 
         if (this.rejectionPortrait) {
-            try { this.rejectionPortrait.destroy(); } catch {}
+            try { this.rejectionPortrait.destroy(); } catch { }
             this.rejectionPortrait = null;
         }
 
@@ -352,7 +353,7 @@ innit( texture, data, player, minigameInfo, scale = 0.1){
         const x = isOtter ? cam.scrollX + 32 : cam.scrollX + cam.width - 32;
 
         if (this.rejectionPortrait) {
-            try { this.rejectionPortrait.destroy(); } catch {}
+            try { this.rejectionPortrait.destroy(); } catch { }
         }
 
         this.rejectionPortrait = this.scene.add.image(x, y, config.portrait)
