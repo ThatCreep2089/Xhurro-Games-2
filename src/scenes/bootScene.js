@@ -95,6 +95,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('ishmaelPortrait', './assets/imagenes/NPC/IshmaelPortrait.png');
     this.load.image('cleonPortrait', './assets/imagenes/NPC/CleonPortrait.png');
     this.load.image('romePortrait', './assets/imagenes/NPC/RomePortrait.png');
+    this.load.image('naviPortrait', './assets/imagenes/NPC/NaviPortrait.png');
     
     // === BUILDS ===
     this.load.image('destroyedFountain', './assets/imagenes/builds/brokenfountain.png');

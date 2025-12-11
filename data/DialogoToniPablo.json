@@ -4,8 +4,8 @@
 			"val": 1,
 			"Dialog": [
 				{
-				"speaker": "Otter",
-				"portrait": "otter",
+				"speaker": "Navi",
+				"portrait": "naviPortrait",
 				"msgn": "Hola, ¿quién eres?"
 				},
 				{
