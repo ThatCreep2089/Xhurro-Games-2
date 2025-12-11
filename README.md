@@ -769,7 +769,7 @@ Los assets creados por los encargados de arte durante el desarrollo del proyecto
 </details>
 	
 <details>
-	<summary> Gráfico de escena </summary>
+	<summary> Gráfico de arquitectura </summary>
 
 ## Gráfico de architectura
 
