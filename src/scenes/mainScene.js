@@ -229,8 +229,10 @@ export default class mainScene extends Phaser.Scene {
         this.treehouse[0].innit('destroyedTreehouse', 'treehouse', 1, 1, 1, 1, 0, 'house_400_1003');
         this.builds.push(this.treehouse[0]);
 
-        // this.camp = this.map.createFromObjects(('objectLayer', { name: 'treehouse', classType: savePoint, key: 'save' });)
-
+        this.tent = this.map.createFromObjects(('objectLayer', { name: 'tent', classType: Build, key: 'save' });)
+        this.tent[0].innit('destroyedTent', 'tent', 1, 1, 1, 1, 0, 'house_400_1005');
+        this.builds.push(this.tent[0]);
+        
     }
 
     createMapCollisions() {
