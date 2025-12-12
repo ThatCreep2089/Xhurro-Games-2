@@ -106,7 +106,7 @@ img{
     display: flex;
     justify-self: center;
     max-width: 140vmin;
-    height: 370vmin;
+    height: 400vmin;
     padding: 2vmin;
 }
 
@@ -408,7 +408,7 @@ legend{
 }
 
 .description-image2 {
-    width: 20vmin;
+    width: 80vmin;
     max-width: 100%;
     height: auto;
     margin: 5vmin auto 10vmin auto;
