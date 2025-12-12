@@ -62,22 +62,22 @@ export default class mainScene extends Phaser.Scene {
                 description: "Aplasta a los topos cogiendo mazas con la tecla espacio y lanzandoselas cuando aparezcan con la misma tecla.",
                 src: 'WAMVideo',
                 price: 20,
-                reward:{ amountPerX: {paint: 3, paper: 0, clay: 0}, X: 10 }
+                reward: { amountPerX: { paint: 3, paper: 0, clay: 0 }, X: 10 }
             },
             LightUpGhosts: {
                 name: "Ilumina a \n los fantasmas",
-                description: "Mueve la antorcha moviendo el ratón hacia los fantasmas hasta destruirlos antes de que se escapen. \n"+
-                              "\n Pero cuidado con el larguilucho con cara de pocos amigos, si le alumbras te soplará la vela y perderás puntos y campo de visión.",
+                description: "Mueve la antorcha moviendo el ratón hacia los fantasmas hasta destruirlos antes de que se escapen. \n" +
+                    "\n Pero cuidado con el larguilucho con cara de pocos amigos, si le alumbras te soplará la vela y perderás puntos y campo de visión.",
                 src: 'LUGVideo',
                 price: 50,
-                reward:{ amountPerX:{paint: 0, paper: 0, clay: 2}, X: 10 }
+                reward: { amountPerX: { paint: 0, paper: 0, clay: 2 }, X: 10 }
             },
             Puzzle: {
                 name: "Puzle",
                 description: "Haz clic sobre las piezas para rotarlas y consigue que el puzzle encaje.",
                 src: 'PVideo',
                 price: 20,
-                reward:{ amountPerX:{paint: 0, paper: 5, clay: 0}, X: 4 }
+                reward: { amountPerX: { paint: 0, paper: 5, clay: 0 }, X: 4 }
             }
         };
 
@@ -90,7 +90,7 @@ export default class mainScene extends Phaser.Scene {
         this.setPositionsMap();
         /*this.createSources();
         this.createNPCs();*/
-        this.createBuilds();
+        //this.createBuilds();
         this.createMapCollisions()
 
         // === HUD ===
@@ -130,7 +130,7 @@ export default class mainScene extends Phaser.Scene {
         const papertiles = this.map.addTilesetImage('paperfloor', "papertiles");
         const paintriver = this.map.addTilesetImage('paintriver', "paintriver");
         const paperobstacles = this.map.addTilesetImage('paperobstacles', "paperobstacles");
-        const tilesetGroup = [ cardboard, foresttiles,  papertiles, paintriver, paintriver, paperobstacles]
+        const tilesetGroup = [cardboard, foresttiles, papertiles, paintriver, paintriver, paperobstacles]
         this.background = this.map.createLayer('mapbackground', tilesetGroup);
         this.forestFloor = this.map.createLayer('forestFloor', tilesetGroup);
         this.paperFloor = this.map.createLayer('paperFloor', tilesetGroup);
@@ -153,7 +153,7 @@ export default class mainScene extends Phaser.Scene {
           this.resources = this.add.group();
            this.builds = this.add.group();*/
 
-            //NPCS//
+        //NPCS//
         //TONI-PRUEBA
         const npcData = this.cache.json.get('prueba');
         this.toni = this.map.createFromObjects('objectLayer', { name: 'toni', classType: NPC, key: "npc1" });//create from objects siempre devuelve array
@@ -161,15 +161,15 @@ export default class mainScene extends Phaser.Scene {
         //CLEON Y ROME
         const cleonRomeData = this.cache.json.get('cleonRome');
         this.Cleon = this.map.createFromObjects('objectLayer', { name: 'cleon', classType: NPC, key: "npc2" });//create from objects siempre devuelve array
-        this.Cleon[0].innit( 'cleon&rome', cleonRomeData, this.otter, this.minigamesInfo.LightUpGhosts, 0.25, 0.25);
+        this.Cleon[0].innit('cleon&rome', cleonRomeData, this.otter, this.minigamesInfo.LightUpGhosts, 0.25, 0.25);
         //ISHMAEL
         const ishmaelData = this.cache.json.get('ishmael');
         this.Ishmael = this.map.createFromObjects('objectLayer', { name: 'ishmael', classType: NPC, key: "npc3" });
         this.Ishmael[0].innit('ismael', ishmaelData, this.otter, this.minigamesInfo.Puzzle, 0.15, 1);
 
-            //RESOURCES//
+        //RESOURCES//
 
-        this.resources = this.map.createFromObjects('objectLayer', { name: 'resources', classType: Source, key: "paperSource" })
+        this.resources = this.map.createFromObjects('objectLayer', { name: 'resources', classType: Source, key: "resourcesGroup" })
 
         for (let i = 0; i < this.resources.length; i++) {
             let rnd = Phaser.Math.Between(1, 3)
@@ -186,6 +186,50 @@ export default class mainScene extends Phaser.Scene {
             }
 
         }
+
+        //BUILDS//
+        /*
+         this.builds = this.map.createFromObjects('objectLayer', { class: 'build', classType: Build, key: 'buildsGroup' })
+         for (let i = 0; i < this.builds.length; i++) {
+ 
+             if (this.builds[i].name === 'watermill') {
+                 this.builds[i].innit('destroyedWatermill', 'watermill', 15, 20, 10, 1, 0, 'house_400_1000');
+                console.log(this.builds + 'watermill');
+             }
+             else if (this.builds[i].name === 'fountain') {
+                 this.builds[i].innit('destroyedFountain', 'fountain', 15, 20, 10, 1, 0, 'house_400_1000');
+                   console.log(this.builds + 'fountain');
+             }
+             else if (this.builds[i].name === 'swings') {
+                 this.builds[i].innit('destroyedSwings', 'swings', 15, 20, 10, 1, 0, 'house_400_1000');
+                   console.log(this.builds + 'swings');
+             }
+              else if (this.builds[i].name === 'treehouse') {
+                 this.builds[i].innit('destroyedTreehouse', 'treehouse', 15, 20, 10, 1, 0, 'house_400_1000');
+                   console.log(this.builds + 'treehouse');
+             }
+             else{}
+         }*/
+
+        this.builds = [];
+
+        this.watermill = this.map.createFromObjects('objectLayer', { name: 'watermill', classType: Build, key: 'build1' });
+        this.watermill[0].innit('destroyedWatermill', 'watermill', 1, 1, 1, 1, 0, 'house_400_1000');
+        this.builds.push(this.watermill);
+
+        this.fountain = this.map.createFromObjects('objectLayer', { name: 'fountain', classType: Build, key: 'build2' });
+        this.fountain[0].innit('destroyedFountain', 'fountain', 1, 1, 1, 1, 0, 'house_400_1000');
+        this.builds.push(this.fountain);
+
+        this.swings = this.map.createFromObjects('objectLayer', { name: 'swings', classType: Build, key: 'build3' });
+        this.swings[0].innit('destroyedSwing', 'swing', 15, 20, 10, 1, 0, 'house_400_1000');
+        this.builds.push(this.swings);
+
+        this.treehouse = this.map.createFromObjects('objectLayer', { name: 'treehouse', classType: Build, key: 'build4' });
+        this.treehouse[0].innit('destroyedTreehouse', 'treehouse', 1, 1, 1, 1, 0, 'house_400_1000');
+        this.builds.push(this.treehouse);
+
+        // this.camp = this.map.createFromObjects(('objectLayer', { name: 'treehouse', classType: savePoint, key: 'save' });)
 
     }
 
@@ -204,56 +248,56 @@ export default class mainScene extends Phaser.Scene {
         // === HUD ===
         // THE GAME 😃
 
-        if (!this.anims.exists("otterIdleBack")){
+        if (!this.anims.exists("otterIdleBack")) {
             this.anims.create({
                 key: "otterIdleBack",
-                frames: this.anims.generateFrameNumbers("otterBack", {start:1, end: 1}),
+                frames: this.anims.generateFrameNumbers("otterBack", { start: 1, end: 1 }),
                 frameRate: 5,
                 repeat: -1
             });
         }
 
-        if (!this.anims.exists("otterIdleFront")){
+        if (!this.anims.exists("otterIdleFront")) {
             this.anims.create({
                 key: "otterIdleFront",
-                frames: this.anims.generateFrameNumbers("otterFront", {start:0, end: 0}),
+                frames: this.anims.generateFrameNumbers("otterFront", { start: 0, end: 0 }),
                 frameRate: 5,
                 repeat: -1
             });
         }
 
-        if (!this.anims.exists("otterIdleSide")){
+        if (!this.anims.exists("otterIdleSide")) {
             this.anims.create({
                 key: "otterIdleSide",
-                frames: this.anims.generateFrameNumbers("otterSide", {start:1, end: 1}),
+                frames: this.anims.generateFrameNumbers("otterSide", { start: 1, end: 1 }),
                 frameRate: 5,
                 repeat: -1
             });
         }
 
-        if (!this.anims.exists("otterWalkingBack")){
+        if (!this.anims.exists("otterWalkingBack")) {
             this.anims.create({
                 key: "otterWalkingBack",
-                frames: this.anims.generateFrameNumbers("otterBack", {start:0, end: 3}),
-                frameRate: 10,
+                frames: this.anims.generateFrameNumbers("otterBack", { start: 0, end: 3 }),
+                frameRate: 8,
                 repeat: -1
             });
         }
 
-        if (!this.anims.exists("otterWalkingFront")){
+        if (!this.anims.exists("otterWalkingFront")) {
             this.anims.create({
                 key: "otterWalkingFront",
-                frames: this.anims.generateFrameNumbers("otterFront", {start:0, end: 3}),
-                frameRate: 10,
+                frames: this.anims.generateFrameNumbers("otterFront", { start: 0, end: 3 }),
+                frameRate: 8,
                 repeat: -1
             });
         }
 
-        if (!this.anims.exists("otterWalkingSide")){
+        if (!this.anims.exists("otterWalkingSide")) {
             this.anims.create({
                 key: "otterWalkingSide",
-                frames: this.anims.generateFrameNumbers("otterSide", {start:0, end: 3}),
-                frameRate: 20,
+                frames: this.anims.generateFrameNumbers("otterSide", { start: 0, end: 3 }),
+                frameRate: 8,
                 repeat: -1
             });
         }
@@ -262,13 +306,14 @@ export default class mainScene extends Phaser.Scene {
     /* createSources() {
          this.sources = [];
          this.sources.push(new Source(this, 1200, 1200, 'paint', 0, 0, 1, 5));
-     }*/
-
-    createBuilds() {
+     } 
+     
+     createBuilds() {
         this.builds = [];
         const house = new Build(this, 400, 1000, 'destroyedWatermill', 'watermill', 15, 20, 10, 1, 0, 'house_400_1000');
         this.builds.push(house);
     }
+    */
 
     createHUD() {
         this.UIManager = new UIManager(this);

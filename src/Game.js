@@ -10,7 +10,7 @@ import Puzzle from './scenes/puzzle.js';
 import WhachAMoleBall from './scenes/whackAMoleBall.js';
 
 import IntroScene from './scenes/introductionScene.js';
-import TestScene from './scenes/testScene.js';
+
 import EndingScene from './scenes/endingScene.js';
 import CreditsScene from './scenes/creditsScene.js';
 
@@ -30,7 +30,7 @@ let config = {
 		autoCenter: Phaser.Scale.CENTER_BOTH
 	},
 
-	scene: [Aux,Boot,TitleScene,IntroScene,MainScene, WhackAMole, LightUpGhosts, Puzzle, WhachAMoleBall, EndingScene, CreditsScene, TestScene],	// Decimos a Phaser cual es nuestra escena
+	scene: [Aux,Boot,TitleScene,IntroScene,MainScene, WhackAMole, LightUpGhosts, Puzzle, WhachAMoleBall, EndingScene, CreditsScene],	// Decimos a Phaser cual es nuestra escena
 	
 	physics: { 
 		default: 'arcade', 
