@@ -59,21 +59,22 @@ export default class mainScene extends Phaser.Scene {
         this.minigamesInfo = {
             WackAMole: {
                 name: "Whack A Mole",
-                description: "Aplasta a los topos haciendo clic sobre ellos...",
+                description: "Aplasta a los topos cogiendo mazas con la tecla espacio y lanzandoselas cuando aparezcan con la misma tecla.",
                 src: 'WAMVideo',
                 price: 20,
                 reward:{ amountPerX: {paint: 3, paper: 0, clay: 0}, X: 10 }
             },
             LightUpGhosts: {
                 name: "Ilumina a \n los fantasmas",
-                description: "Arrastra la antorcha hacia los fantasmas hasta destruirlos antes de que se escapen.",
+                description: "Mueve la antorcha moviendo el ratón hacia los fantasmas hasta destruirlos antes de que se escapen. \n"+
+                              "\n Pero cuidado con el larguilucho con cara de pocos amigos, si le alumbras te soplará la vela y perderás puntos y campo de visión.",
                 src: 'LUGVideo',
                 price: 50,
                 reward:{ amountPerX:{paint: 0, paper: 0, clay: 2}, X: 10 }
             },
             Puzzle: {
                 name: "Puzle",
-                description: "Haz clic sobre las piezas para rotarlas y consigue que el puzzle encaje",
+                description: "Haz clic sobre las piezas para rotarlas y consigue que el puzzle encaje.",
                 src: 'PVideo',
                 price: 20,
                 reward:{ amountPerX:{paint: 0, paper: 5, clay: 0}, X: 4 }
