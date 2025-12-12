@@ -193,7 +193,7 @@ export default class mainScene extends Phaser.Scene {
         for (let i = 0; i < this.resources.length; i++) {
             let rnd = Phaser.Math.Between(1, 3)
             if (rnd === 1) {
-                this.resources[i].innit('paint0', 1, 0, 0, 1);
+                this.resources[i].innit('paint0', 1, 0, 0, 1, 1, 0, true);
             }
             else if (rnd === 2) {
                 let rndTex = Phaser.Math.Between(0, 1);
@@ -233,11 +233,11 @@ export default class mainScene extends Phaser.Scene {
         this.builds = [];
 
         this.watermill = this.map.createFromObjects('objectLayer', { name: 'watermill', classType: Build, key: 'build1' });
-        this.watermill[0].innit('destroyedWatermill', 'watermill', 15, 20, 10, 1, 0, 'house_400_1001');
+        this.watermill[0].innit('destroyedWatermill', 'watermill', 1, 1, 1, 1, 0, 'house_400_1000');
         this.builds.push(this.watermill[0]);
 
         this.fountain = this.map.createFromObjects('objectLayer', { name: 'fountain', classType: Build, key: 'build2' });
-        this.fountain[0].innit('destroyedFountain', 'fountain', 15, 20, 10, 1, 0, 'house_400_1000');
+        this.fountain[0].innit('destroyedFountain', 'fountain', 1, 1, 1, 1, 0, 'house_400_1001');
         this.builds.push(this.fountain[0]);
 
         this.swings = this.map.createFromObjects('objectLayer', { name: 'swings', classType: Build, key: 'build3' });

@@ -10,11 +10,12 @@ export default class Source extends Phaser.GameObjects.Sprite {
         super(scene, x, y, undefined);
         this.scene.add.existing(this); //Nos añadimos a la escena para ser mostrados.
     }
-    innit( texture, paint, paper, clay, uses, size = 1, frame = 0){
+    innit( texture, paint, paper, clay, uses, size = 1, frame = 0, isPaint = false){
         this.setTexture(texture);
         this.setFrame(frame);
         this.setScale(size);
         this.setDepth(this.y);
+
         //Variables únicas
         this.uses = uses; //Número de usos antes de desaparecer, si es 0 el recurso será ilimitado
         this.id = this.x * this.y;
@@ -36,6 +37,22 @@ export default class Source extends Phaser.GameObjects.Sprite {
          this.body.y = this.body.y + ((this.displayHeight / 2) - (this.body.height/2));
          this.zone.body.y = this.zone.body.y + ((this.displayHeight / 2) - (this.body.height/2));
          this.setDepth(this.body.y);
+
+         //Si es una pintura reposicionamos al cubo de pintura
+         
+         if (isPaint){
+            this.body.y -= 35;
+            this.zone.body.y -= 35;
+            this.body.x += 40;
+            this.zone.body.x += 40;
+            this.body.width -= 55;
+            this.zone.body.width -= 55;
+            this.body.height -= 10;
+            this.zone.body.height -= 10;
+
+            this.setDepth(this.body.y);
+         }
+
           //Añadimos colisiones y overlaps
          this.scene.physics.add.collider(this.otter, this); //Contacto con recurso
          this.scene.physics.add.overlap(this.otter, this.zone, ()=>{this.touching = true;}); //Contacto con zona

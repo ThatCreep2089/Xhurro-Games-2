@@ -155,7 +155,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('MGInfoBG', './assets/imagenes/HUD/popups/MGInfoBG.png');
 
       // == WHACK A MOLE ==
-      this.load.video('WAMVideo', './assets/imagenes/minigames/WhackAMole/WAMVideo.mp4');
+      this.load.video('WAMVideo', './assets/imagenes/minigames/WhackAMole/WAMVideo.mp4') ;
       this.load.image('topo', './assets/imagenes/minigames/WhackAMole/objects/marcus.png');
       this.load.image('hoyo', './assets/imagenes/minigames/WhackAMole/objects/holeFront.png');
       this.load.image('hoyoBack', './assets/imagenes/minigames/WhackAMole/objects/holeBack.png');
