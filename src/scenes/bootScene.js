@@ -148,6 +148,8 @@ export default class Boot extends Phaser.Scene {
     this.load.image('whackAMoleBg', './assets/imagenes/HUD/minigamesBg2.png');
     this.load.image('lightUpGhostsBg', './assets/imagenes/HUD/ghostsBg.png');
     this.load.image('puzzleBg', './assets/imagenes/HUD/minigamesBg1.png');
+    this.load.image('goodEnd', './assets/imagenes/HUD/goodEnding.png');
+    this.load.image('badEnd', './assets/imagenes/HUD/badEnding.png');
 
     // === MINIGAMES ===
     this.load.image('MGInfoBG', './assets/imagenes/HUD/popups/MGInfoBG.png');

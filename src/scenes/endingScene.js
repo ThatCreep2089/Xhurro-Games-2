@@ -16,6 +16,12 @@ export default class EndingScene extends Phaser.Scene {
         this.UIManager = new UIManager(this);
         this.UIManager.FadeOut();
 
+        if (this.goodEnding) {
+            this.add.image(0, 0, 'goodEnd').setOrigin(0, 0);
+        } else {
+            this.add.image(0, 0, 'badEnd').setOrigin(0, 0);
+        }
+
         //this.add.image(0, 0, 'ending').setOrigin(0, 0);
         this.add.text(400, 300, this.goodEnding ? 'Good Ending' : 'Bad Ending', {
             fontFamily: 'bobFont',
