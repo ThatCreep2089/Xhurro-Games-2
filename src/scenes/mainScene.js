@@ -27,6 +27,7 @@ export default class mainScene extends Phaser.Scene {
             keyA: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A),
             keyS: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S),
             keyD: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D),
+            keyB: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.B)          
         };
 
         const inputStates = () => ({
@@ -41,6 +42,9 @@ export default class mainScene extends Phaser.Scene {
         this.keyA = inputStates();
         this.keyS = inputStates();
         this.keyD = inputStates();
+        this.keyB = inputStates();
+        this.keyC = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.C);
+        this.Lkey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.L)
 
         for (const key in this.#inputs) {
             this.#inputs[key].on('down', () => {
@@ -84,7 +88,7 @@ export default class mainScene extends Phaser.Scene {
         // === JUGADOR (Nutria) ===
         this.otter = new Otter(this, this.scale.width / 2, this.scale.height / 2, 350, 'otterFront', 0.15, 0.25, 0);
         this.cameras.main.startFollow(this.otter);
-        this.navi = new Navi(this, this.otter, 40, 'navi', 0.1, 17);
+        this.navi = new Navi(this, this.otter, 40, 'navi', 0.1, 30);
 
         // === FUENTES, CONSTRUCCIONES Y NPCs ===
         this.setPositionsMap();
@@ -111,12 +115,27 @@ export default class mainScene extends Phaser.Scene {
 
     update() {
         // Resetear justDown / justUp
-        let inputs = [this.spaceKey, this.keyW, this.keyA, this.keyS, this.keyD];
+        let inputs = [this.spaceKey, this.keyW, this.keyA, this.keyS, this.keyD,this.keyB];
         for (const key in inputs) {
             inputs[key].justDown = false;
             inputs[key].justUp = false;
         }
         this.builds.forEach(build => build.update && build.update());
+        if(this.keyB.isDown){
+            this.otter.backpack.clay += 100;
+            this.otter.backpack.paint += 100;
+            this.otter.backpack.paper += 100;
+        }
+        if(Phaser.Input.Keyboard.JustDown(this.Lkey)){
+            this.otter.decreaseStamina(90);
+        }
+        if(Phaser.Input.Keyboard.JustDown(this.keyC)){
+            this.currentDay = 5;
+            this.UIManager.FadeIn();
+            GameDataManager.saveFrom(this);
+            this.UIManager.FadeOut();
+            
+        }
     }
 
     createMap() {
@@ -340,5 +359,6 @@ export default class mainScene extends Phaser.Scene {
             GameDataManager.saveFrom(this);
         }
     }
+
 
 }
