@@ -9,7 +9,7 @@
 				"msgn": "Hola, ¿quién eres?"
 				},
 				{
-				"speaker": "Toni",
+				"speaker": "Toñete",
 				"portrait": "toniPortrait",
 				"msgn": "¡Ey, ey, ey! ¡Has venido justo a tiempo! Tu cabeza ahora mismo es como Twitter: tuitea tuitea tuitea."
 				},
@@ -19,17 +19,17 @@
 				"msgn": "¿Qué?"
 				},
 				{
-				"speaker": "Toni",
+				"speaker": "Toñete",
 				"portrait": "toniPortrait",
 				"msgn": "Pensamientos que no quieres, recuerdos que saltan sin permiso como aquel tuit de hace 6 años donde decías que la madre de alguien se parecía a un caballo."
 				},
 				{
-					"speaker":"Toni",
+					"speaker":"Toñete",
 					"portrait":"toniPortrait",
 					"msgn":" Estás disociando y BOOOOOOOOOOOOOM, ahí aparecen."
 				},
 				{
-				"speaker": "Toni",
+				"speaker": "Toñete",
 				"portrait": "toniPortrait",
 				"msgn": "JEJEJEJE a mi sí me pasaba todo el tiempo hasta que encontré este lugar."
 				},
@@ -39,7 +39,7 @@
 				"msgn": "¿Qué lugar?"
 				},
 				{
-				"speaker": "Toni",
+				"speaker": "Toñete",
 				"portrait": "toniPortrait",
 				"msgn": "Este campo de topos. Aquí aprenderás a controlarlos."
 				},
@@ -49,17 +49,17 @@
 				"msgn": "¿Controlarlos? ¿A los topos?"
 				},
 				{
-				"speaker": "Toni",
+				"speaker": "Toñete",
 				"portrait": "toniPortrait",
 				"msgn": "Coño, no.    A tus pensamientos intrusivos."
 				},
 				{
-				"speaker": "Toni",
+				"speaker": "Toñete",
 				"portrait": "toniPortrait",
 				"msgn": "Solo aprende qué ignorar y qué afrontar. Vamos a practicar. Cada topo que golpeas es un pensamiento que decides no dejar dominarte."
 				},
 				{
-				"speaker": "Toni",
+				"speaker": "Toñete",
 				"portrait": "toniPortrait",
 				"msgn": "Venga, estás reconstruyendo tu subconsciente, ¿recuerdas? Además tengo que seguir tuiteando."
 				},
@@ -81,7 +81,7 @@
 
 			],
 			"Rechazo": {
-			    "speaker": "Toni",
+			    "speaker": "Toñete",
 			    "portrait": "toniPortrait",
 			    "msgn": "Bueno... será otro día entonces."
 		    }
@@ -90,7 +90,7 @@
 			"val": 2,
 			"Dialog":[
 				{
-					"speaker": "Toni",
+					"speaker": "Toñete",
 					"portrait": "toniPortrait",
 					"msgn": "Ya vuelves, ¿Otra vez con los topos?"
 				},
@@ -126,7 +126,7 @@
 				"msgn": "Me has bloqueado en Twitter, ¿verdad?"
 				},
 				{
-				"speaker": "Toni",
+				"speaker": "Toñete",
 				"portrait": "toniPortrait",
 				"msgn": "¿Quién, yo? No, para nada."
 				},
@@ -136,7 +136,7 @@
 				"msgn": "Entonces, ¿por qué no puedo ver tus tuits?"
 				},
 				{
-				"speaker": "Toni",
+				"speaker": "Toñete",
 				"portrait": "toniPortrait",
 				"msgn": "¿A ver, vienes a por más topos o solo querías hablar de Twitter?"
 				},
@@ -152,7 +152,7 @@
 				}
 			],
 			"Rechazo": {
-			    "speaker": "Toni",
+			    "speaker": "Toñete",
 			    "portrait": "toniPortrait",
 			    "msgn": "Vuelve otro dia, pero nada de Twitter."
 		    }
@@ -166,7 +166,7 @@
 				"msgn": "Oye, ¿me puedes dejar tu móvil un momento?"
 				},
 				{
-				"speaker": "Toni",
+				"speaker": "Toñete",
 				"portrait": "toniPortrait",
 				"msgn": "¿Para qué?"
 				},
@@ -176,7 +176,7 @@
 				"msgn": "Quiero ver si me has bloqueado en Twitter."
 				},
 				{
-				"speaker": "Toni",
+				"speaker": "Toñete",
 				"portrait": "toniPortrait",
 				"msgn": "¡Claro que no! Toma."
 				},
@@ -191,7 +191,7 @@
 				"msgn": "Ouuuu..."
 				},
 				{
-				"speaker": "Toni",
+				"speaker": "Toñete",
 				"portrait": "toniPortrait",
 				"msgn": "¿Ah, sí? ¿Y por qué iba a hacer eso?"
 				},
@@ -201,7 +201,7 @@
 				"msgn": "No lo sé... quizá por lo del caballo."
 				},
 				{
-				"speaker": "Toni",
+				"speaker": "Toñete",
 				"portrait": "toniPortrait",
 				"msgn": "¡Bah! Eso fue hace años, no me acuerdo ni de ese tuit."
 				},
@@ -212,7 +212,7 @@
 				}
 			],
 			"Rechazo": {
-			    "speaker": "Toni",
+			    "speaker": "Toñete",
 			    "portrait": "toniPortrait",
 			    "msgn": "Nada de caballos, solo topos."
 		    }
@@ -226,7 +226,7 @@
 				"msgn": "Oye, ¿a dónde vas?"
 				},
 				{
-				"speaker": "Toni",
+				"speaker": "Toñete",
 				"portrait": "toniPortrait",
 				"msgn": "Me están arrestando."
 				},
@@ -241,7 +241,7 @@
 				"msgn": "El caballo."
 				},
 				{
-				"speaker": "Toni",
+				"speaker": "Toñete",
 				"portrait": "toniPortrait",
 				"msgn": "..."
 				},
@@ -266,7 +266,7 @@
 				"msgn": "Me alegro de que te hayan soltado."
 				},
 				{
-				"speaker": "Toni",
+				"speaker": "Toñete",
 				"portrait": "toniPortrait",
 				"msgn": "Ya ves, un día y te vuelves loco. He estado pensando y creo que voy a dejarlo."
 				},
@@ -276,7 +276,7 @@
 				"msgn": "¿Dejarlo? ¿El campo de topos?"
 				},
 				{
-				"speaker": "Toni",
+				"speaker": "Toñete",
 				"portrait": "toniPortrait",
 				"msgn": "..."
 				},
@@ -286,7 +286,7 @@
 				"msgn": "¿A Pablo?"
 				},
 				{
-				"speaker": "Toni",
+				"speaker": "Toñete",
 				"portrait": "toniPortrait",
 				"msgn": "Twitter."
 				},
@@ -296,7 +296,7 @@
 				"msgn": "a."
 				},
 				{
-				"speaker": "Toni",
+				"speaker": "Toñete",
 				"portrait": "toniPortrait",
 				"msgn": "Me he dado cuenta de que el problema siempre fue Twitter."
 				},
@@ -306,7 +306,7 @@
 					"msgn": "Eso es verdad."
 				},
 			    {
-				"speaker": "Toni",
+				"speaker": "Toñete",
 				"portrait": "toniPortrait",
 				"msgn": " Siempre que entro me lleno de pensamientos intrusivos y recuerdos incómodos. Es un no parar."
 				},
@@ -316,7 +316,7 @@
 				"msgn": "Entonces, ¿qué vas a hacer?"
 				},
 				{
-				"speaker": "Toni",
+				"speaker": "Toñete",
 				"portrait": "toniPortrait",
 				"msgn": "Dar clase."
 				},
@@ -326,14 +326,14 @@
 				"msgn": "..."
 				},
 				{
-				"speaker": "Toni",
+				"speaker": "Toñete",
 				"portrait": "toniPortrait",
 				"msgn": "Bueno, hasta la próxima."
 				}
 	
 			],
 			"Rechazo": {
-			    "speaker": "Toni",
+			    "speaker": "Toñete",
 			    "portrait": "toniPortrait",
 			    "msgn": "Una ultima vez, si no no te volveré a ver."
 		    }
