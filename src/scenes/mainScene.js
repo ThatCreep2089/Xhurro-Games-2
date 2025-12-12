@@ -229,7 +229,7 @@ export default class mainScene extends Phaser.Scene {
         this.treehouse[0].innit('destroyedTreehouse', 'treehouse', 1, 1, 1, 1, 0, 'house_400_1003');
         this.builds.push(this.treehouse[0]);
 
-        this.tent = this.map.createFromObjects(('objectLayer', { name: 'tent', classType: Build, key: 'save' });)
+        this.tent = this.map.createFromObjects('objectLayer', { name: 'tent', classType: Build, key: 'build4' });
         this.tent[0].innit('destroyedTent', 'tent', 1, 1, 1, 1, 0, 'house_400_1005');
         this.builds.push(this.tent[0]);
         
