@@ -143,7 +143,7 @@ export default class Otter extends Phaser.GameObjects.Sprite {
 
         //Movemos el objeto en función de las teclas pulsadas por el usuario
         //Priorizando la última usada
-        if (this.scene.keyW.isDown && (this.lastKey == 'W' || this.lastKey == null) && this.canMove)
+        if (this.scene.keyW.isDown && (this.lastKey == 'W' || this.lastKey == null) && this.canMove && this.body.y > 120)
         {
             if (!this.isWalkingSFXPlaying) {this.walkingSFX.play(); this.isWalkingSFXPlaying = true;}
             this.body.setVelocity(0, -this.speed);

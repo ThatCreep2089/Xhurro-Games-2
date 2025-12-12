@@ -23,6 +23,7 @@ let config = {
 	parent: 'play',
 	width:  800,
 	height: 600,
+	backgroundColor: '#FFFFFF',
 	pixelArt: true,
 	scale: {
 		mode: Phaser.Scale.NONE,
