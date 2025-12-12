@@ -3,8 +3,9 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "paperfloor.tsx",
+    "activeFile": "map_final.tiled-project.tmj",
     "expandedProjectPaths": [
+        "."
     ],
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
     "fileStates": {
@@ -84,9 +85,9 @@
         },
         "map_final.tiled-project.tmj": {
             "expandedObjectLayers": [
-                37,
                 36,
-                32
+                32,
+                37
             ],
             "scale": 0.125,
             "selectedLayer": 9,
@@ -132,14 +133,14 @@
     "project": "map_final.tiled-project",
     "property.type": "object",
     "recentFiles": [
-        "map_final.json",
         "cardbord.tsx",
         "papeobstacles.tsx",
         "paperfloor.tsx",
         "foresttiles.tsx",
         "grass.tsx",
-        "map_final.tiled-project.tmj",
         "paintriver.tsx",
+        "map_final.tiled-project.tmj",
+        "map_final.json",
         "C:/Users/alici/Desktop/usagimodoki/universidad/motores/Xhurro-Games-2/assets/mainScene/afshtsj-export.tsx",
         "C:/Users/alici/Desktop/usagimodoki/universidad/motores/Xhurro-Games-2/assets/mainScene/mapa.json",
         "tree.tsx"
