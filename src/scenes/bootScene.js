@@ -121,6 +121,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('clay2', './assets/imagenes/sources/clay2.png');
     this.load.image('paint0', './assets/imagenes/sources/paint.png');
     
+    
     // === HUD ===
     this.load.image('buildSources', './assets/imagenes/HUD/buttons/buildSources.png');
     this.load.image('spaceKey', './assets/imagenes/HUD/popups/keyboard_space.png');
@@ -148,27 +149,27 @@ export default class Boot extends Phaser.Scene {
     this.load.image('whackAMoleBg', './assets/imagenes/HUD/minigamesBg2.png');
     this.load.image('lightUpGhostsBg', './assets/imagenes/HUD/ghostsBg.png');
     this.load.image('puzzleBg', './assets/imagenes/HUD/minigamesBg1.png');
-
+    
     // === MINIGAMES ===
     this.load.image('MGInfoBG', './assets/imagenes/HUD/popups/MGInfoBG.png');
-
-      // == WHACK A MOLE ==
-      this.load.video('WAMVideo', './assets/imagenes/minigames/WhackAMole/WAMVideo.mp4');
-      this.load.image('topo', './assets/imagenes/minigames/WhackAMole/objects/marcus.png');
+    
+    // == WHACK A MOLE ==
+    this.load.video('WAMVideo', './assets/imagenes/minigames/WhackAMole/WAMVideo.mp4');
+    this.load.image('topo', './assets/imagenes/minigames/WhackAMole/objects/marcus.png');
       this.load.image('hoyo', './assets/imagenes/minigames/WhackAMole/objects/holeFront.png');
       this.load.image('hoyoBack', './assets/imagenes/minigames/WhackAMole/objects/holeBack.png');
       this.load.image('dinamita', './assets/imagenes/minigames/WhackAMole/objects/bomba.png');
       this.load.image('toposEnd', './assets/imagenes/minigames/WhackAMole/endImg.png');
       this.load.image('hammer', './assets/imagenes/minigames/WhackAMole/objects/hammer.png');
       this.load.spritesheet('explosion','./assets/imagenes/minigames/WhackAMole/objects/explosion.png', {frameWidth: 32,frameHeight:32})
-       
+      
       // == LIGHT UP GHOSTS ==
       this.load.video('LUGVideo', './assets/imagenes/minigames/LightUpGhosts/infoVideo.mp4');
       this.load.image('fantasmasEnd', './assets/imagenes/minigames/LightUpGhosts/endImg.png');
       this.load.image('blower', './assets/imagenes/minigames/LightUpGhosts/largeGhost.png');
       this.load.image('hiker', './assets/imagenes/minigames/LightUpGhosts/smallGhost.png');
       this.load.image('starer', './assets/imagenes/minigames/LightUpGhosts/bigGhost.png');
-
+      
       // == PUZZLE ==
       this.load.video('PVideo', './assets/imagenes/minigames/Puzzle/infoVideo.mp4');
       this.load.image('puzleEnd', './assets/imagenes/minigames/Puzzle/endImg.png');
@@ -185,41 +186,45 @@ export default class Boot extends Phaser.Scene {
       this.load.image('puzzle1_6', './assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_6.png');
       this.load.image('puzzle1_7', './assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_7.png');
       this.load.image('puzzle1_8', './assets/imagenes/minigames/Puzzle/Puzzle1/puzzle_1_8.png');
+      
+      // === RECURSOS DIÁLOGOS ===
+      this.load.json('prueba', './data/DialogoToniPablo.json');
+      this.load.json('cleonRome', './data/Cleon&RomeDialogo.json');
+      this.load.json('ishmael', './data/IshmaelDialogo.json');
+      this.load.json('dialogos', './data/DialogScene.json');
+      this.load.json('buildDialogs', './data/BuildDialogs.json');
+      // === TILEMAP ===
+      this.load.image("cardboard", "./assets/mainScene/cardboard.png");
+      this.load.image("foresttiles", "./assets/mainScene/foresttiles.png");
+      this.load.image("grass", "./assets/mainScene/grass.png");
+      this.load.image("paintriver", "./assets/mainScene/paintriver.png");
+      this.load.image("paperobstacles", "./assets/mainScene/paperobstacles.png");
+      this.load.image("papertiles", "./assets/mainScene/paperfloor.png");
 
-    // === RECURSOS DIÁLOGOS ===
-    this.load.json('prueba', './data/DialogoToniPablo.json');
-    this.load.json('cleonRome', './data/Cleon&RomeDialogo.json');
-    this.load.json('ishmael', './data/IshmaelDialogo.json');
-    this.load.json('dialogos', './data/DialogScene.json');
-    this.load.json('buildDialogs', './data/BuildDialogs.json');
-     // === TILEMAP ===
-     this.load.image("cardboard", "./assets/mainScene/cardboard.png");
-     this.load.image("foresttiles", "./assets/mainScene/foresttiles.png");
-     this.load.image("grass", "./assets/mainScene/grass.png");
-     this.load.image("paintriver", "./assets/mainScene/paintriver.png");
-     this.load.image("paperobstacles", "./assets/mainScene/paperobstacles.png");
-     this.load.image("papertiles", "./assets/mainScene/paperfloor.png");
-     this.load.image("tree", "./assets/mainScene/tree.png");
-     this.load.tilemapTiledJSON("tilemap", "./assets/mainScene/map_final.json");
-    this.first = false;
-
-    // === AUDIO ===
-
+      this.load.tilemapTiledJSON("tilemap", "./assets/mainScene/map_final.json");
+      this.first = false;
+      
+      // === DECORS ===
+      this.load.image("decor0", "./assets/mainScene/decor0.png");
+      this.load.image("decor1", "./assets/mainScene/decor1.png");
+      this.load.image("decor2", "./assets/mainScene/decor2.png");
+      // === AUDIO ===
+      
       // == MÚSICA ==
-       this.load.audio('titleMusic', './assets/audios/Title.mp3');
-       this.load.audio('mainSceneMusic', './assets/audios/mainScene.mp3');
-       this.load.audio('minigameInfoMusic', './assets/audios/minigames/MinigameInfo.mp3');
-       // = MINIGAMES =
-         this.load.audio('lightUpGhostsMusic', './assets/audios/minigames/LightUpGhosts/LightUpGhosts.mp3');
-         this.load.audio('puzzleMusic', './assets/audios/minigames/Puzzle/Puzzle.mp3');
-         this.load.audio('whackAMoleMusic', './assets/audios/minigames/WhackAMole/Topos.mp3');
-
+      this.load.audio('titleMusic', './assets/audios/Title.mp3');
+      this.load.audio('mainSceneMusic', './assets/audios/mainScene.mp3');
+      this.load.audio('minigameInfoMusic', './assets/audios/minigames/MinigameInfo.mp3');
+      // = MINIGAMES =
+      this.load.audio('lightUpGhostsMusic', './assets/audios/minigames/LightUpGhosts/LightUpGhosts.mp3');
+      this.load.audio('puzzleMusic', './assets/audios/minigames/Puzzle/Puzzle.mp3');
+      this.load.audio('whackAMoleMusic', './assets/audios/minigames/WhackAMole/Topos.mp3');
+      
       // == SFX ==
-       this.load.audio('walkingSFX', './assets/audios/walking.mp3');
-       // = HUD =
-        this.load.audio('appearWarningSFX', './assets/audios/HUD/appearWarning.mp3');
-        this.load.audio('disappearWarningSFX', './assets/audios/HUD/disappearWarning.mp3');
-        this.load.audio('acceptSFX', './assets/audios/HUD/accept.mp3');
+      this.load.audio('walkingSFX', './assets/audios/walking.mp3');
+      // = HUD =
+      this.load.audio('appearWarningSFX', './assets/audios/HUD/appearWarning.mp3');
+      this.load.audio('disappearWarningSFX', './assets/audios/HUD/disappearWarning.mp3');
+      this.load.audio('acceptSFX', './assets/audios/HUD/accept.mp3');
         this.load.audio('refuseSFX', './assets/audios/HUD/refuse.mp3');
        // = MINIGAMES =
         this.load.audio('timer', './assets/audios/minigames/timerSFX.mp3');

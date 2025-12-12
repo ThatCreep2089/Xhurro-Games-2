@@ -1,10 +1,12 @@
 import Otter from "../characters/otter.js";
 import Source from "../gameObjects/source.js";
+import decors from "../gameObjects/decors.js"
 import Build from "../gameObjects/build.js";
 import NPC from "../characters/npc.js";
 import UIManager from "../HUD/UIManager.js";
 import GameDataManager from "../GameDataManager.js";
 import Navi from "../characters/navi.js";
+import Decor from "../gameObjects/decors.js";
 
 export default class mainScene extends Phaser.Scene {
     constructor() {
@@ -136,8 +138,8 @@ export default class mainScene extends Phaser.Scene {
         this.paperFloor = this.map.createLayer('paperFloor', tilesetGroup);
         this.decors = this.map.createLayer('decors', tilesetGroup);
         this.paintRiver = this.map.createLayer('paintRiver', tilesetGroup);
-        this.obstaclesbottom = this.map.createLayer('obstaclesbottom', tilesetGroup);
-        this.obstaclestop = this.map.createLayer('obstaclestop', tilesetGroup);
+        //this.obstaclesbottom = this.map.createLayer('obstaclesbottom', tilesetGroup);
+        // this.obstaclestop = this.map.createLayer('obstaclestop', tilesetGroup);
     }
 
 
@@ -150,8 +152,8 @@ export default class mainScene extends Phaser.Scene {
             return;
         }
         /*  this.npcsG = this.add.group();
-          this.resources = this.add.group();
-           this.builds = this.add.group();*/
+        this.resources = this.add.group();
+        this.builds = this.add.group();*/
 
         //NPCS//
         //TONI-PRUEBA
@@ -189,27 +191,27 @@ export default class mainScene extends Phaser.Scene {
 
         //BUILDS//
         /*
-         this.builds = this.map.createFromObjects('objectLayer', { class: 'build', classType: Build, key: 'buildsGroup' })
-         for (let i = 0; i < this.builds.length; i++) {
- 
-             if (this.builds[i].name === 'watermill') {
-                 this.builds[i].innit('destroyedWatermill', 'watermill', 15, 20, 10, 1, 0, 'house_400_1000');
-                console.log(this.builds + 'watermill');
-             }
-             else if (this.builds[i].name === 'fountain') {
-                 this.builds[i].innit('destroyedFountain', 'fountain', 15, 20, 10, 1, 0, 'house_400_1000');
-                   console.log(this.builds + 'fountain');
-             }
-             else if (this.builds[i].name === 'swings') {
-                 this.builds[i].innit('destroyedSwings', 'swings', 15, 20, 10, 1, 0, 'house_400_1000');
-                   console.log(this.builds + 'swings');
-             }
-              else if (this.builds[i].name === 'treehouse') {
-                 this.builds[i].innit('destroyedTreehouse', 'treehouse', 15, 20, 10, 1, 0, 'house_400_1000');
-                   console.log(this.builds + 'treehouse');
-             }
-             else{}
-         }*/
+        this.builds = this.map.createFromObjects('objectLayer', { class: 'build', classType: Build, key: 'buildsGroup' })
+        for (let i = 0; i < this.builds.length; i++) {
+            
+        if (this.builds[i].name === 'watermill') {
+            this.builds[i].innit('destroyedWatermill', 'watermill', 15, 20, 10, 1, 0, 'house_400_1000');
+            console.log(this.builds + 'watermill');
+            }
+            else if (this.builds[i].name === 'fountain') {
+                this.builds[i].innit('destroyedFountain', 'fountain', 15, 20, 10, 1, 0, 'house_400_1000');
+                console.log(this.builds + 'fountain');
+                }
+                else if (this.builds[i].name === 'swings') {
+                    this.builds[i].innit('destroyedSwings', 'swings', 15, 20, 10, 1, 0, 'house_400_1000');
+                    console.log(this.builds + 'swings');
+                    }
+                    else if (this.builds[i].name === 'treehouse') {
+                        this.builds[i].innit('destroyedTreehouse', 'treehouse', 15, 20, 10, 1, 0, 'house_400_1000');
+                        console.log(this.builds + 'treehouse');
+                        }
+                        else{}
+                            }*/
 
         this.builds = [];
 
@@ -232,18 +234,31 @@ export default class mainScene extends Phaser.Scene {
         this.tent = this.map.createFromObjects('objectLayer', { name: 'camp', classType: Build, key: 'build4' });
         this.tent[0].innit('destroyedTent', 'tent', 1, 1, 1, 1, 0, 'house_400_1004');
         this.builds.push(this.tent[0]);
-        
+
+        //DECORS//
+        this.decorLayer = this.map.getObjectLayer("decorLayer");
+        if (!this.decorLayer) {
+            console.error("No se encontró la capa de objetos decor");
+            return;
+        }
+
+        this.decors = this.map.createFromObjects('decorLayer', { name: 'decor', classType: Decor, key: "DecorGroup" })
+
+        for (let i = 0; i < this.decors.length; i++) {
+              let rndTex = Phaser.Math.Between(1, 2);
+                this.decors[i].innit('decor' + rndTex, 1);
+        }
     }
 
     createMapCollisions() {
 
 
         this.paintRiver.setCollisionByExclusion([-1]);//colision con todo menos lo nulo
-        this.obstaclesbottom.setCollisionByExclusion([-1]);
-        this.obstaclestop.setCollisionByExclusion([-1])
+        //this.obstaclesbottom.setCollisionByExclusion([-1]);
+        //this.obstaclestop.setCollisionByExclusion([-1])
         this.physics.add.collider(this.otter, this.paintRiver);
-        this.physics.add.collider(this.otter, this.obstaclesbottom);
-        this.physics.add.collider(this.otter, this.obstaclestop);
+        //this.physics.add.collider(this.otter, this.obstaclesbottom);
+        //this.physics.add.collider(this.otter, this.obstaclestop);
     }
 
     createAnims() {
