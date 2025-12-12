@@ -6,12 +6,13 @@ export default class Build extends Phaser.GameObjects.Sprite {
         super(scene, x, y, undefined);
         this.scene.add.existing(this);
     }
-    innit(texture, builtTexture, paint = 0, paper = 0, clay = 0, size = 1, /*frame = 0,*/ id = null) {
+    innit(texture, builtTexture, paint = 0, paper = 0, clay = 0, size = 1, frame = 0, id = null) {
         this.setTexture(texture)
         this.setScale(size);
 
         // Identificador único (por defecto posición)
         this.id = id || `${Math.round(this.x)}_${Math.round(this.y)}`;
+
 
         this.builtTexture = builtTexture || texture;
         this.built = false;
@@ -138,11 +139,10 @@ export default class Build extends Phaser.GameObjects.Sprite {
             repeat: -1,                  // repetir infinitamente
             ease: 'Sine.easeInOut'       // suaviza el movimiento
         });
-
+        
         if (fromLoad) return;
 
         const dialogData = this.scene.cache.json.get('buildDialogs');
-
         if (!dialogData || !dialogData[this.id]) return;
 
         this.dialogList = dialogData[this.id];

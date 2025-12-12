@@ -214,20 +214,20 @@ export default class mainScene extends Phaser.Scene {
         this.builds = [];
 
         this.watermill = this.map.createFromObjects('objectLayer', { name: 'watermill', classType: Build, key: 'build1' });
-        this.watermill[0].innit('destroyedWatermill', 'watermill', 1, 1, 1, 1, 0, 'house_400_1000');
-        this.builds.push(this.watermill);
+        this.watermill[0].innit('destroyedWatermill', 'watermill', 1, 1, 1, 1, 0, 'house_400_1001');
+        this.builds.push(this.watermill[0]);
 
         this.fountain = this.map.createFromObjects('objectLayer', { name: 'fountain', classType: Build, key: 'build2' });
         this.fountain[0].innit('destroyedFountain', 'fountain', 1, 1, 1, 1, 0, 'house_400_1000');
-        this.builds.push(this.fountain);
+        this.builds.push(this.fountain[0]);
 
         this.swings = this.map.createFromObjects('objectLayer', { name: 'swings', classType: Build, key: 'build3' });
-        this.swings[0].innit('destroyedSwing', 'swing', 15, 20, 10, 1, 0, 'house_400_1000');
-        this.builds.push(this.swings);
+        this.swings[0].innit('destroyedSwing', 'swing', 15, 20, 10, 1, 0, 'house_400_1002');
+        this.builds.push(this.swings[0]);
 
         this.treehouse = this.map.createFromObjects('objectLayer', { name: 'treehouse', classType: Build, key: 'build4' });
-        this.treehouse[0].innit('destroyedTreehouse', 'treehouse', 1, 1, 1, 1, 0, 'house_400_1000');
-        this.builds.push(this.treehouse);
+        this.treehouse[0].innit('destroyedTreehouse', 'treehouse', 1, 1, 1, 1, 0, 'house_400_1003');
+        this.builds.push(this.treehouse[0]);
 
         // this.camp = this.map.createFromObjects(('objectLayer', { name: 'treehouse', classType: savePoint, key: 'save' });)
 

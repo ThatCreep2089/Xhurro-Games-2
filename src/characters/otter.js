@@ -53,6 +53,9 @@ export default class Otter extends Phaser.GameObjects.Sprite {
             rate: 2
         });
         this.isWalkingSFXPlaying = false;
+
+        //animación
+        this.lastAnim = "otterIdleFront";
     }
 
     // === GESTIÓN DE INVENTARIO ===
@@ -148,6 +151,7 @@ export default class Otter extends Phaser.GameObjects.Sprite {
             if (!this.isWalkingSFXPlaying) {this.walkingSFX.play(); this.isWalkingSFXPlaying = true;}
             this.body.setVelocity(0, -this.speed);
             this.play("otterWalkingBack", true);
+            //last 
         }
         else if (this.scene.keyS.isDown && (this.lastKey == 'S' || this.lastKey == null) && this.canMove)
         {
