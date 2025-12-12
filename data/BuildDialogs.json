@@ -13,7 +13,140 @@
         {
             "speaker": "Otter",
             "portrait": "otter",
-            "msgn": "Esto no se va a hacer solo"
+            "msgn": "Pero, ¿que es esto?"
+        },
+        {
+            "speaker": "Otter",
+            "portrait": "otter",
+            "msgn": "¿Varias personas?, ¿una luz?"
+        },
+        {
+            "speaker": "Otter",
+            "portrait": "otter",
+            "msgn": "Necesito continuar"
+        }
+    ],
+    "house_400_1001": [
+        {
+            "speaker": "Otter",
+            "portrait": "otter",
+            "msgn": "Ya queda menos"
+        },
+        {
+            "speaker": "Otter",
+            "portrait": "otter",
+            "msgn": "Espero poder recordar todo"
+        },
+        {
+            "speaker": "Otter",
+            "portrait": "otter",
+            "msgn": "Pero es extraño tengo un recuerdo vago"
+        },
+        {
+            "speaker": "Otter",
+            "portrait": "otter",
+            "msgn": "Recuerdo una familia, y un coche"
+        },
+        {
+            "speaker": "Otter",
+            "portrait": "otter",
+            "msgn": "Y una luz,se acerca poco a poco"
+        },
+        {
+            "speaker": "Otter",
+            "portrait": "otter",
+            "msgn": "¿Qué ocurrió en realidad?"
+        }
+    ],
+    "house_400_1002": [
+        {
+            "speaker": "Otter",
+            "portrait": "otter",
+            "msgn": "Esto me  está cansando"
+        },
+        {
+            "speaker": "Otter",
+            "portrait": "otter",
+            "msgn": "Pero debo de continuar"
+        },
+        {
+            "speaker": "Otter",
+            "portrait": "otter",
+            "msgn": "Así no podré saber la verdad"
+        },
+        {
+            "speaker": "Otter",
+            "portrait": "otter",
+            "msgn": "Venga"
+        },
+        {
+            "speaker": "Otter",
+            "portrait": "otter",
+            "msgn": "Un pequeño empujón más"
+        }
+    ],
+    "house_400_1003": [
+        {
+            "speaker": "Otter",
+            "portrait": "otter",
+            "msgn": "Venga,otra más para la saca"
+        },
+        {
+            "speaker": "Otter",
+            "portrait": "otter",
+            "msgn": "¿Qué? ¿Otro fragmento?"
+        },
+        {
+            "speaker": "Otter",
+            "portrait": "otter",
+            "msgn": "Veo una luz muy brillante, me quema un poco la vista"
+        },
+        {
+            "speaker": "Otter",
+            "portrait": "otter",
+            "msgn": "Mucha gente llendo y viniendo"
+        },
+        {
+            "speaker": "Otter",
+            "portrait": "otter",
+            "msgn": "Y un pitido constante"
+        },
+        {
+            "speaker": "Otter",
+            "portrait": "otter",
+            "msgn": "¿Qué puede siginificar?"
+        }
+    ],
+    "house_400_1004": [
+        {
+            "speaker": "Otter",
+            "portrait": "otter",
+            "msgn": "Y queda menos"
+        },
+        {
+            "speaker": "Otter",
+            "portrait": "otter",
+            "msgn": "Cuanto más construyo mejor"
+        },
+        {
+            "speaker": "Otter",
+            "portrait": "otter",
+            "msgn": "Tendré que seguir construyendo"
+        },
+        {
+            "speaker": "Otter",
+            "portrait": "otter",
+            "msgn": "ya tengo algo de info"
+        },
+        {
+            "speaker": "Otter",
+            "portrait": "otter",
+            "msgn": "Seguro que si construyo todo podré obtener la verdad"
+        },
+        {
+            "speaker": "Otter",
+            "portrait": "otter",
+            "msgn": "Vamos, a ello"
         }
     ]
 }
