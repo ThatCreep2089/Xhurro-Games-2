@@ -765,6 +765,18 @@
                  "width":0,
                  "x":2000,
                  "y":680
+                }, 
+                {
+                 "height":0,
+                 "id":195,
+                 "name":"camp",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":600,
+                 "y":520
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -773,7 +785,7 @@
          "y":0
         }],
  "nextlayerid":50,
- "nextobjectid":195,
+ "nextobjectid":196,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.11.2",
