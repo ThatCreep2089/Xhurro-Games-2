@@ -5,7 +5,7 @@ export default class EndingScene extends Phaser.Scene {
     }
     
     init(data) {
-        this.goodEnding = data.good;
+        this.goodEnding = true;
     }
 
     create() {
@@ -17,9 +17,10 @@ export default class EndingScene extends Phaser.Scene {
         this.UIManager.FadeOut();
 
         if (this.goodEnding) {
-            this.add.image(0, 0, 'goodEnd').setOrigin(0, 0);
+            this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'goodEnd').setOrigin(0.5, 0.5);
+            
         } else {
-            this.add.image(0, 0, 'badEnd').setOrigin(0, 0);
+            this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'badEnd').setOrigin(0.5, 0.5);
         }
 
         //this.add.image(0, 0, 'ending').setOrigin(0, 0);

@@ -130,7 +130,7 @@ export default class mainScene extends Phaser.Scene {
             this.otter.decreaseStamina(90);
         }
         if(Phaser.Input.Keyboard.JustDown(this.keyC)){
-            this.currentDay = 5;
+            this.currentDay = 6;
             this.UIManager.FadeIn();
             GameDataManager.saveFrom(this);
             this.UIManager.FadeOut();
