@@ -53,6 +53,9 @@ export default class Otter extends Phaser.GameObjects.Sprite {
             rate: 2
         });
         this.isWalkingSFXPlaying = false;
+
+        //animación
+        this.lastAnim = "otterIdleFront";
     }
 
     // === GESTIÓN DE INVENTARIO ===
@@ -143,17 +146,19 @@ export default class Otter extends Phaser.GameObjects.Sprite {
 
         //Movemos el objeto en función de las teclas pulsadas por el usuario
         //Priorizando la última usada
-        if (this.scene.keyW.isDown && (this.lastKey == 'W' || this.lastKey == null) && this.canMove)
+        if (this.scene.keyW.isDown && (this.lastKey == 'W' || this.lastKey == null) && this.canMove && this.body.y > 120)
         {
             if (!this.isWalkingSFXPlaying) {this.walkingSFX.play(); this.isWalkingSFXPlaying = true;}
             this.body.setVelocity(0, -this.speed);
             this.play("otterWalkingBack", true);
+            this.lastAnim = "otterIdleBack";
         }
         else if (this.scene.keyS.isDown && (this.lastKey == 'S' || this.lastKey == null) && this.canMove)
         {
             if (!this.isWalkingSFXPlaying) {this.walkingSFX.play(); this.isWalkingSFXPlaying = true;}
             this.body.setVelocity(0, this.speed);
             this.play("otterWalkingFront", true);
+            this.lastAnim = "otterIdleFront";
         }
         else if (this.scene.keyA.isDown && (this.lastKey == 'A' || this.lastKey == null) && this.canMove)
         {
@@ -161,6 +166,7 @@ export default class Otter extends Phaser.GameObjects.Sprite {
             this.body.setVelocity(-this.speed, 0);
             if (this.flipX) this.setFlipX(false);
             this.play("otterWalkingSide", true);
+            this.lastAnim = "otterIdleSide";
         }
         else if (this.scene.keyD.isDown && (this.lastKey == 'D' || this.lastKey == null) && this.canMove)
         {
@@ -168,12 +174,13 @@ export default class Otter extends Phaser.GameObjects.Sprite {
             this.body.setVelocity(this.speed, 0);
             if (!this.flipX) this.setFlipX(true);
             this.play("otterWalkingSide", true);
+            this.lastAnim = "otterIdleSide";
         }
         else
         {
             if (this.isWalkingSFXPlaying) {this.walkingSFX.stop(); this.isWalkingSFXPlaying = false;}
             this.body.setVelocity(0,0);
-            this.play("otterIdleFront", true);
+            this.play(this.lastAnim, true);
         }
         
         this.setDepth(this.body.y);

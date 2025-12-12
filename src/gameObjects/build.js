@@ -2,14 +2,17 @@
 import GameDataManager from "../GameDataManager.js";
 import DialogText from "../dialog_plugin.js";
 export default class Build extends Phaser.GameObjects.Sprite {
-    constructor(scene, x, y, texture, builtTexture, paint = 0, paper = 0, clay = 0, size = 1, frame = 0, id = null) {
-        super(scene, x, y, texture, frame);
-
-        this.setScale(size);
+    constructor(scene, x, y) {
+        super(scene, x, y, undefined);
         this.scene.add.existing(this);
+    }
+    innit(texture, builtTexture, paint = 0, paper = 0, clay = 0, size = 1, frame = 0, id = null) {
+        this.setTexture(texture)
+        this.setScale(size);
 
         // Identificador único (por defecto posición)
-        this.id = id || `${Math.round(x)}_${Math.round(y)}`;
+        this.id = id || `${Math.round(this.x)}_${Math.round(this.y)}`;
+
 
         this.builtTexture = builtTexture || texture;
         this.built = false;
@@ -18,9 +21,9 @@ export default class Build extends Phaser.GameObjects.Sprite {
         this.sources = { paint, paper, clay };
 
         // Física / zona
-        this.zone = scene.add.zone(x, y).setSize(this.width + 10, (this.height * 0.2) + 10);
-        scene.physics.add.existing(this.zone, true);
-        scene.physics.add.existing(this, true);
+        this.zone = this.scene.add.zone(this.x, this.y).setSize(this.width + 10, (this.height * 0.2) + 10);
+        this.scene.physics.add.existing(this.zone, true);
+        this.scene.physics.add.existing(this, true);
 
         this.body.setSize(this.width, (this.height) * 0.2);
         this.body.y = this.body.y + ((this.height / 2) - (this.body.height / 2));
@@ -28,8 +31,8 @@ export default class Build extends Phaser.GameObjects.Sprite {
 
         this.setDepth(this.body.y);
 
-        scene.physics.add.collider(this.otter, this);
-        scene.physics.add.overlap(this.otter, this.zone, () => { this.touching = true; });
+        this.scene.physics.add.collider(this.otter, this);
+        this.scene.physics.add.overlap(this.otter, this.zone, () => { this.touching = true; });
 
         this.touching = false;
         this.wasTouching = false;
@@ -42,14 +45,14 @@ export default class Build extends Phaser.GameObjects.Sprite {
         this.dialogShown = false;
         this.dialogIndex = 0;
         this.dialogList = [];
-        this.dialog = new DialogText(scene, {
+        this.dialog = new DialogText(this.scene, {
             windowHeight: 150,
             padding: 32,
             dialogSpeed: 2,
             portraitSize: 120
         });
         this.dialog.toggleWindow(); // oculto inicialmente
-        this.keySpace = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        this.keySpace = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
         this.pulseTween = this.scene.tweens.add({
             targets: this,
@@ -101,7 +104,7 @@ export default class Build extends Phaser.GameObjects.Sprite {
 
             // actualizar HUD
             if (this.scene.UIManager && this.scene.UIManager.event) {
-                this.scene.UIManager.event.emit("updateInventory", {paint: -this.sources.paint, paper: -this.sources.paper, clay: -this.sources.clay});
+                this.scene.UIManager.event.emit("updateInventory", { paint: -this.sources.paint, paper: -this.sources.paper, clay: -this.sources.clay });
             }
 
             // guardar inmediatamente el estado global
@@ -136,14 +139,13 @@ export default class Build extends Phaser.GameObjects.Sprite {
             repeat: -1,                  // repetir infinitamente
             ease: 'Sine.easeInOut'       // suaviza el movimiento
         });
-
+        
         if (fromLoad) return;
 
         const dialogData = this.scene.cache.json.get('buildDialogs');
-
         if (!dialogData || !dialogData[this.id]) return;
 
-        this.dialogList = dialogData[this.id];     
+        this.dialogList = dialogData[this.id];
         this.dialogIndex = 0;
 
         this.dialogShown = true;
@@ -171,7 +173,7 @@ export default class Build extends Phaser.GameObjects.Sprite {
             // También marcamos que el diálogo ya no se muestra
             this.dialogShown = false;
         });
-        
+
         // Llamar a showCurrentDialog() en el siguiente tick
         this.scene.time.delayedCall(0, () => {
             this.showCurrentDialog();
@@ -301,9 +303,9 @@ export default class Build extends Phaser.GameObjects.Sprite {
             stroke: '#000000',
             strokeThickness: 3
         })
-        .setScrollFactor(0) // se queda fijo en la cámara
-        .setDepth(5000)
-        .setAlpha(1);
+            .setScrollFactor(0) // se queda fijo en la cámara
+            .setDepth(5000)
+            .setAlpha(1);
     }
 
 }
