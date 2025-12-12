@@ -174,7 +174,7 @@ export default class mainScene extends Phaser.Scene {
         for (let i = 0; i < this.resources.length; i++) {
             let rnd = Phaser.Math.Between(1, 3)
             if (rnd === 1) {
-                this.resources[i].innit('paint0', 1, 0, 0, 1);
+                this.resources[i].innit('paint0', 1, 0, 0, 1, 1, 0, true);
             }
             else if (rnd === 2) {
                 let rndTex = Phaser.Math.Between(0, 1);
