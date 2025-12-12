@@ -188,28 +188,49 @@ export default class mainScene extends Phaser.Scene {
         }
 
         //BUILDS//
-       
-        this.builds = this.map.createFromObjects('objectLayer', { class: 'build', classType: Build, key: 'buildsGroup' })
-        for (let i = 0; i < this.builds.length; i++) {
+        /*
+         this.builds = this.map.createFromObjects('objectLayer', { class: 'build', classType: Build, key: 'buildsGroup' })
+         for (let i = 0; i < this.builds.length; i++) {
+ 
+             if (this.builds[i].name === 'watermill') {
+                 this.builds[i].innit('destroyedWatermill', 'watermill', 15, 20, 10, 1, 0, 'house_400_1000');
+                console.log(this.builds + 'watermill');
+             }
+             else if (this.builds[i].name === 'fountain') {
+                 this.builds[i].innit('destroyedFountain', 'fountain', 15, 20, 10, 1, 0, 'house_400_1000');
+                   console.log(this.builds + 'fountain');
+             }
+             else if (this.builds[i].name === 'swings') {
+                 this.builds[i].innit('destroyedSwings', 'swings', 15, 20, 10, 1, 0, 'house_400_1000');
+                   console.log(this.builds + 'swings');
+             }
+              else if (this.builds[i].name === 'treehouse') {
+                 this.builds[i].innit('destroyedTreehouse', 'treehouse', 15, 20, 10, 1, 0, 'house_400_1000');
+                   console.log(this.builds + 'treehouse');
+             }
+             else{}
+         }*/
 
-            if (this.builds[i].name === 'watermill') {
-                this.builds[i].innit('destroyedWatermill', 'watermill', 15, 20, 10, 1, 0, 'house_400_1000');
-               console.log(this.builds + 'watermill');
-            }
-            else if (this.builds[i].name === 'fountain') {
-                this.builds[i].innit('destroyedFountain', 'fountain', 15, 20, 10, 1, 0, 'house_400_1000');
-                  console.log(this.builds + 'fountain');
-            }
-            else if (this.builds[i].name === 'swings') {
-                this.builds[i].innit('destroyedSwings', 'swings', 15, 20, 10, 1, 0, 'house_400_1000');
-                  console.log(this.builds + 'swings');
-            }
-             else if (this.builds[i].name === 'treehouse') {
-                this.builds[i].innit('destroyedTreehouse', 'treehouse', 15, 20, 10, 1, 0, 'house_400_1000');
-                  console.log(this.builds + 'treehouse');
-            }
-            else{}
-        }
+        this.builds = [];
+
+        this.watermill = this.map.createFromObjects('objectLayer', { name: 'watermill', classType: Build, key: 'build1' });
+        this.watermill[0].innit('destroyedWatermill', 'watermill', 1, 1, 1, 1, 0, 'house_400_1000');
+        this.builds.push(this.watermill);
+
+        this.fountain = this.map.createFromObjects('objectLayer', { name: 'fountain', classType: Build, key: 'build2' });
+        this.fountain[0].innit('destroyedFountain', 'fountain', 1, 1, 1, 1, 0, 'house_400_1000');
+        this.builds.push(this.fountain);
+
+        this.swings = this.map.createFromObjects('objectLayer', { name: 'swings', classType: Build, key: 'build3' });
+        this.swings[0].innit('destroyedSwing', 'swing', 15, 20, 10, 1, 0, 'house_400_1000');
+        this.builds.push(this.swings);
+
+        this.treehouse = this.map.createFromObjects('objectLayer', { name: 'treehouse', classType: Build, key: 'build4' });
+        this.treehouse[0].innit('destroyedTreehouse', 'treehouse', 1, 1, 1, 1, 0, 'house_400_1000');
+        this.builds.push(this.treehouse);
+
+        // this.camp = this.map.createFromObjects(('objectLayer', { name: 'treehouse', classType: savePoint, key: 'save' });)
+
     }
 
     createMapCollisions() {
