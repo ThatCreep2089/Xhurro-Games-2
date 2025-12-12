@@ -400,10 +400,10 @@ legend{
 }
 
 .description-image {
-    width: 50vmin;
+    width: 20vmin;
     max-width: 100%;
     height: auto;
-    margin: 5vmin auto 18vmin auto;
+    margin: 5vmin auto 12vmin auto;
     object-fit: contain;
 }
 
