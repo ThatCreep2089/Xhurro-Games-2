@@ -1,0 +1,5 @@
+CHEATS:
+
+- Pulsar [C] lleva al último día del juego (6)
+- Pulsar [B] añade a la mochila 100 de cada recurso
+- Pulsar [L] resta 90 de estamina
