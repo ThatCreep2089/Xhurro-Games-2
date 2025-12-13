@@ -5,7 +5,6 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y) {
         super(scene, x, y, undefined);//de momento sin sprite
         this.scene.add.existing(this);
-        this.setDepth(this.y);
     }
     innit(texture, data, player, minigameInfo, scale = 0.1, colliderWidthFactor=1) {
         this.setTexture(texture);
@@ -74,6 +73,8 @@ export default class NPC extends Phaser.GameObjects.Sprite {
             repeat: -1,                // repetir infinitamente
             ease: 'Sine.easeInOut'     // movimiento suave
         });
+
+        this.setDepth(this.body.y);
     }
 
     // ==============================

@@ -200,13 +200,15 @@ export default class Build extends Phaser.GameObjects.Sprite {
 
         // Crear nueva instancia de DialogText
         this.dialog = new DialogText(this.scene, opts);
+        this.dialog.graphics.setDepth(this.scene.UIManager.HUDDepth);
+        this.dialog.closeBtn.setDepth(this.scene.UIManager.HUDDepth);
 
         // Mostrar nombre del personaje
         this.mostrarNombrePersonaje(data);
 
         // Texto animado
         this.dialog.setText(data.msgn, true);
-
+        this.dialog.text.setDepth(this.scene.UIManager.HUDDepth);
         // Retrato
         const cam = this.scene.cameras.main;
         const y = cam.scrollY + cam.height - 200;
@@ -227,6 +229,8 @@ export default class Build extends Phaser.GameObjects.Sprite {
             ease: "Back.Out", // Da el efecto de rebote suave
             from: { scaleX: 0.75, scaleY: 0.75 }
         });
+
+
     }
 
     nextDialog() {

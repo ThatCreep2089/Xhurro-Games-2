@@ -14,7 +14,6 @@ export default class Source extends Phaser.GameObjects.Sprite {
         this.setTexture(texture);
         this.setFrame(frame);
         this.setScale(size);
-        this.setDepth(this.y);
 
         //Variables únicas
         this.uses = uses; //Número de usos antes de desaparecer, si es 0 el recurso será ilimitado
@@ -78,6 +77,8 @@ export default class Source extends Phaser.GameObjects.Sprite {
             repeat: -1,      
             ease: 'Sine.easeInOut' 
         });
+
+        this.setDepth(this.body.y);
     }
 
     /**

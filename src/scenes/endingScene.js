@@ -5,7 +5,7 @@ export default class EndingScene extends Phaser.Scene {
     }
     
     init(data) {
-        this.goodEnding = true;
+        this.goodEnding = data.good;
     }
 
     create() {

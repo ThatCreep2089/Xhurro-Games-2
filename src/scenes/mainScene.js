@@ -26,8 +26,7 @@ export default class mainScene extends Phaser.Scene {
             keyW: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W),
             keyA: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A),
             keyS: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S),
-            keyD: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D),
-            keyB: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.B)          
+            keyD: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D)        
         };
 
         const inputStates = () => ({
@@ -42,9 +41,6 @@ export default class mainScene extends Phaser.Scene {
         this.keyA = inputStates();
         this.keyS = inputStates();
         this.keyD = inputStates();
-        this.keyB = inputStates();
-        this.keyC = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.C);
-        this.Lkey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.L)
 
         for (const key in this.#inputs) {
             this.#inputs[key].on('down', () => {
@@ -92,10 +88,7 @@ export default class mainScene extends Phaser.Scene {
 
         // === FUENTES, CONSTRUCCIONES Y NPCs ===
         this.setPositionsMap();
-        /*this.createSources();
-        this.createNPCs();*/
-        //this.createBuilds();
-        this.createMapCollisions()
+        this.createMapCollisions();
 
         // === HUD ===
         this.createHUD();
@@ -111,31 +104,41 @@ export default class mainScene extends Phaser.Scene {
 
         //Una vez se ha preparado toda la escena, si tiene que hacer Fade, lo hace
         if (this.fade) { this.fade = false; this.UIManager.FadeOut(); }
+
+        //CHEATS
+        let keyB = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.B); //Aumenta 100 de cada recurso;
+        let keyC = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.C); //Pasa al último día del juego;
+        let Lkey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.L); //Disminuye 90 de estamina;
+
+        keyB.on('down', ()=>{
+            let bag = {paint: 100, paper: 100, clay: 100}
+            this.otter.collect(bag);
+            this.UIManager.event.emit("updateInventory", bag);
+        });
+
+        keyC.on('down', ()=>{
+            this.currentDay = 6;
+            this.UIManager.FadeIn();
+            this.fade = true;
+            this.otter.canMove = false;
+            this.music.stop();
+            GameDataManager.saveFrom(this);
+        });
+
+        Lkey.on('down', ()=>{
+            this.otter.decreaseStamina(90);
+        });
     }
 
     update() {
         // Resetear justDown / justUp
-        let inputs = [this.spaceKey, this.keyW, this.keyA, this.keyS, this.keyD,this.keyB];
+        let inputs = [this.spaceKey, this.keyW, this.keyA, this.keyS, this.keyD];
         for (const key in inputs) {
             inputs[key].justDown = false;
             inputs[key].justUp = false;
         }
+
         this.builds.forEach(build => build.update && build.update());
-        if(this.keyB.isDown){
-            this.otter.backpack.clay += 100;
-            this.otter.backpack.paint += 100;
-            this.otter.backpack.paper += 100;
-        }
-        if(Phaser.Input.Keyboard.JustDown(this.Lkey)){
-            this.otter.decreaseStamina(90);
-        }
-        if(Phaser.Input.Keyboard.JustDown(this.keyC)){
-            this.currentDay = 6;
-            this.UIManager.FadeIn();
-            GameDataManager.saveFrom(this);
-            this.UIManager.FadeOut();
-            
-        }
     }
 
     createMap() {
@@ -340,16 +343,16 @@ export default class mainScene extends Phaser.Scene {
         this.UIManager = new UIManager(this);
     }
 
-    createNPCs() {
-        const npcData = this.cache.json.get('prueba');
-        this.Toni = new NPC(this, 900, 700, 'toni', npcData, this.otter, this.minigamesInfo.WackAMole, 0.15, 0.25);
-
-        const cleonRomeData = this.cache.json.get('cleonRome');
-        this.Cleon = new NPC(this, 1050, 700, 'cleon&rome', cleonRomeData, this.otter, this.minigamesInfo.LightUpGhosts, 0.25, 0.25);
-
-        const ishmaelData = this.cache.json.get('ishmael');
-        this.Ishmael = new NPC(this, 1250, 700, 'ismael', ishmaelData, this.otter, this.minigamesInfo.Puzzle, 0.15, 1);
-    }
+    //createNPCs() {
+    //    const npcData = this.cache.json.get('prueba');
+    //    this.Toni = new NPC(this, 900, 700, 'toni', npcData, this.otter, this.minigamesInfo.WackAMole, 0.15, 0.25);
+//
+    //    const cleonRomeData = this.cache.json.get('cleonRome');
+    //    this.Cleon = new NPC(this, 1050, 700, 'cleon&rome', cleonRomeData, this.otter, this.minigamesInfo.LightUpGhosts, 0.25, 0.25);
+//
+    //    const ishmaelData = this.cache.json.get('ishmael');
+    //    this.Ishmael = new NPC(this, 1250, 700, 'ismael', ishmaelData, this.otter, this.minigamesInfo.Puzzle, 0.15, 1);
+    //}
 
     nextDay() {
         this.currentDay = (this.currentDay || 1) + 1;
